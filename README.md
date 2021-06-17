@@ -1,6 +1,8 @@
 # MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research
 
-![MiniHack Environments](/doc/minihack_envs.png)
+![MiniHack Environments](/docs/imgs/minihack_envs.png)
+
+[![Documentation Status](https://readthedocs.org/projects/minihack/badge/?version=latest)](https://minihack.readthedocs.io/en/latest/?badge=latest)
 
 MiniHack is a sandbox framework for easily designing environments for
 Reinforcement Learning. MiniHack is based on the [The NetHack Learning
