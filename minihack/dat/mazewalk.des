@@ -1,0 +1,21 @@
+MAZE: "mylevel",' '
+FLAGS: premapped
+GEOMETRY:center,center
+MAP
+-------------
+|           |
+|           |
+|           |
+|           |
+|           |
+|           |
+|           |
+|           |
+|           |
+|           |
+|           |
+-------------
+ENDMAP
+MAZEWALK:(5,5),east
+STAIR:random,up
+STAIR:random,down

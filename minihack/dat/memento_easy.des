@@ -1,0 +1,27 @@
+MAZE: "mylevel",' '
+INIT_MAP:solidfill,' '
+GEOMETRY:left,top
+MAP
+                                                           --------------
+ ---                                                       |............|
+ |.|                                                       |.|-----------
+|-F|--------------------------------------------------------.|           
+|............................................................|           
+------------------------------------------------------------.|           
+                                                           |.|-----------
+                                                           |............|
+                                                           --------------
+ENDMAP
+REGION:(0,0,11,80),unlit,"ordinary"
+REGION:(0,2,3,2),lit,"ordinary"
+IF [50%] {
+    MONSTER: ('j', "blue jelly"),(2,2),asleep
+    MONSTER: ('x', "grid bug"),(71,1),asleep
+    TRAP:"board", (67,7)
+} ELSE {
+    MONSTER: ('F', "lichen"),(2,2),asleep
+    MONSTER: ('x', "grid bug"),(71,7),asleep
+    TRAP:"board", (67,1)
+}
+STAIR:(1,5),up
+BRANCH:(1,4,1,4),(2,6,2,6)

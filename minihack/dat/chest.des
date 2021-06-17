@@ -1,0 +1,16 @@
+MAZE: "mylevel", ' '
+FLAGS:hardfloor
+INIT_MAP: solidfill,' '
+GEOMETRY:center,center
+MAP
+.....
+.....
+.....
+.....
+.....
+ENDMAP
+REGION:(0,0,4,4),lit,"ordinary"
+OBJECT:('(',"skeleton key"),random,blessed,0
+CONTAINER:('(',"chest"),not_trapped,random {
+   OBJECT:('%', "apple")
+}

@@ -1,0 +1,63 @@
+MAZE: "mylevel",' '
+INIT_MAP:solidfill,' '
+GEOMETRY:left,top
+MAP
+                                                           --------------
+ ---                                                       |............|
+ |.|                                                       |.-----------|
+--F|-------------------------------------------------------|............|
+|............................................................-----------|
+--F--------------------------------------------------------|............|
+ |.|                                                       |.-----------|
+ ---                                                       |............|
+                                                           --------------
+ENDMAP
+REGION:(0,0,11,80),unlit,"ordinary"
+REGION:(0,2,2,2),lit,"ordinary"
+REGION:(0,6,3,6),lit,"ordinary"
+IF [50%] {
+  IF [50%] {
+    # Prompt
+    MONSTER: ('j', "blue jelly"),(2,2),asleep
+    MONSTER: ('F', "red mold"),(2,6),asleep
+    # Failure
+    TRAP:"board", (67,7)
+    TRAP:"board", (67,5)
+    TRAP:"board", (67,3)
+    # Success
+    MONSTER: ('x', "grid bug"),(71,1),asleep
+  } ELSE {
+    # Prompt
+    MONSTER: ('j', "spotted jelly"),(2,2),asleep
+    MONSTER: ('F', "red mold"),(2,6),asleep
+    # Failure
+    TRAP:"board", (67,7)
+    TRAP:"board", (67,5)
+    TRAP:"board", (67,1)
+    # Success
+    MONSTER: ('x', "grid bug"),(71,3),asleep
+  }
+} ELSE {
+  IF [50%] {
+    # Prompt
+    MONSTER: ('j', "blue jelly"),(2,2),asleep
+    MONSTER: ('F', "green mold"),(2,6),asleep
+    # Failure
+    TRAP:"board", (67,7)
+    TRAP:"board", (67,3)
+    TRAP:"board", (67,1)
+    # Success
+    MONSTER: ('x', "grid bug"),(71,5),asleep
+  } ELSE {
+    # Prompt
+    MONSTER: ('j', "spotted jelly"),(2,2),asleep
+    MONSTER: ('F', "green mold"),(2,6),asleep
+    # Failure
+    TRAP:"board", (67,5)
+    TRAP:"board", (67,3)
+    TRAP:"board", (67,1)
+    # Success
+    MONSTER: ('x', "grid bug"),(71,7),asleep
+  }
+}
+BRANCH:(1,4,1,4),(2,6,2,6)

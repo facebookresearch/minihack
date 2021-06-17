@@ -1,0 +1,16 @@
+MAZE: "mylevel",' '
+INIT_MAP:solidfill,' '
+GEOMETRY:center,center
+MAP
+-------------
+|.....|.....|
+|.....|.....|
+|.....+.....|
+|.....|.....|
+|.....|.....|
+-------------
+ENDMAP
+REGION:(0,0,12,6),lit,"ordinary"
+BRANCH:(3,3,3,3),(0,0,0,0)
+DOOR:locked,(6,3)
+STAIR:(8,3),down

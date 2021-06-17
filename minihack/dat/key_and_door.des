@@ -1,0 +1,9 @@
+LEVEL: "mylevel"
+
+ROOM: "ordinary" , lit, (3,3), (center,center), (5,5) {
+    SUBROOM:"ordinary",lit,(0,0),(2,2) {
+        STAIR: random, down
+        }
+    OBJECT:('(',"skeleton key"),random,blessed,0,name:"The Master Key of Thievery"
+    DOOR:locked,(2,1)
+    }

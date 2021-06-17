@@ -1,0 +1,27 @@
+MAZE: "mylevel", ' '
+FLAGS:hardfloor
+INIT_MAP: solidfill,' '
+GEOMETRY:center,center
+MAP
+-----       -------------------------
+|....##     |...................L...|
+|...| #     |...................L...|
+|...| ######....................L...|
+-----       -------------------------
+ENDMAP
+REGION:(0,0,6,6),lit,"ordinary"
+REGION:(13,0,36,6),lit,"ordinary"
+$goal_room = selection:fillrect (33,1,35,3)
+
+OBJECT:('/',"cold"),(2,2),blessed
+OBJECT:('(',"frost horn"),(2,2),blessed
+
+MONSTER:('r', "giant rat"), (30,1)
+MONSTER:('r', "giant rat"), (30,2)
+MONSTER:('r', "giant rat"), (30,3)
+MONSTER:('r', "giant rat"), (31,4)
+MONSTER:('r', "giant rat"), (31,2)
+MONSTER:('r', "giant rat"), (31,3)
+
+BRANCH:(2,2,2,2),(0,0,0,0)
+STAIR:rndcoord($goal_room),down
