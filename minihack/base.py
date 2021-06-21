@@ -193,9 +193,10 @@ class MiniHack(NetHackStaircase):
             self.seed(seed, seed, reseed=False)
         return super().reset(*args, **kwargs)
 
-    def _reward_fn(self, last_observation, observation, end_status):
+    def _reward_fn(self, last_observation, action, observation, end_status):
         """Use reward_manager to collect reward calculated in _is_episode_end,
         or revert to standard sparse reward."""
+        del action  # Unused
         if self.reward_manager is not None:
             reward = self.reward_manager.collect_reward()
         else:
