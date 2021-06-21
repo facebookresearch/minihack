@@ -127,11 +127,11 @@ class MiniHackMultiRoomN6(MiniGridHack):
 
 
 registration.register(
-    id="MiniHack-MultiRoom-N2-S4-v0",
+    id="MiniHack-MultiRoom-N2-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN2",
 )
 registration.register(
-    id="MiniHack-MultiRoom-N4-S5-v0",
+    id="MiniHack-MultiRoom-N4-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN4",
 )
 registration.register(
@@ -163,11 +163,11 @@ class MiniHackMultiRoomN6Locked(MiniGridHack):
 
 
 registration.register(
-    id="MiniHack-LockedMultiRoom-N2-S4-v0",
+    id="MiniHack-LockedMultiRoom-N2-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN2Locked",
 )
 registration.register(
-    id="MiniHack-LockedMultiRoom-N4-S5-v0",
+    id="MiniHack-LockedMultiRoom-N4-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN4Locked",
 )
 registration.register(
@@ -199,11 +199,11 @@ class MiniHackMultiRoomN6Lava(MiniGridHack):
 
 
 registration.register(
-    id="MiniHack-LavaMultiRoom-N2-S4-v0",
+    id="MiniHack-LavaMultiRoom-N2-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN2Lava",
 )
 registration.register(
-    id="MiniHack-LavaMultiRoom-N4-S5-v0",
+    id="MiniHack-LavaMultiRoom-N4-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN4Lava",
 )
 registration.register(
@@ -236,11 +236,11 @@ class MiniHackMultiRoomN6Monster(MiniGridHack):
 
 # MiniGrid: MonsterMultiRoom
 registration.register(
-    id="MiniHack-MonsterMultiRoom-N2-S4-v0",
+    id="MiniHack-MonsterMultiRoom-N2-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN2Monster",
 )
 registration.register(
-    id="MiniHack-MonsterMultiRoom-N4-S5-v0",
+    id="MiniHack-MonsterMultiRoom-N4-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN4Monster",
 )
 registration.register(
@@ -278,11 +278,11 @@ class MiniHackMultiRoomN6Extreme(MiniGridHack):
 
 
 registration.register(
-    id="MiniHack-ExtremeMultiRoom-N2-S4-v0",
+    id="MiniHack-ExtremeMultiRoom-N2-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN2Extreme",
 )
 registration.register(
-    id="MiniHack-ExtremeMultiRoom-N4-S5-v0",
+    id="MiniHack-ExtremeMultiRoom-N4-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN4Extreme",
 )
 registration.register(

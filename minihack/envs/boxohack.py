@@ -122,7 +122,8 @@ class MiniHackBoxobanUnfiltered(BoxoHack):
     def __init__(self, *args, **kwargs):
         kwargs["level_set"] = "unfiltered"
         kwargs["level_mode"] = "train"
-        kwargs["reward_shaping_coefficient"] = 0
+        kwargs["reward_shaping_coefficient"] = 0.1
+        kwargs["penalty_time"] = -0.001
         super().__init__(*args, **kwargs)
 
 
@@ -130,37 +131,12 @@ class MiniHackBoxobanMedium(BoxoHack):
     def __init__(self, *args, **kwargs):
         kwargs["level_set"] = "medium"
         kwargs["level_mode"] = "train"
-        kwargs["reward_shaping_coefficient"] = 0
+        kwargs["reward_shaping_coefficient"] = 0.1
+        kwargs["penalty_time"] = -0.001
         super().__init__(*args, **kwargs)
 
 
 class MiniHackBoxobanHard(BoxoHack):
-    def __init__(self, *args, **kwargs):
-        kwargs["level_set"] = "hard"
-        kwargs["level_mode"] = ""
-        kwargs["reward_shaping_coefficient"] = 0
-        super().__init__(*args, **kwargs)
-
-
-class MiniHackBoxobanUnfilteredShaped(BoxoHack):
-    def __init__(self, *args, **kwargs):
-        kwargs["level_set"] = "unfiltered"
-        kwargs["level_mode"] = "train"
-        kwargs["reward_shaping_coefficient"] = 0.1
-        kwargs["penalty_time"] = -0.001
-        super().__init__(*args, **kwargs)
-
-
-class MiniHackBoxobanMediumShaped(BoxoHack):
-    def __init__(self, *args, **kwargs):
-        kwargs["level_set"] = "medium"
-        kwargs["level_mode"] = "train"
-        kwargs["reward_shaping_coefficient"] = 0.1
-        kwargs["penalty_time"] = -0.001
-        super().__init__(*args, **kwargs)
-
-
-class MiniHackBoxobanHardShaped(BoxoHack):
     def __init__(self, *args, **kwargs):
         kwargs["level_set"] = "hard"
         kwargs["level_mode"] = ""
@@ -180,16 +156,4 @@ registration.register(
 registration.register(
     id="MiniHack-Boxoban-Hard-v0",
     entry_point="minihack.envs.boxohack:MiniHackBoxobanHard",
-)
-registration.register(
-    id="MiniHack-Boxoban-Unfiltered-Shaped-v0",
-    entry_point="minihack.envs.boxohack:MiniHackBoxobanUnfilteredShaped",
-)
-registration.register(
-    id="MiniHack-Boxoban-Medium-Shaped-v0",
-    entry_point="minihack.envs.boxohack:MiniHackBoxobanMediumShaped",
-)
-registration.register(
-    id="MiniHack-Boxoban-Hard-Shaped-v0",
-    entry_point="minihack.envs.boxohack:MiniHackBoxobanHardShaped",
 )

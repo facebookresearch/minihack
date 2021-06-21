@@ -69,10 +69,10 @@ mini_wear_fixed: Wear-Fixed
 # LavaCrossing
 lava: LavaCross
 lava_lev: LavaCross-Levitate
-lava_lev_potion_inv: LavaCross--PotionInv
-lava_lev_potion_pick: LavaCross-PotionPickUp
-lava_lev_ring_inv: LavaCross-RingInv
-lava_lev_ring_pick: LavaCross-RingPickUp
+lava_lev_potion_inv: LavaCross-Levitate-Potion-Inv
+lava_lev_potion_pick: LavaCross-Levitate-Potion-PickUp
+lava_lev_ring_inv: LavaCross-Levitate-Ring-Inv
+lava_lev_ring_pick: LavaCross-Levitate-Ring-PickUp
 # Wand of Death
 wod_easy: WoD-Easy
 wod_hard: WoD-Hard

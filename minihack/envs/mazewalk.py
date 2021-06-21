@@ -63,20 +63,6 @@ class MiniHackMazeWalk45x19Premapped(MiniHackMazeWalk):
         super().__init__(*args, w=45, h=19, premapped=True, **kwargs)
 
 
-class MiniHackMazeWalkMax(MiniHackMazeWalk):
-    def __init__(self, *args, **kwargs):
-        super().__init__(
-            *args, w=DUNGEON_SHAPE[0], h=DUNGEON_SHAPE[1], premapped=False, **kwargs
-        )
-
-
-class MiniHackMazeWalkMaxPremapped(MiniHackMazeWalk):
-    def __init__(self, *args, **kwargs):
-        super().__init__(
-            *args, w=DUNGEON_SHAPE[0], h=DUNGEON_SHAPE[1], premapped=True, **kwargs
-        )
-
-
 registration.register(
     id="MiniHack-MazeWalk-9x9-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk9x9",
@@ -100,12 +86,4 @@ registration.register(
 registration.register(
     id="MiniHack-MazeWalk-Premapped-45x19-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk45x19Premapped",
-)
-registration.register(
-    id="MiniHack-MazeWalk-Max-v0",
-    entry_point="minihack.envs.mazewalk:MiniHackMazeWalkMax",
-)
-registration.register(
-    id="MiniHack-MazeWalk-Premapped-Max-v0",
-    entry_point="minihack.envs.mazewalk:MiniHackMazeWalkMaxPremapped",
 )
