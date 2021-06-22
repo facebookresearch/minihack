@@ -48,44 +48,9 @@ with other gym / RL environments.
 
 ## Installation
 
-NLE requires `python>=3.5`, `cmake>=3.14` to be installed and available both when building the
-package, and at runtime.
-
-On **MacOS**, one can use `Homebrew` as follows:
-
 ``` bash
-$ brew install cmake
-```
-
-On a plain **Ubuntu 18.04** distribution, `cmake` and other dependencies
-can be installed by doing:
-
-```bash
-# Python and most build deps
-$ sudo apt-get install -y build-essential autoconf libtool pkg-config \
-    python3-dev python3-pip python3-numpy git flex bison libbz2-dev
-
-# recent cmake version
-$ wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
-$ sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
-$ sudo apt-get update && apt-get --allow-unauthenticated install -y \
-    cmake \
-    kitware-archive-keyring
-```
-
-Afterwards it's a matter of setting up your environment. We advise using a conda
-environment for this:
-
-```bash
-$ conda create -n minihack python=3.8
-$ conda activate minihack
-```
-
-Install MiniHack package as follows:
-
-``` bash
-$ git clone https://github.com/MiniHackPlanet/MiniHack --recursive
-$ cd MiniHack
+$ git clone https://github.com/ucl-dark/minihack 
+$ cd minihack
 $ pip install -e ".[dev]"
 $ pre-commit install
 ```
@@ -96,7 +61,7 @@ After installation, one can try out any of the provided tasks as follows:
 
 ```python
 >>> import gym
->>> import nle
+>>> import minihack
 >>> env = gym.make("MiniHack-River-v0")
 >>> env.reset()  # each reset generates a new dungeon
 >>> env.step(1)  # move agent '@' north
@@ -108,16 +73,16 @@ and play with the action space:
 
 ```bash
 # Play the MiniHack in the Terminal as a human
-$ python -m nle.scripts.play --env MiniHack-River-v0
+$ python -m minihack.scripts.play --env MiniHack-River-v0
 
 # Use a random agent
-$ python -m nle.scripts.play --env MiniHack-River-v0  --mode random
+$ python -m minihack.scripts.play --env MiniHack-River-v0  --mode random
 
 # See all the options
-$ python -m nle.scripts.play --help
+$ python -m minihack.scripts.play --help
 
 # Play the MiniHack with graphical user interface (gui)
-$ python -m nle.scripts.play_gui --env MiniHack-River-v0
+$ python -m minihack.scripts.play_gui --env MiniHack-River-v0
 ```
 
 ## Baseline Agents
@@ -132,8 +97,8 @@ installed and used as follows:
   [here](https://github.com/facebookresearch/torchbeast#installing-polybeast),
   then use the following commands:
 ``` bash
-$ pip install "nle[polybeast_agent]"
-$ python3 -m nle.agent.polybeast.polyhydra env=small_room_random learning_rate=0.0001 use_lstm=true total_steps=1000000
+$ pip install ".[polybeast]"
+$ python3 -m minihack.agent.polybeast.polyhydra env=small_room_random learning_rate=0.0001 use_lstm=true total_steps=1000000
 ```
 
 * An [RLlib](https://github.com/ray-project/ray#rllib-quick-start) agent is
@@ -142,8 +107,8 @@ $ python3 -m nle.agent.polybeast.polyhydra env=small_room_random learning_rate=0
   examples are provided. To install and train this agent use the following
   commands:
 ```bash
-$ pip install "nle[rllib_agent]"
-$ python -m nle.agent.rllib.train algo=dqn
+$ pip install ".[rllib]"
+$ python -m minihack.agent.rllib.train algo=dqn
 ```
 
 More information on running these agents, and instructions on how to reproduce
