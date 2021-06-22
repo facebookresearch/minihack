@@ -48,6 +48,15 @@ with other gym / RL environments.
 
 ## Installation
 
+We advise using a conda environment for this:
+
+``` bash
+$ conda create -n minihack python=3.8
+$ conda activate minihack
+```
+
+Then, install the MiniHack package. 
+
 ``` bash
 $ git clone https://github.com/ucl-dark/minihack 
 $ cd minihack
