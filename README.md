@@ -60,6 +60,7 @@ Then, install the MiniHack package.
 ``` bash
 $ git clone https://github.com/ucl-dark/minihack 
 $ cd minihack
+$ pip install git+https://github.com/facebookresearch/nle.git@mika/no_rand_mon # TODO update this once PR is merged
 $ pip install -e ".[dev]"
 $ pre-commit install
 ```
