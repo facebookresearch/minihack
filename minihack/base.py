@@ -129,10 +129,8 @@ class MiniHack(NetHackStaircase):
         if any("pixel" in key for key in self._minihack_obs_keys):
             self._glyph_mapper = GlyphMapper()
             if "pixel_crop" in self._minihack_obs_keys:
-                # Make sure glyphs_crop and chars_crop are there
-                for key in ("glyphs_crop", "chars_crop"):
-                    if key not in self._minihack_obs_keys:
-                        self._minihack_obs_keys.append(key)
+                # Make sure glyphs_crop is there
+                self._minihack_obs_keys.append("glyphs_crop")
 
         self.reward_manager = reward_manager
         if self.reward_manager is not None:
@@ -287,13 +285,11 @@ class MiniHack(NetHackStaircase):
 
         if "pixel" in self._minihack_obs_keys:
             obs_dict["pixel"] = self._glyph_mapper.to_rgb(
-                observation["glyphs"], observation["chars"]
-            )
+                observation["glyphs"])
 
         if "pixel_crop" in self._minihack_obs_keys:
             obs_dict["pixel_crop"] = self._glyph_mapper.to_rgb(
-                obs_dict["glyphs_crop"], obs_dict["chars_crop"]
-            )
+                obs_dict["glyphs_crop"])
 
         return obs_dict
 

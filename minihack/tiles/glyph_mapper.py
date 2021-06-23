@@ -1,4 +1,5 @@
 from minihack.tiles import glyph2tile, MAXOTHTILE
+from nle.nethack import MAX_GLYPH
 import numpy as np
 import pkg_resources
 import pickle
@@ -17,15 +18,16 @@ class GlyphMapper:
         """
 
         tile_rgb_path = os.path.join(
-            pkg_resources.resource_filename("nle", "tiles"),
+            pkg_resources.resource_filename("minihack", "tiles"),
             "tiles.pkl",
         )
 
         return pickle.load(open(tile_rgb_path, "rb"))
 
     def glyph_id_to_rgb(self, glyph_id):
-        # TODO fix glyph=0 (invisible parts: now showing monster:0 icon)
-        # Looks up pre-processed rgb for the tile and returns it
+        if glyph_id == MAX_GLYPH:
+            glyph_id = 2359  # dark part of the room
+
         tile_id = glyph2tile[glyph_id]
         assert 0 <= tile_id <= MAXOTHTILE
         return self.tiles[tile_id]
@@ -52,14 +54,5 @@ class GlyphMapper:
 
         return cols
 
-    def to_rgb(self, glyphs, chars):
-        # Fix glyphs with 0 ID
-        glyphs = glyphs.copy()  # we might change it
-        zero_indices = np.argwhere(glyphs == 0)
-        for i, j in zero_indices:
-            if chars[i, j] == ord("a"):  # giant ant
-                continue
-            else:
-                glyphs[i, j] = 2359  # dark part of the room
-
+    def to_rgb(self, glyphs):
         return self._glyph_to_rgb(glyphs)
