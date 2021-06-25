@@ -21,9 +21,6 @@ class MiniHackNavigation(MiniHack):
     """
 
     def __init__(self, *args, des_file: str = None, **kwargs):
-        # No pet
-        kwargs["options"] = kwargs.pop("options", list(nethack.NETHACKOPTIONS))
-        kwargs["options"].append("pettype:none")
         # Actions space - move only by default
         kwargs["actions"] = kwargs.pop("actions", MOVE_ACTIONS)
         # Disallowing one-letter menu questions

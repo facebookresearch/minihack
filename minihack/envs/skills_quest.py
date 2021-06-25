@@ -6,8 +6,7 @@ from gym.envs import registration
 class MiniHackQuestEasy(MiniHackSkill):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 500)
-        kwargs["options"] = kwargs.pop("options", [])
-        kwargs["options"].append("autopickup")
+        kwargs["autopickup"] = kwargs.pop("autopickup", True)
         super().__init__(*args, des_file="quest_easy.des", **kwargs)
 
 
@@ -15,8 +14,7 @@ class MiniHackQuestMedium(MiniHackSkill):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 1000)
         kwargs["character"] = "kni-hum-law-fem"  # tested on human knight
-        kwargs["options"] = kwargs.pop("options", [])
-        kwargs["options"].append("autopickup")
+        kwargs["autopickup"] = kwargs.pop("autopickup", True)
         super().__init__(*args, des_file="quest_medium.des", **kwargs)
 
 

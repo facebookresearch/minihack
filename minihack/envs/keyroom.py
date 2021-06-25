@@ -13,11 +13,10 @@ class MiniHackKeyDoor(MiniHackNavigation):
     """Environment for "key and door" task."""
 
     def __init__(self, *args, des_file, **kwargs):
-        kwargs["options"] = kwargs.pop("options", list(nethack.NETHACKOPTIONS))
-        kwargs["options"].append("!autopickup")
         kwargs["character"] = kwargs.pop("charachter", "rog-hum-cha-mal")
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 200)
         kwargs["actions"] = kwargs.pop("actions", APPLY_ACTIONS)
+        kwargs["autopickup"] = kwargs.pop("autopickup", False)
         super().__init__(*args, des_file=des_file, **kwargs)
 
     def step(self, action: int):

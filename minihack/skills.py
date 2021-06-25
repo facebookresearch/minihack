@@ -13,11 +13,8 @@ class MiniHackSkill(MiniHack):
         **kwargs,
     ):
         """If reward_manager == None, the goal is to reach the staircase."""
-        # No pet
-        kwargs["options"] = kwargs.pop("options", [])
-        kwargs["options"].append("pettype:none")
-        # Autopickup is turned off
-        kwargs["options"].append("!autopickup")
+        # Autopickup off by defautlt
+        kwargs["autopickup"] = kwargs.pop("autopickup", False)
         # Allowing one-letter menu questions
         kwargs["allow_all_yn_questions"] = kwargs.pop("allow_all_yn_questions", True)
         # Perform know steps

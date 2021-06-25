@@ -28,11 +28,21 @@ HACKDIR = os.getenv("HACKDIR", pkg_resources.resource_filename("nle", "nethackdi
 RGB_MAX_VAL = 255
 N_TILE_PIXEL = 16
 
-print("PATH DAT DIR = ", PATH_DAT_DIR)
-print("LIB_DIR", LIB_DIR)
-print("PATCH_SCRIPT", PATCH_SCRIPT)
-print("HACKDIR", HACKDIR)
-
+MH_NETHACKOPTIONS = (
+    "color",  # Display color for different monsters, objects, etc
+    "showexp",  # Display the experience points on the status line
+    "nobones",  # Disallow saving and loading bones files
+    "nolegacy",  # Not display an introductory message when starting the game
+    "nocmdassist",  # No command assistance
+    "disclose:+i +a +v +g +c +o",  # End of game prompt replies
+    "runmode:teleport",  # Update the map after movement has finished
+    "mention_walls",  # Give feedback when walking against a wall
+    "nosparkle",  # Not display sparkly effect for resisted magical attacks
+    "showscore",  # Shows approximate accumulated score on the bottom line
+    "pettype:none",  # No pet
+)
+# Autopickup on by default (all items)
+# Manually adding "!autopickup" basen of env flag
 
 MINIHACK_SPACE_FUNCS = {
     "glyphs_crop": lambda x, y: gym.spaces.Box(
@@ -66,30 +76,6 @@ MINIHACK_SPACE_FUNCS = {
 
 
 class MiniHack(NetHackStaircase):
-    """Base class for custom MiniHack environments.
-
-    Features:
-    - Default nethack options
-    - Full action space by default
-    - Wizard mode is turned off by default
-    - One-letter menu questions are allowed by default
-    - Includes all NLE observations
-
-    The goal is to reach the staircase.
-
-    Use cases:
-    - Use this class if you want to experiment with different description files
-    and require rich (full) action space.
-    - Use a MiniHackMaze class for maze-type environments where there is no pet,
-    action space is severely restricted and no one-letter questions are required.
-    - Inherit from this class if you require a different reward function and
-    dynamics. You might need to override the following methods
-        - self._is_episode_end()
-        - self._reward_fn()
-        - self.step()
-        - self.reset()
-    """
-
     def __init__(
         self,
         *args,
@@ -101,11 +87,15 @@ class MiniHack(NetHackStaircase):
         obs_crop_pad=0,
         reward_manager=None,
         use_wiki=False,
+        autopickup=True,
         seeds=None,
         **kwargs,
     ):
-        # No pet
-        kwargs["options"] = kwargs.pop("options", list(nethack.NETHACKOPTIONS))
+        # NetHack options
+        options = MH_NETHACKOPTIONS
+        if not autopickup:
+            options += ("!autopickup",)
+        kwargs["options"] = kwargs.pop("options", options)
         # Actions space - move only
         kwargs["actions"] = kwargs.pop("actions", MH_FULL_ACTIONS)
 
@@ -284,12 +274,10 @@ class MiniHack(NetHackStaircase):
                 obs_dict[key] = self._crop_observation(observation[orig_key], loc)
 
         if "pixel" in self._minihack_obs_keys:
-            obs_dict["pixel"] = self._glyph_mapper.to_rgb(
-                observation["glyphs"])
+            obs_dict["pixel"] = self._glyph_mapper.to_rgb(observation["glyphs"])
 
         if "pixel_crop" in self._minihack_obs_keys:
-            obs_dict["pixel_crop"] = self._glyph_mapper.to_rgb(
-                obs_dict["glyphs_crop"])
+            obs_dict["pixel_crop"] = self._glyph_mapper.to_rgb(obs_dict["glyphs_crop"])
 
         return obs_dict
 

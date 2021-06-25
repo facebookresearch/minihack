@@ -15,8 +15,7 @@ class MiniHackWoDEasy(MiniHackSkill):
         lvl_gen = LevelGenerator(map=map, lit=True)
 
         lvl_gen.set_start_pos((1, 1))
-        kwargs["options"] = kwargs.pop("options", [])
-        kwargs["options"].append("autopickup")
+        kwargs["autopickup"] = kwargs.pop("autopickup", True)
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 50)
 
         lvl_gen.add_object(
