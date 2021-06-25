@@ -25,9 +25,6 @@ class GlyphMapper:
         return pickle.load(open(tile_rgb_path, "rb"))
 
     def glyph_id_to_rgb(self, glyph_id):
-        if glyph_id == MAX_GLYPH:
-            glyph_id = 2359  # dark part of the room
-
         tile_id = glyph2tile[glyph_id]
         assert 0 <= tile_id <= MAXOTHTILE
         return self.tiles[tile_id]
