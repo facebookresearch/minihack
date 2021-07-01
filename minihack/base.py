@@ -105,9 +105,10 @@ class MiniHack(NetHackStaircase):
         kwargs["allow_all_yn_questions"] = kwargs.pop("allow_all_yn_questions", True)
         # Episode limit
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 200)
-
         # Not saving NLE data by detauls
         kwargs["savedir"] = kwargs.pop("savedir", None)
+        # Not spawning random monsters
+        kwargs["spawn_monsters"] = kwargs.pop("spawn_monsters", False)
 
         # Using all NLE observations by default
         space_dict = dict(NLE_SPACE_ITEMS)
@@ -296,9 +297,6 @@ class MiniHack(NetHackStaircase):
             constant_values=self.obs_crop_pad,
         )
         return obs[y - dh : y + dh + 1, x - dw : x + dw + 1]
-
-    def _no_rand_mon(self):
-        os.environ["NH_NO_RAND_MON"] = "1"
 
     def key_in_inventory(self, name):
         """Returns key of the object in the inventory.

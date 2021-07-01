@@ -35,7 +35,5 @@ class MiniHackNavigation(MiniHack):
         kwargs["observation_keys"] = kwargs.pop(
             "observation_keys", ["chars_crop", "colors_crop"]
         )
-        # No random monster generation after every timestep
-        self._no_rand_mon()
 
         super().__init__(*args, des_file=des_file, **kwargs)

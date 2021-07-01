@@ -23,7 +23,6 @@ class MiniHackSkill(MiniHack):
         kwargs["character"] = kwargs.pop("character", "cav-hum-new-mal")
         # Default episode limit
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 250)
-        self._no_rand_mon()
 
         default_keys = [
             "chars_crop",
