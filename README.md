@@ -51,18 +51,18 @@ with other gym / RL environments.
 We advise using a conda environment for this:
 
 ``` bash
-$ conda create -n minihack python=3.8
-$ conda activate minihack
+conda create -n minihack python=3.8
+conda activate minihack
 ```
 
 Then, install the MiniHack package. 
 
 ``` bash
-$ git clone https://github.com/ucl-dark/minihack 
-$ cd minihack
-$ pip install git+https://github.com/facebookresearch/nle.git # TODO update this after 0.7.3 release
-$ pip install -e ".[dev]"
-$ pre-commit install
+git clone https://github.com/ucl-dark/minihack 
+cd minihack
+pip install git+https://github.com/facebookresearch/nle.git # TODO update this after 0.7.3 release
+pip install -e ".[dev]"
+pre-commit install
 ```
 
 ## Trying it out
