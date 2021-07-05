@@ -101,7 +101,7 @@ Several baseline agents are included as part of MiniHack, which can be
 installed and used as follows:
 
 * a [TorchBeast](https://github.com/facebookresearch/torchbeast) agent is
-  bundled in `nle.agent.polybeast` together with a simple model to provide
+  bundled in `minihack.agent.polybeast` together with a simple model to provide
   a starting point for experiments. To install and train this agent, first
   install torchbeast be following the instructions
   [here](https://github.com/facebookresearch/torchbeast#installing-polybeast),
@@ -112,7 +112,7 @@ $ python3 -m minihack.agent.polybeast.polyhydra env=small_room_random learning_r
 ```
 
 * An [RLlib](https://github.com/ray-project/ray#rllib-quick-start) agent is
-  provided in `nle.agent.rllib`, with a similar model to the torchbeast agent.
+  provided in `minihack.agent.rllib`, with a similar model to the torchbeast agent.
   This can be used to try out a variety of different RL algorithms - several
   examples are provided. To install and train this agent use the following
   commands:
