@@ -102,7 +102,7 @@ def symlink_latest(savedir, symlink):
         pass
 
 
-@hydra.main(config_name="config")
+@hydra.main(config_path=".", config_name="config")
 def main(flags: DictConfig):
     if os.path.exists("config.yaml"):
         # this ignores the local config.yaml and replaces it completely with saved one
@@ -113,7 +113,7 @@ def main(flags: DictConfig):
         # this is useful e.g. if you did total_steps=N before and want to increase it
         flags = OmegaConf.merge(new_flags, cli_conf)
 
-    logging.info(flags.pretty(resolve=True))
+    logging.info(OmegaConf.to_yaml(flags))
     OmegaConf.save(flags, "config.yaml")
 
     flags = get_common_flags(flags)

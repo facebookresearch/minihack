@@ -19,8 +19,8 @@ from torch.nn import functional as F
 
 from nle import nethack
 
-from nle.agent.common.models.embed import GlyphEmbedding
-from nle.agent.common.models.transformer import TransformerEncoder
+from minihack.agent.common.models.embed import GlyphEmbedding
+from minihack.agent.common.models.transformer import TransformerEncoder
 
 NUM_GLYPHS = nethack.MAX_GLYPH
 NUM_FEATURES = nethack.BLSTATS_SHAPE[0]

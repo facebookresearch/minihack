@@ -19,9 +19,9 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from nle.agent.polybeast.models.base import BaseNet, PAD_CHAR, NUM_CHARS
-from nle.agent.common.models.embed import GlyphEmbedding
-from nle.agent.common.models.dynamics import ForwardDynamicsNet, InverseDynamicsNet
+from minihack.agent.polybeast.models.base import BaseNet, PAD_CHAR, NUM_CHARS
+from minihack.agent.common.models.embed import GlyphEmbedding
+from minihack.agent.common.models.dynamics import ForwardDynamicsNet, InverseDynamicsNet
 
 
 class IntrinsicRewardNet(BaseNet):

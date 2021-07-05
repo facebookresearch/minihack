@@ -48,8 +48,6 @@ ENVS = dict(
     corridor2=corridor.MiniHackCorridor2,
     corridor3=corridor.MiniHackCorridor3,
     corridor5=corridor.MiniHackCorridor5,
-    corridor8=corridor.MiniHackCorridor8,
-    corridor10=corridor.MiniHackCorridor10,
     # MiniHack KeyRoom
     keyroom_small_fixed=keyroom.MiniHackKeyRoom5x5Fixed,
     keyroom_small=keyroom.MiniHackKeyRoom5x5,
@@ -106,9 +104,6 @@ ENVS = dict(
     boxoban_unfiltered=boxohack.MiniHackBoxobanUnfiltered,
     boxoban_hard=boxohack.MiniHackBoxobanHard,
     boxoban_medium=boxohack.MiniHackBoxobanMedium,
-    boxoban_unfiltered_shaped=boxohack.MiniHackBoxobanUnfilteredShaped,
-    boxoban_hard_shaped=boxohack.MiniHackBoxobanHardShaped,
-    boxoban_medium_shaped=boxohack.MiniHackBoxobanMediumShaped,
     # MiniHack Simple Skills
     mini_eat=skills_simple.MiniHackEat,
     mini_pray=skills_simple.MiniHackPray,

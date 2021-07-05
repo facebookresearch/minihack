@@ -50,7 +50,7 @@ parser.add_argument("--wandb", action="store_true",
                     help="Log to wandb.")
 parser.add_argument('--group', default='default', type=str, metavar='G',
                     help='Name of the experiment group (as being used by wandb).')
-parser.add_argument('--project', default='nle', type=str, metavar='P',
+parser.add_argument('--project', default='minihack', type=str, metavar='P',
                     help='Name of the project (as being used by wandb).')
 parser.add_argument('--entity', default='nethack', type=str, metavar='P',
                     help='Which team to log to.')

@@ -11,10 +11,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 defaults:
-- hydra/job_logging: colorlog
-- hydra/hydra_logging: colorlog
-- hydra/launcher: submitit_slurm
+- override hydra/job_logging: colorlog
+- override hydra/hydra_logging: colorlog
+- override hydra/launcher: submitit_slurm
 
 # pip install hydra-core hydra_colorlog
 # can set these on the commandline too, e.g. `hydra.launcher.partition=dev`
@@ -36,7 +37,7 @@ name: null  # can use this to have multiple runs with same params, eg name=1,2,3
 ## WandB settings
 wandb: false  # enable wandb logging
 project: mtp  # specifies the project name to log to
-entity: nethack  # the team to log to
+entity: minihack  # the team to log to
 group: default  # defines a group name for the experiment
 
 # Polybeast settings
@@ -61,20 +62,12 @@ save_tty: False
 
 # Run settings.
 mode: train
-env: score
+env: smalL_room
 obs_keys: "glyphs,chars,colors,specials,blstats,message"
-## env (task) names
-# staircase
-# pet
-# eat
-# gold
-# score
-# scout
-# oracle
 
 # Training settings.
 num_actors: 256           # should be at least batch_size
-total_steps: 1e9          # 1e9 used in paper
+total_steps: 1e5
 batch_size: 32            # 32 is standard, can use 128 with small model variants
 unroll_length: 80         # 80 is standard
 num_learner_threads: 1
@@ -82,6 +75,7 @@ num_inference_threads: 1
 disable_cuda: false
 learner_device: cuda:0
 actor_device: cuda:0
+max_learner_queue_size: null
 
 # Model settings.
 model: baseline    # random, baseline, rnd, ride
