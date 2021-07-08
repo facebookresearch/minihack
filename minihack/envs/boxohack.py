@@ -94,7 +94,7 @@ class BoxoHack(MiniHackNavigation):
         else:
             return self.StepStatus.RUNNING
 
-    def _reward_fn(self, last_observation, observation, end_status):
+    def _reward_fn(self, last_observation, action, observation, end_status):
         if end_status == self.StepStatus.TASK_SUCCESSFUL:
             return 1
         elif end_status != self.StepStatus.RUNNING:
@@ -118,7 +118,7 @@ class BoxoHack(MiniHackNavigation):
         return set((x, y) for x, y in zip(*np.where(char_obs == ord(object_char))))
 
 
-class MiniHackBoxobanUnfiltered(BoxoHack):
+class winiHackBoxobanUnfiltered(BoxoHack):
     def __init__(self, *args, **kwargs):
         kwargs["level_set"] = "unfiltered"
         kwargs["level_mode"] = "train"
