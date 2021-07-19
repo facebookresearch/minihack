@@ -22,7 +22,7 @@ dark, the agent can only observe adjacent grid cells.
 
 Examples of the `Room-Ultimate-15x15` task:
 
-![](./doc/minihack/imgs/rooms.png)
+![](./docs/imgs/rooms.png)
 
 ### Corridor
  These tasks make use of the `RANDOM_CORRIDORS`
@@ -37,7 +37,7 @@ rooms, making the exploration challenge more difficult (`Corridor-R2`,
 
 Examples of the `Corridor-R5` task:
 
-![](./doc/minihack/imgs/corridors.png)
+![](./docs/imgs/corridors.png)
 
 ### KeyRoom
  These tasks require an agent to pickup a key, navigate to
@@ -53,7 +53,7 @@ key cannot be seen if it is not in any of the agent's adjacent grid cells.
 
 Examples of the `KeyRoom-S15` task:
 
-![](./doc/minihack/imgs/keyrooms.png)
+![](./docs/imgs/keyrooms.png)
 
 ### MazeWalk
  These navigation tasks make use of the `MAZEWALK`
@@ -66,7 +66,7 @@ are visible to the agent.
 
 Examples of the `MazeWalk-15x15` task:
 
-![](./doc/minihack/imgs/mazewalks.png)
+![](./docs/imgs/mazewalks.png)
 
 ### River
  This group of tasks requires the agent to cross a river
@@ -81,7 +81,7 @@ into lava rather than water (`River-Lava`), or both
 
 Examples of the `River` task:
 
-![](./doc/minihack/imgs/rivers.png)
+![](./docs/imgs/rivers.png)
 
 ### HideNSeek
  In the `HideNSeek` task, the agent is spawned in
@@ -99,7 +99,7 @@ the locations of all environment features but not the powerful monster
 
 Examples of the `HideNSeek` task:
 
-![](./doc/minihack/imgs/hidenseeks.png)
+![](./docs/imgs/hidenseeks.png)
 
 ### CorridorBattle
  The `CorridorBattle` task challenges the
@@ -113,7 +113,7 @@ rats killed in order to plan subsequent actions.
 
 An example of the `CorridorBattle` task:
 
-![](./doc/minihack/imgs/battle.png)
+![](./docs/imgs/battle.png)
 
 ### Memento
  This group of tasks test the agent's ability to use memory
@@ -131,7 +131,7 @@ corridor and a four-fork path (`Memento-F4`).
 
 An example of the `Memento-F4` task:
 
-![](./doc/minihack/imgs/memento.png)
+![](./docs/imgs/memento.png)
 
 ### MazeExplore
 These tasks test the agent's ability to perform deep
@@ -154,7 +154,7 @@ Examples of the `MazeExplore-Hard` task. The apples are located near the right
 vertical wall (unobservable in the figure). The goal is located in the middle
 area of the grid.
 
-![](./doc/minihack/imgs/mazeexplores.png)
+![](./docs/imgs/mazeexplores.png)
 
 ### Table of navigation tasks
 
@@ -251,7 +251,7 @@ advanced skill acquisition tasks.
 
 Examples of `Eat-Distract`, `Wear-Distract` and `Pray-Distract`:
 
-![](./doc/minihack/imgs/simple_skills.png)
+![](./docs/imgs/simple_skills.png)
 
 ### Lava Crossing
  An example of a more advanced task involves crossing
@@ -274,7 +274,7 @@ levitation as well as freezing.
  the lava using (i) potion of levitation, (ii) ring of levitation, (iii)
  levitation boots, (iv) frost horn, or (v) wand of cold.
 
-![](./doc/minihack/imgs/lavacross.png)
+![](./docs/imgs/lavacross.png)
 
 ### Wand of Death
  MiniHack is very convenient for making incremental
@@ -292,7 +292,7 @@ maze and reach its centre, which is guarded by a deadly Minotaur.
 
 An example of the `WoD-Hard` task:
 
-![](./doc/minihack/imgs/wod.png)
+![](./docs/imgs/wod.png)
 
 ### Quest
  In the `Quest` tasks, the agents first needs
@@ -306,7 +306,7 @@ generated and also requires navigation through complicated mazes.
 
 Examples of the `Quest-Hard` task:
 
-![](./doc/minihack/imgs/quest_hard.png)
+![](./docs/imgs/quest_hard.png)
 
 ### Table of skill acquisition tasks
 
