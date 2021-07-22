@@ -118,7 +118,7 @@ class BoxoHack(MiniHackNavigation):
         return set((x, y) for x, y in zip(*np.where(char_obs == ord(object_char))))
 
 
-class HackBoxobanUnfiltered(BoxoHack):
+class MiniHackBoxobanUnfiltered(BoxoHack):
     def __init__(self, *args, **kwargs):
         kwargs["level_set"] = "unfiltered"
         kwargs["level_mode"] = "train"
