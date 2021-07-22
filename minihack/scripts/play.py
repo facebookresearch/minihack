@@ -10,12 +10,17 @@ import termios
 import time
 import timeit
 import tty
+import torch
 
 import gym
+from omegaconf import OmegaConf
 
 import nle  # noqa: F401
 import minihack  # noqa: F401
 from nle import nethack
+
+import nle.agent.polybeast.models
+from nle.agent.polybeast import polyhydra
 
 
 _ACTIONS = tuple(
@@ -40,7 +45,9 @@ def no_echo():
         termios.tcsetattr(0, termios.TCSAFLUSH, tt)
 
 
-def get_action(env, action_mode, is_raw_env):
+def get_action(
+    env, action_mode, is_raw_env, pretrained_model, obs, hidden, done
+):
     if action_mode == "random":
         if not is_raw_env:
             action = env.action_space.sample()
@@ -61,14 +68,64 @@ def get_action(env, action_mode, is_raw_env):
                 break
             except ValueError:
                 print(
-                    ("Selected action '%s' is not in action list. Please try again.")
+                    (
+                        "Selected action '%s' is not in action list. "
+                        "Please try again."
+                    )
                     % chr(ch)
                 )
                 continue
-    return action
+    elif action_mode == "pretrained":
+        if not is_raw_env:
+            with torch.no_grad():
+                for key in obs.keys():
+                    shape = obs[key].shape
+                    obs[key] = torch.Tensor(obs[key].reshape((1, 1, *shape)))
+
+                obs["done"] = torch.BoolTensor([done])
+
+                out, hidden = pretrained_model(obs, hidden)
+
+                action = out["action"]
+        else:
+            raise NotImplementedError()
+            # action = random.choice(_ACTIONS)
+        input()
+    return action, hidden
 
 
-def play(env, mode, ngames, max_steps, seeds, savedir, no_render, render_mode, debug):
+def load_model(env, pretrained_path, pretrained_config_path):
+    flags = OmegaConf.load(pretrained_config_path)
+    flags["env"] = env
+    flags = polyhydra.get_common_flags(flags)
+    flags = polyhydra.get_environment_flags(flags)
+    flags = polyhydra.get_learner_flags(flags)
+    model = nle.agent.polybeast.models.create_model(flags, torch.device("cpu"))
+
+    checkpoint_states = torch.load(
+        pretrained_path, map_location=torch.device("cpu")
+    )
+
+    model.load_state_dict(checkpoint_states["model_state_dict"])
+
+    hidden = model.initial_state(batch_size=1)
+    return model, hidden
+
+
+def play(
+    env,
+    mode,
+    ngames,
+    max_steps,
+    seeds,
+    savedir,
+    no_render,
+    render_mode,
+    debug,
+    agent_env,
+    pretrained_path,
+    pretrained_config_path,
+):
     env_name = env
     is_raw_env = env_name == "raw"
 
@@ -80,13 +137,33 @@ def play(env, mode, ngames, max_steps, seeds, savedir, no_render, render_mode, d
             ttyrec = "/dev/null"
         env = nethack.Nethack(ttyrec=ttyrec)
     else:
-        env = gym.make(env_name, savedir=savedir, max_episode_steps=max_steps)
+        env = gym.make(
+            env_name,
+            savedir=savedir,
+            max_episode_steps=max_steps,
+            observation_keys=[
+                "glyphs",
+                "chars",
+                "colors",
+                "specials",
+                "blstats",
+                "message",
+            ],
+        )
         if seeds is not None:
             env.seed(seeds)
         if not no_render:
             print("Available actions:", env._actions)
 
     obs = env.reset()
+    done = False
+
+    pretrained_model = None
+    hidden = None
+    if mode == "pretrained":
+        pretrained_model, hidden = load_model(
+            agent_env, pretrained_path, pretrained_config_path
+        )
 
     steps = 0
     episodes = 0
@@ -114,7 +191,9 @@ def play(env, mode, ngames, max_steps, seeds, savedir, no_render, render_mode, d
                     print(line.tobytes().decode("utf-8"))
                 print(blstats)
 
-        action = get_action(env, mode, is_raw_env)
+        action, hidden = get_action(
+            env, mode, is_raw_env, pretrained_model, obs, hidden, done
+        )
         if action is None:
             break
 
@@ -138,6 +217,7 @@ def play(env, mode, ngames, max_steps, seeds, savedir, no_render, render_mode, d
             print("Final reward:", reward)
             print("End status:", info["end_status"].name)
             print("Mean reward:", mean_reward)
+            print("Total reward:", mean_reward * steps)
 
         sps = steps / time_delta
         print("Episode: %i. Steps: %i. SPS: %f" % (episodes, steps, sps))
@@ -174,7 +254,7 @@ def main():
         "--mode",
         type=str,
         default="human",
-        choices=["human", "random"],
+        choices=["human", "random", "pretrained"],
         help="Control mode. Defaults to 'human'.",
     )
     parser.add_argument(
@@ -183,6 +263,26 @@ def main():
         type=str,
         default="NetHackScore-v0",
         help="Gym environment spec. Defaults to 'NetHackStaircase-v0'.",
+    )
+    parser.add_argument(
+        "--agent_env",
+        type=str,
+        default="",
+        help="Agent name for environment.  Must correspond to "
+        + "environment agent was trained in.  Only required for "
+        + "--mode pretrained.",
+    )
+    parser.add_argument(
+        "--pretrained_path",
+        type=str,
+        default="",
+        help="Path to checkpoint to load pretrained model.",
+    )
+    parser.add_argument(
+        "--pretrained_config_path",
+        type=str,
+        default="",
+        help="Path to config for pretrained model.",
     )
     parser.add_argument(
         "-n",
