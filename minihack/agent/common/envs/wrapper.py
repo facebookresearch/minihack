@@ -9,7 +9,7 @@ class CounterWrapper(gym.Wrapper):
         self.state_counter = state_counter
         if self.state_counter != "none":
             self.state_count_dict = defaultdict(int)
-        # this super() goes to the parent of the particular task, not to `object`
+        # this super() goes to the parent of the particular task, not to object
         super().__init__(env)
 
     def step(self, action):
@@ -25,7 +25,7 @@ class CounterWrapper(gym.Wrapper):
             # treat every state as unique
             state_visits = 1
         elif self.state_counter == "coordinates":
-            # use the location of the agent within the dungeon to accumulate visits
+            # use the location of the agent in the dungeon to accumulate visits
             features = obs["blstats"]
             x = features[0]
             y = features[1]
@@ -89,16 +89,21 @@ class CropWrapper(gym.Wrapper):
         for key in self.keys:
             obs = next_state[key]
             obs = np.pad(
-                obs, pad_width=(dw, dh), mode="constant", constant_values=self.pad
+                obs,
+                pad_width=(dw, dh),
+                mode="constant",
+                constant_values=self.pad,
             )
-            next_state[key + "_crop"] = obs[y - dh : y + dh + 1, x - dw : x + dw + 1]
+            next_state[key + "_crop"] = obs[
+                y - dh : y + dh + 1, x - dw : x + dw + 1
+            ]
 
         self.last_observation = next_state
 
         return next_state, reward, done, info
 
-    def reset(self):
-        obs = self.env.reset()
+    def reset(self, wizkit_items=None):
+        obs = self.env.reset(wizkit_items=wizkit_items)
         obs["tty_chars_crop"] = np.zeros((self.h, self.w), dtype=np.uint8)
         obs["tty_colors_crop"] = np.zeros((self.h, self.w), dtype=np.int8)
         self.last_observation = obs
@@ -121,9 +126,11 @@ class PrevWrapper(gym.Wrapper):
 
         return next_state, reward, done, info
 
-    def reset(self):
-        obs = self.env.reset()
+    def reset(self, wizkit_items=None):
+        obs = self.env.reset(wizkit_items=wizkit_items)
         obs["prev_reward"] = np.zeros(1, dtype=np.float32)
-        obs["prev_action"] = np.zeros(1, dtype=np.uint8)  # FIXME: use PAD action
+        obs["prev_action"] = np.zeros(
+            1, dtype=np.uint8
+        )  # FIXME: use PAD action
         self.last_observation = obs
         return obs

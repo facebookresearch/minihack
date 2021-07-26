@@ -9,7 +9,8 @@ from gym.envs import registration
 from minihack import LevelGenerator, MiniHackNavigation
 
 LEVELS_PATH = os.path.join(
-    pkg_resources.resource_filename("nle", "minihack/dat"), "boxoban-levels-master"
+    pkg_resources.resource_filename("nle", "minihack/dat"),
+    "boxoban-levels-master",
 )
 # The agent can only move towards 4 cardinal directions (instead of default 8)
 MOVE_ACTIONS = tuple(nethack.CompassCardinalDirection)
@@ -44,9 +45,13 @@ class BoxoHack(MiniHackNavigation):
         self._time_penalty = kwargs.pop("penalty_time", 0)
         self._flags = tuple(kwargs.pop("flags", []))
         self._levels = load_boxoban_levels(cur_levels_path)
-        self._reward_shaping_coefficient = kwargs.pop("reward_shaping_coefficient", 0)
+        self._reward_shaping_coefficient = kwargs.pop(
+            "reward_shaping_coefficient", 0
+        )
 
-        super().__init__(*args, des_file=self.get_lvl_gen().get_des(), **kwargs)
+        super().__init__(
+            *args, des_file=self.get_lvl_gen().get_des(), **kwargs
+        )
 
     def get_env_map(self, level):
         info = {"fountains": [], "boulders": []}
@@ -81,9 +86,9 @@ class BoxoHack(MiniHackNavigation):
         lvl_gen.add_stair_up(info["player"])
         return lvl_gen
 
-    def reset(self):
+    def reset(self, wizkit_items=None):
         self.update(self.get_lvl_gen().get_des())
-        initial_obs = super().reset()
+        initial_obs = super().reset(wizkit_items=wizkit_items)
         self._goal_pos_set = self._object_positions(self.last_observation, "{")
         return initial_obs
 
@@ -110,12 +115,16 @@ class BoxoHack(MiniHackNavigation):
 
     def _count_boulders_on_fountains(self, observation):
         return len(
-            self._goal_pos_set.intersection(self._object_positions(observation, "`"))
+            self._goal_pos_set.intersection(
+                self._object_positions(observation, "`")
+            )
         )
 
     def _object_positions(self, observation, object_char):
         char_obs = observation[self._original_observation_keys.index("chars")]
-        return set((x, y) for x, y in zip(*np.where(char_obs == ord(object_char))))
+        return set(
+            (x, y) for x, y in zip(*np.where(char_obs == ord(object_char)))
+        )
 
 
 class MiniHackBoxobanUnfiltered(BoxoHack):
