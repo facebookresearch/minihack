@@ -4,7 +4,7 @@ The MiniHack benchmark is hosted on GitHub and is maintained by [its authors](./
 
 ## How can the manager of the benchmark be contacted?
 
-The maintainer of the MiniHack can be contacted by the following email: samvelyan [AT] fb [DOT] com
+The maintainer of the MiniHack can be contacted by the following email: _samvelyan_ [AT] _fb_ [DOT] _com_
 
 ## Will the benchmark be updated?
 
