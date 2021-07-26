@@ -36,3 +36,5 @@ __all__ = [
     "RewardManager",
     "NetHackWiki",
 ]
+
+from .version import __version__

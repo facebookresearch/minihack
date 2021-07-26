@@ -2,7 +2,9 @@
 #
 # Copyright (c) Facebook, Inc. and its affiliates.
 #
+import os
 import setuptools
+import subprocess
 
 
 packages = [
@@ -53,10 +55,32 @@ extras_deps["all"] = [item for group in extras_deps.values() for item in group]
 if __name__ == "__main__":
     with open("README.md") as f:
         long_description = f.read()
+    cwd = os.path.dirname(os.path.abspath(__file__))
+
+
+    version = open("version.txt", "r").read().strip()
+    try:
+        sha = (
+                subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=cwd)
+                .decode("ascii")
+                .strip()
+                )
+    except subprocess.CalledProcessError:
+        pass
+
+    if sha != "Unknown" and not os.getenv("MINIHACK_RELEASE_BUILD"):
+        version += "+" + sha[:7]
+    print("Building wheel {}-{}".format("minihack", version))
+
+    version_path = os.path.join(cwd, "minihack", "version.py")
+    print(version_path)
+    with open(version_path, "w") as f:
+        f.write("__version__ = '{}'\n".format(version))
+        f.write("git_version = {}\n".format(repr(sha)))
 
     setuptools.setup(
         name="minihack",
-        version="0.1.0b",
+        version=version,
         description=(
             "MiniHack The Planet: ",
             "A Sandbox for Open-Ended Reinforcement Learning Research",
@@ -77,7 +101,6 @@ if __name__ == "__main__":
             "Operating System :: POSIX :: Linux",
             "Operating System :: MacOS",
             "Programming Language :: Python :: 3",
-            "Programming Language :: Python :: 3.5",
             "Programming Language :: Python :: 3.6",
             "Programming Language :: Python :: 3.7",
             "Programming Language :: Python :: 3.8",
