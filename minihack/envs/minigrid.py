@@ -17,8 +17,8 @@ class MiniGridHack(MiniHackNavigation):
             import gym_minigrid  # noqa: F401
         except ModuleNotFoundError:
             raise ModuleNotFoundError(
-                "To use MiniGrid-based environments, please install \
-                    gym-minigrid: pip3 install gym-minigrid"
+                "To use MiniGrid-based environments, please install"
+                " gym-minigrid: pip3 install gym-minigrid"
             )
 
         self.minigrid_env = gym.make(kwargs.pop("env_name"))

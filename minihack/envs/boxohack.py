@@ -44,7 +44,14 @@ class BoxoHack(MiniHackNavigation):
 
         self._time_penalty = kwargs.pop("penalty_time", 0)
         self._flags = tuple(kwargs.pop("flags", []))
-        self._levels = load_boxoban_levels(cur_levels_path)
+        try:
+            self._levels = load_boxoban_levels(cur_levels_path)
+        except FileNotFoundError:
+            raise ModuleNotFoundError(
+                "To use Boxoban environments, please download maps using "
+                "the minihack/scripts/download_boxoban_levels.py script."
+            )
+
         self._reward_shaping_coefficient = kwargs.pop(
             "reward_shaping_coefficient", 0
         )
