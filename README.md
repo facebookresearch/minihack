@@ -142,7 +142,7 @@ If you use MiniHack in any of your work, please cite:
             Minqi Jiang and
             Eric Hambro and
             Fabio Petroni and
-            Heinrich K\"{u}ttler and
+            Heinrich K{\"{u}}ttler and
             Edward Grefenstette and
             Tim Rockt{\"{a}}schel},
   title     = {{MiniHack the Planet: A Sandbox for NetHack Learning Environment}},
