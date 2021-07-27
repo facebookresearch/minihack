@@ -19,7 +19,11 @@ from minihack.envs import (
     skills_wod,
     skills_quest,
 )
-from minihack.agent.common.envs.wrapper import CounterWrapper, CropWrapper, PrevWrapper
+from minihack.agent.common.envs.wrapper import (
+    CounterWrapper,
+    CropWrapper,
+    PrevWrapper,
+)
 
 
 ENVS = dict(
@@ -156,12 +160,17 @@ def is_env_minihack(env_cls):
     return issubclass(env_cls, MiniHack)
 
 
-def create_env(flags, env_id=0, lock=threading.Lock()):
+def create_env(flags, env_id=0):
     # Create environment instances for actors
-    with lock:
+    with threading.Lock():
         env_class = ENVS[flags.env]
         if flags.model == "tty":
-            observation_keys = ("tty_chars", "tty_colors", "tty_cursor", "blstats")
+            observation_keys = (
+                "tty_chars",
+                "tty_colors",
+                "tty_cursor",
+                "blstats",
+            )
         else:
             observation_keys = flags.obs_keys.split(",")
 
@@ -181,8 +190,6 @@ def create_env(flags, env_id=0, lock=threading.Lock()):
         if not is_env_minihack(env_class):
             kwargs.update(max_episode_steps=flags.max_num_steps)
             kwargs.update(character=flags.character)
-        # if flags.env in ("staircase", "pet", "oracle"):
-        #     kwargs.update(reward_win=flags.reward_win, reward_lose=flags.reward_lose)
         elif env_id == 0:
             # print("Ignoring flags.reward_win and flags.reward_lose")
             pass
