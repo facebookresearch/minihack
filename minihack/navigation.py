@@ -24,16 +24,14 @@ class MiniHackNavigation(MiniHack):
         # Actions space - move only by default
         kwargs["actions"] = kwargs.pop("actions", MOVE_ACTIONS)
         # Disallowing one-letter menu questions
-        kwargs["allow_all_yn_questions"] = kwargs.pop("allow_all_yn_questions", False)
+        kwargs["allow_all_yn_questions"] = kwargs.pop(
+            "allow_all_yn_questions", False
+        )
         # Perform know steps
         kwargs["allow_all_modes"] = kwargs.pop("allow_all_modes", False)
         # Play with Rogue character by default
         kwargs["character"] = kwargs.pop("character", "rog-hum-cha-mal")
         # Default episode limit
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 100)
-        # Restrict the observation space to chars only
-        kwargs["observation_keys"] = kwargs.pop(
-            "observation_keys", ["chars_crop", "colors_crop"]
-        )
 
         super().__init__(*args, des_file=des_file, **kwargs)

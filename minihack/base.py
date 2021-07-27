@@ -8,6 +8,7 @@ import gym
 import numpy as np
 import pkg_resources
 from nle import _pynethack, nethack
+from nle.nethack.nethack import SCREEN_DESCRIPTIONS_SHAPE
 from nle.env.base import FULL_ACTIONS, NLE_SPACE_ITEMS
 from nle.env.tasks import NetHackStaircase
 from minihack.wiki import NetHackWiki
@@ -23,7 +24,9 @@ MH_FULL_ACTIONS = list(FULL_ACTIONS)
 # MH_FULL_ACTIONS.remove(nethack.MiscDirection.DOWN)
 MH_FULL_ACTIONS.remove(nethack.MiscDirection.UP)
 MH_FULL_ACTIONS = tuple(MH_FULL_ACTIONS)
-HACKDIR = os.getenv("HACKDIR", pkg_resources.resource_filename("nle", "nethackdir"))
+HACKDIR = os.getenv(
+    "HACKDIR", pkg_resources.resource_filename("nle", "nethackdir")
+)
 
 RGB_MAX_VAL = 255
 N_TILE_PIXEL = 16
@@ -54,11 +57,14 @@ MINIHACK_SPACE_FUNCS = {
     "colors_crop": lambda x, y: gym.spaces.Box(
         low=0, high=15, shape=(x, y), dtype=np.uint8
     ),
+    "specials_crop": lambda x, y: gym.spaces.Box(
+        low=0, high=255, shape=(x, y), dtype=np.uint8
+    ),
     "tty_chars_crop": lambda x, y: gym.spaces.Box(
-        low=0, high=127, shape=(x, y), dtype=np.uint8
+        low=0, high=255, shape=(x, y), dtype=np.uint8
     ),
     "tty_colors_crop": lambda x, y: gym.spaces.Box(
-        low=0, high=127, shape=(x, y), dtype=np.uint8
+        low=0, high=31, shape=(x, y), dtype=np.uint8
     ),
     "screen_descriptions_crop": lambda x, y: gym.spaces.Box(
         low=0,
@@ -74,6 +80,19 @@ MINIHACK_SPACE_FUNCS = {
     ),
 }
 
+MH_DEFAULT_OBS_KEYS = (
+    "glyphs",
+    "chars",
+    "colors",
+    "specials",
+    "glyphs_crop",
+    "chars_crop",
+    "colors_crop",
+    "specials_crop",
+    "blstats",
+    "message",
+)
+
 
 class MiniHack(NetHackStaircase):
     def __init__(
@@ -82,12 +101,13 @@ class MiniHack(NetHackStaircase):
         des_file: str,
         reward_win=1,
         reward_lose=0,
-        obs_crop_h=5,
-        obs_crop_w=5,
+        obs_crop_h=9,
+        obs_crop_w=9,
         obs_crop_pad=0,
         reward_manager=None,
         use_wiki=False,
         autopickup=True,
+        observation_keys=MH_DEFAULT_OBS_KEYS,
         seeds=None,
         **kwargs,
     ):
@@ -102,7 +122,9 @@ class MiniHack(NetHackStaircase):
         # Enter Wizard mode - turned off by default
         kwargs["wizard"] = kwargs.pop("wizard", False)
         # Allowing one-letter menu questions
-        kwargs["allow_all_yn_questions"] = kwargs.pop("allow_all_yn_questions", True)
+        kwargs["allow_all_yn_questions"] = kwargs.pop(
+            "allow_all_yn_questions", True
+        )
         # Episode limit
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 200)
         # Not saving NLE data by detauls
@@ -110,12 +132,8 @@ class MiniHack(NetHackStaircase):
         # Not spawning random monsters
         kwargs["spawn_monsters"] = kwargs.pop("spawn_monsters", False)
 
-        # Using all NLE observations by default
-        space_dict = dict(NLE_SPACE_ITEMS)
         # MiniHack's observation keys are kept separate
-        self._minihack_obs_keys = list(
-            kwargs.pop("observation_keys", space_dict.keys())
-        )
+        self._minihack_obs_keys = observation_keys
         # Handle RGB pixel observations
         if any("pixel" in key for key in self._minihack_obs_keys):
             self._glyph_mapper = GlyphMapper()
@@ -144,8 +162,12 @@ class MiniHack(NetHackStaircase):
         self.reward_win = reward_win
         self.reward_lose = reward_lose
 
-        self._scr_descr_index = self._observation_keys.index("screen_descriptions")
-        self.observation_space = gym.spaces.Dict(self.get_obs_space_dict(space_dict))
+        self._scr_descr_index = self._observation_keys.index(
+            "screen_descriptions"
+        )
+        self.observation_space = gym.spaces.Dict(
+            self.get_obs_space_dict(dict(NLE_SPACE_ITEMS))
+        )
 
         self.use_wiki = use_wiki
         if self.use_wiki:
@@ -158,11 +180,17 @@ class MiniHack(NetHackStaircase):
                 obs_space_dict[key] = space_dict[key]
             elif key in MINIHACK_SPACE_FUNCS.keys():
                 space_func = MINIHACK_SPACE_FUNCS[key]
-                obs_space_dict[key] = space_func(self.obs_crop_h, self.obs_crop_w)
+                obs_space_dict[key] = space_func(
+                    self.obs_crop_h, self.obs_crop_w
+                )
             else:
                 if "pixel" in self._minihack_obs_keys:
                     d_shape = nethack.OBSERVATION_DESC["glyphs"]["shape"]
-                    shape = (d_shape[0] * N_TILE_PIXEL, d_shape[1] * N_TILE_PIXEL, 3)
+                    shape = (
+                        d_shape[0] * N_TILE_PIXEL,
+                        d_shape[1] * N_TILE_PIXEL,
+                        3,
+                    )
                     obs_space_dict["pixel"] = gym.spaces.Box(
                         low=0,
                         high=RGB_MAX_VAL,
@@ -170,7 +198,9 @@ class MiniHack(NetHackStaircase):
                         dtype=np.uint8,
                     )
                 else:
-                    raise ValueError(f'Observation key "{key}" is not supported')
+                    raise ValueError(
+                        f'Observation key "{key}" is not supported'
+                    )
 
         return obs_space_dict
 
@@ -218,7 +248,7 @@ class MiniHack(NetHackStaircase):
         return super()._is_episode_end(observation)
 
     def update(self, des_file):
-        """Update the current environment by replacing its description file """
+        """Update the current environment by replacing its description file"""
         self._patch_nhdat(des_file)
 
     def _patch_nhdat(self, des_file):
@@ -272,13 +302,19 @@ class MiniHack(NetHackStaircase):
                     loc = observation["tty_cursor"][::-1]
                 else:
                     loc = observation["blstats"][:2]
-                obs_dict[key] = self._crop_observation(observation[orig_key], loc)
+                obs_dict[key] = self._crop_observation(
+                    observation[orig_key], loc
+                )
 
         if "pixel" in self._minihack_obs_keys:
-            obs_dict["pixel"] = self._glyph_mapper.to_rgb(observation["glyphs"])
+            obs_dict["pixel"] = self._glyph_mapper.to_rgb(
+                observation["glyphs"]
+            )
 
         if "pixel_crop" in self._minihack_obs_keys:
-            obs_dict["pixel_crop"] = self._glyph_mapper.to_rgb(obs_dict["glyphs_crop"])
+            obs_dict["pixel_crop"] = self._glyph_mapper.to_rgb(
+                obs_dict["glyphs_crop"]
+            )
 
         return obs_dict
 
@@ -411,7 +447,7 @@ class MiniHack(NetHackStaircase):
         if observation is None:
             observation = self.last_observation
 
-        y, x = nethack.SCREEN_DESCRIPTIONS_SHAPE[0:2]
+        y, x = SCREEN_DESCRIPTIONS_SHAPE[0:2]
         for j in range(y):
             for i in range(x):
                 des_arr = observation[self._scr_descr_index][j, i]
