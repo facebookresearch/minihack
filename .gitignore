@@ -202,13 +202,13 @@ dmypy.json
 
 # MiniHack
 minihack/version.py
-nle_data/
+minihack/dat/*.json
+boxoban-levels-master/
 .boxoban_levels
 outputs/
+
+# Third party
 latest
-
-nle/minihack/dat/*.json
-boxoban-levels-master/
 Session.vim
-
 wandb
+nle_data/
