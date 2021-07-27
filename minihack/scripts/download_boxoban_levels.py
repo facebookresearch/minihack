@@ -3,7 +3,7 @@ import os
 import zipfile
 import pkg_resources
 
-DESTINATION_PATH = pkg_resources.resource_filename("nle", "minihack/dat")
+DESTINATION_PATH = pkg_resources.resource_filename("minihack", "dat")
 BOXOBAN_REPO_URL = (
     "https://github.com/deepmind/boxoban-levels/archive/refs/heads/master.zip"
 )
