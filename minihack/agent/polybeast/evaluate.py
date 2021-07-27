@@ -1,7 +1,4 @@
 import argparse
-import ast
-import contextlib
-import os
 import time
 import timeit
 
@@ -9,21 +6,9 @@ import gym
 import torch
 from omegaconf import OmegaConf
 
-import nle  # noqa: F401
 import minihack.agent.polybeast.models
 from nle import nethack
 import polyhydra
-
-_ACTIONS = tuple(
-    [nethack.MiscAction.MORE]
-    + list(nethack.CompassDirection)
-    + list(nethack.CompassDirectionLonger)
-)
-
-
-@contextlib.contextmanager
-def dummy_context():
-    yield None
 
 
 def get_action(pretrained_model, obs, hidden, done):
@@ -69,7 +54,6 @@ def play(
     savedir,
     no_render,
     render_mode,
-    debug,
     agent_env,
     pretrained_path,
     pretrained_config_path,
@@ -161,13 +145,6 @@ def main():
         description="Tool for evaluating pretrained models."
     )
     parser.add_argument(
-        "-d",
-        "--debug",
-        action="store_true",
-        help="Enables debug mode, which will drop stack into "
-        "an ipdb shell if an exception is raised.",
-    )
-    parser.add_argument(
         "-e",
         "--env",
         type=str,
@@ -182,22 +159,22 @@ def main():
         + "environment agent was trained in.",
     )
     parser.add_argument(
+        "-p",
         "--pretrained_path",
         type=str,
-        default="",
         help="Path to checkpoint to load pretrained model.",
     )
     parser.add_argument(
+        "-c",
         "--pretrained_config_path",
         type=str,
-        default="",
         help="Path to config for pretrained model.",
     )
     parser.add_argument(
         "-n",
         "--ngames",
         type=int,
-        default=1,
+        default=10,
         help="Number of games to be played before exiting. "
         "NetHack will auto-restart if > 1.",
     )
@@ -229,26 +206,17 @@ def main():
         choices=["human", "full", "ansi"],
         help="Render mode. Defaults to 'human'.",
     )
+    parser.add_argument(
+        "--no-watch", action="store_true", help="Press a key to make a step."
+    )
     flags = parser.parse_args()
 
-    if flags.debug:
-        import ipdb
+    if flags.savedir == "args":
+        flags.savedir = "{}_{}_{}.zip".format(
+            time.strftime("%Y%m%d-%H%M%S"), flags.mode, flags.env
+        )
 
-        cm = ipdb.launch_ipdb_on_exception
-    else:
-        cm = dummy_context
-
-    with cm():
-        if flags.seeds is not None:
-            # to handle both int and dicts
-            flags.seeds = ast.literal_eval(flags.seeds)
-
-        if flags.savedir == "args":
-            flags.savedir = "{}_{}_{}.zip".format(
-                time.strftime("%Y%m%d-%H%M%S"), flags.mode, flags.env
-            )
-
-        play(**vars(flags))
+    play(**vars(flags))
 
 
 if __name__ == "__main__":
