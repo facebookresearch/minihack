@@ -122,7 +122,7 @@ $ python -m minihack.agent.rllib.train algo=dqn
 
 More information on running these agents, and instructions on how to reproduce
 the results of the MiniHack paper, can be found in [this
-document](./nle/agent/README.md).
+document](./minihack/agent/README.md).
 We also provide baseline learning curves of the MiniHack paper in Weights&Biases format for all of our experiments. They can be accessed [here](https://wandb.ai/minihack).
 
 # Contributions and Maintenance
