@@ -1,22 +1,18 @@
-#!/usr/bin/env python
-#
-# Copyright (c) Facebook, Inc. and its affiliates.
 import argparse
 import ast
 import contextlib
-import random
 import os
-import termios
 import time
 import timeit
-import tty
 
 import gym
+import torch
+from omegaconf import OmegaConf
 
 import nle  # noqa: F401
-import minihack  # noqa: F401
+import minihack.agent.polybeast.models
 from nle import nethack
-
+import polyhydra
 
 _ACTIONS = tuple(
     [nethack.MiscAction.MORE]
@@ -30,49 +26,57 @@ def dummy_context():
     yield None
 
 
-@contextlib.contextmanager
-def no_echo():
-    tt = termios.tcgetattr(0)
-    try:
-        tty.setraw(0)
-        yield
-    finally:
-        termios.tcsetattr(0, termios.TCSAFLUSH, tt)
+def get_action(is_raw_env, pretrained_model, obs, hidden, done):
+    if not is_raw_env:
+        with torch.no_grad():
+            for key in obs.keys():
+                shape = obs[key].shape
+                obs[key] = torch.Tensor(obs[key].reshape((1, 1, *shape)))
+
+            obs["done"] = torch.BoolTensor([done])
+
+            out, hidden = pretrained_model(obs, hidden)
+
+            action = out["action"]
+    else:
+        raise NotImplementedError()
+        # action = random.choice(_ACTIONS)
+    input()
+    return action, hidden
 
 
-def get_action(env, action_mode, is_raw_env):
-    if action_mode == "random":
-        if not is_raw_env:
-            action = env.action_space.sample()
-        else:
-            action = random.choice(_ACTIONS)
-    elif action_mode == "human":
-        while True:
-            with no_echo():
-                ch = ord(os.read(0, 1))
-            if ch == nethack.C("c"):
-                print("Received exit code {}. Aborting.".format(ch))
-                return None
-            try:
-                if is_raw_env:
-                    action = ch
-                else:
-                    action = env._actions.index(ch)
-                break
-            except ValueError:
-                print(
-                    (
-                        "Selected action '%s' is not in action list. "
-                        "Please try again."
-                    )
-                    % chr(ch)
-                )
-                continue
-    return action
+def load_model(env, pretrained_path, pretrained_config_path):
+    flags = OmegaConf.load(pretrained_config_path)
+    flags["env"] = env
+    flags = polyhydra.get_common_flags(flags)
+    flags = polyhydra.get_environment_flags(flags)
+    flags = polyhydra.get_learner_flags(flags)
+    model = minihack.agent.polybeast.models.create_model(
+        flags, torch.device("cpu")
+    )
+
+    checkpoint_states = torch.load(
+        pretrained_path, map_location=torch.device("cpu")
+    )
+
+    model.load_state_dict(checkpoint_states["model_state_dict"])
+
+    hidden = model.initial_state(batch_size=1)
+    return model, hidden
 
 
 def play(
-    env, mode, ngames, max_steps, seeds, savedir, no_render, render_mode, debug
+    env,
+    ngames,
+    max_steps,
+    seeds,
+    savedir,
+    no_render,
+    render_mode,
+    debug,
+    agent_env,
+    pretrained_path,
+    pretrained_config_path,
 ):
     env_name = env
     is_raw_env = env_name == "raw"
@@ -85,13 +89,30 @@ def play(
             ttyrec = "/dev/null"
         env = nethack.Nethack(ttyrec=ttyrec)
     else:
-        env = gym.make(env_name, savedir=savedir, max_episode_steps=max_steps)
+        env = gym.make(
+            env_name,
+            savedir=savedir,
+            max_episode_steps=max_steps,
+            observation_keys=[
+                "glyphs",
+                "chars",
+                "colors",
+                "specials",
+                "blstats",
+                "message",
+            ],
+        )
         if seeds is not None:
             env.seed(seeds)
         if not no_render:
             print("Available actions:", env._actions)
 
     obs = env.reset()
+    done = False
+
+    pretrained_model, hidden = load_model(
+        agent_env, pretrained_path, pretrained_config_path
+    )
 
     steps = 0
     episodes = 0
@@ -119,7 +140,9 @@ def play(
                     print(line.tobytes().decode("utf-8"))
                 print(blstats)
 
-        action = get_action(env, mode, is_raw_env)
+        action, hidden = get_action(
+            is_raw_env, pretrained_model, obs, hidden, done
+        )
         if action is None:
             break
 
@@ -143,6 +166,7 @@ def play(
             print("Final reward:", reward)
             print("End status:", info["end_status"].name)
             print("Mean reward:", mean_reward)
+            print("Total reward:", mean_reward * steps)
 
         sps = steps / time_delta
         print("Episode: %i. Steps: %i. SPS: %f" % (episodes, steps, sps))
@@ -175,19 +199,30 @@ def main():
         "an ipdb shell if an exception is raised.",
     )
     parser.add_argument(
-        "-m",
-        "--mode",
-        type=str,
-        default="human",
-        choices=["human", "random"],
-        help="Control mode. Defaults to 'human'.",
-    )
-    parser.add_argument(
         "-e",
         "--env",
         type=str,
         default="NetHackScore-v0",
         help="Gym environment spec. Defaults to 'NetHackStaircase-v0'.",
+    )
+    parser.add_argument(
+        "--agent_env",
+        type=str,
+        default="",
+        help="Agent name for environment.  Must correspond to "
+        + "environment agent was trained in.",
+    )
+    parser.add_argument(
+        "--pretrained_path",
+        type=str,
+        default="",
+        help="Path to checkpoint to load pretrained model.",
+    )
+    parser.add_argument(
+        "--pretrained_config_path",
+        type=str,
+        default="",
+        help="Path to config for pretrained model.",
     )
     parser.add_argument(
         "-n",
