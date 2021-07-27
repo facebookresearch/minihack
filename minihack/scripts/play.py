@@ -166,7 +166,7 @@ def play(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="NLE Play tool.")
+    parser = argparse.ArgumentParser(description="Play tool.")
     parser.add_argument(
         "-d",
         "--debug",

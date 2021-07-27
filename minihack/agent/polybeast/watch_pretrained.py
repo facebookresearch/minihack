@@ -26,21 +26,17 @@ def dummy_context():
     yield None
 
 
-def get_action(is_raw_env, pretrained_model, obs, hidden, done):
-    if not is_raw_env:
-        with torch.no_grad():
-            for key in obs.keys():
-                shape = obs[key].shape
-                obs[key] = torch.Tensor(obs[key].reshape((1, 1, *shape)))
+def get_action(pretrained_model, obs, hidden, done):
+    with torch.no_grad():
+        for key in obs.keys():
+            shape = obs[key].shape
+            obs[key] = torch.Tensor(obs[key].reshape((1, 1, *shape)))
 
-            obs["done"] = torch.BoolTensor([done])
+        obs["done"] = torch.BoolTensor([done])
 
-            out, hidden = pretrained_model(obs, hidden)
+        out, hidden = pretrained_model(obs, hidden)
 
-            action = out["action"]
-    else:
-        raise NotImplementedError()
-        # action = random.choice(_ACTIONS)
+        action = out["action"]
     input()
     return action, hidden
 
@@ -78,34 +74,23 @@ def play(
     pretrained_path,
     pretrained_config_path,
 ):
-    env_name = env
-    is_raw_env = env_name == "raw"
-
-    if is_raw_env:
-        if savedir is not None:
-            os.makedirs(savedir, exist_ok=True)
-            ttyrec = os.path.join(savedir, "nle.ttyrec.bz2")
-        else:
-            ttyrec = "/dev/null"
-        env = nethack.Nethack(ttyrec=ttyrec)
-    else:
-        env = gym.make(
-            env_name,
-            savedir=savedir,
-            max_episode_steps=max_steps,
-            observation_keys=[
-                "glyphs",
-                "chars",
-                "colors",
-                "specials",
-                "blstats",
-                "message",
-            ],
-        )
-        if seeds is not None:
-            env.seed(seeds)
-        if not no_render:
-            print("Available actions:", env._actions)
+    env = gym.make(
+        env,
+        savedir=savedir,
+        max_episode_steps=max_steps,
+        observation_keys=[
+            "glyphs",
+            "chars",
+            "colors",
+            "specials",
+            "blstats",
+            "message",
+        ],
+    )
+    if seeds is not None:
+        env.seed(seeds)
+    if not no_render:
+        print("Available actions:", env._actions)
 
     obs = env.reset()
     done = False
@@ -126,47 +111,29 @@ def play(
     start_time = total_start_time
     while True:
         if not no_render:
-            if not is_raw_env:
-                print("Previous reward:", reward)
-                if action is not None:
-                    print("Previous action: %s" % repr(env._actions[action]))
-                env.render(render_mode)
-            else:
-                print("Previous action:", action)
-                _, chars, _, _, blstats, message, *_ = obs
-                msg = bytes(message)
-                print(msg[: msg.index(b"\0")])
-                for line in chars:
-                    print(line.tobytes().decode("utf-8"))
-                print(blstats)
+            print("Previous reward:", reward)
+            if action is not None:
+                print("Previous action: %s" % repr(env._actions[action]))
+            env.render(render_mode)
 
-        action, hidden = get_action(
-            is_raw_env, pretrained_model, obs, hidden, done
-        )
+        action, hidden = get_action(pretrained_model, obs, hidden, done)
         if action is None:
             break
 
-        if is_raw_env:
-            obs, done = env.step(action)
-        else:
-            obs, reward, done, info = env.step(action)
+        obs, reward, done, info = env.step(action)
         steps += 1
 
-        if is_raw_env:
-            done = done or steps >= max_steps  # NLE does this by default.
-        else:
-            mean_reward += (reward - mean_reward) / steps
+        mean_reward += (reward - mean_reward) / steps
 
         if not done:
             continue
 
         time_delta = timeit.default_timer() - start_time
 
-        if not is_raw_env:
-            print("Final reward:", reward)
-            print("End status:", info["end_status"].name)
-            print("Mean reward:", mean_reward)
-            print("Total reward:", mean_reward * steps)
+        print("Final reward:", reward)
+        print("End status:", info["end_status"].name)
+        print("Mean reward:", mean_reward)
+        print("Total reward:", mean_reward * steps)
 
         sps = steps / time_delta
         print("Episode: %i. Steps: %i. SPS: %f" % (episodes, steps, sps))
@@ -190,7 +157,9 @@ def play(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="NLE Play tool.")
+    parser = argparse.ArgumentParser(
+        description="Tool for evaluating pretrained models."
+    )
     parser.add_argument(
         "-d",
         "--debug",
