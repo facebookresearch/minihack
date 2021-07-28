@@ -134,45 +134,16 @@ We welcome contributions to MiniHack. If you are interested in contributing plea
 If you use MiniHack in any of your work, please cite:
 
 ```
-@misc{samvelyan2021MiniHack,
-  author = {Mikayel Samvelyan and
-            Robert Kirk and
-            Vitaly Kurin and
-            Jack Parker-Holder and
-            Minqi Jiang and
-            Eric Hambro and
-            Fabio Petroni and
-            Heinrich K{\"{u}}ttler and
-            Edward Grefenstette and
-            Tim Rockt{\"{a}}schel},
-  title     = {{MiniHack the Planet: A Sandbox for NetHack Learning Environment}},
-  howpublished= {https://github.com/MiniHackPlanet/MiniHack},
-  year      = {2021},
+@misc{samvelyan2021minihack,
+  title={MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research},
+  author={Mikayel Samvelyan and Robert Kirk and Vitaly Kurin and Jack Parker-Holder and Minqi Jiang and Eric Hambro and Fabio Petroni and Heinrich Kuttler and Edward Grefenstette and Tim Rockt{\"a}schel},
+  year={2021},
+  url={https://openreview.net/forum?id=skFwlyefkWJ}
 }
 ```
 
 If you use MiniHack's interface on environments ported from other benchmarks, please cite the original paper as well:
 
-- [MiniGrid](https://github.com/maximecb/gym-minigrid/) (see [LICENSE](https://github.com/maximecb/gym-minigrid/blob/master/LICENSE))
+- [MiniGrid](https://github.com/maximecb/gym-minigrid/) (see [LICENSE](https://github.com/maximecb/gym-minigrid/blob/master/LICENSE), [BIBTEX](https://github.com/maximecb/gym-minigrid/#minimalistic-gridworld-environment-minigrid))
 
-```
-@misc{gym_minigrid,
-  author = {Chevalier-Boisvert, Maxime and Willems, Lucas and Pal, Suman},
-  title = {Minimalistic Gridworld Environment for OpenAI Gym},
-  year = {2018},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/maximecb/gym-minigrid}},
-}
-```
-
-- [Boxoban](https://github.com/deepmind/boxoban-levels/) (see [LICENSE](https://github.com/deepmind/boxoban-levels/blob/master/LICENSE))
-
-```
-@misc{boxobanlevels,
-  author = {Arthur Guez, Mehdi Mirza, Karol Gregor, Rishabh Kabra, Sebastien Racaniere, Theophane Weber, David Raposo, Adam Santoro, Laurent Orseau, Tom Eccles, Greg Wayne, David Silver, Timothy Lillicrap, Victor Valdes},
-  title = {An investigation of Model-free planning: boxoban levels},
-  howpublished= {https://github.com/deepmind/boxoban-levels/},
-  year = "2018",
-}
-```
+- [Boxoban](https://github.com/deepmind/boxoban-levels/) (see [LICENSE](https://github.com/deepmind/boxoban-levels/blob/master/LICENSE), [BIBTEX](https://github.com/deepmind/boxoban-levels/#bibtex))
