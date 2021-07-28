@@ -1,17 +1,16 @@
+import minihack.agent.polybeast.models
+import polyhydra
 import argparse
 import time
 import timeit
+import os
 
 import gym
 import torch
 from omegaconf import OmegaConf
 
-import minihack.agent.polybeast.models
-from nle import nethack
-import polyhydra
 
-
-def get_action(pretrained_model, obs, hidden, done, watch):
+def get_action(model, obs, hidden, done, watch):
     with torch.no_grad():
         for key in obs.keys():
             shape = obs[key].shape
@@ -19,7 +18,7 @@ def get_action(pretrained_model, obs, hidden, done, watch):
 
         obs["done"] = torch.BoolTensor([done])
 
-        out, hidden = pretrained_model(obs, hidden)
+        out, hidden = model(obs, hidden)
 
         action = out["action"]
 
@@ -29,7 +28,9 @@ def get_action(pretrained_model, obs, hidden, done, watch):
     return action, hidden
 
 
-def load_model(env, pretrained_path, pretrained_config_path):
+def load_model(env, checkpoint_path):
+    pretrained_path = os.path.join(checkpoint_path, "checkpoint.tar")
+    pretrained_config_path = os.path.join(checkpoint_path, "checkpoint.tar")
     flags = OmegaConf.load(pretrained_config_path)
     flags["env"] = env
     flags = polyhydra.get_common_flags(flags)
@@ -58,8 +59,7 @@ def eval(
     no_render,
     render_mode,
     agent_env,
-    pretrained_path,
-    pretrained_config_path,
+    checkpoint_path,
     watch,
 ):
     env = gym.make(
@@ -83,9 +83,7 @@ def eval(
     obs = env.reset()
     done = False
 
-    pretrained_model, hidden = load_model(
-        agent_env, pretrained_path, pretrained_config_path
-    )
+    model, hidden = load_model(agent_env, checkpoint_path)
 
     steps = 0
     episodes = 0
@@ -106,7 +104,7 @@ def eval(
                 print("Previous action: %s" % repr(env._actions[action]))
             env.render(render_mode)
 
-        action, hidden = get_action(pretrained_model, obs, hidden, done, watch)
+        action, hidden = get_action(model, obs, hidden, done, watch)
         if action is None:
             break
 
@@ -157,8 +155,8 @@ def main():
         "-e",
         "--env",
         type=str,
-        default="NetHackScore-v0",
-        help="Gym environment spec. Defaults to 'NetHackStaircase-v0'.",
+        default="MiniHack-Room-15x15-v0",
+        help="Gym environment spec. Defaults to 'MiniHack-Room-15x15-v0'.",
     )
     parser.add_argument(
         "--agent_env",
@@ -168,16 +166,11 @@ def main():
         + "environment agent was trained in.",
     )
     parser.add_argument(
-        "-p",
-        "--pretrained_path",
-        type=str,
-        help="Path to checkpoint to load pretrained model.",
-    )
-    parser.add_argument(
         "-c",
-        "--pretrained_config_path",
+        "--checkpoint_path",
         type=str,
-        help="Path to config for pretrained model.",
+        help="Path to checkpoint to load the pretrained model and configs. "
+        + "This directory must include checkpoint.tar and config.yaml files.",
     )
     parser.add_argument(
         "-n",
