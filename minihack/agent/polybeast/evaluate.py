@@ -11,7 +11,7 @@ from nle import nethack
 import polyhydra
 
 
-def get_action(pretrained_model, obs, hidden, done):
+def get_action(pretrained_model, obs, hidden, done, watch):
     with torch.no_grad():
         for key in obs.keys():
             shape = obs[key].shape
@@ -22,7 +22,10 @@ def get_action(pretrained_model, obs, hidden, done):
         out, hidden = pretrained_model(obs, hidden)
 
         action = out["action"]
-    input()
+
+    if watch:
+        input()
+
     return action, hidden
 
 
@@ -46,7 +49,7 @@ def load_model(env, pretrained_path, pretrained_config_path):
     return model, hidden
 
 
-def play(
+def eval(
     env,
     ngames,
     max_steps,
@@ -57,6 +60,7 @@ def play(
     agent_env,
     pretrained_path,
     pretrained_config_path,
+    watch,
 ):
     env = gym.make(
         env,
@@ -90,9 +94,11 @@ def play(
 
     mean_sps = 0
     mean_reward = 0.0
+    mean_return = 0.0
 
     total_start_time = timeit.default_timer()
     start_time = total_start_time
+
     while True:
         if not no_render:
             print("Previous reward:", reward)
@@ -100,7 +106,7 @@ def play(
                 print("Previous action: %s" % repr(env._actions[action]))
             env.render(render_mode)
 
-        action, hidden = get_action(pretrained_model, obs, hidden, done)
+        action, hidden = get_action(pretrained_model, obs, hidden, done, watch)
         if action is None:
             break
 
@@ -119,6 +125,7 @@ def play(
         print("Mean reward:", mean_reward)
         print("Total reward:", mean_reward * steps)
 
+        mean_return += (mean_reward * steps) / ngames
         sps = steps / time_delta
         print("Episode: %i. Steps: %i. SPS: %f" % (episodes, steps, sps))
 
@@ -133,11 +140,13 @@ def play(
         if episodes == ngames:
             break
         env.reset()
+
     env.close()
     print(
         "Finished after %i episodes and %f seconds. Mean sps: %f"
         % (episodes, timeit.default_timer() - total_start_time, mean_sps)
     )
+    print(f"Mean return is {mean_return}")
 
 
 def main():
@@ -207,8 +216,18 @@ def main():
         help="Render mode. Defaults to 'human'.",
     )
     parser.add_argument(
-        "--no-watch", action="store_true", help="Press a key to make a step."
+        "--watch",
+        dest="watch",
+        action="store_true",
+        help="Pressing a key performs a step.",
     )
+    parser.add_argument(
+        "--no-watch",
+        dest="watch",
+        action="store_false",
+        help="No need to press any keys.",
+    )
+    parser.set_defaults(watch=True)
     flags = parser.parse_args()
 
     if flags.savedir == "args":
@@ -216,7 +235,7 @@ def main():
             time.strftime("%Y%m%d-%H%M%S"), flags.mode, flags.env
         )
 
-    play(**vars(flags))
+    eval(**vars(flags))
 
 
 if __name__ == "__main__":
