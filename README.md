@@ -37,10 +37,6 @@ being much cheaper to run compared to other challenging testbeds.
 MiniHack, NLE and NetHack use [NETHACK GENERAL PUBLIC LICENSE](https://github.com/facebookresearch/nle/blob/master/LICENSE).
 
 
-<!-- # Papers using the MiniHack The Planet
-- Samvelyan et al. [MiniHack The Planet](https://arxiv.org/abs/20XX.YYYY) (FAIR, UCL, Oxford)
-
-Open a [pull request](https://github.com/MiniHackPlanet/MiniHack/edit/master/README.md) to add papers -->
 
 # Installation
 
@@ -57,7 +53,7 @@ conda activate minihack
 pip install minihack
 ```
 
-*NOTE*: If you wish to extend MiniHack, please install the package as follows:
+**NOTE:** If you wish to extend MiniHack, please install the package as follows:
 
 ```bash
 git clone https://github.com/ucl-dark/minihack
@@ -66,13 +62,10 @@ pip install -e ".[dev]"
 pre-commit install
 ```
 
-*NOTE*: Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
+**NOTE:** Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
 
-*NOTe*: NLE requires `cmake>=3.15` to be installed when building the package. Checkout out [here](https://github.com/facebookresearch/nle#installation) how to install it in __MacOS__ and __Ubuntu 18.04__. **Windows users need to user [Docker](#docker)**.
-
-## Docker
-
-We have provided some docker images. Please checkout dockerfile instructions [here](docker/README.md).
+**NOTE:** NLE requires `cmake>=3.15` to be installed when building the package. Checkout out [here](https://github.com/facebookresearch/nle#installation) how to install it in __MacOS__ and __Ubuntu 18.04__.
+**NOTE: **Windows users need to user [Docker](#docker)**.
 
 # Trying it out
 
@@ -141,7 +134,7 @@ We welcome contributions to MiniHack. If you are interested in contributing plea
 
 # Citation
 
-If you use MiniHack in any of your work, please cite:
+If you use MiniHack in your work, please cite:
 
 ```
 @misc{samvelyan2021minihack,
@@ -152,8 +145,9 @@ If you use MiniHack in any of your work, please cite:
 }
 ```
 
-If you use MiniHack's interface on environments ported from other benchmarks, please cite the original paper as well:
+If you use MiniHack's interface on environments ported from other benchmarks, please cite the original paper as well: [MiniGrid](https://github.com/maximecb/gym-minigrid/) (see [LICENSE](https://github.com/maximecb/gym-minigrid/blob/master/LICENSE), [BIBTEX](https://github.com/maximecb/gym-minigrid/#minimalistic-gridworld-environment-minigrid)), [Boxoban](https://github.com/deepmind/boxoban-levels/) (see [LICENSE](https://github.com/deepmind/boxoban-levels/blob/master/LICENSE), [BIBTEX](https://github.com/deepmind/boxoban-levels/#bibtex)).
 
-- [MiniGrid](https://github.com/maximecb/gym-minigrid/) (see [LICENSE](https://github.com/maximecb/gym-minigrid/blob/master/LICENSE), [BIBTEX](https://github.com/maximecb/gym-minigrid/#minimalistic-gridworld-environment-minigrid))
+<!-- # Papers using the MiniHack
+- Samvelyan et al. [MiniHack The Planet](https://arxiv.org/abs/20XX.YYYY) (FAIR, UCL, Oxford)
 
-- [Boxoban](https://github.com/deepmind/boxoban-levels/) (see [LICENSE](https://github.com/deepmind/boxoban-levels/blob/master/LICENSE), [BIBTEX](https://github.com/deepmind/boxoban-levels/#bibtex))
+Open a [pull request](https://github.com/MiniHackPlanet/MiniHack/edit/master/README.md) to add papers. -->
