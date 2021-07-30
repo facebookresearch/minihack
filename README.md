@@ -1,8 +1,9 @@
 # MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research
 
-![MiniHack Environments](/docs/imgs/minihack_envs.png)
-
 [![Documentation Status](https://readthedocs.org/projects/minihack/badge/?version=latest)](https://minihack.readthedocs.io/en/latest/?badge=latest)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+![MiniHack Environments](/docs/imgs/minihack_envs.png)
 
 MiniHack is a sandbox framework for easily designing environments for
 Reinforcement Learning. MiniHack is based on the [The NetHack Learning
@@ -17,7 +18,7 @@ For the full list of existing tasks, see [here](./TASKS.md).
 
 ## Des-file format
 
-The des-file format is a domain-specific language created by the developers of NetHack for describing the levels of the game. des-files are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, environment features (e.g. walls, water, lava), etc. 
+The des-file format is a domain-specific language created by the developers of NetHack for describing the levels of the game. des-files are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, environment features (e.g. walls, water, lava), etc.
 
 Levels defined via des-file can be fairly rich, as the underlying programming language has support for variables, loops, conditional statements, as well as probability distributions.
 Crucially, it supports underspecified statements, such as generating a random monster or an object at a random location on the map.
@@ -41,30 +42,39 @@ MiniHack, NLE and NetHack use [NETHACK GENERAL PUBLIC LICENSE](https://github.co
 
 Open a [pull request](https://github.com/MiniHackPlanet/MiniHack/edit/master/README.md) to add papers -->
 
-# Getting started
+# Installation
 
-Starting with MiniHack environments is extremely simple, provided one is familiar
-with other gym / RL environments.
-
-## Installation
+MiniHack is available on [pypi](https://pypi.org/project/gym-minigrid/) and can be installed as follows:
+```bash
+pip install minihack
+```
 
 We advise using a conda environment for this:
 
-``` bash
+```bash
 conda create -n minihack python=3.8
 conda activate minihack
+pip install minihack
 ```
 
-Then, install the MiniHack package. 
+*NOTE*: If you wish to extend MiniHack, please install the package as follows:
 
-``` bash
-git clone https://github.com/ucl-dark/minihack 
+```bash
+git clone https://github.com/ucl-dark/minihack
 cd minihack
 pip install -e ".[dev]"
 pre-commit install
 ```
 
-## Trying it out
+*NOTE*: Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
+
+*NOTe*: NLE requires `cmake>=3.15` to be installed when building the package. Checkout out [here](https://github.com/facebookresearch/nle#installation) how to install it in __MacOS__ and __Ubuntu 18.04__. **Windows users need to user [Docker](#docker)**.
+
+## Docker
+
+We have provided some docker images. Please checkout dockerfile instructions [here](docker/README.md).
+
+# Trying it out
 
 After installation, one can try out any of the provided tasks as follows:
 
@@ -94,7 +104,7 @@ $ python -m minihack.scripts.play --help
 $ python -m minihack.scripts.play_gui --env MiniHack-River-v0
 ```
 
-## Baseline Agents
+# Baseline Agents
 
 Several baseline agents are included as part of MiniHack, which can be
 installed and used as follows:
@@ -130,7 +140,7 @@ We also provide baseline learning curves of the MiniHack paper in Weights&Biases
 We welcome contributions to MiniHack. If you are interested in contributing please see [this document](./CONTRIBUTING.md). MiniHack's maintenance plan can be found [here](./MAINTENANCE.md).
 
 # Citation
- 
+
 If you use MiniHack in any of your work, please cite:
 
 ```
