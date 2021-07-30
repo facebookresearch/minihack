@@ -30,7 +30,7 @@ def get_action(model, obs, hidden, done, watch):
 
 def load_model(env, checkpoint_path):
     pretrained_path = os.path.join(checkpoint_path, "checkpoint.tar")
-    pretrained_config_path = os.path.join(checkpoint_path, "checkpoint.tar")
+    pretrained_config_path = os.path.join(checkpoint_path, "config.yaml")
     flags = OmegaConf.load(pretrained_config_path)
     flags["env"] = env
     flags = polyhydra.get_common_flags(flags)
@@ -98,7 +98,7 @@ def eval(
     start_time = total_start_time
 
     while True:
-        if not no_render:
+        if watch and not no_render:
             print("Previous reward:", reward)
             if action is not None:
                 print("Previous action: %s" % repr(env._actions[action]))
