@@ -1,0 +1,53 @@
+MiniHack
+====================================
+
+ .. image:: imgs/minihack_envs.png
+
+.. toctree::
+   :maxdepth: 1
+   :caption: About
+   :name: sec-general
+
+   about/intro
+   about/nethack
+   about/des-files
+   about/references
+   about/faq
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started
+   :name: sec-getting-started
+
+   getting-started/installation
+   getting-started/gym
+   getting-started/des_files
+   getting-started/level_generator
+   getting-started/reward_manager
+   getting-started/observation_spaces
+   getting-started/action_spaces
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Environments
+   :name: sec-envs
+
+   envs/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Tutorials
+   :name: sec-tutorials
+
+   tutorials/des_file/index
+   tutorials/env_design/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Agents
+   :name: sec-agents
+
+   agents/torchbeast/index
+   agents/rllib/index
+   agents/ued/index
+   agents/other/index

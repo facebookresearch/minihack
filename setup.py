@@ -29,8 +29,9 @@ extras_deps = {
         "black>=19.10b0",
         "flake8>=3.7",
         "flake8-bugbear>=20.1",
-        "sphinx>=2.4.4",
-        "sphinx-rtd-theme==0.4.3",
+        "sphinx==4.1.2",
+        "sphinx-rtd-theme==0.5.2",
+        "myst-parser==0.15.1",
     ],
     "polybeast": [
         "torch>=1.3.1",
@@ -57,14 +58,13 @@ if __name__ == "__main__":
         long_description = f.read()
     cwd = os.path.dirname(os.path.abspath(__file__))
 
-
     version = open("version.txt", "r").read().strip()
     try:
         sha = (
-                subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=cwd)
-                .decode("ascii")
-                .strip()
-                )
+            subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=cwd)
+            .decode("ascii")
+            .strip()
+        )
     except subprocess.CalledProcessError:
         pass
 
