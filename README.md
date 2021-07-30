@@ -65,7 +65,11 @@ pre-commit install
 **NOTE:** Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
 
 **NOTE:** NLE requires `cmake>=3.15` to be installed when building the package. Checkout out [here](https://github.com/facebookresearch/nle#installation) how to install it in __MacOS__ and __Ubuntu 18.04__.
-**NOTE: **Windows users need to user [Docker](#docker)**.
+**NOTE: Windows users need to user [Docker](#docker)**.
+
+## Docker
+
+We have provided some docker images. Please follow the instructions described [here](docker/README.md).
 
 # Trying it out
 
