@@ -47,7 +47,7 @@ MiniHack
    :caption: Agents
    :name: sec-agents
 
-   agents/torchbeast/index
-   agents/rllib/index
-   agents/ued/index
-   agents/other/index
+   agents/torchbeast
+   agents/rllib
+   agents/ued
+   agents/other
