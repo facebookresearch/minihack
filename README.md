@@ -36,8 +36,6 @@ being much cheaper to run compared to other challenging testbeds.
 
 MiniHack, NLE and NetHack use [NETHACK GENERAL PUBLIC LICENSE](https://github.com/facebookresearch/nle/blob/master/LICENSE).
 
-
-
 # Installation
 
 MiniHack is available on [pypi](https://pypi.org/project/gym-minigrid/) and can be installed as follows:
@@ -53,23 +51,25 @@ conda activate minihack
 pip install minihack
 ```
 
-**NOTE:** If you wish to extend MiniHack, please install the package as follows:
+**NOTE:** Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
+
+**NOTE:** NLE requires `cmake>=3.15` to be installed when building the package. Checkout out [here](https://github.com/facebookresearch/nle#installation) how to install it in __MacOS__ and __Ubuntu 18.04__.
+**NOTE: **Windows users need to user [Docker](#docker)**.
+
+## Extending MiniHack
+
+If you wish to extend MiniHack, please install the package as follows:
 
 ```bash
-git clone https://github.com/ucl-dark/minihack
+git clone https://github.com/facebookresearch/minihack
 cd minihack
 pip install -e ".[dev]"
 pre-commit install
 ```
 
-**NOTE:** Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
-
-**NOTE:** NLE requires `cmake>=3.15` to be installed when building the package. Checkout out [here](https://github.com/facebookresearch/nle#installation) how to install it in __MacOS__ and __Ubuntu 18.04__.
-**NOTE: Windows users need to user [Docker](#docker)**.
-
 ## Docker
 
-We have provided some docker images. Please follow the instructions described [here](docker/README.md).
+We have provided some docker images. Please follow the instructions described [here](https://github.com/facebookresearch/minihack/tree/master/docker).
 
 # Trying it out
 
