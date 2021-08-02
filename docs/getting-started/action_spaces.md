@@ -5,6 +5,10 @@
 MiniHack has a large, structured and context-sensitive action space. We give practitioners an easy way to restrict the action space in order to promote targeted skill discovery.
 For example, [navigation tasks](../envs/navigation/index) mostly require movement commands, and occasionally, kicking doors, searching or eating. [Skill acquisition tasks](../envs/skill/index), on the other hand, require interactions with objects, e.g. managing the inventory, casting spells, zapping wands, reading scrolls, eating comestibles, quaffing potions, etc. In these tasks 75 actions are used.
 
+The actual game of NetHack uses ASCII inputs, i.e., individual keyboard presses including modifiers like
+Ctrl and Meta. NLE pre-defines 98 actions, 16 of which are compass directions and 82 of which
+are command actions. T
+
 ## Specifying the Action Space
 
 The actions used in MiniHack are defined [here](https://github.com/facebookresearch/nle/blob/master/nle/nethack/actions.py). The following example shows how to set the action space of the environment to movements towards 8 compass directions with `open`, `kick`, and `search` actions.
@@ -112,3 +116,4 @@ Note that using different observation keys can make environments significantly e
 |ZAP|112|z  |zap a wand                                         |
 
 The descriptions are mostly taken from the cmd.c file in the NetHack source code.
+For a detailed description of these actions, as well as other NetHack commands, we refer the reader to the [NetHack guide book](http://www.nethack.org/download/3.6.5/nethack-365-Guidebook.pdf).

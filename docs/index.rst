@@ -19,10 +19,11 @@ MiniHack
    :name: sec-getting-started
 
    getting-started/installation
-   getting-started/gym
+   getting-started/trying_out
    getting-started/observation_spaces
    getting-started/action_spaces
    getting-started/des_files
+   getting-started/interface
    getting-started/level_generator
    getting-started/reward_manager
 
