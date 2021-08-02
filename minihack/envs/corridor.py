@@ -1,12 +1,13 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackNavigation
 from gym.envs import registration
-from nle.nethack import Command
 from nle import nethack
 
 MOVE_ACTIONS = tuple(nethack.CompassDirection)
-NAVIGATE_ACTIONS = tuple(
-    list(MOVE_ACTIONS) + [Command.OPEN, Command.KICK, Command.SEARCH]
+NAVIGATE_ACTIONS = MOVE_ACTIONS + (
+    nethack.Command.OPEN,
+    nethack.Command.KICK,
+    nethack.Command.SEARCH,
 )
 
 
