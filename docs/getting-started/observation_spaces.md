@@ -48,5 +48,5 @@ Name        |  Description
 `tty_cursor` | the location of the cursor on the screen, a 2-dimensional vector of (x,y) coordinates.
 
 ````{note}
-For `glyphs`, `chars`, `colors`, `specials`, `pixel`, `screen_descriptions`, `tty_chars`, and `tty_colors` a cropped observation centered the agent can be used by passing the observation name suffixed with `\_crop` (e.g. `chars\_crop`). This is a NxN matrix centered on the agent's current location containing the information normally present in the full view. The size of the crop can easily be configured using corresponding flags. Cropped observations can facilitate the learning, as the egocentric input makes representation learning easier.
+For `glyphs`, `chars`, `colors`, `specials`, `pixel`, `screen_descriptions`, `tty_chars`, and `tty_colors` a cropped observation centered the agent can be used by passing the observation name suffixed with `_crop` (e.g. `chars_crop`). This is a NxN matrix centered on the agent's current location containing the information normally present in the full view. The size of the crop can easily be configured using the `obs_crop_h` and `obs_crop_w` parameters of the environment (9 by default). Cropped observations can facilitate the learning, as the egocentric input makes representation learning easier.
 ````
