@@ -78,8 +78,8 @@ After installation, one can try out any of the provided tasks as follows:
 >>> import gym
 >>> import minihack
 >>> env = gym.make("MiniHack-River-v0")
->>> env.reset()  # each reset generates a new dungeon
->>> env.step(1)  # move agent '@' north
+>>> env.reset() # each reset generates a new environment instance
+>>> env.step(1)  # move agent north
 >>> env.render()
 ```
 
