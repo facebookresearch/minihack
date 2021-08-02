@@ -12,7 +12,6 @@ MiniHack
    about/nethack
    about/des-files
    about/references
-   about/faq
 
 .. toctree::
    :maxdepth: 1
@@ -21,11 +20,11 @@ MiniHack
 
    getting-started/installation
    getting-started/gym
+   getting-started/observation_spaces
+   getting-started/action_spaces
    getting-started/des_files
    getting-started/level_generator
    getting-started/reward_manager
-   getting-started/observation_spaces
-   getting-started/action_spaces
 
 .. toctree::
    :maxdepth: 1

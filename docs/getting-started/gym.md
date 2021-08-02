@@ -40,4 +40,3 @@ $ python -m minihack.scripts.play --env MiniHack-River-v0  --mode random
 # Play the MiniHack with graphical user interface (gui)
 $ python -m minihack.scripts.play_gui --env MiniHack-River-v0
 ```
-

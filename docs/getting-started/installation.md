@@ -13,9 +13,13 @@ conda activate minihack
 pip install minihack
 ```
 
-**NOTE:** NLE requires `cmake>=3.15` to be installed when building the package. Checkout out [here](https://github.com/facebookresearch/nle#installation) how to install it in __MacOS__ and __Ubuntu 18.04__. __Windows__ users should use [Docker](#docker).
+````{note}
+NLE requires `cmake>=3.15` to be installed when building the package. Checkout out [here](https://github.com/facebookresearch/nle#installation) how to install it in __MacOS__ and __Ubuntu 18.04__. __Windows__ users should use [Docker](#docker).
+````
 
-**NOTE:** Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
+````{note}
+Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
+````
 
 ### Extending MiniHack
 
