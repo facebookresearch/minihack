@@ -2,7 +2,7 @@
 
 ## Overview
 
-NetHack has a large, structured and context-sensitive action space. We give practitioners an easy way to restrict the action space in order to promote targeted skill discovery.
+MiniHack has a large, structured and context-sensitive action space. We give practitioners an easy way to restrict the action space in order to promote targeted skill discovery.
 For example, [navigation tasks](../envs/navigation/index) mostly require movement commands, and occasionally, kicking doors, searching or eating. [Skill acquisition tasks](../envs/skill/index), on the other hand, require interactions with objects, e.g. managing the inventory, casting spells, zapping wands, reading scrolls, eating comestibles, quaffing potions, etc. In these tasks 75 actions are used.
 
 ## Specifying the Action Space
