@@ -1,4 +1,4 @@
-# Interface
+# Trying out MiniHack
 
 MiniHack uses the popular [Gym interface](https://github.com/openai/gym) for the interactions between the agent and the environment.
 
@@ -22,9 +22,6 @@ env = gym.make(
    max_episode_steps=100,
 )
 ```
-
-_TODO_: link to all __init__ configurations of the environment (both MiniHack and NLE)???
-
 
 ## Playing as a human
 

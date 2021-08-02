@@ -14,7 +14,7 @@ In addition, observations can include player statistics, in-game text messages, 
 ![](../imgs/obs_additional.png)
 
 
-## Specifying options
+## Specifying the Observation Space
 
 MiniHack has a dictionary-structured observation space. Most keys are inherited from NLE, while some are added in MiniHack. To make sure that the desired observations are returned by the environment, the corresponding options should be passed during the initialisation. The `observation_keys` parameter can be used to specify the observation space in any MiniHack environment:
 
