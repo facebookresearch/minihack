@@ -25,7 +25,7 @@ env = gym.make(
 
 ## Playing as a human
 
-MiniHack also comes with a few scripts that allow to get some environment rollouts, and play with the action space:
+MiniHack also comes with a few scripts that allow to play with the action space:
 
 ```bash
 # Play the MiniHack in the Terminal as a human
