@@ -11,17 +11,9 @@ Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), arguably 
 MiniHack already comes with a large list of challenging [tasks](./TASKS.md). However, it is primarily built for easily designing new ones.
 The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the difficulty and complexity of the tasks by removing simplifying assumptions.
 
-To this end, MiniHack leverages the description files of the game of NetHack, thereby enabling the creation of many challenging and diverse environments.
+To this end, MiniHack leverages the description files of NetHack. The description files (or des-files) are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, environment features (e.g. walls, water, lava), etc. The developers of NetHack created a special domain-specific language for describing the levels of the game, called _des-file format_. The des-files can be compiled into binary using the NetHack level compiler, and MiniHack maps them to [Gym environments](https://github.com/openai/gym). For more information on des-files, we refer users to our [brief overview](TODO), [detailed visually-aided tutorial](TODO), or [interactive notebook](./notebooks/des_file_tutorial.ipynb).
 
-## Des-file format
-
-The des-file format is a domain-specific language created by the developers of NetHack for describing the levels of the game. des-files are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, environment features (e.g. walls, water, lava), etc.
-
-Levels defined via des-file can be fairly rich, as the underlying programming language has support for variables, loops, conditional statements, as well as probability distributions.
-Crucially, it supports underspecified statements, such as generating a random monster or an object at a random location on the map.
-Furthermore, it features commands that procedurally generate diverse grid layouts in a single line.
-
-For more information, check out our [interactive tutorial](./notebooks/des_file_tutorial.ipynb) or the [documentation](https://nethackwiki.com/wiki/Des-file_format) on NetHack Wiki..
+[MiniHack documentation](https://minihack.readthedocs.io/) includes detailed information on how to get started with MiniHack, configure environments or design new ones, train baseline agents, use our APi, and much more.
 
 # Installation
 
