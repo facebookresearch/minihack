@@ -7,6 +7,8 @@ from minihack.navigation import MiniHackNavigation
 from minihack.skills import MiniHackSkill
 from minihack.wiki import NetHackWiki
 
+import minihack.navigation
+import minihack.skills
 import minihack.envs.room
 import minihack.envs.corridor
 import minihack.envs.keyroom

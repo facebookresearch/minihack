@@ -2,6 +2,7 @@
 
 from minihack import MiniHack
 from nle import nethack
+from gym.envs import registration
 
 
 MOVE_ACTIONS = tuple(nethack.CompassDirection)
@@ -35,3 +36,9 @@ class MiniHackNavigation(MiniHack):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 100)
 
         super().__init__(*args, des_file=des_file, **kwargs)
+
+
+registration.register(
+    id="MiniHack-Navigation-Custom-v0",
+    entry_point="minihack.navigation:MiniHackNavigation",
+)

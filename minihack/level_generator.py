@@ -117,11 +117,13 @@ GEOMETRY:center,center
 
     def get_map_str(self):
         """Returns the map as a string."""
-        map_list = ["".join(self.map[i]) + "\n" for i in range(self.map.shape[0])]
+        map_list = [
+            "".join(self.map[i]) + "\n" for i in range(self.map.shape[0])
+        ]
         return "".join(map_list)
 
     def get_map_array(self):
-        """Returns the map as as np array."""
+        """Returns the map as an np array."""
         return self.map
 
     def get_des(self):
@@ -152,17 +154,26 @@ GEOMETRY:center,center
         )
         return coord
 
-    def add_object(self, name="random", symbol="%", place=None, cursestate=None):
+    def add_object(
+        self, name="random", symbol="%", place=None, cursestate=None
+    ):
         place = self.validate_place(place)
         assert isinstance(symbol, str) and len(symbol) == 1
-        assert isinstance(name, str)  # TODO maybe check object exists in NetHack
+        assert isinstance(
+            name, str
+        )  # TODO maybe check object exists in NetHack
 
         if name != "random":
             name = f'"{name}"'
             self.footer += f"OBJECT:('{symbol}',{name}),{place}"
 
             if cursestate is not None:
-                assert cursestate in ["blessed", "uncursed", "cursed", "random"]
+                assert cursestate in [
+                    "blessed",
+                    "uncursed",
+                    "cursed",
+                    "random",
+                ]
                 if cursestate != "random":
                     self.footer += f",{cursestate}"
 
@@ -171,7 +182,9 @@ GEOMETRY:center,center
         else:
             self.footer += f"OBJECT:random,{place}\n"
 
-    def add_object_area(self, area_name, name="random", symbol="%", cursestate=None):
+    def add_object_area(
+        self, area_name, name="random", symbol="%", cursestate=None
+    ):
         place = f"rndcoord({area_name})"
         self.add_object(name, symbol, place, cursestate)
 
@@ -182,7 +195,9 @@ GEOMETRY:center,center
             or symbol is None
             or (isinstance(symbol, str) and len(symbol) == 1)
         )
-        assert isinstance(name, str)  # TODO maybe check object exists in NetHac
+        assert isinstance(
+            name, str
+        )  # TODO maybe check object exists in NetHac
 
         if name != "random":
             name = f'"{name}"'
@@ -194,7 +209,8 @@ GEOMETRY:center,center
 
         if len(args) > 0:
             assert any(
-                arg in ["hostile", "peaceful", "asleep", "awake"] for arg in args
+                arg in ["hostile", "peaceful", "asleep", "awake"]
+                for arg in args
             )
             for arg in args:
                 self.footer += f",{arg}"
