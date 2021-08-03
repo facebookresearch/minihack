@@ -24,6 +24,7 @@ MiniHack
    getting-started/action_spaces
    getting-started/des_files
    getting-started/interface
+   getting-started/reward
 
 .. toctree::
    :maxdepth: 1

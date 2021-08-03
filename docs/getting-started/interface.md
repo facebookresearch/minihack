@@ -60,23 +60,19 @@ For information about the description files, check out our [brief overview](./de
 
 ## Level Generator
 
-When creating a new MiniHack environment, a description file must be provided. One way of providing this des-file is writing it entirely from scratch. However, this requires learning the des-file format and is more difficult to do programmatically, so as part of MiniHack we provide the [LevelGenerator](APILINK) class which provides a convenient wrapper around writing a des-file. The `LevelGenerator` class can be used to create MAZE-type levels with specified heights and widths, and can then fill those levels with objects, monsters and terrain, and specify the start point of the level. Combined with the [RewardManager](#reward-manager) which handles rewards, this enables flexible creation of a wide variety of environments.
+When creating a new MiniHack environment, a description file must be provided. One way of providing this des-file is writing it entirely from scratch. However, this requires learning the des-file format and is more difficult to do programmatically, so as part of MiniHack we provide the [LevelGenerator](../api/minihack.rst) class which provides a convenient wrapper around writing a des-file. The `LevelGenerator` class can be used to create MAZE-type levels with specified heights and widths, and can then fill those levels with objects, monsters and terrain, and specify the start point of the level. Combined with the [RewardManager](#reward-manager) which handles rewards, this enables flexible creation of a wide variety of environments.
 
-The level generator can start with either an empty maze (in which case only height and width are specified, see [Example 1](#example-1)) or with a pre-drawn map (see [Example 2](#example-2)). After initialisation, the level generator can be used to add objects, traps, monsters and other terrain features. Terrain can also be added (\cref{code:python} line 9). Once the level is complete, the `get_des()` function returns the des-file which can then be passed to the environment creation. The full API for `LevelGenerator` can be found [here](APILINK).
+The level generator can start with either an empty maze (in which case only height and width are specified, see [Example 1](#example-1)) or with a pre-drawn map (see [Example 2](#example-2)). After initialisation, the level generator can be used to add objects, traps, monsters and other terrain features. Terrain can also be added (\cref{code:python} line 9). Once the level is complete, the `get_des()` function returns the des-file which can then be passed to the environment creation. The full API for `LevelGenerator` can be found [here](../api/minihack.rst).
 
-[Example 1](#example-1) shows how to create a simple skill acquisition task that challenges the agent to eat an apple and wield a dagger that is randomly placed in a 10x10 room surrounded by lava, alongside a goblin and a teleportation trap. The [RewadManager]()
+[Example 1](#example-1) shows how to create a simple skill acquisition task that challenges the agent to eat an apple and wield a dagger that is randomly placed in a 10x10 room surrounded by lava, alongside a goblin and a teleportation trap. Here, a [RewardManager](./reward.html#reward-manager) is used to specify the tasks that need to be completed.
 
-[Example 2](#example-2) illustrates how to create a labyrinth task. Here, the agent starts near the entrance of a maze and needs to reach its centre. A Minotaur is placed deep inside the maze, which is a powerful monster capable of instantly killing the agent in melee combat. There is a wand of death placed in a random location in the maze. The agent needs to pick it up, and upon seeing the Minotaur, zap it in the direction of the monster. Once the Minotaur is killed, the agent needs to navigate itself towards the staircase (this is the default goal when \texttt{RewardManager} is not used).\footnote{Tools such as Monodraw can help draw the map layout: \url{https://monodraw.helftone.com}.}
-
-## Reward Manager
-
-Text
+[Example 2](#example-2) illustrates how to create a labyrinth task. Here, the agent starts near the entrance of a maze and needs to reach its centre. A Minotaur is placed deep inside the maze, which is a powerful monster capable of instantly killing the agent in melee combat. There is a wand of death placed in a random location in the maze. The agent needs to pick it up, and upon seeing the Minotaur, zap it in the direction of the monster. Once the Minotaur is killed, the agent needs to navigate itself towards the staircase (this is the default goal when `RewardManager` is not used). Tools such as [Monodraw](https://monodraw.helftone.com) can help draw the map layout.
 
 ## Examples
 
 ### Example 1
 
-Creating a skill task using the LevelGenerator and RewardManager.
+Creating a skill task using the `LevelGenerator` and `RewardManager`.
 
 ```python
 # Define a 10x10 room and populate it with
@@ -109,7 +105,7 @@ env = gym.make("MiniHackSkill",
 
 ### Example 2
 
-Creating a MiniHack skill task using \texttt{LevelGenerator} with a pre-defined map layout.
+Creating a MiniHack skill task using `LevelGenerator` with a pre-defined map layout.
 
 ```python
 # Define the maze as a string
