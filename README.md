@@ -34,8 +34,6 @@ It is procedurally generated, rich in entities and dynamics, and overall an
 extremely challenging environment for current state-of-the-art RL agents, while
 being much cheaper to run compared to other challenging testbeds.
 
-MiniHack, NLE and NetHack use [NETHACK GENERAL PUBLIC LICENSE](https://github.com/facebookresearch/nle/blob/master/LICENSE).
-
 # Installation
 
 MiniHack is available on [pypi](https://pypi.org/project/gym-minigrid/) and can be installed as follows:
@@ -70,21 +68,21 @@ pre-commit install
 
 We have provided some docker images. Please follow the instructions described [here](https://github.com/facebookresearch/minihack/tree/master/docker).
 
-# Trying it out
+# Trying out MiniHack
 
-After installation, one can try out any of the provided tasks as follows:
+MiniHack uses the popular [Gym interface](https://github.com/openai/gym) for the interactions between the agent and the environment. 
+A pre-registered MiniHack environment can be used as follows:
 
 ```python
->>> import gym
->>> import minihack
->>> env = gym.make("MiniHack-River-v0")
->>> env.reset() # each reset generates a new environment instance
->>> env.step(1)  # move agent north
->>> env.render()
+import gym
+import minihack
+env = gym.make("MiniHack-River-v0")
+env.reset() # each reset generates a new environment instance
+env.step(1)  # move agent '@' north
+env.render()
 ```
 
-MiniHack also comes with a few scripts that allow to get some environment rollouts,
-and play with the action space:
+MiniHack also comes with a few scripts that allow to play with the action space:
 
 ```bash
 # Play the MiniHack in the Terminal as a human
@@ -92,9 +90,6 @@ $ python -m minihack.scripts.play --env MiniHack-River-v0
 
 # Use a random agent
 $ python -m minihack.scripts.play --env MiniHack-River-v0  --mode random
-
-# See all the options
-$ python -m minihack.scripts.play --help
 
 # Play the MiniHack with graphical user interface (gui)
 $ python -m minihack.scripts.play_gui --env MiniHack-River-v0
