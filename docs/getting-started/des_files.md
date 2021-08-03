@@ -1,4 +1,4 @@
-# des-file format
+# Description files
 
 ````{note}
 This is a brief overview of the des-file format. An in-depth, visually-aided tutorial can be found [here](../tutorials/des_file/index).
@@ -6,7 +6,7 @@ This is a brief overview of the des-file format. An in-depth, visually-aided tut
 
 ## Overview
 
-The des-file format is a domain-specific language created by the developers of NetHack for describing the levels of the game. des-files are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, environment features (e.g. walls, water, lava), etc. The des-files are compiled into binary using the NetHack level compiler, and MiniHack maps them to Gym environments.
+The description files (or des-files) are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, environment features (e.g. walls, water, lava), etc. The developers of NetHack created a special domain-specific language for describing the levels of the game, called _des-file format_. The des-files can be compiled into binary using the NetHack level compiler, and MiniHack maps them to Gym environments.
 
 The following des-file example can be used to create a simple MiniHack environment. Here, the agents are spawned in the left room and needs to open a locked to reach the goal in the right room.
 

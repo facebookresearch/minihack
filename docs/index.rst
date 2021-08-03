@@ -24,8 +24,6 @@ MiniHack
    getting-started/action_spaces
    getting-started/des_files
    getting-started/interface
-   getting-started/level_generator
-   getting-started/reward_manager
 
 .. toctree::
    :maxdepth: 1
@@ -51,3 +49,11 @@ MiniHack
    agents/rllib
    agents/ued
    agents/other
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: API
+   :name: sec-api
+
+   api/minihack

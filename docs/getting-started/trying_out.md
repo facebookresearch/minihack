@@ -18,7 +18,6 @@ The `gym.make` command can also be used to override specific environment paramet
 ```python
 env = gym.make(
    "MiniHack-River-v0",
-   reward_win=1,
    observation_keys=("pixel", "glyphs", "colors", "chars"),
    max_episode_steps=100,
 )
