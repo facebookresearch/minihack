@@ -5,16 +5,13 @@
 
 ![MiniHack Environments](/docs/imgs/minihack_envs.png)
 
-MiniHack is a sandbox framework for easily designing environments for
-Reinforcement Learning. MiniHack is based on the [The NetHack Learning
-Environment (NLE)](https://github.com/facebookresearch/nle) and provides a
-standard RL interface for customly created tesbeds.
+MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL) research.
+Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), arguably the hardest grid-based game in the world, MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle)] to provide a convenient interface for for customly created RL tesbeds.
 
-It not only provides a diverse suite of challenging tasks but is primarily built for easily designing new ones.
+MiniHack already comes with a large list of challenging [tasks](./TASKS.md). However, it is primarily built for easily designing new ones.
 The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the difficulty and complexity of the tasks by removing simplifying assumptions.
-To this end, MiniHack leverages the description file (des-file) format of the game of NetHack, thereby enabling the creation of many challenging and diverse environments.
 
-For the full list of existing tasks, see [here](./TASKS.md).
+To this end, MiniHack leverages the description files of the game of NetHack, thereby enabling the creation of many challenging and diverse environments.
 
 ## Des-file format
 
@@ -25,14 +22,6 @@ Crucially, it supports underspecified statements, such as generating a random mo
 Furthermore, it features commands that procedurally generate diverse grid layouts in a single line.
 
 For more information, check out our [interactive tutorial](./notebooks/des_file_tutorial.ipynb) or the [documentation](https://nethackwiki.com/wiki/Des-file_format) on NetHack Wiki..
-
-## NetHack
-
-NetHack is one of the oldest and arguably most impactful videogames in history,
-as well as being one of the hardest roguelikes currently being played by humans.
-It is procedurally generated, rich in entities and dynamics, and overall an
-extremely challenging environment for current state-of-the-art RL agents, while
-being much cheaper to run compared to other challenging testbeds.
 
 # Installation
 
@@ -70,7 +59,7 @@ We have provided some docker images. Please follow the instructions described [h
 
 # Trying out MiniHack
 
-MiniHack uses the popular [Gym interface](https://github.com/openai/gym) for the interactions between the agent and the environment. 
+MiniHack uses the popular [Gym interface](https://github.com/openai/gym) for the interactions between the agent and the environment.
 A pre-registered MiniHack environment can be used as follows:
 
 ```python
