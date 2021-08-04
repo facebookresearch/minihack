@@ -39,7 +39,6 @@ MiniHack
    :name: sec-tutorials
 
    tutorials/des_file/index
-   tutorials/env_design/index
 
 .. toctree::
    :maxdepth: 1
