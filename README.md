@@ -6,7 +6,7 @@
 ![MiniHack Environments](/docs/imgs/minihack_envs.png)
 
 MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL) research.
-Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), arguably the hardest grid-based game in the world, MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to provide a convenient interface for for customly created RL tesbeds.
+Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), arguably the hardest grid-based game in the world, MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to communicate with the game and provide a convenient interface for customly created RL tesbeds.
 
 MiniHack already comes with a large list of challenging [tasks](./TASKS.md). However, it is primarily built for easily designing new ones.
 The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the difficulty and complexity of the tasks by removing simplifying assumptions.
