@@ -13,10 +13,7 @@ README](./README.nh), at [nethack.org](https://nethack.org/), and on the
 ## NetHack Learning Environment
 
 [The NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle)
-is a Reinforcement Learning environment presented at NeurIPS 2020. NLE is based on
-NetHack 3.6.6 and designed to provide a standard RL interface to the game, and comes
-with tasks that function as a first step to evaluate agents on this new environment.
-
+is a Reinforcement Learning environment based on NetHack 3.6.6 and designed to provide a standard RL interface to the game, and comes
 You can read more about NLE in the [NeurIPS 2020 paper](https://arxiv.org/abs/2006.13760).
 
 ![Example of an agent running on NLE](https://github.com/facebookresearch/nle/raw/master/dat/nle/example_run.gif)

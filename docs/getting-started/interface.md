@@ -1,6 +1,6 @@
-# Interface
+# Creating New Environments
 
-## Creating New Environments
+## Overview
 
 Creating new environments using MiniHack is very simple. There are two main MiniHack base classes to chose from.
 
@@ -98,9 +98,11 @@ reward_gen.add_wield_event("dagger")
 reward_gen.add_location_event("sink",
     reward=-1, terminal_required=False)
 
-env = gym.make("MiniHackSkill",
-    def_file=lvl_gen.get_des()
-    reward_manager=reward_manager)
+env = gym.make(
+    "MiniHack-Skill-Custom-v0",
+    def_file=lvl_gen.get_des(),
+    reward_manager=reward_manager,
+)
 ```
 
 ### Example 2
@@ -132,6 +134,8 @@ lvl_gen.add_monster(name="minotaur",
 # Add wand of death
 lvl_gen.add_object("death", "/")
 
-env = gym.make("MiniHackSkill",
-    def_file = lvl_gen.get_des())
+env = gym.make(
+    "MiniHack-Skill-Custom-v0",
+    def_file = lvl_gen.get_des(),
+)
 ```

@@ -9,11 +9,11 @@ MiniHack is a sandbox framework for easily designing rich and diverse environmen
 Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), arguably the hardest grid-based game in the world, MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to communicate with the game and provide a convenient interface for customly created RL tesbeds.
 
 MiniHack already comes with a large list of challenging [tasks](./TASKS.md). However, it is primarily built for easily designing new ones.
-The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the difficulty and complexity of the tasks by removing simplifying assumptions.
+The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the complexity of the tasks.
 
-To this end, MiniHack leverages the description files of NetHack. The description files (or des-files) are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, environment features (e.g. walls, water, lava), etc. The developers of NetHack created a special domain-specific language for describing the levels of the game, called _des-file format_. The des-files can be compiled into binary using the NetHack level compiler, and MiniHack maps them to [Gym environments](https://github.com/openai/gym). For more information on des-files, we refer users to our [brief overview](TODO), [detailed visually-aided tutorial](TODO), or [interactive notebook](./notebooks/des_file_tutorial.ipynb).
+To this end, MiniHack leverages the description files of NetHack. The description files (or des-files) are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, environment features (e.g. walls, water, lava), etc. The developers of NetHack created a special domain-specific language for describing the levels of the game, called _des-file format_. The des-files can be compiled into binary using the NetHack level compiler, and MiniHack maps them to [Gym environments](https://github.com/openai/gym). For more information on des-files, we refer users to our [brief overview](https://minihack.readthedocs.io/en/latest/getting-started/des_files.html), [detailed visually-aided tutorial](https://minihack.readthedocs.io/en/latest/tutorials/des_file/index.html), or [interactive notebook](./notebooks/des_file_tutorial.ipynb).
 
-[MiniHack documentation](https://minihack.readthedocs.io/) includes detailed information on how to get started with MiniHack, configure environments or design new ones, train baseline agents, use our APi, and much more.
+[MiniHack documentation](https://minihack.readthedocs.io/) will walk you through everything you need to know, step-by-step, including information on how to get started with MiniHack, configure environments or design new ones, train baseline agents, use our APi, and much more.
 
 # Installation
 
@@ -124,9 +124,9 @@ If you use MiniHack in your work, please cite:
 }
 ```
 
-If you use MiniHack's interface on environments ported from other benchmarks, please cite the original paper as well: [MiniGrid](https://github.com/maximecb/gym-minigrid/) (see [LICENSE](https://github.com/maximecb/gym-minigrid/blob/master/LICENSE), [BIBTEX](https://github.com/maximecb/gym-minigrid/#minimalistic-gridworld-environment-minigrid)), [Boxoban](https://github.com/deepmind/boxoban-levels/) (see [LICENSE](https://github.com/deepmind/boxoban-levels/blob/master/LICENSE), [BIBTEX](https://github.com/deepmind/boxoban-levels/#bibtex)).
+If you use MiniHack's interface on environments ported from other benchmarks, please cite the original paper as well: [MiniGrid](https://github.com/maximecb/gym-minigrid/) (see [license](https://github.com/maximecb/gym-minigrid/blob/master/LICENSE), [bibtex](https://github.com/maximecb/gym-minigrid/#minimalistic-gridworld-environment-minigrid)), [Boxoban](https://github.com/deepmind/boxoban-levels/) (see [license](https://github.com/deepmind/boxoban-levels/blob/master/LICENSE), [bibtex](https://github.com/deepmind/boxoban-levels/#bibtex)).
 
 <!-- # Papers using the MiniHack
 - Samvelyan et al. [MiniHack The Planet](https://arxiv.org/abs/20XX.YYYY) (FAIR, UCL, Oxford)
 
-Open a [pull request](https://github.com/MiniHackPlanet/MiniHack/edit/master/README.md) to add papers. -->
+Open a [pull request](https://github.com/facebookresearch/minihack/edit/master/README.md) to add papers. -->

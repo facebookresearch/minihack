@@ -38,9 +38,9 @@ There are two types of levels that can be created using des-file format, namely 
 - MAZE-type levels are composed of maps of the level (specified with the `MAP` command) which are drawn using ASCII characters, followed by descriptions of the contents of the level, described in detail below. In MAZE-type environments, the layout of the map is fixed, but random terrain can be created around (or within) that map using the `MAZEWALK` command, which creates a random maze from a given location and filling all available space of a certain terrain type.
 - ROOM-type levels are composed of descriptions of rooms (specified by the `ROOM` command), each of which can have its contents specified by the commands described below. Generally, the `RANDOM_CORRIDORS` command is then used to create random corridors between all the rooms so that they are accessible. On creation, the file specifies (or leaves random) the room's type, lighting and approximate location. It is also possible to create subrooms (using the `SUBROOM` command) which are rooms guaranteed to be within the outer room and are otherwise specified as normal rooms (but with a location relative to the outer room).
 
-## Types of des-files
+## Adding Entitiies to des-files
 
-As we have seen above, there are multiple ways to define the layout of a level using the \desfile{} format. Once the layout is defined, it is useful to be able to add entities to the level. These could be monsters, objects, traps or other specific terrain features (such as sinks, fountains or altars). In general, the syntax for adding one of these objects is:
+As we have seen above, there are multiple ways to define the layout of a level using the des-file format. Once the layout is defined, it is useful to be able to add entities to the level. These could be monsters, objects, traps or other specific terrain features (such as sinks, fountains or altars). In general, the syntax for adding one of these objects is:
 ```
 ENTITY: specification, location, extra-details
 ```
