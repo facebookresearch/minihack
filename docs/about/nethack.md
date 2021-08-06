@@ -6,8 +6,7 @@ It is procedurally generated, rich in entities and dynamics, and overall an extr
 challenging environment for current state-of-the-art RL agents, while being much
 cheaper to run compared to other challenging testbeds.
 
-For more information about NetHack, check out its [original
-README](./README.nh), at [nethack.org](https://nethack.org/), and on the
+For more information about NetHack, check out its [wikipedia article](https://en.wikipedia.org/wiki/NetHack), [nethack.org](https://nethack.org/), and
 [NetHack wiki](https://nethackwiki.com).
 
 ## NetHack Learning Environment

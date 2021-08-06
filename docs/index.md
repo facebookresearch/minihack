@@ -22,15 +22,6 @@ Start with [installing MiniHack](getting-started/installation), [try it out](get
 ```{toctree}
 :hidden: true
 :maxdepth: 1
-:caption: About
-:name: sec-general
-
-about/des-files
-```
-
-```{toctree}
-:hidden: true
-:maxdepth: 1
 :caption: Getting Started
 :name: sec-getting-started
 
