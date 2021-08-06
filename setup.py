@@ -92,7 +92,12 @@ if __name__ == "__main__":
         license="NetHack General Public License",
         entry_points=entry_points,
         packages=packages,
-        install_requires=["nle>=0.7.3", "numpy>=1.16", "gym>=0.15"],
+        install_requires=[
+            "nle>=0.7.3",
+            "numpy>=1.16",
+            "gym>=0.15",
+            "Pillow>=8.3.1",
+        ],
         extras_require=extras_deps,
         python_requires=">=3.7",
         classifiers=[
