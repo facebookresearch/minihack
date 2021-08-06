@@ -67,13 +67,13 @@ MiniHack also comes with a few scripts that allow to play with the action space:
 
 ```bash
 # Play the MiniHack in the Terminal as a human
-$ python -m minihack.scripts.play --env MiniHack-River-v0
+python -m minihack.scripts.play --env MiniHack-River-v0
 
 # Use a random agent
-$ python -m minihack.scripts.play --env MiniHack-River-v0  --mode random
+python -m minihack.scripts.play --env MiniHack-River-v0  --mode random
 
 # Play the MiniHack with graphical user interface (gui)
-$ python -m minihack.scripts.play_gui --env MiniHack-River-v0
+python -m minihack.scripts.play_gui --env MiniHack-River-v0
 ```
 
 # Baseline Agents

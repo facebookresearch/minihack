@@ -10,11 +10,6 @@ if "%SPHINXBUILD%" == "" (
 set SOURCEDIR=.
 set BUILDDIR=_build
 
-set APICODEDIR=../minihack
-set APICMD=sphinx-apidoc
-set APIDOCDIR=api
-set APIOPTS=../minihack/ ../minihack/agent/ ../minihack/envs/ ../minihack/tiles / ../minihack/scripts/
-
 if "%1" == "" goto help
 
 %SPHINXBUILD% >NUL 2>NUL
@@ -31,7 +26,6 @@ if errorlevel 9009 (
 )
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
-%APICMD% -o %APIDOCDIR% --module-first %APICODEDIR% %APIOPTS%
 goto end
 
 :help
