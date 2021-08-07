@@ -10,7 +10,7 @@ import minihack  # noqa
 from minihack.tiles.window import Window
 
 
-def play():
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--env",
@@ -75,4 +75,4 @@ def play():
 
 
 if __name__ == "__main__":
-    play()
+    main()

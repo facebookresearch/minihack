@@ -19,6 +19,7 @@ entry_points = {
     "console_scripts": [
         "mh-play = minihack.scripts.play:main",
         "mh-guiplay = minihack.scripts.play_gui:main",
+        "mh-envs = minihack.scripts.env_list:main",
     ]
 }
 
