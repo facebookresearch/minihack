@@ -1,9 +1,4 @@
-from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv
-from stable_baselines3.common.utils import set_random_seed
-
-# pip install stable_baselines3
-
-
+# Copyright (c) Facebook, Inc. and its affiliates.
 import gym
 import minihack  # noqa: F401
 import os
@@ -11,12 +6,27 @@ import numpy as np
 import time
 import argparse
 
+try:
+    from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv
+    from stable_baselines3.common.utils import set_random_seed
+except ModuleNotFoundError:
+    raise ModuleNotFoundError(
+        "To use MiniGrid-based environments, please install"
+        " stable_baselines3: pip install stable_baselines3"
+    )
+
+
 parser = argparse.ArgumentParser(description="Vectorized environment demo.")
 
 parser.add_argument(
-    "--env", type=str, default="MiniHack-FourRooms-v0", help="MiniHack gym environment."
+    "--env",
+    type=str,
+    default="MiniHack-MazeWalk-15x15-v0",
+    help="MiniHack gym environment.",
 )
-parser.add_argument("--num_env", type=int, default=4, help="Number of environments.")
+parser.add_argument(
+    "--num_env", type=int, default=4, help="Number of environments."
+)
 parser.add_argument(
     "--num_steps", type=int, default=10000, help="Number of environments."
 )

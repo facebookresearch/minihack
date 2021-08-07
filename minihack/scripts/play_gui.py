@@ -13,7 +13,9 @@ from minihack.tiles.window import Window
 def play():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--env", help="gym environment to load", default="MiniHack-CorridorBattle-v0"
+        "--env",
+        help="gym environment to load",
+        default="MiniHack-CorridorBattle-v0",
     )
 
     args = parser.parse_args()
@@ -53,7 +55,8 @@ def play():
             step(action)
         except (ValueError, TypeError):
             print(
-                f"Selected action {event.key} is not in action list. Please try again."
+                f"Selected action {event.key} is not in action list. "
+                "Please try again."
             )
 
     window = Window("MiniHack the Planet - " + args.env)
