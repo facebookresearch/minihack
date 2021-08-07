@@ -14,6 +14,10 @@ Levels defined via des-file format can be fairly rich, as the underlying program
 
 Below we present a brief overview of the different kinds of des-files, how to add entities to levels, and the main sources of randomness that can be used to create a distribution of levels on which to train RL agents. __Please check out our in-depth, visually-aided tutorial [here](../tutorials/des_file/index)__. We also refer users to the des-file tutorial in [NetHack wiki](https://nethackwiki.com/wiki/Des-file_format).
 
+````{note}
+MiniHack addionally provides a convenient interface to describe the entire environment directly in Python. Check out our `LevelGenerator` [here](./interface.html#level-generator).
+````
+
 ## Types of des-files
 
 There are two types of levels that can be created using des-file format, namely *MAZE-type* and *ROOM-type*:
