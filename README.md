@@ -47,7 +47,7 @@ pre-commit install
 
 ### Docker
 
-We have provided some docker images. Please follow the instructions described [here](https://github.com/facebookresearch/minihack/tree/master/docker).
+We have provided several Dockerfiles for building images with pre-installed MiniHack. Please follow the instructions described [here](./docker/README.md).
 
 # Trying out MiniHack
 
