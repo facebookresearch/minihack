@@ -21,10 +21,18 @@ def get_minihack_env_ids():
         "MiniHack-Navigation-Custom-v0",
         "MiniHack-Skill-Custom-v0",
     ]
+    skip_env_substring = [
+        "Boxoban",
+        "MultiRoom",
+        "SimpleCrossingS",
+        "LavaCrossingS",
+    ]
     return [
         spec.id
         for spec in specs
-        if spec.id.startswith("MiniHack") and spec.id not in skip_envs_list
+        if spec.id.startswith("MiniHack")
+        and spec.id not in skip_envs_list
+        and all(env_sub not in spec.id for env_sub in skip_env_substring)
     ]
 
 
@@ -44,6 +52,8 @@ def rollout_env(env, max_rollout_len):
         assert isinstance(reward, float)
         assert isinstance(done, bool)
         assert isinstance(info, dict)
+        if done:
+            break
     env.close()
     return reward
 
@@ -117,56 +127,12 @@ class TestGymEnv:
 
     def test_default_wizard_mode(self, env_name, wizard):
         if wizard:
-            if env_name.startswith("NetHackChallenge-"):
-                pytest.skip("No wizard mode in NetHackChallenge")
             env = gym.make(env_name, wizard=wizard)
             assert "playmode:debug" in env.env._options
         else:
             # do not send a parameter to test a default
             env = gym.make(env_name)
             assert "playmode:debug" not in env.env._options
-
-
-@pytest.mark.parametrize(
-    "env_name",
-    [e for e in get_minihack_env_ids() if "MazeWalk" in e or "WoD" in e],
-)
-class TestBasicGymEnv:
-    def test_inventory(self, env_name):
-        env = gym.make(
-            env_name,
-            observation_keys=(
-                "chars",
-                "inv_glyphs",
-                "inv_strs",
-                "inv_letters",
-                "inv_oclasses",
-            ),
-        )
-        obs = env.reset()
-
-        found = dict(spellbook=0, apple=0)
-        for line in obs["inv_strs"]:
-            if np.all(line == 0):
-                break
-            for key in found:
-                if key in line.tobytes().decode("utf-8"):
-                    found[key] += 1
-
-        for key, count in found.items():
-            assert key == key and count > 0
-
-        assert "inv_strs" in obs
-
-        index = 0
-        if obs["inv_letters"][index] != ord("a"):
-            # We autopickedup some gold.
-            assert obs["inv_letters"][index] == ord("$")
-            assert obs["inv_oclasses"][index] == nethack.COIN_CLASS
-            index = 1
-
-        assert obs["inv_letters"][index] == ord("a")
-        assert obs["inv_oclasses"][index] == nethack.ARMOR_CLASS
 
 
 @pytest.mark.parametrize(
@@ -221,8 +187,15 @@ class TestGymEnvRollout:
     def test_seed_rollout_seeded(self, env_name, rollout_len):
         """Tests that two seeded envs return same step data."""
 
-        env0 = gym.make(env_name)
-        env1 = gym.make(env_name)
+        observation_keys = (
+            "tty_chars",
+            "glyphs",
+            "chars",
+            "specials",
+            "colors",
+        )
+        env0 = gym.make(env_name, observation_keys=observation_keys)
+        env1 = gym.make(env_name, observation_keys=observation_keys)
 
         env0.seed(123456, 789012)
         obs0 = env0.reset()
@@ -242,8 +215,15 @@ class TestGymEnvRollout:
     def test_seed_rollout_seeded_int(self, env_name, rollout_len):
         """Tests that two seeded envs return same step data."""
 
-        env0 = gym.make(env_name)
-        env1 = gym.make(env_name)
+        observation_keys = (
+            "tty_chars",
+            "glyphs",
+            "chars",
+            "specials",
+            "colors",
+        )
+        env0 = gym.make(env_name, observation_keys=observation_keys)
+        env1 = gym.make(env_name, observation_keys=observation_keys)
 
         initial_seeds = (
             random.randrange(sys.maxsize),
@@ -289,7 +269,7 @@ class TestGymDynamics:
 
     @pytest.fixture
     def env(self):
-        e = gym.make("MiniHack-Room-15x15-v0")
+        e = gym.make("MiniHack-Corridor-R3-v0")
         try:
             yield e
         finally:
@@ -297,11 +277,13 @@ class TestGymDynamics:
 
     def test_kick_and_quit(self, env):
         actions = env._actions
+        print(actions)
+        assert len(actions) == 11  # Compas + Kick/Open/Search
         env.reset()
         kick = actions.index(nethack.Command.KICK)
         obs, reward, done, _ = env.step(kick)
         assert b"In what direction? " in bytes(obs["message"])
-        env.step(nethack.MiscAction.MORE)
+        env.step(actions.index(nethack.CompassCardinalDirection.N))
 
         # Hack to quit.
         env.env.step(nethack.M("q"))
@@ -321,11 +303,6 @@ class TestGymDynamics:
         if done:
             assert reward == 0.0
             return
-
-        # Hopefully, we got some positive reward by now.
-
-        # Get out of any menu / yn_function.
-        env.step(env._actions.index(ord("\r")))
 
         # Hack to quit.
         env.env.step(nethack.M("q"))

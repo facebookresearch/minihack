@@ -28,7 +28,9 @@ class MiniHackWoDEasy(MiniHackSkill):
         rwrd_mngr = RewardManager()
         rwrd_mngr.add_kill_event("minotaur")
 
-        super().__init__(*args, des_file=des_file, reward_manager=rwrd_mngr, **kwargs)
+        super().__init__(
+            *args, des_file=des_file, reward_manager=rwrd_mngr, **kwargs
+        )
 
 
 class MiniHackWoDMedium(MiniHackSkill):
@@ -134,5 +136,5 @@ registration.register(
 )
 registration.register(
     id="MiniHack-WoD-Pro-v0",
-    entry_point="minihack.envs.skills_wod:MiniHackWoDExtreme",
+    entry_point="minihack.envs.skills_wod:MiniHackWoDPro",
 )
