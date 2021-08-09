@@ -258,6 +258,43 @@ class TestGymEnvRollout:
             )
 
 
+class TestRoomReward:
+    """Tests a few game dynamics."""
+
+    @pytest.fixture(autouse=True)  # will be applied to all tests in class
+    def make_cwd_tmp(self, tmpdir):
+        """Makes cwd point to the test's tmpdir."""
+        with tmpdir.as_cwd():
+            yield
+
+    @pytest.fixture
+    def env(self):
+        e = gym.make("MiniHack-Room-5x5-v0")
+        try:
+            yield e
+        finally:
+            e.close()
+
+    def test_reward(self, env):
+        _ = env.reset()
+
+        for _ in range(4):
+            _, reward, done, _ = env.step(env._actions.index(ord("j")))
+            assert reward == 0.0
+            assert not done
+
+        for _ in range(3):
+            _, reward, done, _ = env.step(env._actions.index(ord("l")))
+            assert reward == 0.0
+            assert not done
+
+        # Hack to quit.
+        _, reward, done, _ = env.step(env._actions.index(ord("l")))
+
+        assert done
+        assert reward == 1.0
+
+
 class TestGymDynamics:
     """Tests a few game dynamics."""
 
