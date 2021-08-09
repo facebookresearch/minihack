@@ -13,6 +13,7 @@ packages = [
     "minihack.agent",
     "minihack.scripts",
     "minihack.tiles",
+    "minihack.tests",
 ]
 
 entry_points = {
@@ -30,6 +31,8 @@ extras_deps = {
         "black>=19.10b0",
         "flake8>=3.7",
         "flake8-bugbear>=20.1",
+        "pytest>=5.3",
+        "pytest-benchmark>=3.1.0",
         "sphinx==4.1.2",
         "sphinx-rtd-theme==0.5.2",
         "myst-parser==0.15.1",
@@ -107,7 +110,7 @@ if __name__ == "__main__":
             "Operating System :: POSIX :: Linux",
             "Operating System :: MacOS",
             "Programming Language :: Python :: 3",
-            "Programming Language :: Python :: 3.7",
+            "Programming Language :: Python :: 3.6",
             "Programming Language :: Python :: 3.8",
             "Topic :: Scientific/Engineering :: Artificial Intelligence",
             "Topic :: Games/Entertainment",
