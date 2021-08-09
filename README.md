@@ -1,5 +1,6 @@
 # MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research
 
+[![PyPI version](https://img.shields.io/pypi/v/nle.svg)](https://pypi.python.org/pypi/minihack/)
 [![Documentation Status](https://readthedocs.org/projects/minihack/badge/?version=latest)](https://minihack.readthedocs.io/en/latest/?badge=latest)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 

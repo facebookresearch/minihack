@@ -90,10 +90,8 @@ if __name__ == "__main__":
     setuptools.setup(
         name="minihack",
         version=version,
-        description=(
-            "MiniHack The Planet: ",
-            "A Sandbox for Open-Ended Reinforcement Learning Research",
-        ),
+        description="MiniHack The Planet: "
+        + "A Sandbox for Open-Ended Reinforcement Learning Research",
         long_description=long_description,
         long_description_content_type="text/markdown",
         author="The MiniHack Team",
