@@ -2,6 +2,10 @@
 #
 # Copyright (c) Facebook, Inc. and its affiliates.
 #
+#  MINIHACK_RELEASE_BUILD
+#    If set, builds wheel (s)dist such as to prepare it for upload to PyPI.
+#
+
 import os
 import setuptools
 import subprocess
