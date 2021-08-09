@@ -82,7 +82,8 @@ parser.add_argument("--use_lstm", action="store_true",
 parser.add_argument("--use_index_select", action="store_true",
                     help="Whether to use index_select instead of embedding lookup.")
 parser.add_argument("--max_learner_queue_size", default=None, type=int, metavar="N",
-                    help="Optional maximum learner queue size. Defaults to batch_size.")
+                    help="Optional maximum learner queue size. "
+                    "Defaults to batch_size.")
 
 
 # Model settings.
@@ -111,7 +112,8 @@ parser.add_argument("--reward_clipping", default="tim",
 parser.add_argument("--no_extrinsic", action="store_true",
                     help=("Disables extrinsic reward (no baseline/pg_loss)."))
 parser.add_argument("--normalize_reward", action="store_true",
-                    help=("Normalizes reward by dividing by running stdev from mean."))
+                    help=("Normalizes reward by dividing by running stdev from "
+                          "mean."))
 
 # Optimizer settings.
 parser.add_argument("--learning_rate", default=0.00048, type=float,
@@ -135,7 +137,8 @@ parser.add_argument("--write_profiler_trace", action="store_true",
 
 logging.basicConfig(
     format=(
-        "[%(levelname)s:%(process)d %(module)s:%(lineno)d %(asctime)s] " "%(message)s"
+        "[%(levelname)s:%(process)d %(module)s:%(lineno)d %(asctime)s] "
+        "%(message)s"
     ),
     level=0,
 )
@@ -185,7 +188,9 @@ def clip(flags, rewards):
     elif flags.reward_clipping == "soft_asymmetric":
         squeezed = torch.tanh(rewards / 5.0)
         # Negative rewards are given less weight than positive rewards.
-        clipped_rewards = torch.where(rewards < 0, 0.3 * squeezed, squeezed) * 5.0
+        clipped_rewards = (
+            torch.where(rewards < 0, 0.3 * squeezed, squeezed) * 5.0
+        )
     elif flags.reward_clipping == "none":
         clipped_rewards = rewards
     else:
@@ -276,8 +281,12 @@ def learn(
                 next_state_emb = output["state_embedding"][1:]
                 actions = actor_outputs.action
 
-                pred_next_state_emb = model.forward_dynamics_model(state_emb, actions)
-                pred_actions = model.inverse_dynamics_model(state_emb, next_state_emb)
+                pred_next_state_emb = model.forward_dynamics_model(
+                    state_emb, actions
+                )
+                pred_actions = model.inverse_dynamics_model(
+                    state_emb, next_state_emb
+                )
 
                 forward_loss = (
                     flags.ride.forward_cost
@@ -287,18 +296,27 @@ def learn(
                 )
                 inverse_loss = (
                     flags.ride.inverse_cost
-                    * losses.compute_inverse_dynamics_loss(pred_actions, actions)
+                    * losses.compute_inverse_dynamics_loss(
+                        pred_actions, actions
+                    )
                 )
                 total_loss += forward_loss + inverse_loss
 
-                intrinsic_reward += torch.norm(next_state_emb - state_emb, dim=2, p=2)
+                intrinsic_reward += torch.norm(
+                    next_state_emb - state_emb, dim=2, p=2
+                )
                 if flags.ride.count_norm:
                     if "state_visits" not in observation:
                         raise RuntimeError(
                             "ride.count_norm=true but state_counter=none"
                         )
                     # -- [T x B ]
-                    counts = observation["state_visits"][1:].squeeze(-1).float().sqrt()
+                    counts = (
+                        observation["state_visits"][1:]
+                        .squeeze(-1)
+                        .float()
+                        .sqrt()
+                    )
                     intrinsic_reward /= counts
 
             if flags.int.normalize_reward:
@@ -354,7 +372,9 @@ def learn(
 
             # use a separate discounting factor for intrinsic rewards
             if flags.int.episodic:
-                int_discounts = (~env_outputs.done).float() * flags.int.discounting
+                int_discounts = (
+                    ~env_outputs.done
+                ).float() * flags.int.discounting
             else:
                 # can also do non-episodic intrinsic rewards
                 int_discounts = discounts.new_full(
@@ -368,12 +388,17 @@ def learn(
                 discounts=int_discounts,  # intrinsic discounts
                 rewards=int_clipped_rewards,  # intrinsic reward
                 values=output["int_baseline"][1:],  # intrinsic baseline
-                bootstrap_value=output["int_baseline"][-1],  # intrinsic bootstrap
+                bootstrap_value=output["int_baseline"][
+                    -1
+                ],  # intrinsic bootstrap
             )
 
             # intrinsic baseline loss
-            int_baseline_loss = flags.int.baseline_cost * losses.compute_baseline_loss(
-                int_vtrace_returns.vs - output["int_baseline"][1:]
+            int_baseline_loss = (
+                flags.int.baseline_cost
+                * losses.compute_baseline_loss(
+                    int_vtrace_returns.vs - output["int_baseline"][1:]
+                )
             )
 
             # intrinsic policy gradient loss
@@ -389,7 +414,9 @@ def learn(
         optimizer.zero_grad()
         total_loss.backward()
         if flags.grad_norm_clipping > 0:
-            nn.utils.clip_grad_norm_(model.parameters(), flags.grad_norm_clipping)
+            nn.utils.clip_grad_norm_(
+                model.parameters(), flags.grad_norm_clipping
+            )
         optimizer.step()
         scheduler.step()
 
@@ -397,9 +424,13 @@ def learn(
 
         # LOGGING
         episode_returns = env_outputs.episode_return[env_outputs.done]
-        stats["step"] = stats.get("step", 0) + flags.unroll_length * flags.batch_size
+        stats["step"] = (
+            stats.get("step", 0) + flags.unroll_length * flags.batch_size
+        )
         stats["mean_episode_return"] = torch.mean(episode_returns).item()
-        stats["mean_episode_step"] = torch.mean(env_outputs.episode_step.float()).item()
+        stats["mean_episode_step"] = torch.mean(
+            env_outputs.episode_step.float()
+        ).item()
         stats["total_loss"] = total_loss.item()
         if flags.entropy_cost > 0:
             stats["entropy_loss"] = entropy_loss.item()
@@ -443,7 +474,9 @@ def learn(
                 env_outputs.episode_step[:, 0],
                 env_outputs.episode_step.shape,
             )
-            print("rewards", env_outputs.rewards[:, 0], env_outputs.rewards.shape)
+            print(
+                "rewards", env_outputs.rewards[:, 0], env_outputs.rewards.shape
+            )
             print(
                 "episode_return",
                 env_outputs.episode_return[:, 0],
@@ -527,7 +560,9 @@ def train(flags):
         p.numel() for p in model.parameters() if p.requires_grad
     )
 
-    logging.info("Number of model parameters: %i", plogger.metadata["model_numel"])
+    logging.info(
+        "Number of model parameters: %i", plogger.metadata["model_numel"]
+    )
 
     actor_model = create_model(flags, actor_device)
 
@@ -562,7 +597,10 @@ def train(flags):
     def lr_lambda(epoch):
         return (
             1
-            - min(epoch * flags.unroll_length * flags.batch_size, flags.total_steps)
+            - min(
+                epoch * flags.unroll_length * flags.batch_size,
+                flags.total_steps,
+            )
             / flags.total_steps
         )
 
@@ -643,7 +681,9 @@ def train(flags):
 
     try:
         train_start_time = timeit.default_timer()
-        train_time_offset = stats.get("train_seconds", 0)  # used for resuming training
+        train_time_offset = stats.get(
+            "train_seconds", 0
+        )  # used for resuming training
         last_checkpoint_time = timeit.default_timer()
 
         dev_checkpoint_intervals = [0, 0.25, 0.5, 0.75]
@@ -678,11 +718,13 @@ def train(flags):
                 " Learner queue size: %i."
                 " Other stats: (%s)",
                 loop_end_step,
-                (loop_end_step - loop_start_step) / (loop_end_time - loop_start_time),
+                (loop_end_step - loop_start_step)
+                / (loop_end_time - loop_start_time),
                 inference_batcher.size(),
                 learner_queue.size(),
                 ", ".join(
-                    f"{key} = {format_value(value)}" for key, value in stats.items()
+                    f"{key} = {format_value(value)}"
+                    for key, value in stats.items()
                 ),
             )
             loop_start_time = loop_end_time
@@ -734,9 +776,10 @@ def test(flags):
 
 def main(flags):
     if flags.wandb:
+        flags_dict = omegaconf.OmegaConf.to_container(flags)
         wandb.init(
             project=flags.project,
-            config=vars(flags),
+            config=flags_dict,
             group=flags.group,
             entity=flags.entity,
         )
