@@ -2,6 +2,10 @@
 #
 # Copyright (c) Facebook, Inc. and its affiliates.
 #
+#  MINIHACK_RELEASE_BUILD
+#    If set, builds wheel (s)dist such as to prepare it for upload to PyPI.
+#
+
 import os
 import setuptools
 import subprocess
@@ -61,8 +65,9 @@ if __name__ == "__main__":
     with open("README.md") as f:
         long_description = f.read()
     cwd = os.path.dirname(os.path.abspath(__file__))
+    sha = "Unknown"
+    version = "0.1.0b"
 
-    version = open("version.txt", "r").read().strip()
     try:
         sha = (
             subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=cwd)
