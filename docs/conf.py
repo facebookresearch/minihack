@@ -25,6 +25,11 @@ author = "MiniHack Team @ Facebook AI Research, UCL, and Oxford"
 
 # -- General configuration ---------------------------------------------------
 
+# Make __init__ members documented
+autodoc_default_options = {
+    "special-members": "__init__",
+}
+
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
