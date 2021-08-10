@@ -49,7 +49,7 @@ envs/tasks
 :caption: Tutorials
 :name: sec-tutorials
 
-tutorials/des_file/index
+tutorials/des_file_tutorial.ipynb
 ```
 
 ```{toctree}
