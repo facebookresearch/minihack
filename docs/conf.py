@@ -34,6 +34,7 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
+    "nbsphinx",
 ]
 
 napoleon_numpy_docstring = False

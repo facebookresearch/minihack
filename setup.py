@@ -40,6 +40,7 @@ extras_deps = {
         "sphinx==4.1.2",
         "sphinx-rtd-theme==0.5.2",
         "myst-parser==0.15.1",
+        "nbsphinx",
     ],
     "polybeast": [
         "torch>=1.3.1",

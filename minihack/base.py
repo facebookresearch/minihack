@@ -3,6 +3,7 @@
 import os
 import subprocess
 import random
+from typing import Tuple
 
 import gym
 import numpy as np
@@ -112,7 +113,7 @@ class MiniHack(NetHackStaircase):
         **kwargs,
     ):
         # NetHack options
-        options = MH_NETHACKOPTIONS
+        options: Tuple = MH_NETHACKOPTIONS
         if not autopickup:
             options += ("!autopickup",)
         kwargs["options"] = kwargs.pop("options", options)
@@ -139,7 +140,7 @@ class MiniHack(NetHackStaircase):
             self._glyph_mapper = GlyphMapper()
             if "pixel_crop" in self._minihack_obs_keys:
                 # Make sure glyphs_crop is there
-                self._minihack_obs_keys.append("glyphs_crop")
+                self._minihack_obs_keys = self._minihack_obs_keys + ("glyphs_crop",)
 
         self.reward_manager = reward_manager
         if self.reward_manager is not None:
