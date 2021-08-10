@@ -40,7 +40,7 @@ getting-started/reward
 :caption: Environments
 :name: sec-envs
 
-envs/index
+envs/tasks
 ```
 
 ```{toctree}
