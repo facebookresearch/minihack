@@ -329,6 +329,11 @@ GEOMETRY:center,center
         place = self.validate_place(place)
         self.footer += f"FOUNTAIN: {place}\n"
 
+    def add_gold(self, amount, place):
+        place = self.validate_place(place)
+        assert amount > 0
+        self.footer += f"GOLD: {amount},{place}\n"
+
     def add_boulder(self, place="random"):
         place = self.validate_place(place)
         self.footer += f'OBJECT: "boulder", {place}\n'
