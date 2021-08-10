@@ -11,7 +11,7 @@ BUILDDIR      = _build
 APICODEDIR = ../minihack
 APICMD = sphinx-apidoc
 APIDOCDIR = api
-APIOPTS = ../minihack/ ../minihack/agent/ ../minihack/envs/ ../minihack/tiles / ../minihack/scripts/
+APIOPTS = ../minihack/ ../minihack/agent/ ../minihack/envs/ ../minihack/tiles / ../minihack/scripts/ ../minihack/version.py
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -23,6 +23,5 @@ help:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	rm -rf "$(BUILDDIR)"
-	rm -rf "$(APIDOCDIR)/*"
-	@$(APICMD) -o "$(APIDOCDIR)" --module-first "$(APICODEDIR)" $(APIOPTS)
+	@$(APICMD) -e -f -o  "$(APIDOCDIR)" --module-first "$(APICODEDIR)" $(APIOPTS)
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
