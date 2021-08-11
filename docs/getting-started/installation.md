@@ -21,7 +21,7 @@ NLE requires `cmake>=3.15` to be installed when building the package. Checkout o
 Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
 ````
 
-### Extending MiniHack
+## Extending MiniHack
 
 If you wish to extend MiniHack, please install the package as follows:
 
@@ -32,6 +32,6 @@ pip install -e ".[dev]"
 pre-commit install
 ```
 
-### Docker
+## Docker
 
 We have provided some docker images. Please follow the instructions described [here](https://github.com/facebookresearch/minihack/tree/master/docker).
