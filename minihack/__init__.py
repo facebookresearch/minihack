@@ -25,9 +25,7 @@ import minihack.envs.skills_simple
 import minihack.envs.skills_wod
 import minihack.envs.skills_levitate
 import minihack.envs.skills_freeze
-import minihack.envs.skills_invis
 import minihack.envs.skills_lava
-import minihack.envs.skills_chest
 import minihack.envs.skills_quest
 
 __all__ = [
