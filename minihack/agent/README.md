@@ -96,5 +96,5 @@ $ python3 -m minihack.agent.rllib.train --multirun algo=a2c env=big_room lr=0.00
 
 # PAIRED Results
 
-In order to replicate the results of our Unsupervised Experiment design experiments using the PAIRED algorithm, see [here](https://github.com/anonymouscollective/minihack-ued).
+In order to replicate the results of our Unsupervised Experiment design experiments using the PAIRED algorithm, see [here](https://github.com/ucl-dark/paired).
 
