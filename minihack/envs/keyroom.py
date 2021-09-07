@@ -94,10 +94,10 @@ registration.register(
     entry_point="minihack.envs.keyroom:MiniHackKeyRoom15x15",
 )
 registration.register(
-    id="MiniHack-KeyRoom-Unlit-S5-v0",
+    id="MiniHack-KeyRoom-Dark-S5-v0",
     entry_point="minihack.envs.keyroom:MiniHackKeyRoom5x5Dark",
 )
 registration.register(
-    id="MiniHack-KeyRoom-Unlit-S15-v0",
+    id="MiniHack-KeyRoom-Dark-S15-v0",
     entry_point="minihack.envs.keyroom:MiniHackKeyRoom15x15Dark",
 )
