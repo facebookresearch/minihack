@@ -125,9 +125,10 @@ We welcome contributions to MiniHack. If you are interested in contributing plea
 If you use MiniHack in your work, please cite:
 
 ```
-@misc{samvelyan2021minihack,
+@inproceedings{samvelyan2021minihack,
   title={MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research},
   author={Mikayel Samvelyan and Robert Kirk and Vitaly Kurin and Jack Parker-Holder and Minqi Jiang and Eric Hambro and Fabio Petroni and Heinrich Kuttler and Edward Grefenstette and Tim Rockt{\"a}schel},
+  booktitle={Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 1)},
   year={2021},
   url={https://openreview.net/forum?id=skFwlyefkWJ}
 }
