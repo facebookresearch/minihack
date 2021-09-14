@@ -423,13 +423,13 @@ class MiniHack(NetHackStaircase):
         return obs[y - dh : y + dh + 1, x - dw : x + dw + 1]
 
     def key_in_inventory(self, name):
-        """Returns key of the object in the inventory.
+        """Returns key of the given object in the inventory.
 
         Args:
-            name (str): name of the object
+            name (str): Name of the object.
         Returns:
-            the key of the first item in the inventory that includes the
-            argument name as a substring
+            str: the key of the first item in the inventory that includes the
+            argument name as a substring. Returns None if not found.
         """
         assert "inv_strs" in self._observation_keys
         assert "inv_letters" in self._observation_keys
@@ -470,7 +470,13 @@ class MiniHack(NetHackStaircase):
     def get_direction_obj(self, name, observation=None):
         """Find the game direction of the (first) object in neighboring nine
         tiles that contains given name in its description.
-        Return None if not found.
+
+        Args:
+            name (str): Name of the object.
+            observation (dict): Agent observation.
+
+        Returns:
+            int: The index of the direction. None if not found.
         """
         if observation is None:
             observation = self.last_observation
@@ -496,6 +502,9 @@ class MiniHack(NetHackStaircase):
         return neighbors
 
     def get_neighbor_wiki_pages(self, observation=None):
+        """Returns the page content of the neighboring objects in NetHack
+        wiki.
+        """
         if not self.use_wiki:
             raise NotImplementedError(
                 "use_wiki is set to false - initialise your environment with"
@@ -529,8 +538,15 @@ class MiniHack(NetHackStaircase):
         return self.wiki.get_page_text(description)
 
     def screen_contains(self, name, observation=None):
-        """Whether the given name is included in screen descriptions of
-        the observations.
+        """Whether an object with the given name is visible on the screen, i.e.
+        included in the screen descriptions of the observation dictionary.
+
+        Args:
+            name (str): Name of the object or monster.
+            observation (dict): Agent observation.
+
+        Returns:
+            bool: True if the name is contained on the screen, False otherwise.
         """
         if observation is None:
             observation = self.last_observation
