@@ -336,7 +336,7 @@ class MiniHack(NetHackStaircase):
         return super()._is_episode_end(observation)
 
     def update(self, des_file):
-        """Update the current environment by replacing its description file"""
+        """Update the current environment by replacing its description file."""
         self._patch_nhdat(des_file)
 
     def _patch_nhdat(self, des_file):
