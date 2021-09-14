@@ -96,6 +96,17 @@ MH_DEFAULT_OBS_KEYS = (
 
 
 class MiniHack(NetHackStaircase):
+    """MiniHack base class.
+
+    All MiniHack environments are derived from this class, which itself is
+    derived from NLE base class.
+
+    Note that this class itself is not used for creating new environment
+    instances. Instead, `MiniHackNavigation` and `MiniHackSkill` provide a
+    more convenient interface for doing this, both of which are directly
+    derived from MiniHack for specific types of environments.
+    """
+
     def __init__(
         self,
         *args,
@@ -112,6 +123,79 @@ class MiniHack(NetHackStaircase):
         seeds=None,
         **kwargs,
     ):
+        """Constructs a new MiniHack environment.
+
+        Args:
+            des_file (str):
+                The description file for the environment.
+            reward_win (float):
+                The reward received upon successfully completing an episode.
+                Defaults to 1.
+            reward_lose (float):
+                The reward received upon death or aborting. Defaults to 1.
+            obs_crop_h (int):
+                The height of agent-centred cropped observation. Defaults to 9.
+            obs_crop_w (int):
+                The width of agent-centred cropped observation. Defaults to 9.
+            obs_crop_pad (int):
+                The padding for agent-centred cropped observation.
+                Defaults to 0.
+            reward_manager (RewardManager or None):
+                The reward manager that describes the custom reward function of
+                the agent. If None, the goal of the agent is to reach the stair
+                down. Defaults to None.
+            use_wiki (bool):
+                Whether to use the NetHack wiki. Defaults to False.
+            autopickup (bool):
+                Turning autopickup on or off. Defaults to True.
+            observation_keys (tuple):
+                The keys of observations returned after every timestep by the
+                environment as a dictionary. Defaults to
+                ``minihack.base.MH_DEFAULT_OBS_KEYS``.
+            seeds (list or None):
+                A list of random seeds for sampling episodes. If none, the
+                entire level distribution is used. Defaults to None.
+            penalty_mode (str):
+                The name of the mode for calculating the time step penalty.
+                Can be ``constant``, ``exp``, ``square``, ``linear``, or
+                ``always``. Defaults to ``constant``. Inherited from
+                `NetHackScore`.
+            penalty_step (float):
+                A constant applied to amount of frozen steps. Defaults to
+                -0.01. Inherited from `NetHackScore`.
+            penalty_time (float):
+                A constant applied to amount of frozen steps. Defaults to -0.0.
+                Inherited from `NetHackScore`.
+            savedir (str or None): path to save ttyrecs (game recordings) into.
+                Defaults to None, which doesn't save any data. Otherwise,
+                interpreted as a path to a new or existing directory.
+                If "" (empty string), NLE choses a unique directory name.
+                Inherited from `NLE`.
+            character (str):
+                Name of character. Defaults to "mon-hum-neu-mal". Interited
+                from `NLE`.
+            max_episode_steps (int):
+                maximum amount of steps allowed before the game is forcefully
+                quit.  In such cases, ``info["end_status"]`` ill be equal to
+                ``StepStatus.ABORTED``. Defaults to 5000. Inherited from `NLE`.
+            observation_keys (list):
+                keys to use when creating the observation. Defaults to all.
+                Inherited from `NLE`.
+            actions (list):
+                list of actions. If None, the full action space will
+                be used, i.e. ``nle.nethack.ACTIONS``. Defaults to None.
+                Inherited from `NLE`.
+            wizard (bool):
+                activate wizard mode. Defaults to False.
+            allow_all_yn_questions (bool):
+                If set to True, no y/n questions in step() are declined.
+                If set to False, only elements of SKIP_EXCEPTIONS are not
+                declined. Defaults to False. Inherited from `NLE`.
+            allow_all_modes (bool):
+                If set to True, do not decline menus, text input or auto
+                'MORE'. If set to False, only skip click through 'MORE'
+                on death. Inherited from `NLE`.
+        """
         # NetHack options
         options: Tuple = MH_NETHACKOPTIONS
         if not autopickup:
@@ -140,7 +224,9 @@ class MiniHack(NetHackStaircase):
             self._glyph_mapper = GlyphMapper()
             if "pixel_crop" in self._minihack_obs_keys:
                 # Make sure glyphs_crop is there
-                self._minihack_obs_keys = self._minihack_obs_keys + ("glyphs_crop",)
+                self._minihack_obs_keys = self._minihack_obs_keys + (
+                    "glyphs_crop",
+                )
 
         self.reward_manager = reward_manager
         if self.reward_manager is not None:
@@ -167,14 +253,14 @@ class MiniHack(NetHackStaircase):
             "screen_descriptions"
         )
         self.observation_space = gym.spaces.Dict(
-            self.get_obs_space_dict(dict(NLE_SPACE_ITEMS))
+            self._get_obs_space_dict(dict(NLE_SPACE_ITEMS))
         )
 
         self.use_wiki = use_wiki
         if self.use_wiki:
             self.wiki = NetHackWiki()
 
-    def get_obs_space_dict(self, space_dict):
+    def _get_obs_space_dict(self, space_dict):
         obs_space_dict = {}
         for key in self._minihack_obs_keys:
             if key in space_dict.keys():
@@ -215,7 +301,8 @@ class MiniHack(NetHackStaircase):
 
     def _reward_fn(self, last_observation, action, observation, end_status):
         """Use reward_manager to collect reward calculated in _is_episode_end,
-        or revert to standard sparse reward."""
+        or revert to standard sparse reward.
+        """
         del action  # Unused
         if self.reward_manager is not None:
             reward = self.reward_manager.collect_reward()
@@ -338,8 +425,8 @@ class MiniHack(NetHackStaircase):
     def key_in_inventory(self, name):
         """Returns key of the object in the inventory.
 
-        Arguments:
-            name [str]: name of the object
+        Args:
+            name (str): name of the object
         Returns:
             the key of the first item in the inventory that includes the
             argument name as a substring
@@ -361,7 +448,7 @@ class MiniHack(NetHackStaircase):
 
         return None
 
-    def index_to_dir_action(self, index):
+    def _index_to_dir_action(self, index):
         """Returns the ASCII code for direction corresponding to given
         index in reshaped vector of adjacent 9 tiles (None for agent's
         position).
@@ -391,7 +478,7 @@ class MiniHack(NetHackStaircase):
         neighbors = self.get_neighbor_descriptions(observation)
         for i, tile_description in enumerate(neighbors):
             if name in tile_description:
-                return self.index_to_dir_action(i)
+                return self._index_to_dir_action(i)
         return None
 
     def get_neighbor_descriptions(self, observation=None):

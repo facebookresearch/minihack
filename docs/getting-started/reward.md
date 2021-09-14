@@ -8,7 +8,7 @@ These defaults can be easily adjusted using the following environment flags:
 
 | Parameter     | Default Value | Description    |
 |---------------|---------------|----------------|
-|`reward_win`   |1| the reward received upon reaching a stair down (last step of an episode). |
+|`reward_win`   |1| the reward received upon successfully completing an episode. |
 |`reward_lose`  |0| the reward received upon death or aborting. |
 |`penalty_mode` |"constant"| name of the mode for calculating the time step penalty. Can be ``constant``, ``exp``, ``square``, ``linear``, or ``always``. |
 |`penalty_step` |-0.01| constant applied to amount of frozen steps. |
