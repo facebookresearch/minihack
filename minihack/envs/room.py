@@ -23,10 +23,10 @@ class MiniHackRoom(MiniHackNavigation):
 
         lvl_gen = LevelGenerator(w=size, h=size, lit=lit)
         if random:
-            lvl_gen.add_stair_down()
+            lvl_gen.add_goal_pos()
         else:
-            lvl_gen.add_stair_down((size - 1, size - 1))
-            lvl_gen.add_stair_up((0, 0))
+            lvl_gen.add_goal_pos((size - 1, size - 1))
+            lvl_gen.set_start_pos((0, 0))
 
         for _ in range(n_monster):
             lvl_gen.add_monster()

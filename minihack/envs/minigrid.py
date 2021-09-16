@@ -88,8 +88,8 @@ class MiniGridHack(MiniHackNavigation):
 
         lev_gen = LevelGenerator(map=map)
 
-        lev_gen.add_stair_down(goal_pos)
-        lev_gen.add_stair_up(start_pos)
+        lev_gen.add_goal_pos(goal_pos)
+        lev_gen.set_start_pos(start_pos)
 
         for d in door_pos:
             lev_gen.add_door(self.door_state, d)

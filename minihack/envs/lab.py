@@ -29,8 +29,8 @@ class MiniHackLabyrinth(MiniHackNavigation):
 -------------------------------------
 """
         lvl_gen = LevelGenerator(map=map, lit=True)
-        lvl_gen.add_stair_up((19, 1))
-        lvl_gen.add_stair_down((19, 7))
+        lvl_gen.set_start_pos((19, 1))
+        lvl_gen.add_goal_pos((19, 7))
 
         des_file = lvl_gen.get_des()
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 1000)
@@ -58,7 +58,7 @@ class MiniHackLabyrinthSmall(MiniHackNavigation):
 --------------------
 """
         lvl_gen = LevelGenerator(map=map, lit=True)
-        lvl_gen.add_stair_up((9, 1))
+        lvl_gen.set_start_pos((9, 1))
         lvl_gen.add_goal_pos((14, 5))
 
         des_file = lvl_gen.get_des()

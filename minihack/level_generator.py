@@ -135,6 +135,7 @@ GEOMETRY:center,center
         self.stair_up_exist = False
 
     def init_map(self, map=None, x=8, y=8, fill="."):
+        """Initialise the map block of the des-file."""
         if map is None:
             # Creating empty area
             self.x = x
@@ -155,19 +156,24 @@ GEOMETRY:center,center
         return "".join(map_list)
 
     def get_map_array(self):
-        """Returns the map as an np array."""
+        """Returns the map as a two-dimensional numpy array."""
         return self.map
 
     def get_des(self):
-        """Returns the description file."""
+        """Returns the description file.
+
+        Returns:
+            str: the description file as a string.
+        """
         return self.header + self.mapify(self.get_map_str()) + self.footer
 
     @staticmethod
-    def validate_place(place):
+    def _validate_place(place):
+        """Validate a given place argument."""
         if place is None:
             place = "random"
         elif isinstance(place, tuple):
-            place = LevelGenerator.validate_coord(place)
+            place = LevelGenerator._validate_coord(place)
             place = str(place)
         elif isinstance(place, str):
             pass
@@ -177,7 +183,8 @@ GEOMETRY:center,center
         return place
 
     @staticmethod
-    def validate_coord(coord):
+    def _validate_coord(coord):
+        """Validate a given typle of coordinates."""
         assert (
             isinstance(coord, tuple)
             and len(coord) == 2
@@ -189,7 +196,27 @@ GEOMETRY:center,center
     def add_object(
         self, name="random", symbol="%", place=None, cursestate=None
     ):
-        place = self.validate_place(place)
+        """Add an object to the map.
+
+        Args:
+            name (str):
+                The name of the object. Defaults to random.
+            symbol (str):
+                The symbol of the object. The symbol should correspond to the
+                given object name. For example, "%" symbol corresponds to
+                comestibles, so the name of the object should also correspond
+                to commestibles (e.g. apple). Not used when name is "random".
+                Defaults to "%".
+            place (None, tuple or str):
+                The place of the added object. If None, the location is
+                selected randomly. Tuple values are used for providing exact
+                (x, y) coordinates. String values are copied to des-file as is.
+                Defaults to None.
+            cursetstate (str or None):
+                The cursed state of the object. Can be "blessed", "uncursed",
+                "cursed" or "random". Defaults to None (not used).
+        """
+        place = self._validate_place(place)
         assert isinstance(symbol, str) and len(symbol) == 1
         assert isinstance(
             name, str
@@ -217,11 +244,36 @@ GEOMETRY:center,center
     def add_object_area(
         self, area_name, name="random", symbol="%", cursestate=None
     ):
+        """Add an object in an area of the map defined by `area_name` variable.
+        See `add_object` for more details.
+        """
+
         place = f"rndcoord({area_name})"
         self.add_object(name, symbol, place, cursestate)
 
-    def add_monster(self, name="random", symbol=None, place="random", args=()):
-        place = self.validate_place(place)
+    def add_monster(self, name="random", symbol=None, place=None, args=()):
+        """Add a monster to the map.
+
+        Args:
+            name (str):
+                The name of the monster. Defaults to random.
+            symbol (str or None):
+                The symbol of the monster. The symbol should correspond to the
+                family of the specified mosnter. For example, "d" symbol
+                corresponds to canine monsters, so the name of the object should
+                also correspond to canines  (e.g. jackal). Not used when name is
+                "random". Defaults to None.
+            place (None, tuple or str):
+                The place of the added object. If None, the location is
+                selected randomly. Tuple values are used for providing exact
+                (x, y) coordinates. String values are copied to des-file as is.
+                Defaults to None.
+            args (tuple):
+                Additional monster arguments, e.g. "hostile" or "peaceful",
+                "asleep" or "awake", etc. For more details, see
+                https://nethackwiki.com/wiki/Des-file_format#MONSTER.
+        """
+        place = self._validate_place(place)
         assert (
             symbol == "random"
             or symbol is None
@@ -250,7 +302,21 @@ GEOMETRY:center,center
         self.footer += "\n"
 
     def add_terrain(self, coord, flag, in_footer=False):
-        coord = self.validate_coord(coord)
+        """Add terrain features to the map.
+
+        Args:
+            coord (tuple):
+                A tuple with length two representing the (x, y) coordinates.
+            flag (str):
+                The flag corresponding to the desired terrain feature. Should
+                belong to minihack.level_generator.MAP_CHARS. For more details,
+                see https://nethackwiki.com/wiki/Des-file_format#Map_characters
+            in_footer (bool):
+                Whether to define the terrain feature as an additional line
+                in the description file (True) or directly modify the map block
+                with the given flag (False). Defaults to False.
+        """
+        coord = self._validate_coord(coord)
         assert flag in MAP_CHARS
 
         if in_footer:
@@ -259,17 +325,34 @@ GEOMETRY:center,center
             x, y = coord
             self.map[y, x] = flag
 
-    def fill_terrain(self, type, x1, y1, x2, y2, flag):
-        """Fill the areas between (x1, y1) and (x2, y2) with feature descibed
-        in flag as follows:
+    def fill_terrain(
+        self,
+        type,
+        flag,
+        x1,
+        y1,
+        x2,
+        y2,
+    ):
+        """Fill the areas between (x1, y1) and (x2, y2) with the given dungeon
+        feature:
 
-        type:
-        - "rect" - An unfilled rectangle, containing just the edges and none
-            of the interior points.
-        - "fillrect" - A filled rectangle containing the edges and all of the
-            interior points.
-        - "line" - A straight line drawn from one pair of coordinates to the
-            other using Bresenham's line algorithm.
+        Args:
+            type (str):
+                The type of filling. "rect" indicates an unfilled rectangle,
+                containing just the edges and none of the interior points.
+                "fillrect" denotes filled rectangle containing the edges and
+                all of the interior points. "line" is used for a straight line
+                drawn from one pair of coordinates to the other using
+                Bresenham's line algorithm.
+            flag (str):
+                The flag corresponding to the desired terrain feature. Should
+                belong to minihack.level_generator.MAP_CHARS. For more details,
+                see https://nethackwiki.com/wiki/Des-file_format#Map_characters
+            x1 (int): x coordinate of point 1.
+            y1 (int): y coordinate of point 1.
+            x2 (int): x coordinate of point 2.
+            y2 (int): y coordinate of point 2.
         """
         assert type in ("rect", "fillrect", "line")
         assert flag in MAP_CHARS
@@ -286,13 +369,20 @@ GEOMETRY:center,center
     ):
         """Set a variable representing an area on the map.
 
-        type:
-        - "rect" - An unfilled rectangle, containing just the edges and none
-            of the interior points.
-        - "fillrect" - A filled rectangle containing the edges and all of the
-            interior points.
-        - "line" - A straight line drawn from one pair of coordinates to the
-            other using Bresenham's line algorithm.
+        Args:
+            var_name (str):
+                The name of the variable.
+            type (str):
+                The type of filling. "rect" indicates an unfilled rectangle,
+                containing just the edges and none of the interior points.
+                "fillrect" denotes filled rectangle containing the edges and
+                all of the interior points. "line" is used for a straight line
+                drawn from one pair of coordinates to the other using
+                Bresenham's line algorithm.
+            x1 (int): x coordinate of point 1.
+            y1 (int): y coordinate of point 1.
+            x2 (int): x coordinate of point 2.
+            y2 (int): y coordinate of point 2.
         """
 
         assert type in ("rect", "fillrect", "line")
@@ -300,42 +390,94 @@ GEOMETRY:center,center
             var_name = "$" + var_name
         self.footer += f"{var_name} = selection:{type} ({x1},{y1},{x2},{y2})\n"
 
-    def add_goal_pos(self, place="random"):
+    def add_goal_pos(self, place=None):
+        """Add a goal at the given place. Same as `add_stair_down`."""
         self.add_stair_down(place)
 
-    def add_stair_down(self, place="random"):
-        place = self.validate_place(place)
+    def add_stair_down(self, place=None):
+        """Add a stair down at the given place.
+
+        Args:
+            place (None, tuple or str):
+                The place of the added object. If None, the location is
+                selected randomly. Tuple values are used for providing exact
+                (x, y) coordinates. String values are copied to des-file as is.
+                Defaults to None.
+        """
+        place = self._validate_place(place)
         self.footer += f"STAIR:{place},down\n"
 
     def set_start_pos(self, coord):
-        self.add_stair_up(coord)
+        """Set the starting position of the agent.
+
+        Args:
+            coord (tuple):
+                A tuple with length two representing the (x, y) coordinates.
+        """
+        self._add_stair_up(coord)
 
     def set_start_rect(self, p1, p2):
-        self.add_stair_up_rect(p1, p2)
+        """Set the starting position of the agent.
 
-    def add_stair_up(self, coord):
+        Args:
+            coord (tuple):
+                A tuple with length two representing the (x, y) coordinates.
+        """
+        self._add_stair_up_rect(p1, p2)
+
+    def _add_stair_up(self, coord):
+        """Add a stair up at a given coordanate."""
         if self.stair_up_exist:
             return
-        x, y = self.validate_coord(coord)
+        x, y = self._validate_coord(coord)
         _x, _y = abs(x - 1), abs(y - 1)  # any different coordinate than (x,y)
         self.footer += f"BRANCH:({x},{y},{x},{y}),({_x},{_y},{_x},{_y})\n"
         self.stair_up_exist = True
 
-    def add_stair_up_rect(self, p1, p2):
+    def _add_stair_up_rect(self, p1, p2):
+        """Add a stair up at a given rectangle."""
         if self.stair_up_exist:
             return
-        x1, y1 = self.validate_coord(p1)
-        x2, y2 = self.validate_coord(p2)
+        x1, y1 = self._validate_coord(p1)
+        x2, y2 = self._validate_coord(p2)
         self.footer += f"BRANCH:({x1},{y1},{x2},{y2}),({0},{0},{0},{0})\n"
         self.stair_up_exist = True
 
-    def add_door(self, state, place="random"):
-        place = self.validate_place(place)
+    def add_door(self, state, place=None):
+        """Add a door.
+
+        Args:
+            state (str):
+                The state of the door. Possible values are "locked", "closed",
+                "open", "nodoor", and "random". Defaults to "random".
+            place (None, tuple or str):
+                The place of the added object. If None, the location is
+                selected randomly. Tuple values are used for providing exact
+                (x, y) coordinates. String values are copied to des-file as is.
+                Defaults to None.
+        """
+        place = self._validate_place(place)
         assert state in ["nodoor", "locked", "closed", "open", "random"]
         self.footer += f"DOOR:{state},{place}\n"
 
-    def add_altar(self, place="random", align="random", type="random"):
-        place = self.validate_place(place)
+    def add_altar(self, place=None, align="random", type="random"):
+        """Add an altar.
+
+        Args:
+            place (None, tuple or str):
+                The place of the added object. If None, the location is
+                selected randomly. Tuple values are used for providing exact
+                (x, y) coordinates. String values are copied to des-file as is.
+                Defaults to None.
+            align (str):
+                The alignment. Possible values are "noalign", "law", "neutral",
+                "chaos", "coaligned", "noncoaligned", and "random". Defaults
+                to "random".
+            type (str):
+                The type of the altar. Possible values are "sanctum", "shrine",
+                "altar", and "random". Defaults to random.
+        """
+        place = self._validate_place(place)
         assert align in [
             "noalign",
             "law",
@@ -348,55 +490,130 @@ GEOMETRY:center,center
         assert type in ["sanctum", "shrine", "altar", "random"]
         self.footer += f"ALTAR:{place},{align},{type}\n"
 
-    def add_sink(self, place="random"):
-        place = self.validate_place(place)
+    def add_sink(self, place=None):
+        """Add a sink.
+
+        Args:
+            place (None, tuple or str):
+                The place of the added object. If None, the location is
+                selected randomly. Tuple values are used for providing exact
+                (x, y) coordinates. String values are copied to des-file as is.
+                Defaults to None.
+        """
+        place = self._validate_place(place)
         self.footer += f"SINK:{place}\n"
 
-    def add_trap(self, name="teleport", place="random"):
-        place = self.validate_place(place)
+    def add_trap(self, name="teleport", place=None):
+        """Add a trap.
+
+        Args:
+            name (str):
+                The name of the trap. For possible values, see
+                `minihack.level_generator.TRAP_NAMES`. Defaults to "teleport".
+            place (None, tuple or str):
+                The place of the added object. If None, the location is
+                selected randomly. Tuple values are used for providing exact
+                (x, y) coordinates. String values are copied to des-file as is.
+                Defaults to None.
+        """
+        place = self._validate_place(place)
         assert name in TRAP_NAMES
         self.footer += f'TRAP:"{name}",{place}\n'
 
-    def add_fountain(self, place):
-        place = self.validate_place(place)
+    def add_fountain(self, place=None):
+        """Add a fountain.
+
+        Args:
+            place (None, tuple or str):
+                The place of the added object. If None, the location is
+                selected randomly. Tuple values are used for providing exact
+                (x, y) coordinates. String values are copied to des-file as is.
+                Defaults to None.
+        """
+        place = self._validate_place(place)
         self.footer += f"FOUNTAIN: {place}\n"
 
-    def add_gold(self, amount, place):
-        place = self.validate_place(place)
+    def add_gold(self, amount, place=None):
+        """Add gold on the floor.
+
+        Args:
+            amount (int):
+                The amount of gold.
+            place (None, tuple or str):
+                The place of the added object. If None, the location is
+                selected randomly. Tuple values are used for providing exact
+                (x, y) coordinates. String values are copied to des-file as is.
+                Defaults to None.
+        """
+        place = self._validate_place(place)
         assert amount > 0
         self.footer += f"GOLD: {amount},{place}\n"
 
-    def add_boulder(self, place="random"):
-        place = self.validate_place(place)
+    def add_boulder(self, place=None):
+        """Add gold on the floor.
+
+        Args:
+            amount (int):
+                The amount of gold.
+            place (None, tuple or str):
+                The place of the added object. If None, the location is
+                selected randomly. Tuple values are used for providing exact
+                (x, y) coordinates. String values are copied to des-file as is.
+                Defaults to None.
+        """
+        place = self._validate_place(place)
         self.footer += f'OBJECT: "boulder", {place}\n'
 
     def wallify(self):
+        """Wallify the map. Turns walls completely surrounded by other walls
+        into solid stone ' '.
+        """
         self.footer += "WALLIFY\n"
 
     def add_mazewalk(self, coord=None, dir="east"):
+        """Creates a random maze, starting from the given coordinate.
+
+        Mazewalk turns map grids with solid stone into floor. From the starting
+        position, it checks the mapgrid in the direction given, and if it's
+        solid stone, it will move there, and turn that place into floor. Then
+        it will choose a random direction, jump over the nearest mapgrid in that
+        direction, and check the next mapgrid for solid stone. If there is solid
+        stone, mazewalk will move that direction, changing that place and the
+        intervening mapgrid to floor. Normally the generated maze will not have
+        any loops.
+
+        Pointing mazewalk at that will create a small maze of trees, but unless
+        the map (at the place where it's put into the level) is surrounded by
+        something else than solid stone, mazewalk will get out of that MAP.
+        Substituting floor characters for some of the trees "in the maze" will
+        make loops in the maze, which are not otherwise possible. Substituting
+        floor characters for some of the trees at the edges of the map
+        will make maze entrances and exits at those places.
+
+        For more details see
+        https://nethackwiki.com/wiki/Des-file_format#MAZEWALK.
+
+        Args:
+             coord (tuple or None):
+                 A tuple with length two representing the (x, y) coordinates.
+                 If None is passed, the middle point of the map is selected.
+                 Defaults to None.
+            dir (str):
+                The direction of the start of the maze. Possible values are
+                "north", "east", "south", and "east". Defaults to "east".
+        """
         if coord is not None:
-            x, y = self.validate_coord(coord)
+            x, y = self._validate_coord(coord)
         else:
             x, y = self.x // 2, self.y // 2
 
         self.footer += f"MAZEWALK:({x},{y}),{dir}\n"
 
     def add_line(self, str):
+        """Add a custom string to the buttom of the description file.
+
+        Args:
+            str (str):
+                The string to be concatenated to the des-file.
+        """
         self.footer += str + "\n"
-
-
-class KeyRoomGenerator:
-    def __init__(self, room_size, subroom_size, lit):
-        des_path = os.path.join(PATH_DAT_DIR, "key_and_door_tmp.des")
-        with open(des_path) as f:
-            df = f.read()
-
-        df = df.replace("RS", str(room_size))
-        df = df.replace("SS", str(subroom_size))
-        if not lit:
-            df = df.replace("lit", str("unlit"))
-
-        self.des_file = df
-
-    def get_des(self):
-        return self.des_file

@@ -107,8 +107,8 @@ class MiniHackWoDPro(MiniHackSkill):
 -------------------------------------
 """
         lvl_gen = LevelGenerator(map=map, lit=True)
-        lvl_gen.add_stair_up((19, 1))
-        lvl_gen.add_stair_down((19, 7))
+        lvl_gen.set_start_pos((19, 1))
+        lvl_gen.add_goal_pos((19, 7))
         lvl_gen.add_monster(name="minotaur", place=(19, 9))
         lvl_gen.add_object("death", "/", cursestate="blessed")
         des_file = lvl_gen.get_des()

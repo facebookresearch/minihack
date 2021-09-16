@@ -1,12 +1,30 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackNavigation
-from minihack.level_generator import KeyRoomGenerator
+from minihack.level_generator import PATH_DAT_DIR
 from gym.envs import registration
 from nle.nethack import Command
 from nle import nethack
+import os
 
 MOVE_ACTIONS = tuple(nethack.CompassDirection)
 APPLY_ACTIONS = tuple(list(MOVE_ACTIONS) + [Command.PICKUP, Command.APPLY])
+
+
+class KeyRoomGenerator:
+    def __init__(self, room_size, subroom_size, lit):
+        des_path = os.path.join(PATH_DAT_DIR, "key_and_door_tmp.des")
+        with open(des_path) as f:
+            df = f.read()
+
+        df = df.replace("RS", str(room_size))
+        df = df.replace("SS", str(subroom_size))
+        if not lit:
+            df = df.replace("lit", str("unlit"))
+
+        self.des_file = df
+
+    def get_des(self):
+        return self.des_file
 
 
 class MiniHackKeyDoor(MiniHackNavigation):
@@ -33,7 +51,9 @@ class MiniHackKeyDoor(MiniHackNavigation):
                     self.env.step(ord(key_key))  # choose key from the inv
                     self.env.step(dir_key)  # select the door's direction
                     obs, done = self.env.step(ord("y"))  # press y
-                    obs, done = self._perform_known_steps(obs, done, exceptions=True)
+                    obs, done = self._perform_known_steps(
+                        obs, done, exceptions=True
+                    )
                     # Make sure the door is open
                     while True:
                         obs, done = self.env.step(dir_key)
@@ -61,24 +81,32 @@ class MiniHackKeyRoom5x5Fixed(MiniHackKeyDoor):
 
 class MiniHackKeyRoom5x5(MiniHackKeyRoom):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, room_size=5, subroom_size=2, lit=True, **kwargs)
+        super().__init__(
+            *args, room_size=5, subroom_size=2, lit=True, **kwargs
+        )
 
 
 class MiniHackKeyRoom5x5Dark(MiniHackKeyRoom):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, room_size=5, subroom_size=2, lit=False, **kwargs)
+        super().__init__(
+            *args, room_size=5, subroom_size=2, lit=False, **kwargs
+        )
 
 
 class MiniHackKeyRoom15x15(MiniHackKeyRoom):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
-        super().__init__(*args, room_size=15, subroom_size=5, lit=True, **kwargs)
+        super().__init__(
+            *args, room_size=15, subroom_size=5, lit=True, **kwargs
+        )
 
 
 class MiniHackKeyRoom15x15Dark(MiniHackKeyRoom):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
-        super().__init__(*args, room_size=15, subroom_size=5, lit=False, **kwargs)
+        super().__init__(
+            *args, room_size=15, subroom_size=5, lit=False, **kwargs
+        )
 
 
 registration.register(

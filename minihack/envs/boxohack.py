@@ -90,7 +90,7 @@ class BoxoHack(MiniHackNavigation):
             lvl_gen.add_boulder(b)
         for f in info["fountains"]:
             lvl_gen.add_fountain(f)
-        lvl_gen.add_stair_up(info["player"])
+        lvl_gen.set_start_pos(info["player"])
         return lvl_gen
 
     def reset(self, wizkit_items=None):
