@@ -73,7 +73,7 @@ TRAP_NAMES = [
 class LevelGenerator:
     """
     LevelGenerator provides a convenient Python interface for quickly writing
-    description files for MiniHack. he LevelGenerator class can be used to
+    description files for MiniHack. The LevelGenerator class can be used to
     create MAZE-type levels with specified heights and widths, and can then
     fill those levels with objects, monsters and terrain, and specify the start
     point of the level.
@@ -89,8 +89,8 @@ class LevelGenerator:
             The height of map. Only used when `map=None`. Defaults to 8.
         fill (str):
             A character describing the environment feature that fills the
-            map. Only used when `map=None`. Defaults to ".", which corresponds
-            to floor.
+            map. Only used when ``map=None``. Defaults to ".", which
+            corresponds to floor.
         lit (bool):
             Whether the layout is lit or not. This affects the observations the
             agent will receive. If an area is not lit, the agent can only see
@@ -98,7 +98,7 @@ class LevelGenerator:
         flags (tuple):
             Flags of the environment. For the full list, see
             https://nethackwiki.com/wiki/Des-file_format#FLAGS.
-            Defaults to ("hardfloor").
+            Defaults to ("hardfloor",).
         solidfill (str):
             A character describing the environment feature used for filling
             solid / unspecified parts of the map. Defaults to " ", which
@@ -245,7 +245,7 @@ GEOMETRY:center,center
         self, area_name, name="random", symbol="%", cursestate=None
     ):
         """Add an object in an area of the map defined by `area_name` variable.
-        See `add_object` for more details.
+        See ``add_object`` for more details.
         """
 
         place = f"rndcoord({area_name})"

@@ -102,7 +102,7 @@ class MiniHack(NetHackStaircase):
     derived from NLE base class.
 
     Note that this class itself is not used for creating new environment
-    instances. Instead, `MiniHackNavigation` and `MiniHackSkill` provide a
+    instances. Instead, ``MiniHackNavigation`` and ``MiniHackSkill`` provide a
     more convenient interface for doing this, both of which are directly
     derived from MiniHack for specific types of environments.
     """

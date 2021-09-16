@@ -53,13 +53,16 @@ class Event(ABC):
     ):
         """Initialise the Event.
 
-        :param reward: The reward for the event occuring
-        :param repeatable: Whether the event can occur repeated (i.e. if the
-            reward can be collected repeatedly
-        :param terminal_required: Whether this event is required for the
-            episode to terminate
-        :param terminal_sufficient: Whether this event causes the episode to
-            terminate on it's own
+        Args:
+            reward (float):
+                The reward for the event occuring
+            repeatable (bool):
+                Whether the event can occur repeated (i.e. if the reward can be
+                collected repeatedly
+            terminal_required (bool):
+                Whether this event is required for the episode to terminate.
+            terminal_sufficient (bool):
+                Whether this event causes the episode to terminate on its own.
         """
         self.reward = reward
         self.repeatable = repeatable
@@ -72,16 +75,22 @@ class Event(ABC):
         """Check whether the environment is in the state such that this event
         has occured.
 
-        :param env: The MiniHack environment in question.
-        :param previous_observation: The previous state observation.
-        :param action: The action taken.
-        :param observation: The current observation.
-        :returns: A float reward.
+        Args:
+            env (MiniHack):
+                The MiniHack environment in question.
+            previous_observation (tuple):
+                The previous state observation.
+            action (int):
+                The action taken.
+            observation (tuple):
+                The current observation.
+        Returns:
+            float: The reward.
         """
         pass
 
     def reset(self):
-        """Reset the event, if there's any state necessary."""
+        """Reset the event, if there is any state necessary."""
         self.achieved = False
 
     def _set_achieved(self) -> float:
@@ -95,7 +104,9 @@ def _standing_on_top(env, location):
 
 
 class LocActionEvent(Event):
-    """An event which checks whether `action` is performed at `loc` location."""
+    """An event which checks whether an action is performed at a specified
+    location.
+    """
 
     def __init__(
         self,
@@ -105,15 +116,20 @@ class LocActionEvent(Event):
     ):
         """Initialise the Event.
 
-        :param loc: The name of the location to reach
-        :param action: The action to perform
-        :param reward: The reward for the event occuring
-        :param repeatable: Whether the event can occur repeated (i.e. if the
-            reward can be collected repeatedly
-        :param terminal_required: Whether this event is required for the
-            episode to terminate
-        :param terminal_sufficient: Whether this event causes the episode to
-            terminate on it's own
+        Args:
+            loc (str):
+                The name of the location to reach.
+            action (int):
+                The action to perform.
+            reward (float):
+                The reward for the event occuring
+            repeatable (bool):
+                Whether the event can occur repeated (i.e. if the reward can be
+                collected repeatedly
+            terminal_required (bool):
+                Whether this event is required for the episode to terminate.
+            terminal_sufficient (bool):
+                Whether this event causes the episode to terminate on its own.
         """
         super().__init__(*args)
         self.loc = loc
@@ -121,6 +137,7 @@ class LocActionEvent(Event):
         self.status = False
 
     def check(self, env, previous_observation, action, observation) -> float:
+        del previous_observation, observation
         if env._actions[action] == self.action and _standing_on_top(
             env, self.loc
         ):
@@ -137,43 +154,52 @@ class LocActionEvent(Event):
 
 
 class LocEvent(Event):
-    """An event which checks whether `loc` location is reached."""
+    """An event which checks whether a specified location is reached."""
 
     def __init__(self, *args, loc: str):
         super().__init__(*args)
         """Initialise the Event.
 
-        :param loc: The name of the location to reach.
-        :param reward: The reward for the event occuring
-        :param repeatable: Whether the event can occur repeated (i.e. if the
-            reward can be collected repeatedly
-        :param terminal_required: Whether this event is required for the
-            episode to terminate
-        :param terminal_sufficient: Whether this event causes the episode to
-            terminate on it's own
+        Args:
+            loc (str):
+                The name of the location to reach.
+            reward (float):
+                The reward for the event occuring
+            repeatable (bool):
+                Whether the event can occur repeated (i.e. if the reward can be
+                collected repeatedly
+            terminal_required (bool):
+                Whether this event is required for the episode to terminate.
+            terminal_sufficient (bool):
+                Whether this event causes the episode to terminate on its own.
         """
         self.loc = loc
 
     def check(self, env, previous_observation, action, observation) -> float:
+        del previous_observation, action, observation
         if _standing_on_top(env, self.loc):
             return self._set_achieved()
         return 0.0
 
 
 class CoordEvent(Event):
-    """An event which occurs when reaching certain `coordinates`."""
+    """An event which occurs when reaching certain coordinates."""
 
     def __init__(self, *args, coordinates: Tuple[int, int]):
         """Initialise the Event.
 
-        :param coordinates: The coordinates to reach for the event.
-        :param reward: The reward for the event occuring
-        :param repeatable: Whether the event can occur repeated (i.e. if the
-            reward can be collected repeatedly
-        :param terminal_required: Whether this event is required for the
-            episode to terminate
-        :param terminal_sufficient: Whether this event causes the episode to
-            terminate on it's own
+        Args:
+            coordinates (tuple):
+                The coordinates to reach for the event.
+            reward (float):
+                The reward for the event occuring
+            repeatable (bool):
+                Whether the event can occur repeated (i.e. if the reward can be
+                collected repeatedly
+            terminal_required (bool):
+                Whether this event is required for the episode to terminate.
+            terminal_sufficient (bool):
+                Whether this event causes the episode to terminate on its own.
         """
         super().__init__(*args)
         self.coordinates = coordinates
@@ -191,19 +217,24 @@ class MessageEvent(Event):
     def __init__(self, *args, messages: List[str]):
         """Initialise the Event.
 
-        :param messages: The messages to be seen to trigger the event.
-        :param reward: The reward for the event occuring
-        :param repeatable: Whether the event can occur repeated (i.e. if the
-            reward can be collected repeatedly
-        :param terminal_required: Whether this event is required for the
-            episode to terminate
-        :param terminal_sufficient: Whether this event causes the episode to
-            terminate on it's own
+        Args:
+            messages (list):
+                The messages to be seen to trigger the event.
+            reward (float):
+                The reward for the event occuring
+            repeatable (bool):
+                Whether the event can occur repeated (i.e. if the reward can be
+                collected repeatedly
+            terminal_required (bool):
+                Whether this event is required for the episode to terminate.
+            terminal_sufficient (bool):
+                Whether this event causes the episode to terminate on its own.
         """
         super().__init__(*args)
         self.messages = messages
 
     def check(self, env, previous_observation, action, observation) -> float:
+        del previous_observation, action
         curr_msg = (
             observation[env._original_observation_keys.index("message")]
             .tobytes()
@@ -216,6 +247,10 @@ class MessageEvent(Event):
 
 
 class AbstractRewardManager(ABC):
+    """This is the abstract base class for the ``RewardManager`` that is used
+    for defining custom reward functions.
+    """
+
     def __init__(self):
         self.terminal_sufficient = None
         self.terminal_required = None
@@ -225,7 +260,8 @@ class AbstractRewardManager(ABC):
         """Return reward calculated and accumulated in check_episode_end_call,
         and then reset it.
 
-        :returns: Float reward.
+        Returns:
+            flaot: The reward.
         """
         raise NotImplementedError
 
@@ -234,13 +270,19 @@ class AbstractRewardManager(ABC):
         self, env, previous_observation, action, observation
     ) -> bool:
         """Check if the task has ended, and accumulate any reward from the
-        transition in self._reward.
+        transition in ``self._reward``.
 
-        :param env: The MiniHack environment in question.
-        :param previous_observation: The previous state observation.
-        :param action: The action taken.
-        :param observation: The current observation.
-        :returns: Boolean whether the episode has ended
+        Args:
+            env (MiniHack):
+                The MiniHack environment in question.
+            previous_observation (tuple):
+                The previous state observation.
+            action (int):
+                The action taken.
+            observation (tuple):
+                The current observation.
+        Returns:
+            bool: Boolean whether the episode has ended.
 
         """
         raise NotImplementedError
@@ -256,24 +298,25 @@ class RewardManager(AbstractRewardManager):
     MiniHack tasks.
 
     Some notes on the ordering or calls in the MiniHack/NetHack base class:
-    * `step(action)` is called on the environment
-    * Within `step`, first a copy of the last observation is made, and then the
+
+    - ``step(action)`` is called on the environment
+    - Within ``step``, first a copy of the last observation is made, and then the
       underlying NetHack game is stepped
-    * Then `_is_episode_end(observation)` is called to check whether this the
+    - Then ``_is_episode_end(observation)`` is called to check whether this the
       episode has ended (and this is overridden if we've gone over our
       max_steps, or the underlying NetHack game says we're done (i.e. we died)
-    * Then `_reward_fn(last_observation, observation)` is called to calculate
+    - Then ``_reward_fn(last_observation, observation)`` is called to calculate
       the reward at this time-step
-    * if `end_status` tells us the game is done, we quit the game
-    * then `step` returns the observation, calculated reward, done and some stats
+    - if ``end_status`` tells us the game is done, we quit the game
+    - then ``step`` returns the observation, calculated reward, done, and some
+    statistics.
 
     All this means that we need to check whether an observation is terminal in
-    `_is_episode_end` before we're calculating the reward function.
+    ``_is_episode_end`` before we're calculating the reward function.
 
-    The call of `_is_episode_end` in `MiniHack` will call `check_episode_end_call` in
-    this class, which checks for termination and accumulates any reward, which
-    is returned and zeroed in `collect_reward`
-
+    The call of ``_is_episode_end`` in ``MiniHack`` will call
+    ``check_episode_end_call`` in this class, which checks for termination and
+    accumulates any reward, which is returned and zeroed in ``collect_reward``.
     """
 
     def __init__(self):
@@ -290,14 +333,16 @@ class RewardManager(AbstractRewardManager):
     def add_custom_reward_fn(
         self, reward_fn: Callable[[MiniHack, Any, int, Any], float]
     ) -> None:
-        """Add a custom reward function which is called every step to calculate
-        reward.
+        """Add a custom reward function which is called every after step to
+        calculate reward.
 
         The function should be a callable which takes the environment, previous
         observation, action and current observation and returns a float reward.
 
-        :param reward_fn: A reward function which takes an environment,
-            previous observation, action, next observation and returns a reward.
+        Args:
+            reward_fn (Callable[[MiniHack, Any, int, Any], float]):
+                A reward function which takes an environment, previous
+                observation, action, next observation and returns a reward.
 
         """
         self.custom_reward_functions.append(reward_fn)
@@ -305,7 +350,9 @@ class RewardManager(AbstractRewardManager):
     def add_event(self, event: Event):
         """Add an event to be managed by the reward manager.
 
-        :param event: The event to be added.
+        Args:
+            event (Event):
+                The event to be added.
         """
         self.events.append(event)
 
@@ -359,11 +406,20 @@ class RewardManager(AbstractRewardManager):
     ):
         """Add an event which is triggered when `name` is eaten.
 
-        :param name: The (string) name of the object being eaten.
-        :param reward: The reward for this event.
-        :param repeatable: Whether this event can be triggered multiple times.
-        :param terminal_required: Whether this event is required for termination.
-        :param terminal_sufficient: Whether this event is sufficient for termination.
+        Args:
+            name (str):
+                The name of the object being eaten.
+            reward (float):
+                The reward for this event. Defaults to 1.
+            repeatable (bool):
+                Whether this event can be triggered multiple times. Defaults to
+                False.
+            terminal_required (bool):
+                Whether this event is required for termination. Defaults to
+                True.
+            terminal_sufficient (bool):
+                Whether this event is sufficient for termination. Defaults to
+                False.
         """
         msgs = [
             f"This {name} is delicious",
@@ -388,13 +444,22 @@ class RewardManager(AbstractRewardManager):
         terminal_required=True,
         terminal_sufficient=False,
     ):
-        """Add event which is triggered when `name` is wielded.
+        """Add event which is triggered when a specific weapon is wielded.
 
-        :param name: The name of the weapon to be wielded
-        :param reward: The reward for this event.
-        :param repeatable: Whether this event can be triggered multiple times.
-        :param terminal_required: Whether this event is required for termination.
-        :param terminal_sufficient: Whether this event is sufficient for termination.
+        Args:
+            name (str):
+                The name of the weapon to be wielded.
+            reward (float):
+                The reward for this event. Defaults to 1.
+            repeatable (bool):
+                Whether this event can be triggered multiple times. Defaults to
+                False.
+            terminal_required (bool):
+                Whether this event is required for termination. Defaults to
+                True.
+            terminal_sufficient (bool):
+                Whether this event is sufficient for termination. Defaults to
+                False.
         """
         msgs = [
             f"{name} wields itself to your hand!",
@@ -412,13 +477,22 @@ class RewardManager(AbstractRewardManager):
         terminal_required=True,
         terminal_sufficient=False,
     ):
-        """Add event which is triggered when `name` is worn.
+        """Add event which is triggered when a specific armor is worn.
 
-        :param name: The name of the armour to be worn.
-        :param reward: The reward for this event.
-        :param repeatable: Whether this event can be triggered multiple times.
-        :param terminal_required: Whether this event is required for termination.
-        :param terminal_sufficient: Whether this event is sufficient for termination.
+        Args:
+            name (str):
+                The name of the armor to be worn.
+            reward (float):
+                The reward for this event. Defaults to 1.
+            repeatable (bool):
+                Whether this event can be triggered multiple times. Defaults to
+                False.
+            terminal_required (bool):
+                Whether this event is required for termination. Defaults to
+                True.
+            terminal_sufficient (bool):
+                Whether this event is sufficient for termination. Defaults to
+                False.
         """
         msgs = [f"You are now wearing a {name}"]
         self._add_message_event(
@@ -434,10 +508,18 @@ class RewardManager(AbstractRewardManager):
     ):
         """Add event which is triggered when an amulet is worn.
 
-        :param reward: The reward for this event.
-        :param repeatable: Whether this event can be triggered multiple times.
-        :param terminal_required: Whether this event is required for termination.
-        :param terminal_sufficient: Whether this event is sufficient for termination.
+        Args:
+            reward (float):
+                The reward for this event. Defaults to 1.
+            repeatable (bool):
+                Whether this event can be triggered multiple times. Defaults to
+                False.
+            terminal_required (bool):
+                Whether this event is required for termination. Defaults to
+                True.
+            terminal_sufficient (bool):
+                Whether this event is sufficient for termination. Defaults to
+                False.
         """
         self._add_message_event(
             ["amulet (being worn)."],
@@ -455,15 +537,23 @@ class RewardManager(AbstractRewardManager):
         terminal_required=True,
         terminal_sufficient=False,
     ):
-        """Add event which is triggered when `name` is killed.
+        """Add event which is triggered when a specified monster is killed.
 
-        :param name: The name of the monster to be killed.
-        :param reward: The reward for this event.
-        :param repeatable: Whether this event can be triggered multiple times.
-        :param terminal_required: Whether this event is required for termination.
-        :param terminal_sufficient: Whether this event is sufficient for termination.
+        Args:
+            name (str):
+                The name of the monster to be killed.
+            reward (float):
+                The reward for this event. Defaults to 1.
+            repeatable (bool):
+                Whether this event can be triggered multiple times. Defaults to
+                False.
+            terminal_required (bool):
+                Whether this event is required for termination. Defaults to
+                True.
+            terminal_sufficient (bool):
+                Whether this event is sufficient for termination. Defaults to
+                False.
         """
-        # TODO investigate
         self._add_message_event(
             [f"You kill the {name}"],
             reward,
@@ -480,13 +570,22 @@ class RewardManager(AbstractRewardManager):
         terminal_required=True,
         terminal_sufficient=False,
     ):
-        """Add event which is triggered when any `msgs` are seen..
+        """Add event which is triggered when any of the given messages are seen.
 
-        :param msgs: A list of messages to trigger this event.
-        :param reward: The reward for this event.
-        :param repeatable: Whether this event can be triggered multiple times.
-        :param terminal_required: Whether this event is required for termination.
-        :param terminal_sufficient: Whether this event is sufficient for termination.
+        Args:
+            msgs (List[str]):
+                The name of the monster to be killed.
+            reward (float):
+                The reward for this event. Defaults to 1.
+            repeatable (bool):
+                Whether this event can be triggered multiple times. Defaults to
+                False.
+            terminal_required (bool):
+                Whether this event is required for termination. Defaults to
+                True.
+            terminal_sufficient (bool):
+                Whether this event is sufficient for termination. Defaults to
+                False.
         """
         self._add_message_event(
             msgs, reward, repeatable, terminal_required, terminal_sufficient
@@ -501,14 +600,24 @@ class RewardManager(AbstractRewardManager):
         terminal_required=True,
         terminal_sufficient=False,
     ):
-        """Add event which is triggered on taking `action_name` at `place_name`..
+        """Add event which is triggered on taking a given action at a given place.
 
-        :param place_name: The name of place to trigger the event.
-        :param action_name: The name of the action to trigger the event.
-        :param reward: The reward for this event.
-        :param repeatable: Whether this event can be triggered multiple times.
-        :param terminal_required: Whether this event is required for termination.
-        :param terminal_sufficient: Whether this event is sufficient for termination.
+        Args:
+            place_name (str):
+                The name of the place to trigger the event.
+            action_name (int):
+                The name of the action to trigger the event.
+            reward (float):
+                The reward for this event. Defaults to 1.
+            repeatable (bool):
+                Whether this event can be triggered multiple times. Defaults to
+                False.
+            terminal_required (bool):
+                Whether this event is required for termination. Defaults to
+                True.
+            terminal_sufficient (bool):
+                Whether this event is sufficient for termination. Defaults to
+                False.
         """
         self._add_loc_action_event(
             place_name,
@@ -527,13 +636,23 @@ class RewardManager(AbstractRewardManager):
         terminal_required=True,
         terminal_sufficient=False,
     ):
-        """Add event which is triggered on when reaching `coordinates`.
+        """Add event which is triggered on when reaching the specified
+        coordinates.
 
-        :param coordinates: The coordinates to be reached (tuple of ints).
-        :param reward: The reward for this event.
-        :param repeatable: Whether this event can be triggered multiple times.
-        :param terminal_required: Whether this event is required for termination.
-        :param terminal_sufficient: Whether this event is sufficient for termination.
+        Args:
+            coordinates (Tuple[int, int]):
+                The coordinates to be reached (tuple of ints).
+            reward (float):
+                The reward for this event. Defaults to 1.
+            repeatable (bool):
+                Whether this event can be triggered multiple times. Defaults to
+                False.
+            terminal_required (bool):
+                Whether this event is required for termination. Defaults to
+                True.
+            terminal_sufficient (bool):
+                Whether this event is sufficient for termination. Defaults to
+                False.
         """
         self.add_event(
             CoordEvent(
@@ -553,13 +672,22 @@ class RewardManager(AbstractRewardManager):
         terminal_required=True,
         terminal_sufficient=False,
     ):
-        """Add event which is triggered on reaching `location`.
+        """Add event which is triggered on reaching a specified location.
 
-        :param name: The location to be reached.
-        :param reward: The reward for this event.
-        :param repeatable: Whether this event can be triggered multiple times.
-        :param terminal_required: Whether this event is required for termination.
-        :param terminal_sufficient: Whether this event is sufficient for termination.
+        Args:
+            name (str):
+                The name of the location to be reached.
+            reward (float):
+                The reward for this event. Defaults to 1.
+            repeatable (bool):
+                Whether this event can be triggered multiple times. Defaults to
+                False.
+            terminal_required (bool):
+                Whether this event is required for termination. Defaults to
+                True.
+            terminal_sufficient (bool):
+                Whether this event is sufficient for termination. Defaults to
+                False.
         """
         self.add_event(
             LocEvent(
@@ -579,9 +707,17 @@ class RewardManager(AbstractRewardManager):
     def _standing_on_top(self, env, name):
         """Returns whether the agents is standing on top of the given object.
         The object name (e.g. altar, sink, fountain) must exist on the map.
-        The function will return True if the object name is not in the screen
-        descriptions (with agent info taking the space of the corresponding
-        tile rather than the object).
+
+        Args:
+            env (MiniHack):
+                The environment object.
+            name (str):
+                The name of the object.
+
+        Returns:
+            bool: True if the object name is not in the screen descriptions
+            with agent info taking the space of the corresponding tile rather
+            than the object).
         """
         return not env.screen_contains(name)
 
@@ -632,9 +768,9 @@ class RewardManager(AbstractRewardManager):
 
 
 class SequentialRewardManager(RewardManager):
-    """A reward manager that ignores terminal_required and terminal_sufficient,
-    and just require every event is completed in the order it is added to the
-    reward manager.
+    """A reward manager that ignores ``terminal_required`` and
+    ``terminal_sufficient``, and just require every event is completed in the
+    order it is added to the reward manager.
     """
 
     def __init__(self):
@@ -659,8 +795,8 @@ class GroupedRewardManager(AbstractRewardManager):
     """Operates as a collection of reward managers.
 
     The rewards from each reward manager are summed, and termination can be
-    specified by terminal_sufficient and terminal_required on each reward
-    manager.
+    specified by ``terminal_sufficient`` and ``terminal_required`` on each
+    reward manager.
 
     Given this can be nested arbitrarily deeply (as each reward manager could
     itself be a GroupedRewardManager), this enables complex specification of
@@ -696,15 +832,18 @@ class GroupedRewardManager(AbstractRewardManager):
         terminal_required: bool,
         terminal_sufficient: bool,
     ) -> None:
-        """Add a new reward manager, with `terminal_sufficient` and
-        `terminal_required` acting as for individual events.
+        """Add a new reward manager, with ``terminal_sufficient`` and
+        ``terminal_required`` acting as for individual events.
 
-        :param: reward_manager: The reward manager to be added.
-        :param terminal_required: Whether this reward manager terminating is
-                                  required for the episode to terminate.
-        :param terminal_sufficient: Whether this reward manager terminating is
-                                    sufficient for the episode to terminate.
-
+        Args:
+            reward_manager (RewardManager):
+                The reward manager to be added.
+            terminal_required (bool):
+                Whether this reward manager terminating is required for the
+                episode to terminate.
+            terminal_sufficient:
+                Whether this reward manager terminating is sufficient for the
+                episode to terminate.
         """
         reward_manager.terminal_required = terminal_required
         reward_manager.terminal_sufficient = terminal_sufficient
