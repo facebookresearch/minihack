@@ -5,16 +5,29 @@ from gym.envs import registration
 
 
 class MiniHackSkill(MiniHack):
-    """Base environment skill acquisition tasks."""
+    """The base class for MiniHack Skill Acquisition tasks.
+
+    Navigation tasks have the following characteristics:
+
+    - The full action space is used.
+    - Yes/No questions are enabled, but the menu-selection actions are disabled
+      by default.
+    - The character is set to a neutral human male caveman.
+    - Maximum episode limit defaults to 250 (can be overriden via the
+      `max_episode_steps` argument)
+    - The default goal is to reach the stair down. This can be changed using
+      a reward manager.
+    - Auto-pick is disabled by default.
+    - Inventory strings and corresponding letter are also included as part of
+      the agent observations.
+    """
 
     def __init__(
         self,
         *args,
         des_file,
-        reward_manager=None,
         **kwargs,
     ):
-        """If reward_manager == None, the goal is to reach the staircase."""
         # Autopickup off by defautlt
         kwargs["autopickup"] = kwargs.pop("autopickup", False)
         # Allowing one-letter menu questions
@@ -35,9 +48,7 @@ class MiniHackSkill(MiniHack):
         kwargs["observation_keys"] = kwargs.pop(
             "observation_keys", default_keys
         )
-        super().__init__(
-            *args, des_file=des_file, reward_manager=reward_manager, **kwargs
-        )
+        super().__init__(*args, des_file=des_file, **kwargs)
 
 
 registration.register(

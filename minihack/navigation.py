@@ -9,16 +9,20 @@ MOVE_ACTIONS = tuple(nethack.CompassDirection)
 
 
 class MiniHackNavigation(MiniHack):
-    """Base class for maze-type task.
+    """The base class for MiniHack Navigation tasks.
 
-    Maze environments have
-    - Restricted action space (move only by default)
-    - No pet
-    - One-letter menu questions are NOT allowed by default
-    - Restricted observations, only glyphs by default
-    - No random monster generation
+    Navigation tasks have the following characteristics:
 
-    The goal is to reach the staircase.
+    - Restricted action space: By default, the agent can only move towards
+      eight compass directions.
+    - Yes/No questions, as well as menu-selection actions are disabled by
+      default.
+    - The character is set to chaotic human male rogue.
+    - Auto-pick is disabled by default.
+    - Maximum episode limit defaults to 100 (can be overriden via the
+      `max_episode_steps` argument)
+    - The default goal is to reach the stair down. This can be changed using
+      a reward manager.
     """
 
     def __init__(self, *args, des_file: str = None, **kwargs):
@@ -28,7 +32,7 @@ class MiniHackNavigation(MiniHack):
         kwargs["allow_all_yn_questions"] = kwargs.pop(
             "allow_all_yn_questions", False
         )
-        # Perform know steps
+        # Perform known steps
         kwargs["allow_all_modes"] = kwargs.pop("allow_all_modes", False)
         # Play with Rogue character by default
         kwargs["character"] = kwargs.pop("character", "rog-hum-cha-mal")
