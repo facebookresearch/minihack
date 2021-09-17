@@ -467,9 +467,9 @@ class MiniHack(NetHackStaircase):
         }
         return index_to_dir_dict[index]
 
-    def get_direction_obj(self, name, observation=None):
-        """Find the game direction of the (first) object in neighboring nine
-        tiles that contains given name in its description.
+    def get_object_direction(self, name, observation=None):
+        """Find the game direction of the (first) object in the neighboring
+        nine tiles that contains the given name in its description.
 
         Args:
             name (str): Name of the object.

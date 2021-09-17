@@ -44,7 +44,7 @@ class MiniHackKeyDoor(MiniHackNavigation):
             # if key is in the inventory
             if key_key is not None:
                 # Check if there is a closed door nearby
-                dir_key = self.get_direction_obj("closed door")
+                dir_key = self.get_object_direction("closed door")
                 if dir_key is not None:
                     # Perform the following NetHack steps
                     self.env.step(Command.APPLY)  # press apply
@@ -60,7 +60,10 @@ class MiniHackKeyDoor(MiniHackNavigation):
                         obs, done = self._perform_known_steps(
                             obs, done, exceptions=True
                         )
-                        if self.get_direction_obj("closed door", obs) is None:
+                        if (
+                            self.get_object_direction("closed door", obs)
+                            is None
+                        ):
                             break
 
         obs, reward, done, info = super().step(action)
