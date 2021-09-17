@@ -103,7 +103,7 @@ if __name__ == "__main__":
         install_requires=[
             "nle>=0.7.3",
             "numpy>=1.16",
-            "gym>=0.15",
+            "gym<0.20",
             "Pillow>=8.3.1",
         ],
         extras_require=extras_deps,
