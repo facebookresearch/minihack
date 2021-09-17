@@ -20,8 +20,8 @@ class MiniHackMazeWalk(MiniHackNavigation):
             # Fill the level with concrete walls " " surrounded by regular walls
             w, h = w + 2, h + 2
             lvl_gen = LevelGenerator(w=w, h=h, flags=flags)
-            lvl_gen.fill_terrain("rect", 0, 0, w - 1, h - 1, "-")
-            lvl_gen.fill_terrain("fillrect", 1, 1, w - 2, h - 2, " ")
+            lvl_gen.fill_terrain("rect", "-", 0, 0, w - 1, h - 1)
+            lvl_gen.fill_terrain("fillrect", " ", 1, 1, w - 2, h - 2)
         else:
             lvl_gen = LevelGenerator(w=w, h=h, fill=" ", flags=flags)
 
