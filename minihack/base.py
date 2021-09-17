@@ -25,9 +25,7 @@ MH_FULL_ACTIONS = list(FULL_ACTIONS)
 # MH_FULL_ACTIONS.remove(nethack.MiscDirection.DOWN)
 MH_FULL_ACTIONS.remove(nethack.MiscDirection.UP)
 MH_FULL_ACTIONS = tuple(MH_FULL_ACTIONS)
-HACKDIR = os.getenv(
-    "HACKDIR", pkg_resources.resource_filename("nle", "nethackdir")
-)
+HACKDIR = pkg_resources.resource_filename("nle", "nethackdir")
 
 RGB_MAX_VAL = 255
 N_TILE_PIXEL = 16
