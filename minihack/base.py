@@ -488,7 +488,9 @@ class MiniHack(NetHackStaircase):
         return None
 
     def get_neighbor_descriptions(self, observation=None):
-        """Returns the description of nine neighboring glyphs of the agent."""
+        """Returns the descriptions of nine neighboring grids around the
+        agent.
+        """
         if observation is None:
             observation = self.last_observation
         blstats = observation[self._blstats_index]
@@ -502,7 +504,7 @@ class MiniHack(NetHackStaircase):
         return neighbors
 
     def get_neighbor_wiki_pages(self, observation=None):
-        """Returns the page content of the neighboring objects in NetHack
+        """Returns the page contents of the neighboring objects from NetHack
         wiki.
         """
         if not self.use_wiki:
