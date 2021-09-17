@@ -18,7 +18,7 @@ class MiniHackNavigation(MiniHack):
     - Yes/No questions, as well as menu-selection actions are disabled by
       default.
     - The character is set to chaotic human male rogue.
-    - Auto-pick is disabled by default.
+    - Auto-pick is enabled by default.
     - Maximum episode limit defaults to 100 (can be overriden via the
       `max_episode_steps` argument)
     - The default goal is to reach the stair down. This can be changed using
