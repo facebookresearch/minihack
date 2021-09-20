@@ -29,7 +29,7 @@ Steps to reproduce the behavior:
 ## Environment
 
 Please copy and paste the output from running our
-[environment collection script](https://raw.githubusercontent.com/MiniHackPlanet/minihack/master/minihack/scripts/collect_env.py)
+[environment collection script](https://raw.githubusercontent.com/facebookresearch/minihack/main/minihack/scripts/collect_env.py)
 (or fill out the checklist below manually).
 
 You can get the script and run it with:
@@ -38,7 +38,7 @@ You can get the script and run it with:
 $ python -m minihack.scripts.collect_env
 
 # or instead pull it from github
-wget https://raw.githubusercontent.com/MiniHackPlanet/minihack/master/minihack/scripts/collect_env.py
+wget https://raw.githubusercontent.com/facebookresearch/minihack/main/minihack/scripts/collect_env.py
 # For security purposes, please check the contents of collect_env.py before running it.
 python collect_env.py
 ```
