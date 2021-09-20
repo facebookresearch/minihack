@@ -79,7 +79,7 @@ MINIHACK_SPACE_FUNCS = {
     ),
 }
 
-MH_DEFAULT_OBS_KEYS = (
+MH_DEFAULT_OBS_KEYS = [
     "glyphs",
     "chars",
     "colors",
@@ -90,7 +90,7 @@ MH_DEFAULT_OBS_KEYS = (
     "specials_crop",
     "blstats",
     "message",
-)
+]
 
 
 class MiniHack(NetHackStaircase):
@@ -146,7 +146,7 @@ class MiniHack(NetHackStaircase):
                 Whether to use the NetHack wiki. Defaults to False.
             autopickup (bool):
                 Turning autopickup on or off. Defaults to True.
-            observation_keys (tuple):
+            observation_keys (list):
                 The keys of observations returned after every timestep by the
                 environment as a dictionary. Defaults to
                 ``minihack.base.MH_DEFAULT_OBS_KEYS``.
@@ -176,9 +176,6 @@ class MiniHack(NetHackStaircase):
                 maximum amount of steps allowed before the game is forcefully
                 quit.  In such cases, ``info["end_status"]`` ill be equal to
                 ``StepStatus.ABORTED``. Defaults to 5000. Inherited from `NLE`.
-            observation_keys (list):
-                keys to use when creating the observation. Defaults to all.
-                Inherited from `NLE`.
             actions (list):
                 list of actions. If None, the full action space will
                 be used, i.e. ``nle.nethack.ACTIONS``. Defaults to None.
@@ -216,15 +213,16 @@ class MiniHack(NetHackStaircase):
         kwargs["spawn_monsters"] = kwargs.pop("spawn_monsters", False)
 
         # MiniHack's observation keys are kept separate
-        self._minihack_obs_keys = observation_keys
+        self._minihack_obs_keys = list(observation_keys)
         # Handle RGB pixel observations
         if any("pixel" in key for key in self._minihack_obs_keys):
             self._glyph_mapper = GlyphMapper()
-            if "pixel_crop" in self._minihack_obs_keys:
-                # Make sure glyphs_crop is there
-                self._minihack_obs_keys = self._minihack_obs_keys + (
-                    "glyphs_crop",
-                )
+            # Make sure glyphs_crop is there
+            if (
+                "pixel_crop" in self._minihack_obs_keys
+                and "glyphs_crop" not in self._minihack_obs_keys
+            ):
+                self._minihack_obs_keys.append("glyphs_crop")
 
         self.reward_manager = reward_manager
         if self.reward_manager is not None:

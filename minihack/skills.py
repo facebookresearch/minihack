@@ -41,10 +41,10 @@ class MiniHackSkill(MiniHack):
         # Default episode limit
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 250)
 
-        default_keys = MH_DEFAULT_OBS_KEYS + (
+        default_keys = MH_DEFAULT_OBS_KEYS + [
             "inv_strs",
             "inv_letters",
-        )
+        ]
         kwargs["observation_keys"] = kwargs.pop(
             "observation_keys", default_keys
         )
