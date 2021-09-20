@@ -222,9 +222,9 @@ class MiniHack(NetHackStaircase):
             self._glyph_mapper = GlyphMapper()
             if "pixel_crop" in self._minihack_obs_keys:
                 # Make sure glyphs_crop is there
-                self._minihack_obs_keys = self._minihack_obs_keys + [
+                self._minihack_obs_keys = tuple(self._minihack_obs_keys) + (
                     "glyphs_crop",
-                ]
+                )
 
         self.reward_manager = reward_manager
         if self.reward_manager is not None:
