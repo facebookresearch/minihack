@@ -139,4 +139,4 @@ If you use MiniHack's interface on environments ported from other benchmarks, pl
 <!-- # Papers using the MiniHack
 - Samvelyan et al. [MiniHack The Planet](https://arxiv.org/abs/20XX.YYYY) (FAIR, UCL, Oxford)
 
-Open a [pull request](https://github.com/facebookresearch/minihack/edit/master/README.md) to add papers. -->
+Open a [pull request](https://github.com/facebookresearch/minihack/edit/main/README.md) to add papers. -->
