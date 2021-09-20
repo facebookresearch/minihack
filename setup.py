@@ -57,6 +57,10 @@ extras_deps = {
         "hydra-submitit-launcher>=1.1.1",
         "wandb>=0.10.31",
     ],
+    "wiki": [
+        "inflect",
+        "stanza",
+    ],
 }
 
 extras_deps["all"] = [item for group in extras_deps.values() for item in group]

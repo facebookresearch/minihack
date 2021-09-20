@@ -72,16 +72,36 @@ class TextProcessor:
 
 
 class NetHackWiki:
-    """A class representing Nethack Wiki Data - pages and links between them."""
+    """A class representing Nethack Wiki Data - pages and links between them.
+
+    Args:
+        raw_wiki_file_name (str):
+            The path to the raw file of NetHack wiki. The raw file can be
+            downloaded using the `get_nhwiki_data.sh` script located in
+            `minihack/scripts`.
+        processed_wiki_file_name (str):
+            The path to the processed file of NetHack wiki. The processing
+            is performed in the `__init__` function of this classed.
+        save_processed_json (bool):
+            Whether to save the processed json file of the wiki. Only
+            considered when a raw wiki file is passed. Defaults to True.
+        ignore_inpage_anchors (bool):
+            Whether to ingnore in-page anchors. Defaults to True.
+        preprocess_input (bool):
+            Whether to perform a preprocessing on wiki data. Defaults to True.
+        exceptions (Tuple[str] or None):
+            Name of entities in screen descriptions that are ingored. If None,
+            there are no exceptions. Defaults to None.
+    """
 
     def __init__(
         self,
-        raw_wiki_file_name: str = f"{DATA_DIR_PATH}/nethackwikidata.json",
-        processed_wiki_file_name: str = f"{DATA_DIR_PATH}/processednethackwiki.json",
+        raw_wiki_file_name: str,
+        processed_wiki_file_name: str,
         save_processed_json: bool = True,
         ignore_inpage_anchors: bool = True,
         preprocess_input: bool = True,
-        exceptions: str = None,
+        exceptions: tuple = None,
     ) -> None:
         if os.path.isfile(processed_wiki_file_name):
             with open(processed_wiki_file_name, "r") as json_file:
@@ -115,6 +135,13 @@ class NetHackWiki:
                 self.preprocess_input = False
 
     def get_page_text(self, page: str) -> str:
+        """Get the text of a page.
+
+        Args:
+            page (str): The page name.
+        Returns:
+            str: The text of the page.
+        """
         if page in self.exceptions:
             return ""
         if self.preprocess_input:
@@ -122,6 +149,13 @@ class NetHackWiki:
         return self.wiki.get(page, {}).get("text", "")
 
     def get_page_data(self, page: str) -> dict:
+        """Get the data of a page.
+
+        Args:
+            page (str): The page name.
+        Returns:
+            dict: The page data as a dict.
+        """
         if page in self.exceptions:
             return {}
         if self.preprocess_input:
@@ -171,7 +205,8 @@ def process_json(wiki_json: List[dict], ignore_inpage_anchors) -> dict:
             anchor
             for anchor in page["anchors"]
             if anchor.get("title")
-            and href_normalise(anchor["href"]) != href_normalise(anchor["title"])
+            and href_normalise(anchor["href"])
+            != href_normalise(anchor["title"])
         ]
         redirects.update(
             {
