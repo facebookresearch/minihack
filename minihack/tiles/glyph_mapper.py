@@ -1,3 +1,5 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
+
 from minihack.tiles import glyph2tile, MAXOTHTILE
 from nle.nethack import MAX_GLYPH
 import numpy as np
