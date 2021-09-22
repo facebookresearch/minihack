@@ -1,3 +1,5 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
+
 from collections import defaultdict
 import gym
 import numpy as np

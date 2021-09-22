@@ -1,5 +1,6 @@
-import threading
+# Copyright (c) Facebook, Inc. and its affiliates.
 
+import threading
 from nle.env import tasks as nle_tasks
 from minihack import MiniHack
 from minihack.envs import (
