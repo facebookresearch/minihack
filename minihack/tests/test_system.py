@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+#
+# Copyright (c) Facebook, Inc. and its affiliates.
 import multiprocessing as mp
 
 import gym

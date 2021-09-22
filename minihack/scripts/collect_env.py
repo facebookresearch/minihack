@@ -1,4 +1,11 @@
-from __future__ import absolute_import, division, print_function, unicode_literals
+# Copyright (c) Facebook, Inc. and its affiliates.
+
+from __future__ import (
+    absolute_import,
+    division,
+    print_function,
+    unicode_literals,
+)
 import locale
 import re
 import subprocess
@@ -102,7 +109,9 @@ def get_gcc_version(run_lambda):
 
 
 def get_cmake_version(run_lambda):
-    return run_and_parse_first_match(run_lambda, "cmake --version", r"cmake (.*)")
+    return run_and_parse_first_match(
+        run_lambda, "cmake --version", r"cmake (.*)"
+    )
 
 
 def get_nvidia_driver_version(run_lambda):
@@ -112,7 +121,9 @@ def get_nvidia_driver_version(run_lambda):
             run_lambda, cmd, r"com[.]nvidia[.]CUDA [(](.*?)[)]"
         )
     smi = get_nvidia_smi()
-    return run_and_parse_first_match(run_lambda, smi, r"Driver Version: (.*?) ")
+    return run_and_parse_first_match(
+        run_lambda, smi, r"Driver Version: (.*?) "
+    )
 
 
 def get_gpu_info(run_lambda):
@@ -192,11 +203,15 @@ def get_platform():
 
 
 def get_mac_version(run_lambda):
-    return run_and_parse_first_match(run_lambda, "sw_vers -productVersion", r"(.*)")
+    return run_and_parse_first_match(
+        run_lambda, "sw_vers -productVersion", r"(.*)"
+    )
 
 
 def get_windows_version(run_lambda):
-    return run_and_read_all(run_lambda, "wmic os get Caption | findstr /v Caption")
+    return run_and_read_all(
+        run_lambda, "wmic os get Caption | findstr /v Caption"
+    )
 
 
 def get_lsb_version(run_lambda):
@@ -247,7 +262,9 @@ def get_pip_packages(run_lambda):
             grep_cmd = r'findstr /R "numpy torch"'
         else:
             grep_cmd = r'grep "torch\|numpy"'
-        return run_and_read_all(run_lambda, pip + " list --format=freeze | " + grep_cmd)
+        return run_and_read_all(
+            run_lambda, pip + " list --format=freeze | " + grep_cmd
+        )
 
     if not PY3:
         return "pip", run_with_pip("pip")
@@ -299,7 +316,9 @@ def get_env_info():
         nle_version=nle_version,
         torch_version=torch_version_str,
         is_debug_build=torch_debug_mode_str,
-        python_version="{}.{}".format(sys.version_info[0], sys.version_info[1]),
+        python_version="{}.{}".format(
+            sys.version_info[0], sys.version_info[1]
+        ),
         is_cuda_available=cuda_available_str,
         cuda_compiled_version=cuda_version_str,
         cuda_runtime_version=get_running_cuda_version(run_lambda),
@@ -405,8 +424,12 @@ def pretty_str(envinfo):
     mutable_dict = replace_nones(mutable_dict)
 
     # If either of these are '', replace with 'No relevant packages'
-    mutable_dict["pip_packages"] = replace_if_empty(mutable_dict["pip_packages"])
-    mutable_dict["conda_packages"] = replace_if_empty(mutable_dict["conda_packages"])
+    mutable_dict["pip_packages"] = replace_if_empty(
+        mutable_dict["pip_packages"]
+    )
+    mutable_dict["conda_packages"] = replace_if_empty(
+        mutable_dict["conda_packages"]
+    )
 
     # Tag conda and pip packages with a prefix
     # If they were previously None, they'll show up as ie '[conda] Could not collect'
