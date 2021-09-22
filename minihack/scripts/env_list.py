@@ -1,4 +1,5 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
+
 import minihack  # noqa
 from gym import envs
 
