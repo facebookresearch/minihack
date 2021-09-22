@@ -1,8 +1,9 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
+
 from collections import OrderedDict
 from typing import Tuple, Union
 
 import gym
-import nle  # noqa: F401
 import numpy as np
 
 from minihack.agent.common.envs.tasks import create_env

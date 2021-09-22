@@ -1,3 +1,5 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
+
 import os
 from collections.abc import Iterable
 from numbers import Number
@@ -7,7 +9,7 @@ import minihack.agent.rllib.models  # noqa: F401
 import numpy as np
 import ray
 import ray.tune.integration.wandb
-from nle.agent.rllib.envs import RLLibNLEEnv  # noqa: F401
+from minihack.agent.rllib.envs import RLLibNLEEnv  # noqa: F401
 from omegaconf import DictConfig, OmegaConf
 from ray import tune
 from ray.rllib.models.catalog import MODEL_DEFAULTS
@@ -49,7 +51,8 @@ def train(cfg: DictConfig) -> None:
         algo, trainer = NAME_TO_TRAINER[cfg.algo]
     except KeyError:
         raise ValueError(
-            "The algorithm you specified isn't currently supported: %s", cfg.algo
+            "The algorithm you specified isn't currently supported: %s",
+            cfg.algo,
         )
 
     config = algo.DEFAULT_CONFIG.copy()
@@ -118,7 +121,9 @@ def train(cfg: DictConfig) -> None:
                 tags=cfg.tags.split(","),
             )
         )
-        os.environ["TUNE_DISABLE_AUTO_CALLBACK_LOGGERS"] = "1"  # Only log to wandb
+        os.environ[
+            "TUNE_DISABLE_AUTO_CALLBACK_LOGGERS"
+        ] = "1"  # Only log to wandb
 
     # Hacky monkey-patching to allow for OmegaConf config
     def _is_allowed_type(obj):

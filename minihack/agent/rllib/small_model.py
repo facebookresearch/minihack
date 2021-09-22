@@ -1,3 +1,5 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
+
 from typing import Optional, Any, Dict, Tuple
 
 import gym
@@ -12,14 +14,18 @@ from typeguard import typechecked
 
 
 def _step_to_range(delta, num_steps):
-    """Range of `num_steps` integers with distance `delta` centered around zero."""
+    """Range of `num_steps` integers with distance `delta` centered
+    around zero.
+    """
     return delta * torch.arange(-num_steps // 2, num_steps // 2)
 
 
 class Crop(nn.Module):
     """Helper class for NetHackNet below."""
 
-    def __init__(self, height: int, width: int, height_target: int, width_target: int):
+    def __init__(
+        self, height: int, width: int, height_target: int, width_target: int
+    ):
         super(Crop, self).__init__()
         self.width = width
         self.height = height
@@ -36,7 +42,9 @@ class Crop(nn.Module):
         self.register_buffer("width_grid", width_grid.clone())
         self.register_buffer("height_grid", height_grid.clone())
 
-    def forward(self, inputs: torch.Tensor, coordinates: torch.Tensor) -> torch.Tensor:
+    def forward(
+        self, inputs: torch.Tensor, coordinates: torch.Tensor
+    ) -> torch.Tensor:
         """Calculates centered crop around given x,y coordinates.
         Args:
            inputs [B x H x W]
@@ -246,7 +254,12 @@ class RLLibNLESmallNetwork(TorchModelV2, nn.Module):
         **kwargs: dict,
     ):
         TorchModelV2.__init__(
-            self, observation_space, action_space, num_outputs, model_config, name
+            self,
+            observation_space,
+            action_space,
+            num_outputs,
+            model_config,
+            name,
         )
         nn.Module.__init__(self)
 
@@ -268,4 +281,6 @@ class RLLibNLESmallNetwork(TorchModelV2, nn.Module):
         return self.base(x["obs"]), None
 
 
-ModelCatalog.register_custom_model("rllib_nle_model_small", RLLibNLESmallNetwork)
+ModelCatalog.register_custom_model(
+    "rllib_nle_model_small", RLLibNLESmallNetwork
+)
