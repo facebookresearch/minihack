@@ -28,6 +28,9 @@ entry_points = {
     ]
 }
 
+install_requires = ["numpy>=1.16", "gym<0.20"]
+if not os.getenv("READTHEDOCS"):
+    install_requires.append("nle>=0.7.3")
 
 extras_deps = {
     "dev": [
@@ -38,7 +41,7 @@ extras_deps = {
         "pytest>=5.3",
         "pytest-benchmark>=3.1.0",
         "sphinx==4.0.2",
-        "sphinx-rtd-theme==0.5.2",
+        "sphinx-rtd-theme==1.0.0",
         "myst-parser==0.15.1",
         "nbsphinx==0.8.6",
     ],
@@ -104,12 +107,7 @@ if __name__ == "__main__":
         license="Apache License, Version 2.0",
         entry_points=entry_points,
         packages=packages,
-        install_requires=[
-            "nle>=0.7.3",
-            "numpy>=1.16",
-            "gym<0.20",
-            "Pillow>=8.3.1",
-        ],
+        install_requires=install_requires,
         extras_require=extras_deps,
         python_requires=">=3.7",
         classifiers=[

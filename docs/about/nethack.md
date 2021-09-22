@@ -15,4 +15,4 @@ For more information about NetHack, check out its [wikipedia article](https://en
 is a Reinforcement Learning environment based on NetHack 3.6.6 and designed to provide a standard RL interface to the game, and comes
 You can read more about NLE in the [NeurIPS 2020 paper](https://arxiv.org/abs/2006.13760).
 
-![Example of an agent running on NLE](https://github.com/facebookresearch/nle/raw/master/dat/nle/example_run.gif)
+![Example of an agent running on NLE](https://github.com/facebookresearch/nle/raw/main/dat/nle/example_run.gif)
