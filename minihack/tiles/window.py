@@ -8,7 +8,9 @@ import sys
 try:
     import matplotlib.pyplot as plt
 except ModuleNotFoundError:
-    print("To display the environment in a window, please install matplotlib, eg:")
+    print(
+        "To display the environment in a window, please install matplotlib, eg:"
+    )
     print("pip3 install --user matplotlib")
     sys.exit(-1)
 
