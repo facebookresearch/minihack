@@ -24,7 +24,6 @@ import threading
 import time
 import timeit
 import traceback
-
 import wandb
 
 import nest
@@ -365,7 +364,7 @@ def learn(
 
         # TWO-HEADED INTRINSIC REWARDS / LOSSES
         if calculate_intrinsic and (flags.int.twoheaded or flags.no_extrinsic):
-            # here we calculate RL loss on the intrinsic reward using its own value head
+            # here we calculate RL loss on the int reward using its own value head
             # 1) twoheaded always separates ext and int rewards to their own heads
             # 2) no_extrinsic skips the ext value head and uses only the int one
             int_clipped_rewards = clip(flags, intrinsic_reward)
