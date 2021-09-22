@@ -28,7 +28,7 @@ entry_points = {
     ]
 }
 
-install_requires = ["numpy>=1.16", "gym>=0.15"]
+install_requires = ["numpy>=1.16", "gym<=0.20"]
 if not os.getenv("READTHEDOCS"):
     install_requires.append("nle>=0.7.3")
 
