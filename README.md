@@ -109,19 +109,19 @@ The learning curves for all of our polybeast experiments can be accessed in our 
 
 An [RLlib](https://github.com/ray-project/ray#rllib-quick-start) agent is
 provided in `minihack.agent.rllib`, with a similar model to the torchbeast agent.
-This can be used to try out a variety of different RL algorithms - several
-examples are provided. To install and train this agent use the following
+This can be used to try out a variety of different RL algorithms. To install and train an RLlib agent, use the following
 commands:
 ```bash
 pip install ".[rllib]"
 python -m minihack.agent.rllib.train algo=dqn
 ```
 
-More information on the RLlib agents can be found in [here](./docs/agents/rllib.md).
+More information on running RLlib agents can be found [here](./docs/agents/rllib.md).
 
 ### Unsupervised Environment Design
 
-MiniHack also enables research in *Unsupervised Environment Design*, whereby an adaptive task distribution is learned during training by dynamically adjusting free parameters of the task MDP. Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository for replicating the examples in the paper.
+MiniHack also enables research in *Unsupervised Environment Design*, whereby an adaptive task distribution is learned during training by dynamically adjusting free parameters of the task MDP. 
+Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository for replicating the examples from the paper using the [PAIRED](https://arxiv.org/abs/2012.02096)
 
 # Contributions and Maintenance
 
