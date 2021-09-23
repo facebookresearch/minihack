@@ -14,6 +14,9 @@
   <a href="https://minihack.readthedocs.io/en/latest/?badge=latest">
     <img src="https://readthedocs.org/projects/minihack/badge/?version=latest" />
   </a>
+   <a href="https://github.com/facebookresearch/minihack/actions/workflows/test_and_deploy.yml">
+    <img src="https://github.com/facebookresearch/minihack/actions/workflows/test_and_deploy.yml/badge.svg?branch=main" />
+  </a>
  </p>
  
  ![MiniHack Environments](/docs/imgs/minihack_envs.png)
