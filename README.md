@@ -93,7 +93,7 @@ installed and used as follows:
 * a [TorchBeast](https://github.com/facebookresearch/torchbeast) agent is
   bundled in `minihack.agent.polybeast` together with a simple model to provide
   a starting point for experiments. To install and train this agent, first
-  install torchbeast be following the instructions
+  install torchbeast by following the instructions
   [here](https://github.com/facebookresearch/torchbeast#installing-polybeast),
   then use the following commands:
 ``` bash
