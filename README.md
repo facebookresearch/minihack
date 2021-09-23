@@ -102,8 +102,7 @@ python -m minihack.scripts.play_gui --env MiniHack-River-v0
 
 # Baseline Agents
 
-Several baseline agents are included as part of MiniHack, which can be
-installed and used as follows:
+In order to get started with MiniHack environments, we provide a variety of baselines agent integrations.
 
 ### TorchBeast
 A [TorchBeast](https://github.com/facebookresearch/torchbeast) agent is
@@ -136,7 +135,7 @@ More information on running RLlib agents can be found [here](./docs/agents/rllib
 ### Unsupervised Environment Design
 
 MiniHack also enables research in *Unsupervised Environment Design*, whereby an adaptive task distribution is learned during training by dynamically adjusting free parameters of the task MDP. 
-Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository for replicating the examples from the paper using the [PAIRED](https://arxiv.org/abs/2012.02096)
+Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository for replicating the examples from the paper using the [PAIRED](https://arxiv.org/abs/2012.02096).
 
 # Contributions and Maintenance
 
