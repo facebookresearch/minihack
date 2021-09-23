@@ -17,7 +17,7 @@ python3 -m minihack.agent.rllib.train algo=dqn total_steps=1000000
 
 ## Running Experiments
 
-We use the [hydra](https://github.com/facebookresearch/hydra) framework for configuring our experiments. All environment and training parameters can be specified using command line arguments (or edited directly in `config.yaml`). See `config.yaml` file in the polybeast directory for more information. Be sure to set up appropriate parameters for logging with [wandb](https://wandb.ai/site) (disabled by default).
+We use the [hydra](https://github.com/facebookresearch/hydra) framework for configuring our experiments. All environment and training parameters can be specified using command line arguments (or edited directly in `config.yaml`). See `config.yaml` file in  `minihack.agent.rllib` for more information. Be sure to set up appropriate parameters for logging with [wandb](https://wandb.ai/site) (disabled by default).
 
 ```bash
 # Single DQN run
