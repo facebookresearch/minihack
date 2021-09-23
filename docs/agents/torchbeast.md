@@ -50,3 +50,5 @@ python3 -m minihack.agent.polybeast.polyhydra --multirun model=baseline name=1,2
 ```
 
 For navigation tasks, the default parameters are already set. For skill acquisition tasks, additionally set `learning_rate=0.00005 msg.model=lt_cnn`.
+
+The learning curves for all of our polybeast experiments can be accessed in our [Weights&Biases repository](https://wandb.ai/minihack).
