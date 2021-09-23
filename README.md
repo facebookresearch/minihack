@@ -97,8 +97,8 @@ installed and used as follows:
   [here](https://github.com/facebookresearch/torchbeast#installing-polybeast),
   then use the following commands:
 ``` bash
-$ pip install ".[polybeast]"
-$ python3 -m minihack.agent.polybeast.polyhydra env=small_room_random learning_rate=0.0001 use_lstm=true total_steps=1000000
+pip install ".[polybeast]"
+python3 -m minihack.agent.polybeast.polyhydra env=small_room_random learning_rate=0.0001 use_lstm=true total_steps=1000000
 ```
 
 * An [RLlib](https://github.com/ray-project/ray#rllib-quick-start) agent is
@@ -107,8 +107,8 @@ $ python3 -m minihack.agent.polybeast.polyhydra env=small_room_random learning_r
   examples are provided. To install and train this agent use the following
   commands:
 ```bash
-$ pip install ".[rllib]"
-$ python -m minihack.agent.rllib.train algo=dqn
+pip install ".[rllib]"
+python -m minihack.agent.rllib.train algo=dqn
 ```
 
 More information on running these agents, and instructions on how to reproduce
