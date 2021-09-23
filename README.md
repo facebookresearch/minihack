@@ -33,7 +33,7 @@ To this end, MiniHack leverages the [description files of NetHack](https://netha
 
 # Installation
 
-MiniHack is available on [pypi](https://pypi.org/project/gym-minigrid/) and can be installed as follows:
+MiniHack is available on [pypi](https://pypi.org/project/minihack/) and can be installed as follows:
 ```bash
 pip install minihack
 ```
