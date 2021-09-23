@@ -22,8 +22,10 @@ PATCH_SCRIPT = os.path.join(
     "mh_patch_nhdat.sh",
 )
 MH_FULL_ACTIONS = list(FULL_ACTIONS)
-# MH_FULL_ACTIONS.remove(nethack.MiscDirection.DOWN)
-MH_FULL_ACTIONS.remove(nethack.MiscDirection.UP)
+try:
+    MH_FULL_ACTIONS.remove(nethack.MiscDirection.UP)
+except ValueError:
+    pass
 MH_FULL_ACTIONS = tuple(MH_FULL_ACTIONS)
 HACKDIR = pkg_resources.resource_filename("nle", "nethackdir")
 
