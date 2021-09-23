@@ -1,10 +1,22 @@
 # MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research
 
-[![PyPI version](https://img.shields.io/pypi/v/minihack.svg)](https://pypi.python.org/pypi/minihack/)
-[![Documentation Status](https://readthedocs.org/projects/minihack/badge/?version=latest)](https://minihack.readthedocs.io/en/latest/?badge=latest)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+<!-- <p align="center">
+ <img width="70%" src="docs/img/minihack.png" />
+</p> -->
 
-![MiniHack Environments](/docs/imgs/minihack_envs.png)
+<p align="center">
+  <a href="https://pypi.python.org/pypi/minihack/">
+    <img src="https://img.shields.io/pypi/v/minihack.svg" />
+  </a>
+  <a href="https://opensource.org/licenses/Apache-2.0">
+    <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" />
+  </a>
+  <a href="https://minihack.readthedocs.io/en/latest/?badge=latest">
+    <img src="https://readthedocs.org/projects/minihack/badge/?version=latest" />
+  </a>
+ </p>
+ 
+ ![MiniHack Environments](/docs/imgs/minihack_envs.png)
 
 MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL).
 Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), arguably the hardest grid-based game in the world, MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to communicate with the game and provide a convenient interface for customly created RL tesbeds. Please refer to the accompanying [paper](https://openreview.net/pdf?id=skFwlyefkWJ) for the outline of our motivation for MiniHack.
