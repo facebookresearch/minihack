@@ -10,12 +10,12 @@ We provide integrations with two frameworks.
 * a [TorchBeast](https://github.com/facebookresearch/torchbeast) agent is
   bundled in `minihack.agent.polybeast` together with a simple model to provide
   a starting point for experiments. To install and train this agent, first
-  install torchbeast be following the instructions
+  install torchbeast by following the instructions
   [here](https://github.com/facebookresearch/torchbeast#installing-polybeast),
   then use the following commands:
 ``` bash
-$ pip install -e ".[polybeast_agent]"
-$ python3 -m minihack.agent.polybeast.polyhydra env=small_room_random learning_rate=0.0001 use_lstm=true total_steps=1000000
+pip install -e ".[polybeast_agent]"
+python3 -m minihack.agent.polybeast.polyhydra env=small_room_random learning_rate=0.0001 use_lstm=true total_steps=1000000
 ```
 
 * An [RLlib](https://github.com/ray-project/ray#rllib-quick-start) agent is
@@ -24,8 +24,8 @@ $ python3 -m minihack.agent.polybeast.polyhydra env=small_room_random learning_r
   examples are provided. To install and train this agent use the following
   commands:
 ```bash
-$ pip install -e ".[rllib_agent]"
-$ python3 -m minihack.agent.rllib.train algo=dqn total_steps=1000000
+pip install -e ".[rllib_agent]"
+python3 -m minihack.agent.rllib.train algo=dqn total_steps=1000000
 ```
 
 # TorchBeast
