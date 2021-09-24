@@ -137,10 +137,6 @@ More information on running RLlib agents can be found [here](./docs/agents/rllib
 MiniHack also enables research in *Unsupervised Environment Design*, whereby an adaptive task distribution is learned during training by dynamically adjusting free parameters of the task MDP. 
 Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository for replicating the examples from the paper using the [PAIRED](https://arxiv.org/abs/2012.02096).
 
-# Contributions and Maintenance
-
-We welcome contributions to MiniHack. If you are interested in contributing please see [this document](./CONTRIBUTING.md). MiniHack's maintenance plan can be found [here](./MAINTENANCE.md).
-
 # Citation
 
 If you use MiniHack in your work, please cite:
@@ -157,7 +153,12 @@ If you use MiniHack in your work, please cite:
 
 If you use MiniHack's interface on environments ported from other benchmarks, please cite the original paper as well: [MiniGrid](https://github.com/maximecb/gym-minigrid/) (see [license](https://github.com/maximecb/gym-minigrid/blob/master/LICENSE), [bibtex](https://github.com/maximecb/gym-minigrid/#minimalistic-gridworld-environment-minigrid)), [Boxoban](https://github.com/deepmind/boxoban-levels/) (see [license](https://github.com/deepmind/boxoban-levels/blob/master/LICENSE), [bibtex](https://github.com/deepmind/boxoban-levels/#bibtex)).
 
+# Contributions and Maintenance
+
+We welcome contributions to MiniHack. If you are interested in contributing please see [this document](./CONTRIBUTING.md). MiniHack's maintenance plan can be found [here](./MAINTENANCE.md).
+
 # Papers using the MiniHack
+
 - Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://openreview.net/forum?id=Fr_KF_lMCMr) (CMU, Georgia Tech, AI2, August 2021)
 - Samvelyan et al. [MiniHack The Planet](https://openreview.net/pdf?id=skFwlyefkWJ) (FAIR, UCL, Oxford, NeurIPS 2021)
 
