@@ -151,11 +151,11 @@ If you use MiniHack in your work, please cite:
 }
 ```
 
-If you use MiniHack's interface on environments ported from other benchmarks, please cite the original paper as well: [MiniGrid](https://github.com/maximecb/gym-minigrid/) (see [license](https://github.com/maximecb/gym-minigrid/blob/master/LICENSE), [bibtex](https://github.com/maximecb/gym-minigrid/#minimalistic-gridworld-environment-minigrid)), [Boxoban](https://github.com/deepmind/boxoban-levels/) (see [license](https://github.com/deepmind/boxoban-levels/blob/master/LICENSE), [bibtex](https://github.com/deepmind/boxoban-levels/#bibtex)).
+If you use our example ported environments, please cite the original papers: [MiniGrid](https://github.com/maximecb/gym-minigrid/) (see [license](https://github.com/maximecb/gym-minigrid/blob/master/LICENSE), [bib](https://github.com/maximecb/gym-minigrid/#minimalistic-gridworld-environment-minigrid)), [Boxoban](https://github.com/deepmind/boxoban-levels/) (see [license](https://github.com/deepmind/boxoban-levels/blob/master/LICENSE), [bib](https://github.com/deepmind/boxoban-levels/#bibtex)).
 
 # Contributions and Maintenance
 
-We welcome contributions to MiniHack. If you are interested in contributing please see [this document](./CONTRIBUTING.md). MiniHack's maintenance plan can be found [here](./MAINTENANCE.md).
+We welcome contributions to MiniHack. If you are interested in contributing, please see [this document](./CONTRIBUTING.md). Our maintenance plan can be found [here](./MAINTENANCE.md).
 
 # Papers using the MiniHack
 
