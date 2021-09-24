@@ -1,6 +1,6 @@
 ### All Submissions:
 
-IMPORTANT: Please do not create a Pull Request without creating an issue first.
+IMPORTANT: if this Pull Request concerns an existing issue, please provide the GitHub issue number, otherwise please create an issue first.
 
 Associated issue: #XXXX
 
