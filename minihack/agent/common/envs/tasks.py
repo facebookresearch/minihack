@@ -161,19 +161,10 @@ def is_env_minihack(env_cls):
     return issubclass(env_cls, MiniHack)
 
 
-def create_env(flags, env_id=0):
+def create_env(flags, env_id):
     # Create environment instances for actors
     with threading.Lock():
         env_class = ENVS[flags.env]
-        if flags.model == "tty":
-            observation_keys = (
-                "tty_chars",
-                "tty_colors",
-                "tty_cursor",
-                "blstats",
-            )
-        else:
-            observation_keys = flags.obs_keys.split(",")
 
         if flags.save_tty:
             savedir = ""  # NLE choses location
@@ -183,7 +174,7 @@ def create_env(flags, env_id=0):
         kwargs = dict(
             savedir=savedir,
             archivefile=None,
-            observation_keys=observation_keys,
+            observation_keys=flags.obs_keys.split(","),
             penalty_step=flags.penalty_step,
             penalty_time=flags.penalty_time,
             penalty_mode=flags.fn_penalty_step,
@@ -191,15 +182,10 @@ def create_env(flags, env_id=0):
         if not is_env_minihack(env_class):
             kwargs.update(max_episode_steps=flags.max_num_steps)
             kwargs.update(character=flags.character)
-        elif env_id == 0:
-            # print("Ignoring flags.reward_win and flags.reward_lose")
-            pass
+
         env = env_class(**kwargs)
         if flags.state_counter != "none":
             env = CounterWrapper(env, flags.state_counter)
-        if flags.model == "tty":
-            env = CropWrapper(env)
-            env = PrevWrapper(env)
         if flags.seedspath is not None and len(flags.seedspath) > 0:
             raise NotImplementedError("seedspath > 0 not implemented yet.")
 

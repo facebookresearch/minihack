@@ -17,7 +17,7 @@ To install and train a polybeast agent in MiniHack, first install polybeast by f
 ```bash
 pip install ".[polybeast]"
 # Test IMPALA run
-python3 -m minihack.agent.polybeast.polyhydra env=small_room total_steps=100000
+python3 -m minihack.agent.polybeast.polyhydra env=MiniHack-Room-5x5-v0 total_steps=100000
 ```
 
 ## Running Experiments
@@ -27,16 +27,16 @@ We use the [hydra](https://github.com/facebookresearch/hydra) framework for conf
 
 ```bash
 # Single IMPALA run
-python3 -m minihack.agent.polybeast.polyhydra model=baseline env=small_room total_steps=1000000
+python3 -m minihack.agent.polybeast.polyhydra model=baseline env=MiniHack-Room-5x5-v0 total_steps=1000000
 
 # Single RND run
-python3 -m minihack.agent.polybeast.polyhydra model=rnd env=small_room total_steps=1000000
+python3 -m minihack.agent.polybeast.polyhydra model=rnd env=MiniHack-Room-5x5-v0 total_steps=1000000
 
 # Single RND run
-python3 -m minihack.agent.polybeast.polyhydra model=ride state_counter=coordinates env=small_room total_steps=1000000
+python3 -m minihack.agent.polybeast.polyhydra model=ride state_counter=coordinates env=MiniHack-Room-5x5-v0 total_steps=1000000
 
 # To perform a sweep on the cluster: add another --multirun command and comma-separate values
-python3 -m minihack.agent.polybeast.polyhydra --multirun model=baseline,rnd env=big_room_random,big_room_monster total_steps=10000000
+python3 -m minihack.agent.polybeast.polyhydra --multirun model=baseline,rnd env=MiniHack-Room-Random-15x15-v0,MiniHack-Room-Monster-15x15-v0 total_steps=10000000
 ```
 
 The full list of environment name shortcuts can be looked up [here](./env_names.yaml).
@@ -46,7 +46,7 @@ The full list of environment name shortcuts can be looked up [here](./env_names.
 To replicate results of the paper performed using polybeast, simply run a sweep of 5 runs with IMPALA, RND or RIDE agents on the desired environments as follows:
 
 ```bash
-python3 -m minihack.agent.polybeast.polyhydra --multirun model=baseline name=1,2,3,4,5 env=big_room_random,big_room_monster total_steps=10000000
+python3 -m minihack.agent.polybeast.polyhydra --multirun model=baseline name=1,2,3,4,5 env=MiniHack-Room-Random-15x15-v0,MiniHack-Room-Monster-15x15-v0 total_steps=10000000
 ```
 
 For navigation tasks, the default parameters are already set. For skill acquisition tasks, additionally set `learning_rate=0.00005 msg.model=lt_cnn`.

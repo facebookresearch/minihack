@@ -18,7 +18,7 @@
     <img src="https://github.com/facebookresearch/minihack/actions/workflows/test_and_deploy.yml/badge.svg?branch=main" />
   </a>
  </p>
- 
+
  ![MiniHack Environments](/docs/imgs/minihack_envs.png)
 
 MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL).
@@ -112,7 +112,7 @@ install torchbeast by following the instructions [here](https://github.com/faceb
 then use the following commands:
 ``` bash
 pip install ".[polybeast]"
-python3 -m minihack.agent.polybeast.polyhydra env=small_room_random learning_rate=0.0001 use_lstm=true total_steps=1000000
+python3 -m minihack.agent.polybeast.polyhydra env=MiniHack-Room-5x5-v0 total_steps=100000
 ```
 
 More information on running our TorchBeast agents, and instructions on how to reproduce
@@ -127,14 +127,14 @@ This can be used to try out a variety of different RL algorithms. To install and
 commands:
 ```bash
 pip install ".[rllib]"
-python -m minihack.agent.rllib.train algo=dqn
+python3 -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-5x5-v0 total_steps=100000
 ```
 
 More information on running RLlib agents can be found [here](./docs/agents/rllib.md).
 
 ### Unsupervised Environment Design
 
-MiniHack also enables research in *Unsupervised Environment Design*, whereby an adaptive task distribution is learned during training by dynamically adjusting free parameters of the task MDP. 
+MiniHack also enables research in *Unsupervised Environment Design*, whereby an adaptive task distribution is learned during training by dynamically adjusting free parameters of the task MDP.
 Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository for replicating the examples from the paper using the [PAIRED](https://arxiv.org/abs/2012.02096).
 
 # Citation

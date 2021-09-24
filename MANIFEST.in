@@ -1,4 +1,5 @@
 recursive-include minihack/dat *
 recursive-include minihack/lib *
 recursive-include minihack/scripts *
+recursive-include minihack/agent *
 recursive-exclude build *

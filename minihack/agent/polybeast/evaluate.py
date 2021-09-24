@@ -1,6 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 
 import minihack.agent.polybeast.models
+from minihack.agent import get_env_shortcut
 import polyhydra
 import argparse
 import time
@@ -49,6 +50,7 @@ def load_model(env, checkpoint_path):
     model.load_state_dict(checkpoint_states["model_state_dict"])
 
     hidden = model.initial_state(batch_size=1)
+    model.eval()
     return model, hidden
 
 
@@ -60,10 +62,10 @@ def eval(
     savedir,
     no_render,
     render_mode,
-    agent_env,
     checkpoint_path,
     watch,
 ):
+    agent_env = get_env_shortcut(env)
     env = gym.make(
         env,
         savedir=savedir,
@@ -161,13 +163,6 @@ def main():
         help="Gym environment spec. Defaults to 'MiniHack-Room-15x15-v0'.",
     )
     parser.add_argument(
-        "--agent_env",
-        type=str,
-        default="",
-        help="Agent name for environment.  Must correspond to "
-        + "environment agent was trained in.",
-    )
-    parser.add_argument(
         "-c",
         "--checkpoint_path",
         type=str,
@@ -214,13 +209,13 @@ def main():
         "--watch",
         dest="watch",
         action="store_true",
-        help="Pressing a key performs a step.",
+        help="Pressing the Enter key performs a step.",
     )
     parser.add_argument(
         "--no-watch",
         dest="watch",
         action="store_false",
-        help="No need to press any keys.",
+        help="Not watching the replay.",
     )
     parser.set_defaults(watch=True)
     flags = parser.parse_args()
