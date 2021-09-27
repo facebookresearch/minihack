@@ -1,0 +1,26 @@
+MAZE: "mylevel", ' '
+FLAGS:hardfloor
+INIT_MAP: solidfill,' '
+GEOMETRY:center,center
+MAP
+-------------|
+|.....L......|--      |-----|
+|.....L........|------|.....|
+|.....L.....................|
+|.....L........|------|.....|
+|.....L......|--      |-----|
+-------------|
+ENDMAP
+REGION:(0,0,28,6),lit,"ordinary"
+$left_bank = selection:fillrect (1,1,5,5)
+$right_bank = selection:fillrect (7,1,11,5)
+$goal_room = selection:fillrect (25,2,27,4)
+
+OBJECT:('/',"cold"),(2,2),blessed
+OBJECT:('(',"frost horn"),(2,2),blessed
+
+MONSTER:random,random
+MONSTER:random,random
+
+BRANCH:(2,2,2,2),(0,0,0,0)
+STAIR:rndcoord($goal_room),down

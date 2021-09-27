@@ -1,0 +1,17 @@
+MAZE: "mylevel",' '
+INIT_MAP:solidfill,' '
+GEOMETRY:center,center
+MAP
+-------------
+|.....|.....|
+|.....|.....|
+|.....+.....|
+|.....|.....|
+|.....|.....|
+-------------
+ENDMAP
+REGION:(0,0,12,6),lit,"ordinary"
+$right_room = selection:fillrect (7,1,11,5)
+BRANCH:(1,1,5,5),(0,0,0,0)
+DOOR:locked,(6,3)
+STAIR:rndcoord($right_room),down

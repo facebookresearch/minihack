@@ -1,0 +1,41 @@
+MAZE: "mylevel",' '
+INIT_MAP:solidfill,' '
+GEOMETRY:center,center
+MAP
+-------------
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+-------------
+ENDMAP
+REGION:(0,0,12,6),lit,"ordinary"
+$left_bank = selection:fillrect (1,1,5,5)
+$right_bank = selection:fillrect (7,1,11,5)
+IF [50%] {
+    # levitate
+    IF [33%] {
+        # potion of levitation
+        OBJECT:('!',"levitation"),rndcoord($left_bank),blessed
+    } ELSE {
+        IF [50%] {
+            # ring of levitation
+            OBJECT:('=',"levitation"),rndcoord($left_bank),blessed
+        } ELSE {
+            # levitation boots
+            OBJECT:('[',"levitation boots"),rndcoord($left_bank),blessed
+        }
+    }
+} ELSE {
+    # freeze
+    IF [50%] {
+        # wand of cold
+        OBJECT:('/',"cold"),rndcoord($left_bank),blessed
+    } ELSE {
+        # frost horn
+        OBJECT:('(',"frost horn"),rndcoord($left_bank),blessed
+    }
+}
+BRANCH:(1,1,5,5),(0,0,0,0)
+STAIR:rndcoord($right_bank),down

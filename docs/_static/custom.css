@@ -1,0 +1,23 @@
+.wy-nav-content {
+    max-width: 1000px !important;
+}
+
+.game-gallery {
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.game-gallery td {
+    vertical-align: top !important;
+    margin: 10px !important;
+    white-space: normal !important;
+}
+
+.game-gallery p {
+    margin: 10px !important;
+    white-space: normal !important;
+}
+
+.embedded-video {
+    text-align: center;
+}

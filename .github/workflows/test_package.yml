@@ -1,0 +1,30 @@
+---
+name: Test minihack PyPI package
+
+on:
+  schedule:
+    - cron: "0 6,18 * * *"
+
+jobs:
+  test_install:
+    name: Test install
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9"]
+      fail-fast: false
+    steps:
+    - name: Setup Python ${{ matrix.python-version }} env
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Ensure latest pip & wheel
+      run: "python -m pip install -q --upgrade pip wheel"
+    - name: Install dependencies
+      run: |
+        brew install cmake
+    - name: Install minihack via pip
+      run: "pip install minihack"
+    - name: Check minihack is installed
+      run: |
+        python -c 'import minihack, gym; e = gym.make("MiniHack-Room-5x5-v0"); e.reset(); e.step(0)'
