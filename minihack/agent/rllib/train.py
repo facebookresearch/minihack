@@ -6,6 +6,8 @@ from numbers import Number
 
 import hydra
 import minihack.agent.rllib.models  # noqa: F401
+from minihack.agent.common.envs import tasks
+from minihack.agent import is_env_registered, get_env_shortcut
 import numpy as np
 import ray
 import ray.tune.integration.wandb
@@ -25,10 +27,6 @@ from ray.tune.utils import merge_dicts
 
 def get_full_config(cfg: DictConfig) -> DictConfig:
     env_flags = OmegaConf.to_container(cfg)
-    max_num_steps = 1e6
-    if cfg.env in ("staircase", "pet"):
-        max_num_steps = 1000
-    env_flags["max_num_steps"] = int(max_num_steps)
     env_flags["seedspath"] = ""
     return OmegaConf.create(env_flags)
 
@@ -41,7 +39,7 @@ NAME_TO_TRAINER: dict = {
 }
 
 
-@hydra.main(config_name="config")
+@hydra.main(config_path=".", config_name="config")
 def train(cfg: DictConfig) -> None:
     ray.init(num_gpus=cfg.num_gpus, num_cpus=cfg.num_cpus + 1)
     cfg = get_full_config(cfg)
@@ -69,6 +67,15 @@ def train(cfg: DictConfig) -> None:
 
     # Merge config from hydra (will have some rogue keys but that's ok)
     config = merge_dicts(config, args_config)
+
+    # check the name of the environment
+    if cfg.env not in tasks.ENVS:
+        if is_env_registered(cfg.env):
+            cfg.env = get_env_shortcut(cfg.env)
+        else:
+            raise KeyError(
+                f"Could not find an environement with a name: {cfg.env}."
+            )
 
     # Update configuration with parsed arguments in specific ways
     config = merge_dicts(
