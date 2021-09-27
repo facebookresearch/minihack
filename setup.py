@@ -14,10 +14,18 @@ import subprocess
 packages = [
     "minihack",
     "minihack.envs",
-    "minihack.agent",
     "minihack.scripts",
     "minihack.tiles",
     "minihack.tests",
+    "minihack.agent",
+    "minihack.agent.polybeast",
+    "minihack.agent.polybeast.models",
+    "minihack.agent.polybeast.core",
+    "minihack.agent.rllib",
+    "minihack.agent.common",
+    "minihack.agent.common.envs",
+    "minihack.agent.common.models",
+    "minihack.agent.common.util",
 ]
 
 entry_points = {
@@ -51,10 +59,12 @@ extras_deps = {
         "hydra-colorlog>=1.0.0",
         "hydra-submitit-launcher>=1.1.1",
         "wandb>=0.10.31",
+        "pyyaml",
     ],
     "rllib": [
         "torch>=1.3.1",
-        "ray[rllib]>=1.3.0",
+        "ray[rllib]==1.3.0",
+        "ray[default]==1.3.0",
         "hydra-core>=1.0.0",
         "hydra-colorlog>=1.0.0",
         "hydra-submitit-launcher>=1.1.1",

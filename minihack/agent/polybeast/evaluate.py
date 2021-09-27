@@ -1,6 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 
 import minihack.agent.polybeast.models
+from minihack.agent import get_env_shortcut
 import polyhydra
 import argparse
 import time
@@ -49,33 +50,28 @@ def load_model(env, checkpoint_path):
     model.load_state_dict(checkpoint_states["model_state_dict"])
 
     hidden = model.initial_state(batch_size=1)
+    model.eval()
     return model, hidden
 
 
 def eval(
     env,
-    ngames,
+    num_episodes,
     max_steps,
     seeds,
     savedir,
     no_render,
     render_mode,
-    agent_env,
-    checkpoint_path,
+    checkpoint_dir,
     watch,
+    obs_keys,
 ):
+    agent_env = get_env_shortcut(env)
     env = gym.make(
         env,
         savedir=savedir,
         max_episode_steps=max_steps,
-        observation_keys=[
-            "glyphs",
-            "chars",
-            "colors",
-            "specials",
-            "blstats",
-            "message",
-        ],
+        observation_keys=obs_keys.split(","),
     )
     if seeds is not None:
         env.seed(seeds)
@@ -85,7 +81,7 @@ def eval(
     obs = env.reset()
     done = False
 
-    model, hidden = load_model(agent_env, checkpoint_path)
+    model, hidden = load_model(agent_env, checkpoint_dir)
 
     steps = 0
     episodes = 0
@@ -125,7 +121,7 @@ def eval(
         print("Mean reward:", mean_reward)
         print("Total reward:", mean_reward * steps)
 
-        mean_return += (mean_reward * steps) / ngames
+        mean_return += (mean_reward * steps) / num_episodes
         sps = steps / time_delta
         print("Episode: %i. Steps: %i. SPS: %f" % (episodes, steps, sps))
 
@@ -137,7 +133,7 @@ def eval(
         steps = 0
         mean_reward = 0.0
 
-        if episodes == ngames:
+        if episodes == num_episodes:
             break
         env.reset()
 
@@ -161,26 +157,25 @@ def main():
         help="Gym environment spec. Defaults to 'MiniHack-Room-15x15-v0'.",
     )
     parser.add_argument(
-        "--agent_env",
-        type=str,
-        default="",
-        help="Agent name for environment.  Must correspond to "
-        + "environment agent was trained in.",
-    )
-    parser.add_argument(
         "-c",
-        "--checkpoint_path",
+        "--checkpoint_dir",
         type=str,
-        help="Path to checkpoint to load the pretrained model and configs. "
+        help="Path to checkpoint directory to load the model and configs. "
         + "This directory must include checkpoint.tar and config.yaml files.",
     )
     parser.add_argument(
+        "-o",
+        "--obs_keys",
+        type=str,
+        default="glyphs,chars,colors,specials,blstats,message",
+        help="The observation keys as a string. Separate keys using a comma",
+    )
+    parser.add_argument(
         "-n",
-        "--ngames",
+        "--num_episodes",
         type=int,
         default=10,
-        help="Number of games to be played before exiting. "
-        "NetHack will auto-restart if > 1.",
+        help="Number of episodes to be evaluated before exiting.",
     )
     parser.add_argument(
         "--max-steps",
@@ -196,9 +191,9 @@ def main():
     )
     parser.add_argument(
         "--savedir",
-        default="nle_data/play_data",
+        default=None,
         help="Directory path where data will be saved. "
-        "Defaults to 'nle_data/play_data'.",
+        "Defaults to None (not data saved).",
     )
     parser.add_argument(
         "--no-render", action="store_true", help="Disables env.render()."
@@ -214,13 +209,13 @@ def main():
         "--watch",
         dest="watch",
         action="store_true",
-        help="Pressing a key performs a step.",
+        help="Pressing the Enter key performs a step.",
     )
     parser.add_argument(
         "--no-watch",
         dest="watch",
         action="store_false",
-        help="No need to press any keys.",
+        help="Not watching the replay.",
     )
     parser.set_defaults(watch=True)
     flags = parser.parse_args()

@@ -33,7 +33,9 @@ import os
 import numpy as np
 import multiprocessing as mp
 
+from minihack.agent import is_env_registered, get_env_shortcut
 from minihack.agent.polybeast import polybeast_env, polybeast_learner
+from minihack.agent.common.envs import tasks
 
 import torch
 
@@ -44,7 +46,8 @@ os.environ["OMP_NUM_THREADS"] = "1"
 
 logging.basicConfig(
     format=(
-        "[%(levelname)s:%(process)d %(module)s:%(lineno)d %(asctime)s] " "%(message)s"
+        "[%(levelname)s:%(process)d %(module)s:%(lineno)d %(asctime)s] "
+        "%(message)s"
     ),
     level=0,
 )
@@ -52,7 +55,9 @@ logging.basicConfig(
 
 def pipes_basename():
     logdir = Path(os.getcwd())
-    name = ".".join([logdir.parents[1].name, logdir.parents[0].name, logdir.name])
+    name = ".".join(
+        [logdir.parents[1].name, logdir.parents[0].name, logdir.name]
+    )
     return "unix:/tmp/poly.%s" % name
 
 
@@ -77,10 +82,6 @@ def run_learner(flags: DictConfig):
 def get_environment_flags(flags):
     env_flags = OmegaConf.to_container(flags)
     env_flags["num_servers"] = flags.num_actors
-    max_num_steps = 1e6
-    if flags.env in ("staircase", "pet"):
-        max_num_steps = 1000
-    env_flags["max_num_steps"] = int(max_num_steps)
     env_flags["seedspath"] = ""
     return OmegaConf.create(env_flags)
 
@@ -106,7 +107,9 @@ def symlink_latest(savedir, symlink):
 def main(flags: DictConfig):
     if os.path.exists("config.yaml"):
         # this ignores the local config.yaml and replaces it completely with saved one
-        logging.info("loading existing configuration, we're continuing a previous run")
+        logging.info(
+            "loading existing configuration, we're continuing a previous run"
+        )
         new_flags = OmegaConf.load("config.yaml")
         cli_conf = OmegaConf.from_cli()
         # however, you can override parameters from the cli still
@@ -117,6 +120,15 @@ def main(flags: DictConfig):
     OmegaConf.save(flags, "config.yaml")
 
     flags = get_common_flags(flags)
+
+    # check the name of the environment
+    if flags.env not in tasks.ENVS:
+        if is_env_registered(flags.env):
+            flags.env = get_env_shortcut(flags.env)
+        else:
+            raise KeyError(
+                f"Could not find an environement with a name: {flags.env}."
+            )
 
     # set flags for polybeast_env
     env_flags = get_environment_flags(flags)

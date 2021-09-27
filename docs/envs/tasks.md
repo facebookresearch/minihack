@@ -1,7 +1,7 @@
 # MiniHack Environments
 
 This document describes all the tasks that ship with MiniHack. Note that all environements
-are registered with a `MiniHack-` prefix in front of them.
+are registered with the `MiniHack-` prefix and `-v0` suffix.
 
 ## Navigation Tasks
 
@@ -26,7 +26,7 @@ Examples of the `Room-Ultimate-15x15` task:
 ![](./imgs/rooms.png)
 
 ### Corridor
- These tasks make use of the `RANDOM_CORRIDORS`
+These tasks make use of the `RANDOM_CORRIDORS`
 command in the `des-file`. The objective is to reach the staircase down, which
 is in a random room. The agent is also
 in a random room. The rooms have randomised positions and sizes. The corridors
@@ -41,7 +41,7 @@ Examples of the `Corridor-R5` task:
 ![](./imgs/corridors.png)
 
 ### KeyRoom
- These tasks require an agent to pickup a key, navigate to
+These tasks require an agent to pickup a key, navigate to
 a door, and use the key to unlock the door, reaching the staircase down within
 the locked room. The action space is the standard movement actions plus the
 pickup and apply action. In the simplest variant of this task,
@@ -57,7 +57,7 @@ Examples of the `KeyRoom-S15` task:
 ![](./imgs/keyrooms.png)
 
 ### MazeWalk
- These navigation tasks make use of the `MAZEWALK`
+These navigation tasks make use of the `MAZEWALK`
 command in the `des-file`, which procedurally generates diverse mazes on the
 9x9, 15x15 and 45x19 grids for `MazeWalk-9x9`, `MazeWalk-15x15`,
 and `MazeWalk-45x19` environments. In the mapped versions of these tasks
@@ -70,7 +70,7 @@ Examples of the `MazeWalk-15x15` task:
 ![](./imgs/mazewalks.png)
 
 ### River
- This group of tasks requires the agent to cross a river
+This group of tasks requires the agent to cross a river
 using boulders. Boulders, when pushed into water, create a dry land to walk on,
 allowing the agent to cross it. While the `River-Narrow` task can be
 solved by pushing one boulder into the water, other `River` require the
@@ -85,7 +85,7 @@ Examples of the `River` task:
 ![](./imgs/rivers.png)
 
 ### HideNSeek
- In the `HideNSeek` task, the agent is spawned in
+In the `HideNSeek` task, the agent is spawned in
 a big room full of trees and clouds. The trees and clouds block the line of
 sight of the player and a random monster (chosen to be more powerful than the
 agent). The agent, monsters and spells can pass through clouds unobstructed.
@@ -103,7 +103,7 @@ Examples of the `HideNSeek` task:
 ![](./imgs/hidenseeks.png)
 
 ### CorridorBattle
- The `CorridorBattle` task challenges the
+The `CorridorBattle` task challenges the
 agent to make best use of the dungeon features to effectively defeat a horde of
 hostile monsters. Here, if the agent lures the rats
 into the narrow corridor, it can defeat them one at a time. Fighting in rooms,
@@ -117,7 +117,7 @@ An example of the `CorridorBattle` task:
 ![](./imgs/battle.png)
 
 ### Memento
- This group of tasks test the agent's ability to use memory
+This group of tasks test the agent's ability to use memory
 (within an episode) to pick the correct path. The agent is presented with a
 prompt (in the form of a sleeping monster of a specific type), and then
 navigates along a corridor. At the end of the corridor the agent reaches a

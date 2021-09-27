@@ -6,6 +6,8 @@ from numbers import Number
 
 import hydra
 import minihack.agent.rllib.models  # noqa: F401
+from minihack.agent.common.envs import tasks
+from minihack.agent import is_env_registered, get_env_shortcut
 import numpy as np
 import ray
 import ray.tune.integration.wandb
@@ -25,37 +27,31 @@ from ray.tune.utils import merge_dicts
 
 def get_full_config(cfg: DictConfig) -> DictConfig:
     env_flags = OmegaConf.to_container(cfg)
-    max_num_steps = 1e6
-    if cfg.env in ("staircase", "pet"):
-        max_num_steps = 1000
-    env_flags["max_num_steps"] = int(max_num_steps)
     env_flags["seedspath"] = ""
     return OmegaConf.create(env_flags)
 
 
 NAME_TO_TRAINER: dict = {
-    "impala": (impala, impala.ImpalaTrainer),
-    "a2c": (a3c, a3c.A2CTrainer),
-    "dqn": (dqn, dqn.DQNTrainer),
-    "ppo": (ppo, ppo.PPOTrainer),
+    "impala": (impala.DEFAULT_CONFIG.copy(), impala.ImpalaTrainer),
+    "a2c": (a3c.a2c.A2C_DEFAULT_CONFIG.copy(), a3c.A2CTrainer),
+    "dqn": (dqn.DEFAULT_CONFIG.copy(), dqn.DQNTrainer),
+    "ppo": (ppo.DEFAULT_CONFIG.copy(), ppo.PPOTrainer),
 }
 
 
-@hydra.main(config_name="config")
+@hydra.main(config_path=".", config_name="config")
 def train(cfg: DictConfig) -> None:
     ray.init(num_gpus=cfg.num_gpus, num_cpus=cfg.num_cpus + 1)
     cfg = get_full_config(cfg)
     register_env("RLlibNLE-v0", RLLibNLEEnv)
 
     try:
-        algo, trainer = NAME_TO_TRAINER[cfg.algo]
-    except KeyError:
+        config, trainer = NAME_TO_TRAINER[cfg.algo]
+    except KeyError as error:
         raise ValueError(
             "The algorithm you specified isn't currently supported: %s",
             cfg.algo,
-        )
-
-    config = algo.DEFAULT_CONFIG.copy()
+        ) from error
 
     args_config = OmegaConf.to_container(cfg)
 
@@ -69,6 +65,15 @@ def train(cfg: DictConfig) -> None:
 
     # Merge config from hydra (will have some rogue keys but that's ok)
     config = merge_dicts(config, args_config)
+
+    # check the name of the environment
+    if cfg.env not in tasks.ENVS:
+        if is_env_registered(cfg.env):
+            cfg.env = get_env_shortcut(cfg.env)
+        else:
+            raise KeyError(
+                f"Could not find an environement with a name: {cfg.env}."
+            )
 
     # Update configuration with parsed arguments in specific ways
     config = merge_dicts(
