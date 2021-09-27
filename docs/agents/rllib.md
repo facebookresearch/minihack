@@ -20,17 +20,15 @@ python3 -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-5x5-v0 total_st
 We use the [hydra](https://github.com/facebookresearch/hydra) framework for configuring our experiments. All environment and training parameters can be specified using command line arguments (or edited directly in `config.yaml`). See `config.yaml` file in  `minihack.agent.rllib` for more information. Be sure to set up appropriate parameters for logging with [wandb](https://wandb.ai/site) (disabled by default).
 
 ```bash
-# Single DQN run
-python3 -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-15x15-v0 total_steps=1000000 dqn.buffer_size=100000 lr=0.000001
-
-# Single PPO run
-python3 -m minihack.agent.rllib.train  algo=ppo env=MiniHack-Room-15x15-v0 total_steps=1000000 ppo.entropy_coeff=0.0001 lr=0.00001
-
 # Single A2C run
 python3 -m minihack.agent.rllib.train algo=a2c env=MiniHack-Room-15x15-v0 total_steps=1000000 a2c.entropy_coeff=0.001 lr=0.00001
 
-# To perform a sweep on the cluster: add another --multirun command and comma-separate values
-python3 -m minihack.agent.rllib.train --multirun algo=dqn env=MiniHack-Room-15x15-v0 lr=0.000001 seed=0,1,2,3,4 total_steps=10000000
-```
+# Single PPO run
+python3 -m minihack.agent.rllib.train algo=ppo env=MiniHack-Room-15x15-v0 total_steps=1000000 ppo.entropy_coeff=0.0001 lr=0.00001
 
-The full list of environment name shortcuts can be looked up [here](./env_names.yaml).
+# Single DQN run
+python3 -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-15x15-v0 total_steps=1000000 dqn.buffer_size=100000 lr=0.000001
+
+# To perform a sweep on the cluster: add another --multirun command and comma-separate values
+python3 -m minihack.agent.rllib.train --multirun algo=a2c env=MiniHack-Room-15x15-v0 lr=0.00001 seed=0,1,2,3,4 total_steps=5000000
+```

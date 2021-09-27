@@ -39,8 +39,6 @@ python3 -m minihack.agent.polybeast.polyhydra model=ride state_counter=coordinat
 python3 -m minihack.agent.polybeast.polyhydra --multirun model=baseline,rnd env=MiniHack-Room-Random-15x15-v0,MiniHack-Room-Monster-15x15-v0 total_steps=10000000
 ```
 
-The full list of environment name shortcuts can be looked up [here](./env_names.yaml).
-
 ## Replicating the Results of the Paper
 
 To replicate results of the paper performed using polybeast, simply run a sweep of 5 runs with IMPALA, RND or RIDE agents on the desired environments as follows:

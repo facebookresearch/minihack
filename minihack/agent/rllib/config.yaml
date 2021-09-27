@@ -56,7 +56,7 @@ env: MiniHack-Room-5x5-v0
 num_gpus: 0
 num_cpus: 8
 num_actors: 256           # should be at least batch_size
-total_steps: 1e9          # 1e9 used in paper
+total_steps: 1e9
 train_batch_size: 32            # 32 is standard, can use 128 with small model variants
 unroll_length: 80         # 80 is standard
 
@@ -105,7 +105,7 @@ dqn:
   noisy: False
   prioritized_replay: True
   n_step: 5
-  buffer_size: 1000000
+  buffer_size: 100000
   target_network_update_freq: 50000
   prioritized_replay_beta_annealing_timesteps: 500000
   learning_starts: 50000
