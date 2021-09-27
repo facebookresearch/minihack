@@ -11,10 +11,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 defaults:
-- hydra/job_logging: colorlog
-- hydra/hydra_logging: colorlog
-- hydra/launcher: submitit_slurm
+- override hydra/job_logging: colorlog
+- override hydra/hydra_logging: colorlog
+- override hydra/launcher: submitit_slurm
 
 # pip install hydra-core hydra_colorlog
 # can set these on the commandline too, e.g. `hydra.launcher.partition=dev`
@@ -26,17 +27,17 @@ hydra:
     tasks_per_node: 1
     mem_gb: 20
     nodes: 1
-    partition: dev
+    partition: learnlab
     comment: null
     max_num_timeout: 5  # will requeue on timeout or preemption
 
 name: null  # can use this to have multiple runs with same params, eg name=1,2,3,4,5
-seed: 123
+seed: null
 
 ## WandB settings
 wandb: false  # enable wandb logging
-project: mtp   # specifies the project name to log to
-entity: nethack  # the team to log to
+project: project_name   # specifies the project name to log to
+entity: entity_name  # the team to log to
 group: default  # defines a group name for the experiment
 tags: 'rllib'  # what tags for this run, comma-separated
 
@@ -49,32 +50,10 @@ reward_win: 1
 character: mon-hum-neu-mal
 save_tty: False
 obs_keys: "glyphs,chars,colors,specials,blstats,message"
-## typical characters we use
-# mon-hum-neu-mal
-# val-dwa-law-fem
-# wiz-elf-cha-mal
-# tou-hum-neu-fem
-
-env: score
-## NLE tasks:
-# staircase, score, pet, oracle, gold, eat, scout,
-## MiniHack tasks. See nle/agent/common/envs/tasks for all tasks
-# small_room, small_room_random, small_room_dark, small_room_monster,
-# small_room_trap, big_room, big_room_random, big_room_dark, big_room_monster,
-# big_room_monster_trap, corridor2, corridor3, corridor5, corridor8,
-# corridor10, keyroom_small_fixed, keyroom_small, keyroom_small_dark,
-# keyroom_big, keyroom_big_dark, mazewalk_small, mazewalk_small_mapped,
-# mazewalk_big, mazewalk_big_mapped, mazewalk_huge, mazewalk_huge_mapped,
-# fight_corridor, fight_corridor_dark, river, river_lava, river_monster,
-# river_monsterlava, multiroom_2, multiroom_4, multiroom_6, multiroom_2_locked,
-# multiroom_4_locked, multiroom_6_locked, multiroom_2_trap, multiroom_4_trap,
-# multiroom_6_trap, multiroom_2_monster, multiroom_4_monster,
-# multiroom_6_monster, multiroom_2_extreme, multiroom_4_extreme,
-# multiroom_6_extreme, boxoban_hard, boxoban_medium, mini_eat, mini_pray,
-# mini_sink
+env: MiniHack-Room-5x5-v0
 
 # Training settings.
-num_gpus: 1
+num_gpus: 0
 num_cpus: 8
 num_actors: 256           # should be at least batch_size
 total_steps: 1e9          # 1e9 used in paper
@@ -125,8 +104,8 @@ dqn:
   dueling: True
   noisy: False
   prioritized_replay: True
-  n_step: 3
-  buffer_size: 2000000
+  n_step: 5
+  buffer_size: 1000000
   target_network_update_freq: 50000
   prioritized_replay_beta_annealing_timesteps: 500000
   learning_starts: 50000
@@ -136,27 +115,18 @@ dqn:
     epsilon_timesteps: 1000000
 
 ppo:
-  rollout_fragment_length: 256
-  train_batch_size: 4096
-  sgd_minibatch_size: 256
-  num_sgd_iter: 20
+  rollout_fragment_length: 128
+  train_batch_size: 128
+  sgd_minibatch_size: 32
+  num_sgd_iter: 2
   entropy_coeff: 0.0001
   vf_loss_coeff: 0.5
   model:
     vf_share_layers: True
 
 a2c:
-  rollout_fragment_length: 32
-  train_batch_size: 256
-  entropy_coeff: 0.0001
-  vf_loss_coeff: 0.5
+  rollout_fragment_length: 128
+  train_batch_size: 128
+  entropy_coeff: 0.001
+  vf_loss_coeff: 0.1
   sample_async: False
-
-
-# sac:
-#   learning_starts: 50000
-#   prioritized_replay_beta_annealing_timesteps: 500000
-#   train_batch_size: 256
-#   rollout_fragment_length: 1
-#   model:
-#     use_lstm: False
