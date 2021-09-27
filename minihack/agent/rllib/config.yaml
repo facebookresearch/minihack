@@ -27,7 +27,7 @@ hydra:
     tasks_per_node: 1
     mem_gb: 20
     nodes: 1
-    partition: learnlab
+    partition: dev
     comment: null
     max_num_timeout: 5  # will requeue on timeout or preemption
 
