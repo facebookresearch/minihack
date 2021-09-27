@@ -12,7 +12,7 @@ To install and train an RLlib agent use the following commands:
 ```bash
 pip install -e ".[rllib]"
 # Test DQN run
-python3 -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-5x5-v0 total_steps=100000
+python3 -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-5x5-v0 total_steps=1000000 lr=0.000001
 ```
 
 ## Running Experiments
@@ -21,13 +21,13 @@ We use the [hydra](https://github.com/facebookresearch/hydra) framework for conf
 
 ```bash
 # Single DQN run
-python3 -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-5x5-v0 total_steps=1000000 dqn.buffer_size=500000
+python3 -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-15x15-v0 total_steps=1000000 dqn.buffer_size=100000 lr=0.000001
 
 # Single PPO run
-python3 -m minihack.agent.rllib.train  algo=ppo env=MiniHack-Room-5x5-v0 total_steps=1000000 ppo.entropy_coeff=0.0001
+python3 -m minihack.agent.rllib.train  algo=ppo env=MiniHack-Room-15x15-v0 total_steps=1000000 ppo.entropy_coeff=0.0001 lr=0.00001
 
 # Single A2C run
-python3 -m minihack.agent.rllib.train algo=ppo env=MiniHack-Room-5x5-v0 total_steps=1000000 a2c.entropy_coeff=0.0001
+python3 -m minihack.agent.rllib.train algo=a2c env=MiniHack-Room-15x15-v0 total_steps=1000000 a2c.entropy_coeff=0.001 lr=0.00001
 
 # To perform a sweep on the cluster: add another --multirun command and comma-separate values
 python3 -m minihack.agent.rllib.train --multirun algo=dqn env=MiniHack-Room-15x15-v0 lr=0.000001 seed=0,1,2,3,4 total_steps=10000000

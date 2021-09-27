@@ -112,7 +112,7 @@ install torchbeast by following the instructions [here](https://github.com/faceb
 then use the following commands:
 ``` bash
 pip install ".[polybeast]"
-python3 -m minihack.agent.polybeast.polyhydra env=MiniHack-Room-5x5-v0 total_steps=100000
+python -m minihack.agent.polybeast.polyhydra env=MiniHack-Room-5x5-v0 total_steps=100000
 ```
 
 More information on running our TorchBeast agents, and instructions on how to reproduce
@@ -127,7 +127,7 @@ This can be used to try out a variety of different RL algorithms. To install and
 commands:
 ```bash
 pip install ".[rllib]"
-python3 -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-5x5-v0 total_steps=100000
+python -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-5x5-v0 total_steps=1000000
 ```
 
 More information on running RLlib agents can be found [here](./docs/agents/rllib.md).

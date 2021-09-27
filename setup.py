@@ -63,7 +63,7 @@ extras_deps = {
     ],
     "rllib": [
         "torch>=1.3.1",
-        "ray[rllib]>=1.3.0",
+        "ray[rllib]==1.3.0",
         "hydra-core>=1.0.0",
         "hydra-colorlog>=1.0.0",
         "hydra-submitit-launcher>=1.1.1",

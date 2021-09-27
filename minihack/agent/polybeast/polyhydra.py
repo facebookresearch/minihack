@@ -127,8 +127,7 @@ def main(flags: DictConfig):
             flags.env = get_env_shortcut(flags.env)
         else:
             raise KeyError(
-                "Could not find an environement with a name: "
-                f"{env_gym_name}. For the full list, see {env_name_path}."
+                f"Could not find an environement with a name: {flags.env}."
             )
 
     # set flags for polybeast_env

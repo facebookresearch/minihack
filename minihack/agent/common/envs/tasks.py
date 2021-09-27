@@ -161,7 +161,7 @@ def is_env_minihack(env_cls):
     return issubclass(env_cls, MiniHack)
 
 
-def create_env(flags, env_id):
+def create_env(flags, env_id=0):
     # Create environment instances for actors
     with threading.Lock():
         env_class = ENVS[flags.env]
