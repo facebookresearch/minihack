@@ -53,5 +53,5 @@ class MiniHackSkill(MiniHack):
 
 registration.register(
     id="MiniHack-Skill-Custom-v0",
-    entry_point="minihack.skill:MiniHackSkill",
+    entry_point="minihack.skills:MiniHackSkill",
 )
