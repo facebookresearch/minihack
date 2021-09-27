@@ -32,10 +32,10 @@ def get_full_config(cfg: DictConfig) -> DictConfig:
 
 
 NAME_TO_TRAINER: dict = {
-    "impala": (impala, impala.ImpalaTrainer),
-    "a2c": (a3c, a3c.A2CTrainer),
-    "dqn": (dqn, dqn.DQNTrainer),
-    "ppo": (ppo, ppo.PPOTrainer),
+    "impala": (impala.DEFAULT_CONFIG.copy(), impala.ImpalaTrainer),
+    "a2c": (a3c.a2c.A2C_DEFAULT_CONFIG.copy(), a3c.A2CTrainer),
+    "dqn": (dqn.DEFAULT_CONFIG.copy(), dqn.DQNTrainer),
+    "ppo": (ppo.DEFAULT_CONFIG.copy(), ppo.PPOTrainer),
 }
 
 
@@ -46,14 +46,12 @@ def train(cfg: DictConfig) -> None:
     register_env("RLlibNLE-v0", RLLibNLEEnv)
 
     try:
-        algo, trainer = NAME_TO_TRAINER[cfg.algo]
-    except KeyError:
+        config, trainer = NAME_TO_TRAINER[cfg.algo]
+    except KeyError as error:
         raise ValueError(
             "The algorithm you specified isn't currently supported: %s",
             cfg.algo,
-        )
-
-    config = algo.DEFAULT_CONFIG.copy()
+        ) from error
 
     args_config = OmegaConf.to_container(cfg)
 

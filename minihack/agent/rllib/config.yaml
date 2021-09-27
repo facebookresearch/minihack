@@ -50,7 +50,7 @@ reward_win: 1
 character: mon-hum-neu-mal
 save_tty: False
 obs_keys: "glyphs,chars,colors,specials,blstats,message"
-env: MiniHack-Room-5x5-v0
+env: small_room
 
 # Training settings.
 num_gpus: 0
