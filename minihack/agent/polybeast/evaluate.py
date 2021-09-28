@@ -2,14 +2,18 @@
 
 import minihack.agent.polybeast.models
 from minihack.agent import get_env_shortcut
-import polyhydra
+from minihack.agent.polybeast import polyhydra
 import argparse
 import time
 import timeit
 import os
+import tempfile
+import shutil
+import glob
 
 import gym
 import torch
+import PIL.Image
 from omegaconf import OmegaConf
 
 
@@ -65,6 +69,9 @@ def eval(
     checkpoint_dir,
     watch,
     obs_keys,
+    save_gif,
+    gif_path,
+    gif_duration,
 ):
     agent_env = get_env_shortcut(env)
     env = gym.make(
@@ -95,12 +102,20 @@ def eval(
     total_start_time = timeit.default_timer()
     start_time = total_start_time
 
+    if save_gif:
+        # Create a tmp directory for individual screenshots
+        tmpdir = tempfile.mkdtemp()
+
     while True:
         if watch and not no_render:
             print("Previous reward:", reward)
             if action is not None:
                 print("Previous action: %s" % repr(env._actions[action]))
             env.render(render_mode)
+
+        if save_gif:
+            obs_image = PIL.Image.fromarray(obs["pixel_crop"])
+            obs_image.save(os.path.join(tmpdir, f"e_{episodes}_s_{steps}.png"))
 
         action, hidden = get_action(model, obs, hidden, done, watch)
         if action is None:
@@ -136,6 +151,23 @@ def eval(
         if episodes == num_episodes:
             break
         env.reset()
+
+    if save_gif:
+        # Make the GIF and delete the temporary directory
+        png_paths = os.path.join(tmpdir, "e_*_s_*.png")
+
+        img, *imgs = [PIL.Image.open(f) for f in sorted(glob.glob(png_paths))]
+        img.save(
+            fp=gif_path,
+            format="GIF",
+            append_images=imgs,
+            save_all=True,
+            duration=gif_duration,
+            loop=0,
+        )
+        shutil.rmtree(tmpdir)
+
+        print("Saving replay GIF at {}".format(os.path.abspath(gif_path)))
 
     env.close()
     print(
@@ -174,7 +206,7 @@ def main():
         "-n",
         "--num_episodes",
         type=int,
-        default=10,
+        default=5,
         help="Number of episodes to be evaluated before exiting.",
     )
     parser.add_argument(
@@ -218,12 +250,40 @@ def main():
         help="Not watching the replay.",
     )
     parser.set_defaults(watch=True)
+    parser.add_argument(
+        "--save_gif",
+        dest="save_gif",
+        action="store_true",
+        help="Saving a GIF replay of the evaluated episodes.",
+    )
+    parser.add_argument(
+        "--no-save_gif",
+        dest="save_gif",
+        action="store_false",
+        help="Do not save GIF.",
+    )
+    parser.set_defaults(save_gif=False)
+    parser.add_argument(
+        "--gif_path",
+        type=str,
+        default="replay.gif",
+        help="Where to save the produced GIF file.",
+    )
+    parser.add_argument(
+        "--gif_duration",
+        type=int,
+        default=300,
+        help="The duration of each gif image.",
+    )
     flags = parser.parse_args()
 
     if flags.savedir == "args":
         flags.savedir = "{}_{}_{}.zip".format(
             time.strftime("%Y%m%d-%H%M%S"), flags.mode, flags.env
         )
+
+    if flags.save_gif and "pixel_crop" not in flags.obs_keys:
+        flags.obs_keys += ",pixel_crop"
 
     eval(**vars(flags))
 
