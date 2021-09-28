@@ -1,8 +1,6 @@
-# MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research
-
-<!-- <p align="center">
- <img width="70%" src="docs/img/minihack.png" />
-</p> -->
+<p align="center">
+ <img width="70%" src="docs/imgs/minihack.png" />
+</p>
 
 <p align="center">
   <a href="https://pypi.python.org/pypi/minihack/">
@@ -18,8 +16,8 @@
     <img src="https://github.com/facebookresearch/minihack/actions/workflows/test_and_deploy.yml/badge.svg?branch=main" />
   </a>
  </p>
-
- ![MiniHack Environments](/docs/imgs/minihack_envs.png)
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL).
 Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), arguably the hardest grid-based game in the world, MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to communicate with the game and provide a convenient interface for customly created RL testbeds.
@@ -28,6 +26,8 @@ MiniHack already comes with a large list of challenging [tasks](./docs/envs/task
 The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the complexity of the tasks.
 
 To this end, MiniHack leverages the [description files of NetHack](https://nethackwiki.com/wiki/Des-file_format). The description files (or des-files) are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, dungeon features, etc.  The des-files can be compiled into binary using the NetHack level compiler, and MiniHack maps them to [Gym environments](https://github.com/openai/gym). We refer users to our [brief overview](https://minihack.readthedocs.io/en/latest/getting-started/des_files.html), [detailed tutorial](https://minihack.readthedocs.io/en/latest/tutorials/des_file_tutorial.html), or [interactive notebook](./docs/tutorials/des_file_tutorial.ipynb) for further information on des-files.
+
+ ![MiniHack Environments](/docs/imgs/des_file.gif)
 
 [Our documentation](https://minihack.readthedocs.io/) will walk you through everything you need to know about MiniHack, step-by-step, including information on how to get started, configure environments or design new ones, train baseline agents, and much more.
 
@@ -137,6 +137,13 @@ More information on running RLlib agents can be found [here](./docs/agents/rllib
 MiniHack also enables research in *Unsupervised Environment Design*, whereby an adaptive task distribution is learned during training by dynamically adjusting free parameters of the task MDP.
 Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository for replicating the examples from the paper using the [PAIRED](https://arxiv.org/abs/2012.02096).
 
+# Papers using MiniHack
+
+- Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://openreview.net/forum?id=Fr_KF_lMCMr) (CMU, Georgia Tech, AI2, August 2021)
+- Samvelyan et al. [MiniHack The Planet](https://openreview.net/pdf?id=skFwlyefkWJ) (FAIR, UCL, Oxford, NeurIPS 2021)
+
+Open a [pull request](https://github.com/facebookresearch/minihack/edit/main/README.md) to add papers.
+
 # Citation
 
 If you use MiniHack in your work, please cite:
@@ -156,10 +163,3 @@ If you use our example ported environments, please cite the original papers: [Mi
 # Contributions and Maintenance
 
 We welcome contributions to MiniHack. If you are interested in contributing, please see [this document](./CONTRIBUTING.md). Our maintenance plan can be found [here](./MAINTENANCE.md).
-
-# Papers using the MiniHack
-
-- Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://openreview.net/forum?id=Fr_KF_lMCMr) (CMU, Georgia Tech, AI2, August 2021)
-- Samvelyan et al. [MiniHack The Planet](https://openreview.net/pdf?id=skFwlyefkWJ) (FAIR, UCL, Oxford, NeurIPS 2021)
-
-Open a [pull request](https://github.com/facebookresearch/minihack/edit/main/README.md) to add papers.
