@@ -50,16 +50,17 @@ For navigation tasks, the default parameters are already set. For skill acquisit
 
 The learning curves for all of our polybeast experiments can be accessed in our [Weights&Biases repository](https://wandb.ai/minihack).
 
-<!---
 ## Evaluate and Watch
 
 The following script allows to evaluate the performance of a model pre-trained with polybeast:
 
 ```bash
-# Watch the learned behaviour step-by-step
-python3 -m minihack.agent.polybeast.evaluate --env MiniHack-Room-5x5-v0 -c /path/to/checkpoint/directory/ --watch
+# Watch the learned behaviour step-by-step in the terminal
+python3 -m minihack.agent.polybeast.evaluate --env MiniHack-Room-5x5-v0 -c /path/to/checkpoint/directory --watch
 
-# Evaluate the pre-trained model for 5 episodes and save the ttyrecordings in minihack_data/
-python3 -m minihack.agent.polybeast.evaluate --env MiniHack-Room-5x5-v0 -c /path/to/checkpoint/directory/ --savedir minihack_data/ -n 5 --no-watch
+# Evaluate the pre-trained model for 1 episode and save the replay as a GIF file
+python3 -m minihack.agent.polybeast.evaluate --env MiniHack-Room-5x5-v0 -c /path/to/checkpoint/directory -n 1 --no-watch --save_gif --gif_path replay.gif
+
+# Print all options of the evaluation script
+python3 -m minihack.agent.polybeast.evaluate --help
 ```
--->
