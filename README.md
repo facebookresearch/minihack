@@ -1,8 +1,6 @@
-# MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research
-
-<!-- <p align="center">
+<p align="center">
  <img width="70%" src="docs/img/minihack.png" />
-</p> -->
+</p>
 
 <p align="center">
   <a href="https://pypi.python.org/pypi/minihack/">
@@ -18,6 +16,8 @@
     <img src="https://github.com/facebookresearch/minihack/actions/workflows/test_and_deploy.yml/badge.svg?branch=main" />
   </a>
  </p>
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL).
 Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), arguably the hardest grid-based game in the world, MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to communicate with the game and provide a convenient interface for customly created RL testbeds.
