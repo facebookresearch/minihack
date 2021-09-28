@@ -137,6 +137,13 @@ More information on running RLlib agents can be found [here](./docs/agents/rllib
 MiniHack also enables research in *Unsupervised Environment Design*, whereby an adaptive task distribution is learned during training by dynamically adjusting free parameters of the task MDP.
 Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository for replicating the examples from the paper using the [PAIRED](https://arxiv.org/abs/2012.02096).
 
+# Papers using MiniHack
+
+- Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://openreview.net/forum?id=Fr_KF_lMCMr) (CMU, Georgia Tech, AI2, August 2021)
+- Samvelyan et al. [MiniHack The Planet](https://openreview.net/pdf?id=skFwlyefkWJ) (FAIR, UCL, Oxford, NeurIPS 2021)
+
+Open a [pull request](https://github.com/facebookresearch/minihack/edit/main/README.md) to add papers.
+
 # Citation
 
 If you use MiniHack in your work, please cite:
@@ -156,10 +163,3 @@ If you use our example ported environments, please cite the original papers: [Mi
 # Contributions and Maintenance
 
 We welcome contributions to MiniHack. If you are interested in contributing, please see [this document](./CONTRIBUTING.md). Our maintenance plan can be found [here](./MAINTENANCE.md).
-
-# Papers using the MiniHack
-
-- Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://openreview.net/forum?id=Fr_KF_lMCMr) (CMU, Georgia Tech, AI2, August 2021)
-- Samvelyan et al. [MiniHack The Planet](https://openreview.net/pdf?id=skFwlyefkWJ) (FAIR, UCL, Oxford, NeurIPS 2021)
-
-Open a [pull request](https://github.com/facebookresearch/minihack/edit/main/README.md) to add papers.
