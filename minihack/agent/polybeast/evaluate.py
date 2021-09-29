@@ -154,9 +154,10 @@ def eval(
 
     if save_gif:
         # Make the GIF and delete the temporary directory
-        png_paths = os.path.join(tmpdir, "e_*_s_*.png")
+        png_files = glob.glob(os.path.join(tmpdir, "e_*_s_*.png"))
+        png_files.sort(key=os.path.getmtime)
 
-        img, *imgs = [PIL.Image.open(f) for f in sorted(glob.glob(png_paths))]
+        img, *imgs = [PIL.Image.open(f) for f in png_files]
         img.save(
             fp=gif_path,
             format="GIF",
