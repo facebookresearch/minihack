@@ -20,7 +20,7 @@ autodoc_mock_imports = ["nle"]
 
 # -- Project information -----------------------------------------------------
 
-project = "MiniHack The Planet"
+project = "MiniHack"
 copyright = "2021, MiniHack Team @ Facebook AI Research, UCL, and Oxford"
 author = "MiniHack Team @ Facebook AI Research, UCL, and Oxford"
 
