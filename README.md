@@ -25,6 +25,10 @@ Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), arguably 
 MiniHack already comes with a large list of challenging [tasks](./docs/envs/tasks.md). However, it is primarily built for easily designing new ones.
 The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the complexity of the tasks.
 
+<p align="center">
+ <img width="25%" src="/docs/imgs/minihack_gameplay.gif" />
+</p>
+
 To this end, MiniHack leverages the [description files of NetHack](https://nethackwiki.com/wiki/Des-file_format). The description files (or des-files) are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, dungeon features, etc.  The des-files can be compiled into binary using the NetHack level compiler, and MiniHack maps them to [Gym environments](https://github.com/openai/gym). We refer users to our [brief overview](https://minihack.readthedocs.io/en/latest/getting-started/des_files.html), [detailed tutorial](https://minihack.readthedocs.io/en/latest/tutorials/des_file_tutorial.html), or [interactive notebook](./docs/tutorials/des_file_tutorial.ipynb) for further information on des-files.
 
  ![MiniHack Environments](/docs/imgs/des_file.gif)
@@ -78,9 +82,6 @@ env.reset() # each reset generates a new environment instance
 env.step(1)  # move agent '@' north
 env.render()
 ```
-
-![](/docs/imgs/minihack_gameplay.gif)
-
 
 To see the list of all [MiniHack environments](./docs/envs/tasks.md), run:
 
