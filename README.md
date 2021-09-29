@@ -79,6 +79,9 @@ env.step(1)  # move agent '@' north
 env.render()
 ```
 
+![](/docs/imgs/minihack_gameplay.gif)
+
+
 To see the list of all [MiniHack environments](./docs/envs/tasks.md), run:
 
 ```bash
