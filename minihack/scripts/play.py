@@ -19,7 +19,6 @@ from nle import nethack
 import tempfile
 import shutil
 import glob
-import PIL.Image
 
 
 _ACTIONS = tuple(
@@ -106,6 +105,13 @@ def play(
         )
         if save_gif:
             env_kwargs["observation_keys"] = ("pixel_crop",)
+            try:
+                import PIL.Image
+            except ModuleNotFoundError:
+                raise ModuleNotFoundError(
+                    "To safe GIF files of trajectories, please install Pillow:"
+                    " pip install Pillow"
+                )
 
         env = gym.make(
             env_name,
