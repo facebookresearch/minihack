@@ -1,3 +1,5 @@
+include version.txt
+
 recursive-include minihack/dat *
 recursive-include minihack/lib *
 recursive-include minihack/scripts *

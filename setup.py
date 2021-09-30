@@ -84,7 +84,7 @@ if __name__ == "__main__":
         long_description = f.read()
     cwd = os.path.dirname(os.path.abspath(__file__))
     sha = "Unknown"
-    version = "0.1.1"
+    version = open("version.txt", "r").read().strip()
 
     try:
         sha = (
@@ -100,7 +100,6 @@ if __name__ == "__main__":
     print("Building wheel {}-{}".format("minihack", version))
 
     version_path = os.path.join(cwd, "minihack", "version.py")
-    print(version_path)
     with open(version_path, "w") as f:
         f.write("__version__ = '{}'\n".format(version))
         f.write("git_version = {}\n".format(repr(sha)))
