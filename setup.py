@@ -84,7 +84,7 @@ if __name__ == "__main__":
         long_description = f.read()
     cwd = os.path.dirname(os.path.abspath(__file__))
     sha = "Unknown"
-    version = "0.1.1"
+    version = open("version.txt", "r").read().strip()
 
     try:
         sha = (
