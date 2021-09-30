@@ -13,7 +13,6 @@ import glob
 
 import gym
 import torch
-import PIL.Image
 from omegaconf import OmegaConf
 
 
@@ -103,6 +102,14 @@ def eval(
     start_time = total_start_time
 
     if save_gif:
+        # Import pillow
+        try:
+            import PIL.Image
+        except ModuleNotFoundError:
+            raise ModuleNotFoundError(
+                "To safe GIF files of trajectories, please install Pillow:"
+                " pip install Pillow"
+            )
         # Create a tmp directory for individual screenshots
         tmpdir = tempfile.mkdtemp()
 
