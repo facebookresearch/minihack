@@ -68,7 +68,7 @@ registration.register(
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk9x9",
 )
 registration.register(
-    id="MiniHack-MazeWalk-Premapped-9x9-v0",
+    id="MiniHack-MazeWalk-Mapped-9x9-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk9x9Premapped",
 )
 registration.register(
@@ -76,7 +76,7 @@ registration.register(
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk15x15",
 )
 registration.register(
-    id="MiniHack-MazeWalk-Premapped-15x15-v0",
+    id="MiniHack-MazeWalk-Mapped-15x15-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk15x15Premapped",
 )
 registration.register(
@@ -84,6 +84,6 @@ registration.register(
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk45x19",
 )
 registration.register(
-    id="MiniHack-MazeWalk-Premapped-45x19-v0",
+    id="MiniHack-MazeWalk-Mapped-45x19-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk45x19Premapped",
 )

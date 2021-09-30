@@ -16,6 +16,10 @@ import gym
 import nle  # noqa: F401
 import minihack  # noqa: F401
 from nle import nethack
+import tempfile
+import shutil
+import glob
+import PIL.Image
 
 
 _ACTIONS = tuple(
@@ -72,7 +76,18 @@ def get_action(env, action_mode, is_raw_env):
 
 
 def play(
-    env, mode, ngames, max_steps, seeds, savedir, no_render, render_mode, debug
+    env,
+    mode,
+    ngames,
+    max_steps,
+    seeds,
+    savedir,
+    no_render,
+    render_mode,
+    debug,
+    save_gif,
+    gif_path,
+    gif_duration,
 ):
     env_name = env
     is_raw_env = env_name == "raw"
@@ -85,7 +100,17 @@ def play(
             ttyrec = "/dev/null"
         env = nethack.Nethack(ttyrec=ttyrec)
     else:
-        env = gym.make(env_name, savedir=savedir, max_episode_steps=max_steps)
+        env_kwargs = dict(
+            savedir=savedir,
+            max_episode_steps=max_steps,
+        )
+        if save_gif:
+            env_kwargs["observation_keys"] = ("pixel_crop",)
+
+        env = gym.make(
+            env_name,
+            **env_kwargs,
+        )
         if seeds is not None:
             env.seed(seeds)
         if not no_render:
@@ -103,6 +128,11 @@ def play(
 
     total_start_time = timeit.default_timer()
     start_time = total_start_time
+
+    if save_gif:
+        # Create a tmp directory for individual screenshots
+        tmpdir = tempfile.mkdtemp()
+
     while True:
         if not no_render:
             if not is_raw_env:
@@ -118,6 +148,10 @@ def play(
                 for line in chars:
                     print(line.tobytes().decode("utf-8"))
                 print(blstats)
+
+        if save_gif:
+            obs_image = PIL.Image.fromarray(obs["pixel_crop"])
+            obs_image.save(os.path.join(tmpdir, f"e_{episodes}_s_{steps}.png"))
 
         action = get_action(env, mode, is_raw_env)
         if action is None:
@@ -158,6 +192,24 @@ def play(
         if episodes == ngames:
             break
         env.reset()
+
+    if save_gif:
+        # Make the GIF and delete the temporary directory
+        png_files = glob.glob(os.path.join(tmpdir, "e_*_s_*.png"))
+        png_files.sort(key=os.path.getmtime)
+
+        img, *imgs = [PIL.Image.open(f) for f in png_files]
+        img.save(
+            fp=gif_path,
+            format="GIF",
+            append_images=imgs,
+            save_all=True,
+            duration=gif_duration,
+            loop=0,
+        )
+        shutil.rmtree(tmpdir)
+
+        print("Saving replay GIF at {}".format(os.path.abspath(gif_path)))
     env.close()
     print(
         "Finished after %i episodes and %f seconds. Mean sps: %f"
@@ -186,8 +238,8 @@ def main():
         "-e",
         "--env",
         type=str,
-        default="NetHackScore-v0",
-        help="Gym environment spec. Defaults to 'NetHackStaircase-v0'.",
+        default="MiniHack-Room-Random-5x5-v0",
+        help="Gym environment spec. Defaults to 'MiniHack-Room-Random-5x5-v0'.",
     )
     parser.add_argument(
         "-n",
@@ -224,6 +276,31 @@ def main():
         default="human",
         choices=["human", "full", "ansi"],
         help="Render mode. Defaults to 'human'.",
+    )
+    parser.add_argument(
+        "--save_gif",
+        dest="save_gif",
+        action="store_true",
+        help="Saving a GIF replay of the evaluated episodes.",
+    )
+    parser.add_argument(
+        "--no-save_gif",
+        dest="save_gif",
+        action="store_false",
+        help="Do not save GIF.",
+    )
+    parser.set_defaults(save_gif=False)
+    parser.add_argument(
+        "--gif_path",
+        type=str,
+        default="replay.gif",
+        help="Where to save the produced GIF file.",
+    )
+    parser.add_argument(
+        "--gif_duration",
+        type=int,
+        default=300,
+        help="The duration of each gif image.",
     )
     flags = parser.parse_args()
 
