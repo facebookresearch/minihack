@@ -49,7 +49,7 @@ jobs:
     - name: Install from repo in test mode
       run: "pip install -e '.[dev]'"
     - name: Run tests
-      run: "python -m pytest minihack/tests --basetemp=minihack_test_data"
+      run: "python -m pytest -svx minihack/tests --basetemp=minihack_test_data"
     - name: Compress test output dir
       if: ${{ always() }}
       run: |
@@ -91,7 +91,7 @@ jobs:
       run: |
         REPONAME=$(basename $PWD)
         pushd ..
-        python -m pytest $REPONAME/minihack/tests --basetemp=$REPONAME/minihack_test_data
+        python -m pytest -svx $REPONAME/minihack/tests --basetemp=$REPONAME/minihack_test_data
         popd
     - name: Compress test output dir
       if: ${{ always() }}
