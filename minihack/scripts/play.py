@@ -238,8 +238,8 @@ def main():
         "-e",
         "--env",
         type=str,
-        default="NetHackScore-v0",
-        help="Gym environment spec. Defaults to 'NetHackStaircase-v0'.",
+        default="MiniHack-Room-Random-5x5-v0",
+        help="Gym environment spec. Defaults to 'MiniHack-Room-Random-5x5-v0'.",
     )
     parser.add_argument(
         "-n",
