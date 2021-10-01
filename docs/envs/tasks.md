@@ -8,7 +8,7 @@ are registered with the `MiniHack-` prefix and `-v0` suffix.
 ### Room
 These tasks are set in a single square room, where the goal is to reach the
 staircase down. There are multiple variants of this level. There are two sizes
-of the room (`5x5, 15x15`). In the simplest variants, `Room-5x5`
+of the room (`5x5, 15x15`). In the simplest variants, (`Room-5x5`
 and `Room-15x15`), the start and goal position are fixed. In the
 `Room-Random-5x5` and `Room-Random-15x15` tasks, the start and
 goal position are randomised. The rest of the variants add additional
