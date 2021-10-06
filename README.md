@@ -29,9 +29,9 @@ The motivation behind MiniHack is to be able to perform RL experiments in a cont
  <img width="30%" src="/docs/imgs/minihack_gameplay.gif" />
 </p>
 
-To this end, MiniHack leverages the [description files of NetHack](https://nethackwiki.com/wiki/Des-file_format). The description files (or des-files) are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, dungeon features, etc.  The des-files can be compiled into binary using the NetHack level compiler, and MiniHack maps them to [Gym environments](https://github.com/openai/gym). We refer users to our [brief overview](https://minihack.readthedocs.io/en/latest/getting-started/des_files.html), [detailed tutorial](https://minihack.readthedocs.io/en/latest/tutorials/des_file_tutorial.html), or [interactive notebook](./docs/tutorials/des_file_tutorial.ipynb) for further information on des-files.
+To do this, MiniHack leverages the so-called [description files](https://nethackwiki.com/wiki/Des-file_format) (or des-files). Des-files are written using a human-readable probabilistic-programming-like domain-specific language. With just a few lines of code, people can generate a large variety of environments, controlling every little detail, from the location and types of monsters, to the traps, objects, and terrain of the level, all while introducing randomness that challenges generalization capabilities of RL agents. The des-files can be compiled into binary using the NetHack level compiler, and MiniHack maps them to [Gym](https://github.com/openai/gym)  environments. We refer users to our [brief overview](https://minihack.readthedocs.io/en/latest/getting-started/des_files.html), [detailed tutorial](https://minihack.readthedocs.io/en/latest/tutorials/des_file_tutorial.html), or [interactive notebook](./docs/tutorials/des_file_tutorial.ipynb) for further information on des-files.
 
- ![MiniHack Environments](/docs/imgs/des_file.gif)
+![MiniHack Environments](/docs/imgs/des_file.gif)
 
 [Our documentation](https://minihack.readthedocs.io/) will walk you through everything you need to know about MiniHack, step-by-step, including information on how to get started, configure environments or design new ones, train baseline agents, and much more.
 
