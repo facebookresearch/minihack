@@ -3,20 +3,18 @@
 ![](imgs/minihack.png)
 
 MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL).
-Based on the game of [NetHack](./about/nethack), arguably the hardest grid-based game in the world, MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to provide a convenient interface for customly created RL testbeds.
+Based on the game of [NetHack](./about/nethack), MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to communicate with the game and to provide a convenient interface for customly created RL training and test environments of varying complexity. Check out our [NeurIPS 2020 paper](https://arxiv.org/abs/2109.13202) and recent [blogpost](https://ai.facebook.com/blog/minihack-a-new-sandbox-for-open-ended-reinforcement-learning).
 
+MiniHack comes with a large list of challenging [tasks](./envs/tasks.md). However, it is primarily built for easily designing new ones.
+The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the complexity of the tasks.
 MiniHack already comes with a large list of challenging tasks.
-However, it is primarily built for easily designing new ones.
-The motivation behind MiniHack is to be able to perform RL
-experiments in a controlled setting while being able to increasingly
-scale the complexity of the tasks.
 
-To this end, MiniHack leverages the [description files](./getting-started/des_files) of NetHack. The description files (or des-files) are human-readable specifications of levels: distributions of grid layouts together with monsters, objects on the floor, dungeon features, etc. The developers of NetHack created a special domain-specific language for describing the levels of the game, called _des-file format_. The des-files can be compiled into binary using the NetHack level compiler, and MiniHack maps them to [Gym environments](https://github.com/openai/gym).
-
-![](imgs/des_file.gif)
+To do this, MiniHack leverages the so-called [description files](https://nethackwiki.com/wiki/Des-file_format) written using a human-readable probabilistic-programming-like domain-specific language. With just a few lines of code, people can generate a large variety of [Gym](https://github.com/openai/gym) environments, controlling every little detail, from the location and types of monsters, to the traps, objects, and terrain of the level, all while introducing randomness that challenges generalization capabilities of RL agents.
 
 This documentation will walk you through everything you need to know, step-by-step.
 Start with [installing MiniHack](getting-started/installation), [try it out](getting-started/trying_out), [design new envirionments](getting-started/interface) and [train RL agents](agents/torchbeast).
+
+![](imgs/des_file.gif)
 
 
 ```{toctree}
