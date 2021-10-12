@@ -15,6 +15,9 @@
    <a href="https://github.com/facebookresearch/minihack/actions/workflows/test_and_deploy.yml">
     <img src="https://github.com/facebookresearch/minihack/actions/workflows/test_and_deploy.yml/badge.svg?branch=main" />
   </a>
+ <a href="https://pepy.tech/project/minihack">
+    <img src="https://static.pepy.tech/personalized-badge/minihack?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads" />
+  </a>
  </p>
  
 -------------------------------------------------------------------------------------------------------------------------------------------------------
