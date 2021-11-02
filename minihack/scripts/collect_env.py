@@ -16,13 +16,15 @@ from collections import namedtuple
 try:
     import nle
     import minihack
+    import gym
 
     NLE_AVAILABLE = True
     MINIHACK_AVAILABLE = True
+    GYM_AVAILABLE = True
 except (ImportError, NameError, AttributeError):
     NLE_AVAILABLE = False
     MINIHACK_AVAILABLE = False
-
+    GYM_AVAILABLE = True
 try:
     import torch
 
@@ -38,6 +40,7 @@ SystemEnv = namedtuple(
     [
         "minihack_version",
         "nle_version",
+        "gym_version",
         "torch_version",
         "is_debug_build",
         "cuda_compiled_version",
@@ -301,6 +304,11 @@ def get_env_info():
     else:
         minihack_version = "N/A"
 
+    if GYM_AVAILABLE:
+        gym_version = gym.__version__
+    else:
+        gym_version = "N/A"
+
     if TORCH_AVAILABLE:
         torch_version_str = torch.__version__
         torch_debug_mode_str = torch.version.debug
@@ -314,6 +322,7 @@ def get_env_info():
     return SystemEnv(
         minihack_version=minihack_version,
         nle_version=nle_version,
+        gym_version=gym_version,
         torch_version=torch_version_str,
         is_debug_build=torch_debug_mode_str,
         python_version="{}.{}".format(
@@ -337,6 +346,7 @@ def get_env_info():
 env_info_fmt = """
 MiniHack version: {minihack_version}
 NLE version: {nle_version}
+Gym version: {gym_version}
 PyTorch version: {torch_version}
 Is debug build: {is_debug_build}
 CUDA used to build PyTorch: {cuda_compiled_version}
