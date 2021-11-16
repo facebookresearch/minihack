@@ -148,7 +148,7 @@ Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository
 
 # Papers using MiniHack
 
-- Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://openreview.net/forum?id=Fr_KF_lMCMr) (CMU, Georgia Tech, AI2, August 2021)
+- Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://arxiv.org/abs/2110.10067) (CMU, Georgia Tech, AI2, August 2021)
 - Samvelyan et al. [MiniHack The Planet](https://openreview.net/pdf?id=skFwlyefkWJ) (FAIR, UCL, Oxford, NeurIPS 2021)
 
 Open a [pull request](https://github.com/facebookresearch/minihack/edit/main/README.md) to add papers.
