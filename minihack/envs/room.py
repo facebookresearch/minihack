@@ -40,7 +40,10 @@ class MiniHackRoom(MiniHackNavigation):
 class MiniHackRoom5x5(MiniHackRoom):
     def __init__(self, *args, **kwargs):
         super().__init__(
-            *args, size=5, random=False, **kwargs, order_enforce=False
+            *args,
+            size=5,
+            random=False,
+            **kwargs,
         )
 
 
@@ -73,7 +76,7 @@ class MiniHackRoom5x5Ultimate(MiniHackRoom):
             lit=False,
             n_monster=1,
             n_trap=1,
-            **kwargs
+            **kwargs,
         )
 
 
@@ -139,7 +142,7 @@ class MiniHackRoom15x15Ultimate(MiniHackRoom):
             lit=False,
             n_monster=3,
             n_trap=15,
-            **kwargs
+            **kwargs,
         )
 
 
