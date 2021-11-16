@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackSkill
-from gym.envs import registration
+from minihack.envs import register
 
 
 class MiniHackQuestEasy(MiniHackSkill):
@@ -24,15 +24,15 @@ class MiniHackQuestHard(MiniHackSkill):
         super().__init__(*args, des_file="quest_hard.des", **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-Quest-Easy-v0",
     entry_point="minihack.envs.skills_quest:MiniHackQuestEasy",
 )
-registration.register(
+register(
     id="MiniHack-Quest-Medium-v0",
     entry_point="minihack.envs.skills_quest:MiniHackQuestMedium",
 )
-registration.register(
+register(
     id="MiniHack-Quest-Hard-v0",
     entry_point="minihack.envs.skills_quest:MiniHackQuestHard",
 )

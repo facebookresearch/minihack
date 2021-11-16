@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackSkill, LevelGenerator, RewardManager
-from gym.envs import registration
+from minihack.envs import register
 
 
 class MiniHackWoDEasy(MiniHackSkill):
@@ -121,20 +121,20 @@ class MiniHackWoDPro(MiniHackSkill):
         )
 
 
-registration.register(
+register(
     id="MiniHack-WoD-Easy-v0",
     entry_point="minihack.envs.skills_wod:MiniHackWoDEasy",
 )
 
-registration.register(
+register(
     id="MiniHack-WoD-Medium-v0",
     entry_point="minihack.envs.skills_wod:MiniHackWoDMedium",
 )
-registration.register(
+register(
     id="MiniHack-WoD-Hard-v0",
     entry_point="minihack.envs.skills_wod:MiniHackWoDHard",
 )
-registration.register(
+register(
     id="MiniHack-WoD-Pro-v0",
     entry_point="minihack.envs.skills_wod:MiniHackWoDPro",
 )

@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackNavigation
-from gym.envs import registration
+from minihack.envs import register
 
 
 class MiniHackHideAndSeekMapped(MiniHackNavigation):
@@ -27,19 +27,19 @@ class MiniHackHideAndSeekBig(MiniHackNavigation):
         super().__init__(*args, des_file="hidenseek_big.des", **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-HideNSeek-Mapped-v0",
     entry_point="minihack.envs.hidenseek:MiniHackHideAndSeekMapped",
 )
-registration.register(
+register(
     id="MiniHack-HideNSeek-v0",
     entry_point="minihack.envs.hidenseek:MiniHackHideAndSeek",
 )
-registration.register(
+register(
     id="MiniHack-HideNSeek-Lava-v0",
     entry_point="minihack.envs.hidenseek:MiniHackHideAndSeekLava",
 )
-registration.register(
+register(
     id="MiniHack-HideNSeek-Big-v0",
     entry_point="minihack.envs.hidenseek:MiniHackHideAndSeekBig",
 )

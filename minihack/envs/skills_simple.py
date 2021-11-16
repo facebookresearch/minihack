@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackSkill, LevelGenerator, RewardManager
-from gym.envs import registration
+from minihack.envs import register
 
 
 class MiniHackEat(MiniHackSkill):
@@ -433,117 +433,117 @@ class MiniHackLockedDoorFixed(MiniHackSkill):
 
 
 # Tasks (w/o doors)
-registration.register(
+register(
     id="MiniHack-Eat-v0",
     entry_point="minihack.envs.skills_simple:MiniHackEat",
 )
-registration.register(
+register(
     id="MiniHack-Pray-v0",
     entry_point="minihack.envs.skills_simple:MiniHackPray",
 )
-registration.register(
+register(
     id="MiniHack-Sink-v0",
     entry_point="minihack.envs.skills_simple:MiniHackSink",
 )
-registration.register(
+register(
     id="MiniHack-Wield-v0",
     entry_point="minihack.envs.skills_simple:MiniHackWield",
 )
-registration.register(
+register(
     id="MiniHack-Wear-v0",
     entry_point="minihack.envs.skills_simple:MiniHackWear",
 )
-registration.register(
+register(
     id="MiniHack-PutOn-v0",
     entry_point="minihack.envs.skills_simple:MiniHackPutOn",
 )
-registration.register(
+register(
     id="MiniHack-Zap-v0",
     entry_point="minihack.envs.skills_simple:MiniHackZap",
 )
-registration.register(
+register(
     id="MiniHack-Read-v0",
     entry_point="minihack.envs.skills_simple:MiniHackRead",
 )
 
 # Fixed version of tasks
-registration.register(
+register(
     id="MiniHack-Eat-Fixed-v0",
     entry_point="minihack.envs.skills_simple:MiniHackEatFixed",
 )
-registration.register(
+register(
     id="MiniHack-Pray-Fixed-v0",
     entry_point="minihack.envs.skills_simple:MiniHackPrayFixed",
 )
-registration.register(
+register(
     id="MiniHack-Sink-Fixed-v0",
     entry_point="minihack.envs.skills_simple:MiniHackSinkFixed",
 )
-registration.register(
+register(
     id="MiniHack-Wield-Fixed-v0",
     entry_point="minihack.envs.skills_simple:MiniHackWieldFixed",
 )
-registration.register(
+register(
     id="MiniHack-Wear-Fixed-v0",
     entry_point="minihack.envs.skills_simple:MiniHackWearFixed",
 )
-registration.register(
+register(
     id="MiniHack-PutOn-Fixed-v0",
     entry_point="minihack.envs.skills_simple:MiniHackPutOnFixed",
 )
-registration.register(
+register(
     id="MiniHack-Zap-Fixed-v0",
     entry_point="minihack.envs.skills_simple:MiniHackZapFixed",
 )
-registration.register(
+register(
     id="MiniHack-Read-Fixed-v0",
     entry_point="minihack.envs.skills_simple:MiniHackReadFixed",
 )
 
 # Task versions with random distractions
-registration.register(
+register(
     id="MiniHack-Eat-Distr-v0",
     entry_point="minihack.envs.skills_simple:MiniHackEatDistr",
 )
-registration.register(
+register(
     id="MiniHack-Pray-Distr-v0",
     entry_point="minihack.envs.skills_simple:MiniHackPrayDistr",
 )
-registration.register(
+register(
     id="MiniHack-Sink-Distr-v0",
     entry_point="minihack.envs.skills_simple:MiniHackSinkDistr",
 )
-registration.register(
+register(
     id="MiniHack-Wield-Distr-v0",
     entry_point="minihack.envs.skills_simple:MiniHackWieldDistr",
 )
-registration.register(
+register(
     id="MiniHack-Wear-Distr-v0",
     entry_point="minihack.envs.skills_simple:MiniHackWearDistr",
 )
-registration.register(
+register(
     id="MiniHack-PutOn-Distr-v0",
     entry_point="minihack.envs.skills_simple:MiniHackPutOnDistr",
 )
-registration.register(
+register(
     id="MiniHack-Zap-Distr-v0",
     entry_point="minihack.envs.skills_simple:MiniHackZapDistr",
 )
-registration.register(
+register(
     id="MiniHack-Read-Distr-v0",
     entry_point="minihack.envs.skills_simple:MiniHackReadDistr",
 )
 
 # Tasks involvign doors
-registration.register(
+register(
     id="MiniHack-ClosedDoor-v0",
     entry_point="minihack.envs.skills_simple:MiniHackClosedDoor",
 )
-registration.register(
+register(
     id="MiniHack-LockedDoor-v0",
     entry_point="minihack.envs.skills_simple:MiniHackLockedDoor",
 )
-registration.register(
+register(
     id="MiniHack-LockedDoor-Fixed-v0",
     entry_point="minihack.envs.skills_simple:MiniHackLockedDoorFixed",
 )

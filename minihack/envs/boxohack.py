@@ -5,7 +5,7 @@ import random
 import numpy as np
 import pkg_resources
 from nle import nethack
-from gym.envs import registration
+from minihack.envs import register
 from minihack import LevelGenerator, MiniHackNavigation
 
 LEVELS_PATH = os.path.join(
@@ -161,15 +161,15 @@ class MiniHackBoxobanHard(BoxoHack):
         super().__init__(*args, **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-Boxoban-Unfiltered-v0",
     entry_point="minihack.envs.boxohack:MiniHackBoxobanUnfiltered",
 )
-registration.register(
+register(
     id="MiniHack-Boxoban-Medium-v0",
     entry_point="minihack.envs.boxohack:MiniHackBoxobanMedium",
 )
-registration.register(
+register(
     id="MiniHack-Boxoban-Hard-v0",
     entry_point="minihack.envs.boxohack:MiniHackBoxobanHard",
 )

@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackNavigation, LevelGenerator
-from gym.envs import registration
+from minihack.envs import register
 
 
 class MiniHackFightCorridor(MiniHackNavigation):
@@ -33,12 +33,12 @@ class MiniHackFightCorridorDark(MiniHackFightCorridor):
         super().__init__(*args, lit=False, **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-CorridorBattle-v0",
     entry_point="minihack.envs.fightcorridor:MiniHackFightCorridor",
 )
 
-registration.register(
+register(
     id="MiniHack-CorridorBattle-Dark-v0",
     entry_point="minihack.envs.fightcorridor:MiniHackFightCorridorDark",
 )

@@ -9,7 +9,7 @@ import gym
 import numpy as np
 import pkg_resources
 from nle import _pynethack, nethack
-from nle.nethack.nethack import SCREEN_DESCRIPTIONS_SHAPE
+from nle.nethack.nethack import SCREEN_DESCRIPTIONS_SHAPE, OBSERVATION_DESC
 from nle.env.base import FULL_ACTIONS, NLE_SPACE_ITEMS
 from nle.env.tasks import NetHackStaircase
 from minihack.wiki import NetHackWiki
@@ -50,28 +50,46 @@ MH_NETHACKOPTIONS = (
 
 MINIHACK_SPACE_FUNCS = {
     "glyphs_crop": lambda x, y: gym.spaces.Box(
-        low=0, high=nethack.MAX_GLYPH, shape=(x, y), dtype=np.uint16
+        low=0,
+        high=nethack.MAX_GLYPH,
+        shape=(x, y),
+        dtype=OBSERVATION_DESC["glyphs"]["dtype"],
     ),
     "chars_crop": lambda x, y: gym.spaces.Box(
-        low=0, high=255, shape=(x, y), dtype=np.uint8
+        low=0,
+        high=255,
+        shape=(x, y),
+        dtype=OBSERVATION_DESC["chars"]["dtype"],
     ),
     "colors_crop": lambda x, y: gym.spaces.Box(
-        low=0, high=15, shape=(x, y), dtype=np.uint8
+        low=0,
+        high=15,
+        shape=(x, y),
+        dtype=OBSERVATION_DESC["colors"]["dtype"],
     ),
     "specials_crop": lambda x, y: gym.spaces.Box(
-        low=0, high=255, shape=(x, y), dtype=np.uint8
+        low=0,
+        high=255,
+        shape=(x, y),
+        dtype=OBSERVATION_DESC["specials"]["dtype"],
     ),
     "tty_chars_crop": lambda x, y: gym.spaces.Box(
-        low=0, high=255, shape=(x, y), dtype=np.uint8
+        low=0,
+        high=255,
+        shape=(x, y),
+        dtype=OBSERVATION_DESC["tty_chars"]["dtype"],
     ),
     "tty_colors_crop": lambda x, y: gym.spaces.Box(
-        low=0, high=31, shape=(x, y), dtype=np.uint8
+        low=0,
+        high=31,
+        shape=(x, y),
+        dtype=OBSERVATION_DESC["tty_colors"]["dtype"],
     ),
     "screen_descriptions_crop": lambda x, y: gym.spaces.Box(
         low=0,
         high=127,
         shape=(x, y, _pynethack.nethack.NLE_SCREEN_DESCRIPTION_LENGTH),
-        dtype=np.uint8,
+        dtype=OBSERVATION_DESC["screen_descriptions"]["dtype"],
     ),
     "pixel_crop": lambda x, y: gym.spaces.Box(
         low=0,
@@ -270,7 +288,7 @@ class MiniHack(NetHackStaircase):
                 )
             else:
                 if "pixel" in self._minihack_obs_keys:
-                    d_shape = nethack.OBSERVATION_DESC["glyphs"]["shape"]
+                    d_shape = OBSERVATION_DESC["glyphs"]["shape"]
                     shape = (
                         d_shape[0] * N_TILE_PIXEL,
                         d_shape[1] * N_TILE_PIXEL,

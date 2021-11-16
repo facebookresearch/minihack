@@ -1,7 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackNavigation
 from minihack import LevelGenerator
-from gym.envs import registration
+from minihack.envs import register
 
 
 class MiniHackRoom(MiniHackNavigation):
@@ -39,7 +39,12 @@ class MiniHackRoom(MiniHackNavigation):
 
 class MiniHackRoom5x5(MiniHackRoom):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, size=5, random=False, **kwargs)
+        super().__init__(
+            *args,
+            size=5,
+            random=False,
+            **kwargs,
+        )
 
 
 class MiniHackRoom5x5Random(MiniHackRoom):
@@ -71,31 +76,31 @@ class MiniHackRoom5x5Ultimate(MiniHackRoom):
             lit=False,
             n_monster=1,
             n_trap=1,
-            **kwargs
+            **kwargs,
         )
 
 
-registration.register(
+register(
     id="MiniHack-Room-5x5-v0",
     entry_point="minihack.envs.room:MiniHackRoom5x5",
 )
-registration.register(
+register(
     id="MiniHack-Room-Random-5x5-v0",
     entry_point="minihack.envs.room:MiniHackRoom5x5Random",
 )
-registration.register(
+register(
     id="MiniHack-Room-Dark-5x5-v0",
     entry_point="minihack.envs.room:MiniHackRoom5x5Dark",
 )
-registration.register(
+register(
     id="MiniHack-Room-Monster-5x5-v0",
     entry_point="minihack.envs.room:MiniHackRoom5x5Monster",
 )
-registration.register(
+register(
     id="MiniHack-Room-Trap-5x5-v0",
     entry_point="minihack.envs.room:MiniHackRoom5x5Trap",
 )
-registration.register(
+register(
     id="MiniHack-Room-Ultimate-5x5-v0",
     entry_point="minihack.envs.room:MiniHackRoom5x5Ultimate",
 )
@@ -137,31 +142,31 @@ class MiniHackRoom15x15Ultimate(MiniHackRoom):
             lit=False,
             n_monster=3,
             n_trap=15,
-            **kwargs
+            **kwargs,
         )
 
 
-registration.register(
+register(
     id="MiniHack-Room-15x15-v0",
     entry_point="minihack.envs.room:MiniHackRoom15x15",
 )
-registration.register(
+register(
     id="MiniHack-Room-Random-15x15-v0",
     entry_point="minihack.envs.room:MiniHackRoom15x15Random",
 )
-registration.register(
+register(
     id="MiniHack-Room-Dark-15x15-v0",
     entry_point="minihack.envs.room:MiniHackRoom15x15Dark",
 )
-registration.register(
+register(
     id="MiniHack-Room-Monster-15x15-v0",
     entry_point="minihack.envs.room:MiniHackRoom15x15Monster",
 )
-registration.register(
+register(
     id="MiniHack-Room-Trap-15x15-v0",
     entry_point="minihack.envs.room:MiniHackRoom15x15Trap",
 )
-registration.register(
+register(
     id="MiniHack-Room-Ultimate-15x15-v0",
     entry_point="minihack.envs.room:MiniHackRoom15x15Ultimate",
 )
