@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackSkill, LevelGenerator, RewardManager
-from gym.envs import registration
+from minihack.envs import register
 
 freeze_msgs = [
     "The bolt of cold bounces!",  # checks if cold bounces from the wall
@@ -95,19 +95,19 @@ STAIR:rndcoord($right_bank),down
         super().__init__(*args, des_file=des_file, **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-Freeze-Wand-v0",
     entry_point="minihack.envs.skills_freeze:MiniHackFreezeWand",
 )
-registration.register(
+register(
     id="MiniHack-Freeze-Horn-v0",
     entry_point="minihack.envs.skills_freeze:MiniHackFreezeHorn",
 )
-registration.register(
+register(
     id="MiniHack-Freeze-Random-v0",
     entry_point="minihack.envs.skills_freeze:MiniHackFreezeRandom",
 )
-registration.register(
+register(
     id="MiniHack-Freeze-Lava-v0",
     entry_point="minihack.envs.skills_freeze:MiniHackFreezeLava",
 )

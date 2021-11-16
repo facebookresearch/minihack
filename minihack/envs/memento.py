@@ -1,5 +1,5 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
-from gym.envs import registration
+from minihack.envs import register
 from minihack import MiniHackNavigation, RewardManager
 
 
@@ -41,18 +41,18 @@ class MiniHackMementoF4(MiniHackMemento):
         super().__init__(*args, des_file="memento_hard.des", **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-Memento-Short-F2-v0",
     entry_point="minihack.envs.memento:MiniHackMementoShortF2",
 )
 
 
-registration.register(
+register(
     id="MiniHack-Memento-F2-v0",
     entry_point="minihack.envs.memento:MiniHackMementoF2",
 )
 
-registration.register(
+register(
     id="MiniHack-Memento-F4-v0",
     entry_point="minihack.envs.memento:MiniHackMementoF4",
 )

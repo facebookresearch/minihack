@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackNavigation, LevelGenerator
-from gym.envs import registration
+from minihack.envs import register
 
 
 class MiniHackRiver(MiniHackNavigation):
@@ -81,27 +81,27 @@ class MiniHackRiverNarrow(MiniHackRiver):
         super().__init__(*args, narrow=True, **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-River-v0",
     entry_point="minihack.envs.river:MiniHackRiver",
 )
 
-registration.register(
+register(
     id="MiniHack-River-Monster-v0",
     entry_point="minihack.envs.river:MiniHackRiverMonster",
 )
 
-registration.register(
+register(
     id="MiniHack-River-Lava-v0",
     entry_point="minihack.envs.river:MiniHackRiverLava",
 )
 
-registration.register(
+register(
     id="MiniHack-River-MonsterLava-v0",
     entry_point="minihack.envs.river:MiniHackRiverMonsterLava",
 )
 
-registration.register(
+register(
     id="MiniHack-River-Narrow-v0",
     entry_point="minihack.envs.river:MiniHackRiverNarrow",
 )

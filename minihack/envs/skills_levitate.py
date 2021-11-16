@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackSkill, LevelGenerator, RewardManager
-from gym.envs import registration
+from minihack.envs import register
 
 
 levitation_msg = [
@@ -114,31 +114,31 @@ IF [33%] {
         super().__init__(*args, des_file=des_file, **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-Levitate-Boots-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitateBoots",
 )
-registration.register(
+register(
     id="MiniHack-Levitate-Ring-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitateRing",
 )
-registration.register(
+register(
     id="MiniHack-Levitate-Potion-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitatePotion",
 )
-registration.register(
+register(
     id="MiniHack-Levitate-Random-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitateRandom",
 )
-registration.register(
+register(
     id="MiniHack-Levitate-Boots-Fixed-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitateBootsFixed",
 )
-registration.register(
+register(
     id="MiniHack-Levitate-Ring-Fixed-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitateRingFixed",
 )
-registration.register(
+register(
     id="MiniHack-Levitate-Potion-Fixed-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitatePotionFixed",
 )

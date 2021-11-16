@@ -1,5 +1,5 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
-from gym.envs import registration
+from minihack.envs import register
 from minihack import MiniHackNavigation
 from minihack.envs.corridor import NAVIGATE_ACTIONS
 from minihack.reward_manager import RewardManager
@@ -70,19 +70,19 @@ class MiniHackExploreMazeHardMapped(MiniHackExploreMaze):
         )
 
 
-registration.register(
+register(
     id="MiniHack-ExploreMaze-Easy-v0",
     entry_point="minihack.envs.exploremaze:MiniHackExploreMazeEasy",
 )
-registration.register(
+register(
     id="MiniHack-ExploreMaze-Hard-v0",
     entry_point="minihack.envs.exploremaze:MiniHackExploreMazeHard",
 )
-registration.register(
+register(
     id="MiniHack-ExploreMaze-Easy-Mapped-v0",
     entry_point="minihack.envs.exploremaze:MiniHackExploreMazeEasyMapped",
 )
-registration.register(
+register(
     id="MiniHack-ExploreMaze-Hard-Mapped-v0",
     entry_point="minihack.envs.exploremaze:MiniHackExploreMazeHardMapped",
 )

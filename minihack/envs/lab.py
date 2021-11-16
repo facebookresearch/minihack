@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackNavigation, LevelGenerator
-from gym.envs import registration
+from minihack.envs import register
 
 
 class MiniHackLabyrinth(MiniHackNavigation):
@@ -71,12 +71,12 @@ class MiniHackLabyrinthSmall(MiniHackNavigation):
         )
 
 
-registration.register(
+register(
     id="MiniHack-Labyrinth-Big-v0",
     entry_point="minihack.envs.lab:MiniHackLabyrinth",
 )
 
-registration.register(
+register(
     id="MiniHack-Labyrinth-Small-v0",
     entry_point="minihack.envs.lab:MiniHackLabyrinthSmall",
 )

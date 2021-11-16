@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackNavigation
-from gym.envs import registration
+from minihack.envs import register
 from nle import nethack
 
 MOVE_ACTIONS = tuple(nethack.CompassDirection)
@@ -39,15 +39,15 @@ class MiniHackCorridor5(MiniHackCorridor):
         super().__init__(*args, des_file="corridor5.des", **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-Corridor-R2-v0",
     entry_point="minihack.envs.corridor:MiniHackCorridor2",
 )
-registration.register(
+register(
     id="MiniHack-Corridor-R3-v0",
     entry_point="minihack.envs.corridor:MiniHackCorridor3",
 )
-registration.register(
+register(
     id="MiniHack-Corridor-R5-v0",
     entry_point="minihack.envs.corridor:MiniHackCorridor5",
 )

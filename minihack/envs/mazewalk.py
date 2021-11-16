@@ -1,7 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackNavigation
 from minihack.level_generator import LevelGenerator
-from gym.envs import registration
+from minihack.envs import register
 
 DUNGEON_SHAPE = (76, 21)
 
@@ -63,27 +63,27 @@ class MiniHackMazeWalk45x19Premapped(MiniHackMazeWalk):
         super().__init__(*args, w=45, h=19, premapped=True, **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-MazeWalk-9x9-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk9x9",
 )
-registration.register(
+register(
     id="MiniHack-MazeWalk-Mapped-9x9-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk9x9Premapped",
 )
-registration.register(
+register(
     id="MiniHack-MazeWalk-15x15-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk15x15",
 )
-registration.register(
+register(
     id="MiniHack-MazeWalk-Mapped-15x15-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk15x15Premapped",
 )
-registration.register(
+register(
     id="MiniHack-MazeWalk-45x19-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk45x19",
 )
-registration.register(
+register(
     id="MiniHack-MazeWalk-Mapped-45x19-v0",
     entry_point="minihack.envs.mazewalk:MiniHackMazeWalk45x19Premapped",
 )

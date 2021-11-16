@@ -1,6 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackSkill
-from gym.envs import registration
+from minihack.envs import register
 
 
 class MiniHackLCLevitatePotionPickup(MiniHackSkill):
@@ -151,27 +151,27 @@ class MiniHackLC(MiniHackSkill):
         super().__init__(*args, des_file="lava_crossing.des", **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-LavaCross-Levitate-Potion-Pickup-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLCLevitatePotionPickup",
 )
-registration.register(
+register(
     id="MiniHack-LavaCross-Levitate-Potion-Inv-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLCLevitatePotionInv",
 )
-registration.register(
+register(
     id="MiniHack-LavaCross-Levitate-Ring-Pickup-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLCLevitateRingPickup",
 )
-registration.register(
+register(
     id="MiniHack-LavaCross-Levitate-Ring-Inv-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLCLevitateRingInv",
 )
-registration.register(
+register(
     id="MiniHack-LavaCross-Levitate-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLCLevitate",
 )
-registration.register(
+register(
     id="MiniHack-LavaCross-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLC",
 )

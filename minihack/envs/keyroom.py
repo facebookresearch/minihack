@@ -1,7 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackNavigation
 from minihack.level_generator import PATH_DAT_DIR
-from gym.envs import registration
+from minihack.envs import register
 from nle.nethack import Command
 from nle import nethack
 import os
@@ -112,23 +112,23 @@ class MiniHackKeyRoom15x15Dark(MiniHackKeyRoom):
         )
 
 
-registration.register(
+register(
     id="MiniHack-KeyRoom-Fixed-S5-v0",
     entry_point="minihack.envs.keyroom:MiniHackKeyRoom5x5Fixed",
 )
-registration.register(
+register(
     id="MiniHack-KeyRoom-S5-v0",
     entry_point="minihack.envs.keyroom:MiniHackKeyRoom5x5",
 )
-registration.register(
+register(
     id="MiniHack-KeyRoom-S15-v0",
     entry_point="minihack.envs.keyroom:MiniHackKeyRoom15x15",
 )
-registration.register(
+register(
     id="MiniHack-KeyRoom-Dark-S5-v0",
     entry_point="minihack.envs.keyroom:MiniHackKeyRoom5x5Dark",
 )
-registration.register(
+register(
     id="MiniHack-KeyRoom-Dark-S15-v0",
     entry_point="minihack.envs.keyroom:MiniHackKeyRoom15x15Dark",
 )
