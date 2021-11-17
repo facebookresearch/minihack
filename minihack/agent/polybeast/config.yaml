@@ -31,13 +31,12 @@ hydra:
     comment: null
     max_num_timeout: 5  # will requeue on timeout or preemption
 
-
 name: null  # can use this to have multiple runs with same params, eg name=1,2,3,4,5
 
 ## WandB settings
 wandb: false  # enable wandb logging
-project: mtp  # specifies the project name to log to
-entity: minihack  # the team to log to
+project: minihack  # specifies the project name to log to
+entity: entity_name  # the team to log to
 group: default  # defines a group name for the experiment
 
 # Polybeast settings
@@ -52,9 +51,9 @@ penalty_time: 0.0
 penalty_step: -0.001
 reward_lose: 0
 reward_win: 1
-character: mon-hum-neu-mal
 save_tty: False
-## typical characters we use
+character: null
+## example characters use in NLE
 # mon-hum-neu-mal
 # val-dwa-law-fem
 # wiz-elf-cha-mal
