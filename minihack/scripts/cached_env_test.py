@@ -1,3 +1,4 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
 import gym
 import numpy as np
 import time
@@ -37,18 +38,18 @@ def test_speed(env, env_name, num_steps):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Play tool.")
+    parser = argparse.ArgumentParser()
     parser.add_argument(
         "-e",
         "--env",
         type=str,
-        default="MiniHack-Room-Random-5x5-v0",
-        help="Gym environment spec. Defaults to 'MiniHack-Room-Random-5x5-v0'.",
+        default="MiniHack-MultiRoom-N2-Lava-v0",
+        help="Gym environment spec. Defaults to 'MiniHack-MultiRoom-N2-Lava-v0'.",
     )
     parser.add_argument(
         "--num_steps",
         type=int,
-        default=100000,
+        default=10000,
         help="Number of steps to run.",
     )
     parser.add_argument(
