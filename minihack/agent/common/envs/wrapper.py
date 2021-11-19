@@ -3,6 +3,8 @@
 from collections import defaultdict
 import gym
 import numpy as np
+import queue
+import threading
 
 
 class CounterWrapper(gym.Wrapper):
@@ -134,3 +136,70 @@ class PrevWrapper(gym.Wrapper):
         obs["prev_action"] = np.zeros(1, dtype=np.uint8)
         self.last_observation = obs
         return obs
+
+
+def target(resetqueue, readyqueue):
+    while True:
+        env = resetqueue.get()
+        if env is None:
+            return
+        obs = env.reset()
+        readyqueue.put((obs, env))
+
+
+class CachedEnvWrapper(gym.Env):
+    def __init__(self, envs, num_threads=2):
+        self._envs = envs
+
+        # This could alternatively also use concurrent.futures. I hesitate to do
+        # that as futures.wait would have me deal with sets all the time where they
+        # are really not necessary.
+        self._resetqueue = queue.SimpleQueue()
+        self._readyqueue = queue.SimpleQueue()
+
+        self._threads = [
+            threading.Thread(
+                target=target, args=(self._resetqueue, self._readyqueue)
+            )
+            for _ in range(num_threads)
+        ]
+        for t in self._threads:
+            t.start()
+
+        for env in envs[1:]:
+            self._resetqueue.put(env)
+        self._env = envs[0]
+
+    def reset(self):
+        self._resetqueue.put(self._env)
+        obs, self._env = self._readyqueue.get()
+        return obs
+
+    def step(self, action):
+        return self._env.step(action)
+
+    def close(self):
+        for _ in self._threads:
+            self._resetqueue.put(None)
+
+        for t in self._threads:
+            t.join()
+
+        for env in self._envs:
+            env.close()
+
+    def seed(self, seed=None):
+        self._env.seed(seed)
+
+    def unwrapped(self):
+        return self._env
+
+    def __str__(self):
+        return "<CachedEnvWrapper envs=%s>" % [str(env) for env in self._envs]
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        self.close()
+        return False  # Propagate exception.
