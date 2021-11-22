@@ -104,6 +104,29 @@ class MiniGridHack(MiniHackNavigation):
 
         return lev_gen.get_des()
 
+    def seed(self, core=None, disp=None, reseed=False):
+        """The signature of this method corresponds to that of NLE base class.
+        For more information see
+        https://github.com/facebookresearch/nle/blob/main/nle/env/base.py.
+
+        Sets the state of the NetHack RNGs after the next reset.
+
+        Arguments:
+            core [int or None]: Seed for the core RNG. If None, chose a random
+                value.
+            disp [int or None]: Seed for the disp (anti-TAS) RNG. If None, chose
+                a random value.
+            reseed [boolean]: As an Anti-TAS (automation) measure,
+                NetHack 3.6 reseeds with true randomness every now and then. This
+                flag enables or disables this behavior. If set to True,
+                trajectories won't be reproducible.
+
+        Returns:
+            [tuple] The seeds supplied, in the form (core, disp, reseed).
+        """
+        self.minigrid_env.seed(core)
+        return super().seed(core, disp, reseed)
+
     def reset(self, wizkit_items=None):
         des_file = self.get_env_desc()
         self.update(des_file)
