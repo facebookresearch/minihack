@@ -21,13 +21,14 @@ We also provide an interface for designing custom reward functions. By using the
 In order to use the reward managers, users need create an instance of the class and pass it to a MiniHack environment. In the example below, the agent receives +1 reward for eating an apple or +2 reward for wielding a dagger (both of which also terminate the episode). In addition, the agent receives -1 reward for standing on a sink, but the episode isn't termianted in this case.
 ```python
 from minihack import RewardManager
-reward_gen = RewardManager()
-reward_gen.add_eat_event("apple", reward=1)
-reward_gen.add_wield_event("dagger", reward=2)
-reward_gen.add_location_event("sink", reward=-1, terminal_required=False)
+
+reward_manager = RewardManager()
+reward_manager.add_eat_event("apple", reward=1)
+reward_manager.add_wield_event("dagger", reward=2)
+reward_manager.add_location_event("sink", reward=-1, terminal_required=False)
 
 env = gym.make("MiniHackSkill",
-    def_file=des_file.
+    des_file=des_file,
     reward_manager=reward_manager)
 ```
 While the basic reward manager supports many events by default, users may want to extend this interface to define their own events. This can be done easily by inheriting from the [Event](../api/minihack.reward_manager.html#minihack.reward_manager.Event) class and implementing the `check` and `reset` methods. Beyond that, custom reward functions can be added to the reward manager through `add_custom_reward_fn` method. These functions take the environment instance, the previous observation, action taken and current observation, and should return a float.
