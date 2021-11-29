@@ -83,24 +83,24 @@ lvl_gen.add_object("dagger", ")")
 lvl_gen.add_trap(name="teleport")
 lvl_gen.add_sink()
 lvl_gen.add_monster("goblin")
-lvl_gen.fill_terrain("rect",
-    0, 0, 9, 9, flag="L")
+lvl_gen.fill_terrain("rect", "L",
+    0, 0, 9, 9)
 
 # Define a reward manager
-reward_gen = RewardManager()
+reward_manager = RewardManager()
 # +1 reward and termination for eating
 # an apple or wielding a dagger
-reward_gen.add_eat_event("apple")
-reward_gen.add_wield_event("dagger")
+reward_manager.add_eat_event("apple")
+reward_manager.add_wield_event("dagger")
 # -1 reward for standing on a sink
 # but isn't required for terminating
 # the episode
-reward_gen.add_location_event("sink",
+reward_manager.add_location_event("sink",
     reward=-1, terminal_required=False)
 
 env = gym.make(
     "MiniHack-Skill-Custom-v0",
-    def_file=lvl_gen.get_des(),
+    des_file=lvl_gen.get_des(),
     reward_manager=reward_manager,
 )
 ```
@@ -136,6 +136,6 @@ lvl_gen.add_object("death", "/")
 
 env = gym.make(
     "MiniHack-Skill-Custom-v0",
-    def_file = lvl_gen.get_des(),
+    des_file = lvl_gen.get_des(),
 )
 ```
