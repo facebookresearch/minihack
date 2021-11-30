@@ -12,6 +12,7 @@ The quickest way for creating a new environment is to use `gym.make` and pass th
 ```python
 import gym
 import minihack
+
 des_file = """
 MAZE: "mylevel",' '
 GEOMETRY:center,center
@@ -43,14 +44,14 @@ Alternatively, the users can subclass either [MiniHackNavigation](../api/minihac
 
 ```python
 from minihack import MiniHackNavigation
-from gym.envs import registration
+from minihack.envs import register
 
 class MiniHackNewTask(MiniHackNavigation):
     def __init__(self, *args, des_file, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 1000)
         super().__init__(*args, des_file=des_file, **kwargs)
 
-registration.register(
+register(
     id="MiniHack-NewTask-v0",
     entry_point="path.to.file:MiniHackNewTask", # use the actual the path
 )
@@ -75,6 +76,9 @@ The level generator can start with either an empty maze (in which case only heig
 Creating a skill task using the [LevelGenerator](../api/minihack.html#minihack.LevelGenerator) and [RewardManager](../api/minihack.html#minihack.RewardManager).
 
 ```python
+from minihack import LevelGenerator
+from minihack import RewardManager
+
 # Define a 10x10 room and populate it with
 # different objects, monster and features
 lvl_gen = LevelGenerator(w=10, h=10)
@@ -83,24 +87,24 @@ lvl_gen.add_object("dagger", ")")
 lvl_gen.add_trap(name="teleport")
 lvl_gen.add_sink()
 lvl_gen.add_monster("goblin")
-lvl_gen.fill_terrain("rect",
-    0, 0, 9, 9, flag="L")
+lvl_gen.fill_terrain("rect", "L",
+    0, 0, 9, 9)
 
 # Define a reward manager
-reward_gen = RewardManager()
+reward_manager = RewardManager()
 # +1 reward and termination for eating
 # an apple or wielding a dagger
-reward_gen.add_eat_event("apple")
-reward_gen.add_wield_event("dagger")
+reward_manager.add_eat_event("apple")
+reward_manager.add_wield_event("dagger")
 # -1 reward for standing on a sink
 # but isn't required for terminating
 # the episode
-reward_gen.add_location_event("sink",
+reward_manager.add_location_event("sink",
     reward=-1, terminal_required=False)
 
 env = gym.make(
     "MiniHack-Skill-Custom-v0",
-    def_file=lvl_gen.get_des(),
+    des_file=lvl_gen.get_des(),
     reward_manager=reward_manager,
 )
 ```
@@ -110,6 +114,8 @@ env = gym.make(
 Creating a MiniHack skill task using [LevelGenerator](../api/minihack.html#minihack.LevelGenerator) with a pre-defined map layout.
 
 ```python
+from minihack import LevelGenerator
+
 # Define the maze as a string
 maze = """
 --------------------
@@ -136,6 +142,6 @@ lvl_gen.add_object("death", "/")
 
 env = gym.make(
     "MiniHack-Skill-Custom-v0",
-    def_file = lvl_gen.get_des(),
+    des_file = lvl_gen.get_des(),
 )
 ```
