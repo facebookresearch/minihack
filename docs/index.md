@@ -9,13 +9,16 @@ MiniHack comes with a large list of challenging [tasks](./envs/tasks.md). Howeve
 The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the complexity of the tasks.
 MiniHack already comes with a large list of challenging tasks.
 
+<p align="center">
+ <img width="90%" src="imgs/minihack_gameplay_collage.gif" />
+</p>
+
 To do this, MiniHack leverages the so-called [description files](https://nethackwiki.com/wiki/Des-file_format) written using a human-readable probabilistic-programming-like domain-specific language. With just a few lines of code, people can generate a large variety of [Gym](https://github.com/openai/gym) environments, controlling every little detail, from the location and types of monsters, to the traps, objects, and terrain of the level, all while introducing randomness that challenges generalization capabilities of RL agents.
 
 This documentation will walk you through everything you need to know, step-by-step.
 Start with [installing MiniHack](getting-started/installation), [try it out](getting-started/trying_out), [design new envirionments](getting-started/interface) and [train RL agents](agents/torchbeast).
 
 ![](imgs/des_file.gif)
-
 
 ```{toctree}
 :hidden: true
