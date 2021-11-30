@@ -9,10 +9,8 @@ import pytest
 import minihack  # noqa: F401
 
 START_METHODS = [
-    # TODO uncomment spawn after the next NLE release
-    # m for m in ("fork", "spawn") if m in mp.get_all_start_methods()
     m
-    for m in ("fork")
+    for m in ("fork", "spawn")
     if m in mp.get_all_start_methods()
 ]
 

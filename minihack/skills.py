@@ -1,7 +1,8 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
+
 from minihack import MiniHack
 from minihack.base import MH_DEFAULT_OBS_KEYS
-from gym.envs import registration
+from minihack.envs import register
 
 
 class MiniHackSkill(MiniHack):
@@ -51,7 +52,7 @@ class MiniHackSkill(MiniHack):
         super().__init__(*args, des_file=des_file, **kwargs)
 
 
-registration.register(
+register(
     id="MiniHack-Skill-Custom-v0",
     entry_point="minihack.skills:MiniHackSkill",
 )

@@ -38,7 +38,7 @@ entry_points = {
 
 install_requires = ["numpy>=1.16", "gym"]
 if not os.getenv("READTHEDOCS"):
-    install_requires.append("nle>=0.7.3")
+    install_requires.append("nle>=0.8.0")
 
 extras_deps = {
     "dev": [
