@@ -61,10 +61,6 @@ pip install minihack
 
 **Note:** Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
 
-### Submitting New Environments
-
-For submitting your own MiniHack-based environment to our [zoo of public environments](./docs/envs/index.md), please follow the instructions [here](./docs/envs/contributing.md).
-
 ### Extending MiniHack
 
 If you wish to extend MiniHack, please install the package as follows:
@@ -79,6 +75,11 @@ pre-commit install
 ### Docker
 
 We have provided several Dockerfiles for building images with pre-installed MiniHack. Please follow the instructions described [here](./docker/README.md).
+
+# Submitting New Environments
+
+For submitting your own MiniHack-based environment to our [zoo of public environments](./docs/envs/index.md), please follow the instructions [here](./docs/envs/contributing.md).
+
 
 # Trying out MiniHack
 
