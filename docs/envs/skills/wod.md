@@ -17,6 +17,10 @@ An example of the `WoD-Hard` task:
 
 ![](../imgs/wod.png)
 
+## Source
+
+[Source](https://github.com/facebookresearch/minihack/blob/main/minihack/envs/skills_wod.py)
+
 ## All Environments
 
 | Name         | Skill                                 |

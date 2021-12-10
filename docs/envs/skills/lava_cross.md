@@ -22,6 +22,11 @@ levitation boots, (iv) frost horn, or (v) wand of cold.
 
 ![](../imgs/lavacross.png)
 
+## Source
+
+[Source](https://github.com/facebookresearch/minihack/blob/main/minihack/envs/skills_lava.py)
+
+
 ## All Environments
 
 | Name                                  | Skill            |

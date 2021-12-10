@@ -18,6 +18,10 @@ Examples of `Eat-Distract`, `Wear-Distract` and `Pray-Distract`:
 
 ![](../imgs/simple_skills.png)
 
+## Source
+
+[Source](https://github.com/facebookresearch/minihack/blob/main/minihack/envs/skills_simple.py)
+
 ## All Environments
 
 | Name                   | Skill                            |

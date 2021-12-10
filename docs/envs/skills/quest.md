@@ -13,6 +13,10 @@ Examples of the `Quest-Hard` task:
 
 ![](../imgs/quest_hard.png)
 
+## Source
+
+[Source](https://github.com/facebookresearch/minihack/blob/main/minihack/envs/skills_quest.py)
+
 ## All Environments
 
 | Name              | Skill                                 |
