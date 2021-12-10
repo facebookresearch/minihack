@@ -1,8 +1,6 @@
 # MiniHack Environment Zoo
 
-This page describes all open-source MiniHack environments developed by its authors as well as members of the community.
-
-For adding your own MiniHack environment, please follow the instructions [here](TODO).
+This page describes all open-source MiniHack environments developed by its authors as well as members of the community. For adding your own MiniHack environment, please follow the instructions [here](./contributing.md).
 
 ## Navigation Tasks
 

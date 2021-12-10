@@ -19,14 +19,14 @@
     <img src="https://static.pepy.tech/personalized-badge/minihack?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads" />
   </a>
  </p>
- 
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL).
 Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to communicate with the game and to provide a convenient interface for customly created RL training and test environments of varying complexity.
 Check out our [NeurIPS 2020 paper](https://arxiv.org/abs/2109.13202) and recent [blogpost](https://ai.facebook.com/blog/minihack-a-new-sandbox-for-open-ended-reinforcement-learning).
 
-MiniHack comes with a large list of challenging [tasks](./docs/envs/tasks.md). However, it is primarily built for easily designing new ones.
+MiniHack comes with a large list of challenging [tasks](./docs/envs/index.md). However, it is primarily built for easily designing new ones.
 The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the complexity of the tasks.
 
 <p align="center">
@@ -55,11 +55,15 @@ conda activate minihack
 pip install minihack
 ```
 
-**Note:** Please refer to [NLE installation instructions](https://github.com/facebookresearch/nle#installation) when having NLE-related dependency issues on __MacOS__ and __Ubuntu 18.04__. NLE requires `cmake>=3.15` to be installed when building the package. 
+**Note:** Please refer to [NLE installation instructions](https://github.com/facebookresearch/nle#installation) when having NLE-related dependency issues on __MacOS__ and __Ubuntu 18.04__. NLE requires `cmake>=3.15` to be installed when building the package.
 
 **Note:** __Windows__ users should use [Docker](#docker).
 
 **Note:** Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
+
+### Submitting New Environments
+
+For submitting your own MiniHack-based environment to our [zoo of public environments](./docs/envs/index.md), please follow the instructions [here](./docs/envs/contributing.md).
 
 ### Extending MiniHack
 
