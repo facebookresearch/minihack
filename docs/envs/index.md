@@ -101,14 +101,3 @@ ported/boxoban
 | ----------------------------- | ------------------------- |
 | [MiniGrid](./ported/minigrid) | ![](./imgs/multiroom.png) |
 | [Boxoban](./ported/boxoban)   | ![](./imgs/boxoban.png)   |
-
-# Submitting New Environments
-
-Create a PR which includes the following changes.
-
-- The .py file with [environment registration]() should be put into `minihack/envs` repository.
-- If it includes a .des file, please put it onto the `minihack/dat` directory.
-- The description of the environment should be put into the `minihack/doc/envs` directory
-  - Create a separete .md file describing the environment (and its possible variations), including information about the goal, reward and action space.
-  - Include a screenshot of the environment in `minihack/doc/envs/imgs`
-  - Update the tables and toc in `minihack/doc/envs/index.md` to reference your new environment (or family of environments)
