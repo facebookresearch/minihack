@@ -13,11 +13,13 @@ conda activate minihack
 pip install minihack
 ```
 
-````{note}
-NLE requires `cmake>=3.15` to be installed when building the package. Check out [here](https://github.com/facebookresearch/nle#installation) how to install it on __MacOS__ and __Ubuntu 18.04__. __Windows__ users should use [Docker](#docker).
-````
+**Note:** Please refer to [NLE installation instructions](https://github.com/facebookresearch/nle#installation) when having NLE-related dependency issues on __MacOS__ and __Ubuntu 18.04__. NLE requires `cmake>=3.15` to be installed when building the package. 
 
-## Extending MiniHack
+**Note:** __Windows__ users should use [Docker](#docker).
+
+**Note:** Baseline agents have separate installation instructions. See [here](https://github.com/facebookresearch/minihack#baseline-agents) for more details.
+
+### Extending MiniHack
 
 If you wish to extend MiniHack, please install the package as follows:
 
@@ -28,6 +30,6 @@ pip install -e ".[dev]"
 pre-commit install
 ```
 
-## Docker
+### Docker
 
-We have provided some docker images. Please follow the instructions described [here](https://github.com/facebookresearch/minihack/tree/main/docker).
+We have provided several Dockerfiles for building images with pre-installed MiniHack. Please follow the instructions described [here](./docker/README.md).
