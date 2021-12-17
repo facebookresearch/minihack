@@ -19,14 +19,14 @@
     <img src="https://static.pepy.tech/personalized-badge/minihack?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads" />
   </a>
  </p>
-
+ 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL).
 Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to communicate with the game and to provide a convenient interface for customly created RL training and test environments of varying complexity.
 Check out our [NeurIPS 2020 paper](https://arxiv.org/abs/2109.13202) and recent [blogpost](https://ai.facebook.com/blog/minihack-a-new-sandbox-for-open-ended-reinforcement-learning).
 
-MiniHack comes with a large list of challenging [tasks](./docs/envs/index.md). However, it is primarily built for easily designing new ones.
+MiniHack comes with a large list of challenging [tasks](./docs/envs/tasks.md). However, it is primarily built for easily designing new ones.
 The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the complexity of the tasks.
 
 <p align="center">
@@ -39,47 +39,19 @@ To do this, MiniHack leverages the so-called [description files](https://nethack
 
 ![MiniHack Environments](/docs/imgs/des_file.gif)
 
-
 # Installation
 
-MiniHack is available on [pypi](https://pypi.org/project/minihack/) and can be installed as follows:
+The simplest way to install MiniHack is through [pypi](https://pypi.org/project/minihack/):
 ```bash
 pip install minihack
 ```
 
-We advise using a conda environment for this:
+See the [full installation guide](./docs/getting-started/installation.md) for further information on installing and extending MiniHack on different platforms, as well as pre-installed Dockerfiles.
 
-```bash
-conda create -n minihack python=3.8
-conda activate minihack
-pip install minihack
-```
-
-**Note:** Please refer to [NLE installation instructions](https://github.com/facebookresearch/nle#installation) when having NLE-related dependency issues on __MacOS__ and __Ubuntu 18.04__. NLE requires `cmake>=3.15` to be installed when building the package.
-
-**Note:** __Windows__ users should use [Docker](#docker).
-
-**Note:** Baseline agents have separate installation instructions. See [here](#baseline-agents) for more details.
-
-### Extending MiniHack
-
-If you wish to extend MiniHack, please install the package as follows:
-
-```bash
-git clone https://github.com/facebookresearch/minihack
-cd minihack
-pip install -e ".[dev]"
-pre-commit install
-```
-
-### Docker
-
-We have provided several Dockerfiles for building images with pre-installed MiniHack. Please follow the instructions described [here](./docker/README.md).
 
 # Submitting New Environments
 
 For submitting your own MiniHack-based environment to our [zoo of public environments](./docs/envs/index.md), please follow the instructions [here](./docs/envs/contributing.md).
-
 
 # Trying out MiniHack
 
@@ -127,7 +99,7 @@ a starting point for experiments. To install and train this agent, first
 install torchbeast by following the instructions [here](https://github.com/facebookresearch/torchbeast#installing-polybeast),
 then use the following commands:
 ``` bash
-pip install ".[polybeast]"
+pip install -e ".[polybeast]"
 python -m minihack.agent.polybeast.polyhydra env=MiniHack-Room-5x5-v0 total_steps=100000
 ```
 
@@ -142,7 +114,7 @@ provided in `minihack.agent.rllib`, with a similar model to the torchbeast agent
 This can be used to try out a variety of different RL algorithms. To install and train an RLlib agent, use the following
 commands:
 ```bash
-pip install ".[rllib]"
+pip install -e ".[rllib]"
 python -m minihack.agent.rllib.train algo=dqn env=MiniHack-Room-5x5-v0 total_steps=1000000
 ```
 
