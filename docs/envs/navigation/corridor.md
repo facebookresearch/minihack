@@ -1,11 +1,11 @@
 # Corridor
 
 These tasks make use of the `RANDOM_CORRIDORS`
-command in the `des-file`. The objective is to reach the staircase down, which
-is in a random room. The agent is also
-in a random room. The rooms have randomised positions and sizes. The corridors
+command in the `des-file`. The objective is to reach the staircase located in one of the randomly generated rooms. The rooms have randomised positions and sizes. The corridors
 between the rooms are procedurally generated and are different for every
-episodes. Different variants of this environment have different numbers of
+episodes.
+
+Different variants of this environment have different numbers of
 rooms, making the exploration challenge more difficult (`Minihack-Corridor-R2-v0`,
 `MiniHack-Corridor-R3-v0`, and `MiniHack-Corridor-R5-v0` environments are composed of 2,
 3, and 5 rooms, respectively).
@@ -13,6 +13,10 @@ rooms, making the exploration challenge more difficult (`Minihack-Corridor-R2-v0
 Examples of the `MiniHack-Corridor-R5-v0` task:
 
 ![](../imgs/corridors.png)
+
+## Reward
+
+The agent receives a reward of +1 for reaching the goal.
 
 ## Source
 

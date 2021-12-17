@@ -13,6 +13,10 @@ An example of the `MiniHack-CorridorBattle-v0` task:
 
 ![](../imgs/battle.png)
 
+## Reward
+
+The agent receives a reward of +1 for reaching the goal.
+
 ## Source
 
 [Source](https://github.com/facebookresearch/minihack/blob/main/minihack/envs/fightcorridor.py)

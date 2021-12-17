@@ -7,7 +7,9 @@ the optimal policy deeper exploration is required. The agent must first explore
 a simple randomised maze to reach the staircase down, which they can take for
 +1 reward. However, if they navigate through a further randomised maze, they
 reach a room with apples. Eating the apples gives +0.5 reward, and once the
-apples are eaten the agent should then return to the staircase down. We provide
+apples are eaten the agent should then return to the staircase down.
+
+We provide
 an easy and a hard version of this task (`MazeExplore-Easy-v0` and
 `MiniHack-MazeExplore-Hard-v0`), with the harder version having a larger maze both
 before and after the staircase down. Variants can also be mapped
@@ -21,6 +23,10 @@ vertical wall (unobservable in the figure). The goal is located in the middle
 area of the grid.
 
 ![](../imgs/mazeexplores.png)
+
+## Reward
+
+The agent receives a reward of +1 for reaching the goal and +0.5 for eating an apple.
 
 ## Source
 

@@ -7,7 +7,11 @@ agent). The agent, monsters and spells can pass through clouds unobstructed.
 The agent and monster cannot pass through trees. The goals is to make use of
 the environment features, avoid being seen by the monster and quickly run
 towards the goal. The layout of the map is procedurally generated, hence
-requires systematic generalisation. Alternative versions of this task
+requires systematic generalisation.
+
+
+`MiniHack-HideNSeek-v0` is the standard version of the environment.
+Alternative versions of this environment
 additionally include lava tiles that need to be avoided
 `MiniHack-HideNSeek-Lava-v0`, have bigger size `MiniHack-HideNSeek-Big-v0`, or provide
 the locations of all environment features but not the powerful monster
@@ -16,6 +20,10 @@ the locations of all environment features but not the powerful monster
 Examples of the `MiniHack-HideNSeek-v0` task:
 
 ![](../imgs/hidenseeks.png)
+
+## Reward
+
+The agent receives a reward of +1 for reaching the goal.
 
 ## Source
 

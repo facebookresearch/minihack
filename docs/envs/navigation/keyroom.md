@@ -1,8 +1,11 @@
 # KeyRoom
-These tasks require an agent to pickup a key, navigate to
+
+These tasks require the agent to pickup a key, navigate to
 a door, and use the key to unlock the door, reaching the staircase down within
 the locked room. The action space is the standard movement actions plus the
-pickup and apply action. In the simplest variant of this task,
+pickup and apply action.
+
+In the simplest variant of this task,
 (`MiniHack-KeyRoom-Fixed-S5-v0`), the location of the key, door and staircase are
 fixed. In the rest of the variants these locations randomised. The size the
 outer room is 5x5 for `MiniHack-KeyRoom-S5-v0` and 15x15 for `MiniHack-KeyRoom-S15-v0`.
@@ -13,6 +16,10 @@ key cannot be seen if it is not in any of the agent's adjacent grid cells.
 Examples of the `MiniHack-KeyRoom-S15-v0` task:
 
 ![](../imgs/keyrooms.png)
+
+## Reward
+
+The agent receives a reward of +1 for reaching the goal located in the locked room.
 
 ## Source
 

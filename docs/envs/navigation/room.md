@@ -1,7 +1,9 @@
 # Room
 
 These tasks are set in a single square room, where the goal is to reach the
-staircase down. There are multiple variants of this level. There are two sizes
+staircase down. There are multiple variants of this level.
+
+There are two sizes
 of the room (`5x5, 15x15`). In the simplest variants, (`MiniHack-Room-5x5-v0`
 and `MiniHack-Room-15x15-v0`), the start and goal position are fixed. In the
 `MiniHack-Room-Random-5x5-v0` and `MiniHack-Room-Random-15x15-v0` tasks, the start and
@@ -18,6 +20,10 @@ dark, the agent can only observe adjacent grid cells.
 Examples of the `MiniHack-Room-Ultimate-15x15-v0` task:
 
 ![](../imgs/rooms.png)
+
+## Reward
+
+The agent receives a reward of +1 for reaching the goal.
 
 ## Source
 
