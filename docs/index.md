@@ -39,7 +39,8 @@ getting-started/reward
 :caption: Environments
 :name: sec-envs
 
-envs/tasks
+envs/index
+envs/contributing
 ```
 
 ```{toctree}
