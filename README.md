@@ -127,8 +127,10 @@ Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository
 
 # Papers using MiniHack
 
+- Parker-Holder et al. [That Escalated Quickly: Compounding Complexity by Editing Levels at the Frontier of Agent Capabilities](https://openreview.net/forum?id=3qGInPFqR0p) (Oxford, UCL, FAIR, UC Berkeley, December 2021)
 - Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://arxiv.org/abs/2110.10067) (CMU, Georgia Tech, AI2, August 2021)
-- Samvelyan et al. [MiniHack The Planet](https://openreview.net/pdf?id=skFwlyefkWJ) (FAIR, UCL, Oxford, NeurIPS 2021)
+- Samvelyan et al. [MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research
+](https://arxiv.org/abs/2109.13202) (FAIR, UCL, Oxford, NeurIPS 2021)
 
 Open a [pull request](https://github.com/facebookresearch/minihack/edit/main/README.md) to add papers.
 
