@@ -43,7 +43,6 @@ MH_NETHACKOPTIONS = (
     "mention_walls",  # Give feedback when walking against a wall
     "nosparkle",  # Not display sparkly effect for resisted magical attacks
     "showscore",  # Shows approximate accumulated score on the bottom line
-    "pettype:none",  # No pet
 )
 # Autopickup on by default (all items)
 # Manually adding "!autopickup" basen of env flag
@@ -137,6 +136,7 @@ class MiniHack(NetHackStaircase):
         reward_manager=None,
         use_wiki=False,
         autopickup=True,
+        pet=False,
         observation_keys=MH_DEFAULT_OBS_KEYS,
         seeds=None,
         **kwargs,
@@ -166,6 +166,8 @@ class MiniHack(NetHackStaircase):
                 Whether to use the NetHack wiki. Defaults to False.
             autopickup (bool):
                 Turning autopickup on or off. Defaults to True.
+            pet (bool):
+                Whether to include the pet. Defaults to False.
             observation_keys (list):
                 The keys of observations returned after every timestep by the
                 environment as a dictionary. Defaults to
@@ -215,6 +217,8 @@ class MiniHack(NetHackStaircase):
         options: Tuple = MH_NETHACKOPTIONS
         if not autopickup:
             options += ("!autopickup",)
+        if not pet:
+            options += ("pettype:none",)
         kwargs["options"] = kwargs.pop("options", options)
         # Actions space - move only
         kwargs["actions"] = kwargs.pop("actions", MH_FULL_ACTIONS)
