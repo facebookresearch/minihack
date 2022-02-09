@@ -7,7 +7,7 @@ For example, [navigation tasks](../envs/navigation/index) mostly require movemen
 
 The actual game of NetHack uses ASCII inputs, i.e., individual keyboard presses including modifiers like
 Ctrl and Meta. NLE pre-defines 98 actions, 16 of which are compass directions and 82 of which
-are command actions. T
+are command actions.
 
 ## Specifying the Action Space
 
