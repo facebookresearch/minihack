@@ -9,7 +9,7 @@ from minihack.envs import register
 from minihack import LevelGenerator, MiniHackNavigation
 
 LEVELS_PATH = os.path.join(
-    pkg_resources.resource_filename("nle", "minihack/dat"),
+    pkg_resources.resource_filename("minihack", "dat"),
     "boxoban-levels-master",
 )
 # The agent can only move towards 4 cardinal directions (instead of default 8)
