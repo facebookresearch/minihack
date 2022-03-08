@@ -22,6 +22,7 @@ class MiniHackExploreMaze(MiniHackNavigation):
     def __init__(self, *args, des_file, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 500)
         kwargs["actions"] = ACTIONS
+        kwargs["autopickup"] = False
         kwargs["allow_all_yn_questions"] = True
         reward_manager = RewardManager()
         reward_manager.add_eat_event(
