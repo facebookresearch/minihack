@@ -117,5 +117,23 @@
         }
       }
     ]
+  },
+  {
+    "class": "Monster",
+    "glyph": {
+      "character": "",
+      "color": "nhsym clr-magenta"
+    },
+    "objects": [
+      {
+        "name": "Monster (random)",
+        "wiki_link": "https://nethackwiki.com/wiki/Des-file_format#RANDOM_MONSTERS",
+        "image": "monsters/Giant mimic.png",
+        "glyph": {
+          "character": "",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
   }
 ]

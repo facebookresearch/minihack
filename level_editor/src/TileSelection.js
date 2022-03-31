@@ -11,7 +11,7 @@ class TileSelection extends Component {
   render() {
     return (
       <>
-        <Row>
+        <Row className="ep-tiles-selection">
           <Col>
             <TileInfoList
               tileset={this.props.tileset}

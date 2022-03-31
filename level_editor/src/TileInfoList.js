@@ -16,7 +16,7 @@ class TileInfoList extends Component {
       const category = allTiles[categoryName];
 
       const categoryHeader = (
-        <ListGroupItem key={categoryName}>{categoryName}</ListGroupItem>
+        <ListGroupItem className="ep-tiles-selection-title" key={categoryName}>{categoryName}</ListGroupItem>
       );
       tileInfos.push(categoryHeader);
 
@@ -25,14 +25,15 @@ class TileInfoList extends Component {
         const tileData = category[t];
         if (tileData.visibleInEditor) {
           const className =
-            "ep-ide-tile-selection-item-tile" +
-            (this.props.selectedTile === tileData.tileId
+            "ep-tiles-selection-item-tile" +
+            (this.props.selectedTile.tileId === tileData.tileId
               ? " selected"
               : " selectable");
           const clickableTile = (
             <Col
               onClick={() => this.props.onTileSelect(tileData)}
               className={className}
+              key={tileData.tileId}
             >
               <img src={"tilesets/nethack/" + tileData.image} />
             </Col>
@@ -42,10 +43,10 @@ class TileInfoList extends Component {
           clickableTiles.push(clickableTile);
         }
       }
-
+      
       const tilesFlexbox = (
-        <ListGroupItem key={category + "_tiles"}>
-          <Row className="ep-ide-tile-selection-item">{clickableTiles}</Row>
+        <ListGroupItem key={categoryName + "_tiles"}>
+          <Row className="ep-tiles-selection-item">{clickableTiles}</Row>
         </ListGroupItem>
       );
       tileInfos.push(tilesFlexbox);
@@ -55,7 +56,7 @@ class TileInfoList extends Component {
       <>
         <Row>
           <Col>
-            <ListGroup className="ep-ide-tile-selection-scroll">
+            <ListGroup className="ep-tiles-selection-scroll">
               {tileInfos}
             </ListGroup>
           </Col>

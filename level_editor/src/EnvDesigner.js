@@ -8,7 +8,7 @@ import { createTileIdKey } from "./TileSet";
 
 class EnvDesigner extends Component {
   constructor(props) {
-    super();
+    super(props);
     const points = [];
     points.push(new THREE.Vector3(-0.5, -0.5, 1));
     points.push(new THREE.Vector3(-0.5, 0.5, 1));
@@ -20,20 +20,21 @@ class EnvDesigner extends Component {
     this.components = {};
     this.tiles = new Map();
 
+    
     this.geometries.square = new THREE.BufferGeometry().setFromPoints(points);
 
     this.state = {
       cursorGridPosition: new THREE.Vector2(),
       camera: new THREE.OrthographicCamera(
         0,
-        10,
-        10,
+        this.props.gridWidth,
+        this.props.gridHeight,
         0,
         -100,
         100
       ),
-      gridHeight: 10,
-      gridWidth: 10,
+      gridHeight: this.props.gridHeight,
+      gridWidth: this.props.gridWidth,
     };
 
     this.currentSelectedTile = {
@@ -110,32 +111,40 @@ class EnvDesigner extends Component {
       100
     );
 
+    if(this.mount === null || this.mount.parentNode === null ) {
+      return;
+    }
+
     const canvasWidth = this.mount.parentNode.offsetWidth;
-    const canvasHeight = this.mount.parentNode.offsetWidth;
+    const canvasHeight = (gridHeight*canvasWidth)/gridWidth;
 
     this.renderer.setSize(canvasWidth, canvasHeight);
 
     this.setState((state) => {
       return {
         ...state,
-        gridWidth,
-        gridHeight,
         camera,
       };
     });
   }
 
   onCanvasResize = (e) => {
-    console.log(e);
-    this.resizeCanvas(this.state.gridWidth, this.state.gridHeight);
+    this.resizeCanvas(this.props.gridWidth, this.props.gridHeight);
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.gridWidth != this.props.gridWidth || prevProps.gridHeight != this.props.gridHeight) {
+      this.resizeCanvas(this.props.gridWidth, this.props.gridHeight);
+    }
   }
 
   componentDidMount() {
 
     const canvasWidth = this.mount.parentNode.offsetWidth;
-    const canvasHeight = this.mount.parentNode.offsetWidth;
+    const canvasHeight = (this.props.gridHeight*canvasWidth)/this.props.gridWidth;
 
     this.renderer.setSize(canvasWidth, canvasHeight);
+
     this.mount.appendChild(this.renderer.domElement);
 
     this.mouseX = 0;
@@ -215,8 +224,8 @@ class EnvDesigner extends Component {
       const editorHeight = editorRect.bottom - editorRect.top;
 
       const cursorGridPosition = new THREE.Vector2(
-        Math.floor((this.mouseX - editorX) / (editorWidth / this.state.gridWidth)),
-        Math.floor((editorY - this.mouseY) / (editorHeight / this.state.gridHeight))
+        Math.floor((this.mouseX - editorX) / (editorWidth / this.props.gridWidth)),
+        Math.floor((editorY - this.mouseY) / (editorHeight / this.props.gridHeight))
       );
 
       this.components.highlightSquare.position.x = cursorGridPosition.x + 0.5;
@@ -322,18 +331,6 @@ class EnvDesigner extends Component {
     return (
       <>
         <div className="ep-ide-editor" ref={(ref) => (this.mount = ref)} />
-        <div>
-          <Row>
-            <Col>
-              <Row>
-                <Col> Grid X: {this.state.cursorGridPosition.x}</Col>
-              </Row>
-              <Row>
-                <Col> Grid Y: {this.state.cursorGridPosition.y}</Col>
-              </Row>
-            </Col>
-          </Row>
-        </div>
       </>
     );
   }
@@ -343,6 +340,8 @@ EnvDesigner.propTypes = {
   tileset: PropTypes.any,
   selectedTile: PropTypes.any,
   onCompile: PropTypes.any,
+  gridHeight: PropTypes.any,
+  gridWidth: PropTypes.any
 };
 
 export default EnvDesigner;

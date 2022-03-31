@@ -5,31 +5,17 @@ import DESEditor from './DESEditor';
 import EnvDesigner from './EnvDesigner';
 import TileSelection from './TileSelection';
 import NethackTileset from './tilesets/nethack/NethackTileset_loophack';
+import PlusMinusButton from './PlusMinusButton';
 
 class App extends Component {
   constructor() {
     super();
 
-    const desString = `
-    MAZE: "My Test Level"
-    FLAGS: premapped
-    MESSAGE: "Welcome to MiniHack"
-    INIT_MAP: solidfill,' '
-    GEOMETRY:center,center
-    MAP
-    ........
-    ........
-    ........
-    ........
-    ........
-    ........
-    ENDMAP
-    REGION:
-    (0,0,7,7),lit,"ordinary"
-    MONSTER:"Jackal",(0,0)
-    DOOR:locked,(2,5)
-    STAIR:(4,0),down
+    const defaultGridWidth = 15;
+    const defaultGridHeight = 10;
 
+    const desString = `
+    DES will appear here when you add tiles...
     `;
 
     this.state = {
@@ -37,6 +23,8 @@ class App extends Component {
       selectedTile: '',
       selectedBackgroundTile: '',
       tabKey: 'tile-select',
+      gridWidth: defaultGridWidth,
+      gridHeight: defaultGridHeight,
     };
 
     this.nethackTileset = new NethackTileset();
@@ -69,6 +57,24 @@ class App extends Component {
     });
   };
 
+  onChangeWidth = (width) => {
+    this.setState((state) => {
+      return {
+        ...state,
+        gridWidth: width,
+      };
+    });
+  }
+
+  onChangeHeight = (height) => {
+    this.setState((state) => {
+      return {
+        ...state,
+        gridHeight: height,
+      };
+    });
+  }
+
   render() {
     return (
       <Container fluid className='ep-container'>
@@ -81,32 +87,38 @@ class App extends Component {
         </Row>
         <Row>
           <Col md={2}>
-            <Row className='ep-tiles'>
-            <TileSelection 
-              tileset={this.nethackTileset} 
-              onTileSelect ={this.onTileSelect} 
-              onBackgroundTileSelect={this.onBackgroundTileSelect} 
-              selectedTile={this.state.selectedTile} 
-              selectedBackgroundTile = { this.state.selectedBackgroundTile} 
-            />
-            </Row>
-          </Col>
-          <Col md={8} className='ep-ide'>
             <Row className='ep-ide-header'>
-              <Col md={10} className="ep-ide-editor">Level Size:
+              <Col md={12} className="ep-size">
+                <PlusMinusButton value={this.state.gridWidth} text="Width" onChange={this.onChangeWidth} /> 
+                <PlusMinusButton value={this.state.gridHeight} text="Height" onChange={this.onChangeHeight} />
               </Col>
             </Row>
+            <Row className='ep-tiles'>
+              <Col md={12}>
+                <TileSelection 
+                  tileset={this.nethackTileset} 
+                  onTileSelect ={this.onTileSelect} 
+                  onBackgroundTileSelect={this.onBackgroundTileSelect} 
+                  selectedTile={this.state.selectedTile} 
+                  selectedBackgroundTile = { this.state.selectedBackgroundTile} 
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col md={7} className='ep-ide'>
             <Row className="ep-ide-map-builder">
               <Col md={10} className="ep-ide-editor">
                 <EnvDesigner
                   tileset={this.nethackTileset}
                   selectedTile={this.state.selectedTile}
                   onCompile={this.onCompile}
+                  gridWidth={this.state.gridWidth}
+                  gridHeight={this.state.gridHeight}
                 />
               </Col>
             </Row>
           </Col>
-          <Col md={2} className=''>
+          <Col md={3} className=''>
               <DESEditor desString={this.state.desString} />
           </Col>
         </Row>

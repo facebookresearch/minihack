@@ -41,7 +41,8 @@ class StateCompiler {
           // If we have a player character, then put a floor. The "player" is dealth with by adding a BRANCH
           if (
             tileData.category !== "Player" &&
-            tileData.category !== "Staircase"
+            tileData.category !== "Staircase" &&
+            tileData.category !== "Monster"
           ) {
             mapRow.push(tileData.glyphChar);
           } else {
@@ -76,23 +77,26 @@ GEOMETRY:center,center
   };
 
   generateFooter = (state, mapBounds) => {
-    const startLocation = { x: -1, y: -1 };
+    
     for (const key in state.tiles) {
       const tileData = state.tiles[key];
-      if (tileData.category === "Player") {
-        startLocation.x = tileData.x - mapBounds.minx;
-        startLocation.y = mapBounds.maxy - tileData.y;
-        break;
-      }
+      
     }
-
+    
+    const startLocation = { x: -1, y: -1 };
     const stairLocation = { x: -1, y: -1 };
+    const monsterLocation = { x: -1, y: -1 };
     for (const key in state.tiles) {
       const tileData = state.tiles[key];
       if (tileData.category === "Staircase") {
         stairLocation.x = tileData.x - mapBounds.minx;
         stairLocation.y = mapBounds.maxy - tileData.y;
-        break;
+      } else if (tileData.category === "Player") {
+        startLocation.x = tileData.x - mapBounds.minx;
+        startLocation.y = mapBounds.maxy - tileData.y;
+      } else if(tileData.category === "Monster") {
+        monsterLocation.x = tileData.x - mapBounds.minx;
+        monsterLocation.y = mapBounds.maxy - tileData.y;
       }
     }
 
@@ -108,6 +112,10 @@ GEOMETRY:center,center
       },${startLocation.y}),(${startLocation.x + 1},${startLocation.y + 1},${
         startLocation.x + 1
       },${startLocation.y + 1})`;
+    }
+
+    if (monsterLocation.x >= 0) {
+      footer += `MONSTER: random, random, (${monsterLocation.x},${monsterLocation.y})`;
     }
     return footer;
   };
