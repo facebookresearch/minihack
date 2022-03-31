@@ -1,0 +1,4495 @@
+[
+  {
+    "class": [
+      "ants",
+      "insects"
+    ],
+    "glyph": {
+      "character": "a",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Giant ant",
+        "wiki_link": "https://nethackwiki.com/wiki/Giant_ant",
+        "image": "monsters/Giant ant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c6/Giant_ant.png",
+        "glyph": {
+          "character": "a",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Killer bee",
+        "wiki_link": "https://nethackwiki.com/wiki/Killer_bee",
+        "image": "monsters/Killer bee.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/65/Killer_bee.png",
+        "glyph": {
+          "character": "a",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Soldier ant",
+        "wiki_link": "https://nethackwiki.com/wiki/Soldier_ant",
+        "image": "monsters/Soldier ant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f1/Soldier_ant.png",
+        "glyph": {
+          "character": "a",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Fire ant",
+        "wiki_link": "https://nethackwiki.com/wiki/Fire_ant",
+        "image": "monsters/Fire ant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/05/Fire_ant.png",
+        "glyph": {
+          "character": "a",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Giant beetle",
+        "wiki_link": "https://nethackwiki.com/wiki/Giant_beetle",
+        "image": "monsters/Giant beetle.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a3/Giant_beetle.png",
+        "glyph": {
+          "character": "a",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Queen bee",
+        "wiki_link": "https://nethackwiki.com/wiki/Queen_bee",
+        "image": "monsters/Queen bee.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7a/Queen_bee.png",
+        "glyph": {
+          "character": "a",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "blobs"
+    ],
+    "glyph": {
+      "character": "b",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Acid blob",
+        "wiki_link": "https://nethackwiki.com/wiki/Acid_blob",
+        "image": "monsters/Acid blob.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/2c/Acid_blob.png",
+        "glyph": {
+          "character": "b",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Quivering blob",
+        "wiki_link": "https://nethackwiki.com/wiki/Quivering_blob",
+        "image": "monsters/Quivering blob.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/06/Quivering_blob.png",
+        "glyph": {
+          "character": "b",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gelatinous cube",
+        "wiki_link": "https://nethackwiki.com/wiki/Gelatinous_cube",
+        "image": "monsters/Gelatinous cube.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/bc/Gelatinous_cube.png",
+        "glyph": {
+          "character": "b",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "cockatrices"
+    ],
+    "glyph": {
+      "character": "c",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Chickatrice",
+        "wiki_link": "https://nethackwiki.com/wiki/Chickatrice",
+        "image": "monsters/Chickatrice.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/06/Chickatrice.png",
+        "glyph": {
+          "character": "c",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Cockatrice",
+        "wiki_link": "https://nethackwiki.com/wiki/Cockatrice",
+        "image": "monsters/Cockatrice.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/09/Cockatrice.png",
+        "glyph": {
+          "character": "c",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Pyrolisk",
+        "wiki_link": "https://nethackwiki.com/wiki/Pyrolisk",
+        "image": "monsters/Pyrolisk.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/84/Pyrolisk.png",
+        "glyph": {
+          "character": "c",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "canines"
+    ],
+    "glyph": {
+      "character": "d",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Jackal",
+        "wiki_link": "https://nethackwiki.com/wiki/Jackal",
+        "image": "monsters/Jackal.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/70/Jackal.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Fox",
+        "wiki_link": "https://nethackwiki.com/wiki/Fox",
+        "image": "monsters/Fox.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/73/Fox.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Coyote",
+        "wiki_link": "https://nethackwiki.com/wiki/Coyote",
+        "image": "monsters/Coyote.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/02/Coyote.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Werejackal",
+        "wiki_link": "https://nethackwiki.com/wiki/Werejackal",
+        "image": "monsters/Werejackal.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d2/Werejackal_were.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Little dog",
+        "wiki_link": "https://nethackwiki.com/wiki/Little_dog",
+        "image": "monsters/Little dog.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/3c/Little_dog.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Dog",
+        "wiki_link": "https://nethackwiki.com/wiki/Dog",
+        "image": "monsters/Dog.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/35/Dog.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Large dog",
+        "wiki_link": "https://nethackwiki.com/wiki/Large_dog",
+        "image": "monsters/Large dog.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/26/Large_dog.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Dingo",
+        "wiki_link": "https://nethackwiki.com/wiki/Dingo",
+        "image": "monsters/Dingo.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/db/Dingo.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Wolf",
+        "wiki_link": "https://nethackwiki.com/wiki/Wolf",
+        "image": "monsters/Wolf.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c8/Wolf.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Werewolf",
+        "wiki_link": "https://nethackwiki.com/wiki/Werewolf",
+        "image": "monsters/Werewolf.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d9/Werewolf_were.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Warg",
+        "wiki_link": "https://nethackwiki.com/wiki/Warg",
+        "image": "monsters/Warg.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/27/Warg.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Winter wolf cub",
+        "wiki_link": "https://nethackwiki.com/wiki/Winter_wolf_cub",
+        "image": "monsters/Winter wolf cub.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b8/Winter_wolf_cub.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Winter wolf",
+        "wiki_link": "https://nethackwiki.com/wiki/Winter_wolf",
+        "image": "monsters/Winter wolf.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e4/Winter_wolf.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Hell hound pup",
+        "wiki_link": "https://nethackwiki.com/wiki/Hell_hound_pup",
+        "image": "monsters/Hell hound pup.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/92/Hell_hound_pup.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Hell hound",
+        "wiki_link": "https://nethackwiki.com/wiki/Hell_hound",
+        "image": "monsters/Hell hound.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/bc/Hell_hound.png",
+        "glyph": {
+          "character": "d",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "eyes",
+      "spheres"
+    ],
+    "glyph": {
+      "character": "e",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Gas spore",
+        "wiki_link": "https://nethackwiki.com/wiki/Gas_spore",
+        "image": "monsters/Gas spore.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e5/Gas_spore.png",
+        "glyph": {
+          "character": "e",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Floating eye",
+        "wiki_link": "https://nethackwiki.com/wiki/Floating_eye",
+        "image": "monsters/Floating eye.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/46/Floating_eye.png",
+        "glyph": {
+          "character": "e",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Freezing sphere",
+        "wiki_link": "https://nethackwiki.com/wiki/Freezing_sphere",
+        "image": "monsters/Freezing sphere.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/2c/Freezing_sphere.png",
+        "glyph": {
+          "character": "e",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Flaming sphere",
+        "wiki_link": "https://nethackwiki.com/wiki/Flaming_sphere",
+        "image": "monsters/Flaming sphere.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/40/Flaming_sphere.png",
+        "glyph": {
+          "character": "e",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Shocking sphere",
+        "wiki_link": "https://nethackwiki.com/wiki/Shocking_sphere",
+        "image": "monsters/Shocking sphere.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/24/Shocking_sphere.png",
+        "glyph": {
+          "character": "e",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "felines"
+    ],
+    "glyph": {
+      "character": "f",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Kitten",
+        "wiki_link": "https://nethackwiki.com/wiki/Kitten",
+        "image": "monsters/Kitten.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/27/Kitten.png",
+        "glyph": {
+          "character": "f",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Housecat",
+        "wiki_link": "https://nethackwiki.com/wiki/Housecat",
+        "image": "monsters/Housecat.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d2/Housecat.png",
+        "glyph": {
+          "character": "f",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Jaguar",
+        "wiki_link": "https://nethackwiki.com/wiki/Jaguar",
+        "image": "monsters/Jaguar.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d3/Jaguar.png",
+        "glyph": {
+          "character": "f",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Lynx",
+        "wiki_link": "https://nethackwiki.com/wiki/Lynx",
+        "image": "monsters/Lynx.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b8/Lynx.png",
+        "glyph": {
+          "character": "f",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Panther",
+        "wiki_link": "https://nethackwiki.com/wiki/Panther",
+        "image": "monsters/Panther.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/36/Panther.png",
+        "glyph": {
+          "character": "f",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Large cat",
+        "wiki_link": "https://nethackwiki.com/wiki/Large_cat",
+        "image": "monsters/Large cat.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0b/Large_cat.png",
+        "glyph": {
+          "character": "f",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Tiger",
+        "wiki_link": "https://nethackwiki.com/wiki/Tiger",
+        "image": "monsters/Tiger.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/ae/Tiger.png",
+        "glyph": {
+          "character": "f",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "gremlins",
+      "gargoyles"
+    ],
+    "glyph": {
+      "character": "g",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Gremlin",
+        "wiki_link": "https://nethackwiki.com/wiki/Gremlin",
+        "image": "monsters/Gremlin.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/db/Gremlin.png",
+        "glyph": {
+          "character": "g",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gargoyle",
+        "wiki_link": "https://nethackwiki.com/wiki/Gargoyle",
+        "image": "monsters/Gargoyle.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/44/Gargoyle.png",
+        "glyph": {
+          "character": "g",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Winged gargoyle",
+        "wiki_link": "https://nethackwiki.com/wiki/Winged_gargoyle",
+        "image": "monsters/Winged gargoyle.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/78/Winged_gargoyle.png",
+        "glyph": {
+          "character": "g",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "humanoids"
+    ],
+    "glyph": {
+      "character": "h",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Hobbit",
+        "wiki_link": "https://nethackwiki.com/wiki/Hobbit",
+        "image": "monsters/Hobbit.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/69/Hobbit.png",
+        "glyph": {
+          "character": "h",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Dwarf (monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Dwarf_(monster)",
+        "image": "monsters/Dwarf (monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/ed/Dwarf.png",
+        "glyph": {
+          "character": "h",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Bugbear",
+        "wiki_link": "https://nethackwiki.com/wiki/Bugbear",
+        "image": "monsters/Bugbear.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0c/Bugbear.png",
+        "glyph": {
+          "character": "h",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Dwarf lord",
+        "wiki_link": "https://nethackwiki.com/wiki/Dwarf_lord",
+        "image": "monsters/Dwarf lord.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7c/Dwarf_lord.png",
+        "glyph": {
+          "character": "h",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Dwarf king",
+        "wiki_link": "https://nethackwiki.com/wiki/Dwarf_king",
+        "image": "monsters/Dwarf king.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5c/Dwarf_king.png",
+        "glyph": {
+          "character": "h",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Mind flayer",
+        "wiki_link": "https://nethackwiki.com/wiki/Mind_flayer",
+        "image": "monsters/Mind flayer.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/4d/Mind_flayer.png",
+        "glyph": {
+          "character": "h",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Master mind flayer",
+        "wiki_link": "https://nethackwiki.com/wiki/Master_mind_flayer",
+        "image": "monsters/Master mind flayer.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d9/Master_mind_flayer.png",
+        "glyph": {
+          "character": "h",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "demons"
+    ],
+    "glyph": {
+      "character": "i",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Manes",
+        "wiki_link": "https://nethackwiki.com/wiki/Manes",
+        "image": "monsters/Manes.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/33/Manes.png",
+        "glyph": {
+          "character": "i",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Homunculus",
+        "wiki_link": "https://nethackwiki.com/wiki/Homunculus",
+        "image": "monsters/Homunculus.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e5/Homunculus.png",
+        "glyph": {
+          "character": "i",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Imp",
+        "wiki_link": "https://nethackwiki.com/wiki/Imp",
+        "image": "monsters/Imp.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b3/Imp.png",
+        "glyph": {
+          "character": "i",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Lemure",
+        "wiki_link": "https://nethackwiki.com/wiki/Lemure",
+        "image": "monsters/Lemure.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/fa/Lemure.png",
+        "glyph": {
+          "character": "i",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Quasit",
+        "wiki_link": "https://nethackwiki.com/wiki/Quasit",
+        "image": "monsters/Quasit.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/1e/Quasit.png",
+        "glyph": {
+          "character": "i",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Tengu",
+        "wiki_link": "https://nethackwiki.com/wiki/Tengu",
+        "image": "monsters/Tengu.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/37/Tengu.png",
+        "glyph": {
+          "character": "i",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "jellies"
+    ],
+    "glyph": {
+      "character": "j",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Blue jelly",
+        "wiki_link": "https://nethackwiki.com/wiki/Blue_jelly",
+        "image": "monsters/Blue jelly.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/72/Blue_jelly.png",
+        "glyph": {
+          "character": "j",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Spotted jelly",
+        "wiki_link": "https://nethackwiki.com/wiki/Spotted_jelly",
+        "image": "monsters/Spotted jelly.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/69/Spotted_jelly.png",
+        "glyph": {
+          "character": "j",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ochre jelly",
+        "wiki_link": "https://nethackwiki.com/wiki/Ochre_jelly",
+        "image": "monsters/Ochre jelly.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/dc/Ochre_jelly.png",
+        "glyph": {
+          "character": "j",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "kobolds"
+    ],
+    "glyph": {
+      "character": "k",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Kobold",
+        "wiki_link": "https://nethackwiki.com/wiki/Kobold",
+        "image": "monsters/Kobold.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d2/Kobold.png",
+        "glyph": {
+          "character": "k",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Large kobold",
+        "wiki_link": "https://nethackwiki.com/wiki/Large_kobold",
+        "image": "monsters/Large kobold.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5c/Large_kobold.png",
+        "glyph": {
+          "character": "k",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Kobold lord",
+        "wiki_link": "https://nethackwiki.com/wiki/Kobold_lord",
+        "image": "monsters/Kobold lord.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d8/Kobold_lord.png",
+        "glyph": {
+          "character": "k",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Kobold shaman",
+        "wiki_link": "https://nethackwiki.com/wiki/Kobold_shaman",
+        "image": "monsters/Kobold shaman.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/9f/Kobold_shaman.png",
+        "glyph": {
+          "character": "k",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "leprechauns"
+    ],
+    "glyph": {
+      "character": "l",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Leprechaun",
+        "wiki_link": "https://nethackwiki.com/wiki/Leprechaun",
+        "image": "monsters/Leprechaun.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/3f/Leprechaun.png",
+        "glyph": {
+          "character": "l",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "mimics"
+    ],
+    "glyph": {
+      "character": "m",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Small mimic",
+        "wiki_link": "https://nethackwiki.com/wiki/Small_mimic",
+        "image": "monsters/Small mimic.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/86/Small_mimic.png",
+        "glyph": {
+          "character": "m",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Large mimic",
+        "wiki_link": "https://nethackwiki.com/wiki/Large_mimic",
+        "image": "monsters/Large mimic.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f8/Large_mimic.png",
+        "glyph": {
+          "character": "m",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Giant mimic",
+        "wiki_link": "https://nethackwiki.com/wiki/Giant_mimic",
+        "image": "monsters/Giant mimic.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/73/Giant_mimic.png",
+        "glyph": {
+          "character": "m",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "nymphs"
+    ],
+    "glyph": {
+      "character": "n",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Wood nymph",
+        "wiki_link": "https://nethackwiki.com/wiki/Wood_nymph",
+        "image": "monsters/Wood nymph.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/87/Wood_nymph.png",
+        "glyph": {
+          "character": "n",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Water nymph",
+        "wiki_link": "https://nethackwiki.com/wiki/Water_nymph",
+        "image": "monsters/Water nymph.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/20/Water_nymph.png",
+        "glyph": {
+          "character": "n",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Mountain nymph",
+        "wiki_link": "https://nethackwiki.com/wiki/Mountain_nymph",
+        "image": "monsters/Mountain nymph.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0e/Mountain_nymph.png",
+        "glyph": {
+          "character": "n",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "orcs"
+    ],
+    "glyph": {
+      "character": "o",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Goblin",
+        "wiki_link": "https://nethackwiki.com/wiki/Goblin",
+        "image": "monsters/Goblin.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d2/Goblin.png",
+        "glyph": {
+          "character": "o",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Hobgoblin",
+        "wiki_link": "https://nethackwiki.com/wiki/Hobgoblin",
+        "image": "monsters/Hobgoblin.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/31/Hobgoblin.png",
+        "glyph": {
+          "character": "o",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Orc",
+        "wiki_link": "https://nethackwiki.com/wiki/Orc",
+        "image": "monsters/Orc.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/bf/Orc.png",
+        "glyph": {
+          "character": "o",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Hill orc",
+        "wiki_link": "https://nethackwiki.com/wiki/Hill_orc",
+        "image": "monsters/Hill orc.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7f/Hill_orc.png",
+        "glyph": {
+          "character": "o",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Mordor orc",
+        "wiki_link": "https://nethackwiki.com/wiki/Mordor_orc",
+        "image": "monsters/Mordor orc.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/86/Mordor_orc.png",
+        "glyph": {
+          "character": "o",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Uruk-hai",
+        "wiki_link": "https://nethackwiki.com/wiki/Uruk-hai",
+        "image": "monsters/Uruk-hai.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a0/Uruk-hai.png",
+        "glyph": {
+          "character": "o",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Orc shaman",
+        "wiki_link": "https://nethackwiki.com/wiki/Orc_shaman",
+        "image": "monsters/Orc shaman.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d1/Orc_shaman.png",
+        "glyph": {
+          "character": "o",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Orc-captain",
+        "wiki_link": "https://nethackwiki.com/wiki/Orc-captain",
+        "image": "monsters/Orc-captain.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/62/Orc-captain.png",
+        "glyph": {
+          "character": "o",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "piercers"
+    ],
+    "glyph": {
+      "character": "p",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Rock piercer",
+        "wiki_link": "https://nethackwiki.com/wiki/Rock_piercer",
+        "image": "monsters/Rock piercer.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/82/Rock_piercer.png",
+        "glyph": {
+          "character": "p",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Iron piercer",
+        "wiki_link": "https://nethackwiki.com/wiki/Iron_piercer",
+        "image": "monsters/Iron piercer.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a9/Iron_piercer.png",
+        "glyph": {
+          "character": "p",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Glass piercer",
+        "wiki_link": "https://nethackwiki.com/wiki/Glass_piercer",
+        "image": "monsters/Glass piercer.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5d/Glass_piercer.png",
+        "glyph": {
+          "character": "p",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "quadrupeds"
+    ],
+    "glyph": {
+      "character": "q",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Rothe",
+        "wiki_link": "https://nethackwiki.com/wiki/Rothe",
+        "image": "monsters/Rothe.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c4/Rothe.png",
+        "glyph": {
+          "character": "q",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Mumak",
+        "wiki_link": "https://nethackwiki.com/wiki/Mumak",
+        "image": "monsters/Mumak.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e8/Mumak.png",
+        "glyph": {
+          "character": "q",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Leocrotta",
+        "wiki_link": "https://nethackwiki.com/wiki/Leocrotta",
+        "image": "monsters/Leocrotta.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/58/Leocrotta.png",
+        "glyph": {
+          "character": "q",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Wumpus",
+        "wiki_link": "https://nethackwiki.com/wiki/Wumpus",
+        "image": "monsters/Wumpus.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/39/Wumpus.png",
+        "glyph": {
+          "character": "q",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Titanothere",
+        "wiki_link": "https://nethackwiki.com/wiki/Titanothere",
+        "image": "monsters/Titanothere.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/60/Titanothere.png",
+        "glyph": {
+          "character": "q",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baluchitherium",
+        "wiki_link": "https://nethackwiki.com/wiki/Baluchitherium",
+        "image": "monsters/Baluchitherium.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/95/Baluchitherium.png",
+        "glyph": {
+          "character": "q",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Mastodon",
+        "wiki_link": "https://nethackwiki.com/wiki/Mastodon",
+        "image": "monsters/Mastodon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/ef/Mastodon.png",
+        "glyph": {
+          "character": "q",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "rodents"
+    ],
+    "glyph": {
+      "character": "r",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Sewer rat",
+        "wiki_link": "https://nethackwiki.com/wiki/Sewer_rat",
+        "image": "monsters/Sewer rat.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b8/Sewer_rat.png",
+        "glyph": {
+          "character": "r",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Giant rat",
+        "wiki_link": "https://nethackwiki.com/wiki/Giant_rat",
+        "image": "monsters/Giant rat.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e4/Giant_rat.png",
+        "glyph": {
+          "character": "r",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Rabid rat",
+        "wiki_link": "https://nethackwiki.com/wiki/Rabid_rat",
+        "image": "monsters/Rabid rat.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f1/Rabid_rat.png",
+        "glyph": {
+          "character": "r",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Wererat",
+        "wiki_link": "https://nethackwiki.com/wiki/Wererat",
+        "image": "monsters/Wererat.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/1e/Wererat_were.png",
+        "glyph": {
+          "character": "r",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Rock mole",
+        "wiki_link": "https://nethackwiki.com/wiki/Rock_mole",
+        "image": "monsters/Rock mole.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5e/Rock_mole.png",
+        "glyph": {
+          "character": "r",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Woodchuck",
+        "wiki_link": "https://nethackwiki.com/wiki/Woodchuck",
+        "image": "monsters/Woodchuck.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/3c/Woodchuck.png",
+        "glyph": {
+          "character": "r",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "spiders",
+      "centipedes"
+    ],
+    "glyph": {
+      "character": "s",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Cave spider",
+        "wiki_link": "https://nethackwiki.com/wiki/Cave_spider",
+        "image": "monsters/Cave spider.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/94/Cave_spider.png",
+        "glyph": {
+          "character": "s",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Centipede",
+        "wiki_link": "https://nethackwiki.com/wiki/Centipede",
+        "image": "monsters/Centipede.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/43/Centipede.png",
+        "glyph": {
+          "character": "s",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Giant spider",
+        "wiki_link": "https://nethackwiki.com/wiki/Giant_spider",
+        "image": "monsters/Giant spider.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d6/Giant_spider.png",
+        "glyph": {
+          "character": "s",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Scorpion",
+        "wiki_link": "https://nethackwiki.com/wiki/Scorpion",
+        "image": "monsters/Scorpion.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/ab/Scorpion.png",
+        "glyph": {
+          "character": "s",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "trappers",
+      "lurkers above"
+    ],
+    "glyph": {
+      "character": "t",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Lurker above",
+        "wiki_link": "https://nethackwiki.com/wiki/Lurker_above",
+        "image": "monsters/Lurker above.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/58/Lurker_above.png",
+        "glyph": {
+          "character": "t",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Trapper",
+        "wiki_link": "https://nethackwiki.com/wiki/Trapper",
+        "image": "monsters/Trapper.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b8/Trapper.png",
+        "glyph": {
+          "character": "t",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "horses",
+      "unicorns"
+    ],
+    "glyph": {
+      "character": "u",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "White unicorn",
+        "wiki_link": "https://nethackwiki.com/wiki/White_unicorn",
+        "image": "monsters/White unicorn.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/8d/White_unicorn.png",
+        "glyph": {
+          "character": "u",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gray unicorn",
+        "wiki_link": "https://nethackwiki.com/wiki/Gray_unicorn",
+        "image": "monsters/Gray unicorn.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/13/Gray_unicorn.png",
+        "glyph": {
+          "character": "u",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Black unicorn",
+        "wiki_link": "https://nethackwiki.com/wiki/Black_unicorn",
+        "image": "monsters/Black unicorn.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/52/Black_unicorn.png",
+        "glyph": {
+          "character": "u",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Pony",
+        "wiki_link": "https://nethackwiki.com/wiki/Pony",
+        "image": "monsters/Pony.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b1/Pony.png",
+        "glyph": {
+          "character": "u",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Horse",
+        "wiki_link": "https://nethackwiki.com/wiki/Horse",
+        "image": "monsters/Horse.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c3/Horse.png",
+        "glyph": {
+          "character": "u",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Warhorse",
+        "wiki_link": "https://nethackwiki.com/wiki/Warhorse",
+        "image": "monsters/Warhorse.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a1/Warhorse.png",
+        "glyph": {
+          "character": "u",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "vortices"
+    ],
+    "glyph": {
+      "character": "v",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Fog cloud",
+        "wiki_link": "https://nethackwiki.com/wiki/Fog_cloud",
+        "image": "monsters/Fog cloud.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/96/Fog_cloud.png",
+        "glyph": {
+          "character": "v",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Dust vortex",
+        "wiki_link": "https://nethackwiki.com/wiki/Dust_vortex",
+        "image": "monsters/Dust vortex.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c8/Dust_vortex.png",
+        "glyph": {
+          "character": "v",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ice vortex",
+        "wiki_link": "https://nethackwiki.com/wiki/Ice_vortex",
+        "image": "monsters/Ice vortex.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/76/Ice_vortex.png",
+        "glyph": {
+          "character": "v",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Energy vortex",
+        "wiki_link": "https://nethackwiki.com/wiki/Energy_vortex",
+        "image": "monsters/Energy vortex.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e2/Energy_vortex.png",
+        "glyph": {
+          "character": "v",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Steam vortex",
+        "wiki_link": "https://nethackwiki.com/wiki/Steam_vortex",
+        "image": "monsters/Steam vortex.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/dd/Steam_vortex.png",
+        "glyph": {
+          "character": "v",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Fire vortex",
+        "wiki_link": "https://nethackwiki.com/wiki/Fire_vortex",
+        "image": "monsters/Fire vortex.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/8a/Fire_vortex.png",
+        "glyph": {
+          "character": "v",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "worms"
+    ],
+    "glyph": {
+      "character": "w",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Baby long worm",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_long_worm",
+        "image": "monsters/Baby long worm.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0d/Baby_long_worm.png",
+        "glyph": {
+          "character": "w",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baby purple worm",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_purple_worm",
+        "image": "monsters/Baby purple worm.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/ba/Baby_purple_worm.png",
+        "glyph": {
+          "character": "w",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Long worm",
+        "wiki_link": "https://nethackwiki.com/wiki/Long_worm",
+        "image": "monsters/Long worm.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/23/Long_worm.png",
+        "glyph": {
+          "character": "w",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Purple worm",
+        "wiki_link": "https://nethackwiki.com/wiki/Purple_worm",
+        "image": "monsters/Purple worm.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/db/Purple_worm.png",
+        "glyph": {
+          "character": "w",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "mythical/fantastic insects"
+    ],
+    "glyph": {
+      "character": "x",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Grid bug",
+        "wiki_link": "https://nethackwiki.com/wiki/Grid_bug",
+        "image": "monsters/Grid bug.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e1/Grid_bug.png",
+        "glyph": {
+          "character": "x",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Xan",
+        "wiki_link": "https://nethackwiki.com/wiki/Xan",
+        "image": "monsters/Xan.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/70/Xan.png",
+        "glyph": {
+          "character": "x",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "lights"
+    ],
+    "glyph": {
+      "character": "y",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Yellow light",
+        "wiki_link": "https://nethackwiki.com/wiki/Yellow_light",
+        "image": "monsters/Yellow light.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/6a/Yellow_light.png",
+        "glyph": {
+          "character": "y",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Black light",
+        "wiki_link": "https://nethackwiki.com/wiki/Black_light",
+        "image": "monsters/Black light.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/df/Black_light.png",
+        "glyph": {
+          "character": "y",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "zruties"
+    ],
+    "glyph": {
+      "character": "z",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Zruty",
+        "wiki_link": "https://nethackwiki.com/wiki/Zruty",
+        "image": "monsters/Zruty.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/99/Zruty.png",
+        "glyph": {
+          "character": "z",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "angelic beings"
+    ],
+    "glyph": {
+      "character": "A",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Couatl",
+        "wiki_link": "https://nethackwiki.com/wiki/Couatl",
+        "image": "monsters/Couatl.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/40/Couatl.png",
+        "glyph": {
+          "character": "A",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Aleax",
+        "wiki_link": "https://nethackwiki.com/wiki/Aleax",
+        "image": "monsters/Aleax.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/2c/Aleax.png",
+        "glyph": {
+          "character": "A",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Angel",
+        "wiki_link": "https://nethackwiki.com/wiki/Angel",
+        "image": "monsters/Angel.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/83/Angel.png",
+        "glyph": {
+          "character": "A",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ki-rin",
+        "wiki_link": "https://nethackwiki.com/wiki/Ki-rin",
+        "image": "monsters/Ki-rin.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e0/Ki-rin.png",
+        "glyph": {
+          "character": "A",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Archon",
+        "wiki_link": "https://nethackwiki.com/wiki/Archon",
+        "image": "monsters/Archon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b7/Archon.png",
+        "glyph": {
+          "character": "A",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "bats",
+      "birds"
+    ],
+    "glyph": {
+      "character": "B",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Bat",
+        "wiki_link": "https://nethackwiki.com/wiki/Bat",
+        "image": "monsters/Bat.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/ad/Bat.png",
+        "glyph": {
+          "character": "B",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Giant bat",
+        "wiki_link": "https://nethackwiki.com/wiki/Giant_bat",
+        "image": "monsters/Giant bat.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/44/Giant_bat.png",
+        "glyph": {
+          "character": "B",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Raven",
+        "wiki_link": "https://nethackwiki.com/wiki/Raven",
+        "image": "monsters/Raven.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/66/Raven.png",
+        "glyph": {
+          "character": "B",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Vampire bat",
+        "wiki_link": "https://nethackwiki.com/wiki/Vampire_bat",
+        "image": "monsters/Vampire bat.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/46/Vampire_bat.png",
+        "glyph": {
+          "character": "B",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "centaurs"
+    ],
+    "glyph": {
+      "character": "C",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Plains centaur",
+        "wiki_link": "https://nethackwiki.com/wiki/Plains_centaur",
+        "image": "monsters/Plains centaur.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/ee/Plains_centaur.png",
+        "glyph": {
+          "character": "C",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Forest centaur",
+        "wiki_link": "https://nethackwiki.com/wiki/Forest_centaur",
+        "image": "monsters/Forest centaur.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/4b/Forest_centaur.png",
+        "glyph": {
+          "character": "C",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Mountain centaur",
+        "wiki_link": "https://nethackwiki.com/wiki/Mountain_centaur",
+        "image": "monsters/Mountain centaur.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/37/Mountain_centaur.png",
+        "glyph": {
+          "character": "C",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "dragons"
+    ],
+    "glyph": {
+      "character": "D",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Baby gray dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_gray_dragon",
+        "image": "monsters/Baby gray dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/68/Baby_gray_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baby silver dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_silver_dragon",
+        "image": "monsters/Baby silver dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7f/Baby_silver_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baby red dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_red_dragon",
+        "image": "monsters/Baby red dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/75/Baby_red_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baby white dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_white_dragon",
+        "image": "monsters/Baby white dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5b/Baby_white_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baby orange dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_orange_dragon",
+        "image": "monsters/Baby orange dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a7/Baby_orange_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baby black dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_black_dragon",
+        "image": "monsters/Baby black dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d9/Baby_black_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baby blue dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_blue_dragon",
+        "image": "monsters/Baby blue dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/40/Baby_blue_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baby green dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_green_dragon",
+        "image": "monsters/Baby green dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b3/Baby_green_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baby yellow dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_yellow_dragon",
+        "image": "monsters/Baby yellow dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/23/Baby_yellow_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gray dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Gray_dragon",
+        "image": "monsters/Gray dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/9b/Gray_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Silver dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Silver_dragon",
+        "image": "monsters/Silver dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/40/Silver_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Red dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Red_dragon",
+        "image": "monsters/Red dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/6a/Red_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "White dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/White_dragon",
+        "image": "monsters/White dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f2/White_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Orange dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Orange_dragon",
+        "image": "monsters/Orange dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d5/Orange_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Black dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Black_dragon",
+        "image": "monsters/Black dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/9f/Black_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Blue dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Blue_dragon",
+        "image": "monsters/Blue dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/39/Blue_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Green dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Green_dragon",
+        "image": "monsters/Green dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/07/Green_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Yellow dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Yellow_dragon",
+        "image": "monsters/Yellow dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/60/Yellow_dragon.png",
+        "glyph": {
+          "character": "D",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "elementals",
+      "stalkers"
+    ],
+    "glyph": {
+      "character": "E",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Stalker",
+        "wiki_link": "https://nethackwiki.com/wiki/Stalker",
+        "image": "monsters/Stalker.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/4b/Stalker.png",
+        "glyph": {
+          "character": "E",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Air elemental",
+        "wiki_link": "https://nethackwiki.com/wiki/Air_elemental",
+        "image": "monsters/Air elemental.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/06/Air_elemental.png",
+        "glyph": {
+          "character": "E",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Fire elemental",
+        "wiki_link": "https://nethackwiki.com/wiki/Fire_elemental",
+        "image": "monsters/Fire elemental.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/6d/Fire_elemental.png",
+        "glyph": {
+          "character": "E",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Earth elemental",
+        "wiki_link": "https://nethackwiki.com/wiki/Earth_elemental",
+        "image": "monsters/Earth elemental.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a6/Earth_elemental.png",
+        "glyph": {
+          "character": "E",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Water elemental",
+        "wiki_link": "https://nethackwiki.com/wiki/Water_elemental",
+        "image": "monsters/Water elemental.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/db/Water_elemental.png",
+        "glyph": {
+          "character": "E",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "fungi",
+      "molds"
+    ],
+    "glyph": {
+      "character": "F",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Lichen",
+        "wiki_link": "https://nethackwiki.com/wiki/Lichen",
+        "image": "monsters/Lichen.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/8a/Lichen.png",
+        "glyph": {
+          "character": "F",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Brown mold",
+        "wiki_link": "https://nethackwiki.com/wiki/Brown_mold",
+        "image": "monsters/Brown mold.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/56/Brown_mold.png",
+        "glyph": {
+          "character": "F",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Yellow mold",
+        "wiki_link": "https://nethackwiki.com/wiki/Yellow_mold",
+        "image": "monsters/Yellow mold.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/52/Yellow_mold.png",
+        "glyph": {
+          "character": "F",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Green mold",
+        "wiki_link": "https://nethackwiki.com/wiki/Green_mold",
+        "image": "monsters/Green mold.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/85/Green_mold.png",
+        "glyph": {
+          "character": "F",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Red mold",
+        "wiki_link": "https://nethackwiki.com/wiki/Red_mold",
+        "image": "monsters/Red mold.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7b/Red_mold.png",
+        "glyph": {
+          "character": "F",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Shrieker",
+        "wiki_link": "https://nethackwiki.com/wiki/Shrieker",
+        "image": "monsters/Shrieker.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5e/Shrieker.png",
+        "glyph": {
+          "character": "F",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Violet fungus",
+        "wiki_link": "https://nethackwiki.com/wiki/Violet_fungus",
+        "image": "monsters/Violet fungus.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/68/Violet_fungus.png",
+        "glyph": {
+          "character": "F",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "gnomes"
+    ],
+    "glyph": {
+      "character": "G",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Gnome (monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Gnome_(monster)",
+        "image": "monsters/Gnome (monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/78/Gnome.png",
+        "glyph": {
+          "character": "G",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gnome lord",
+        "wiki_link": "https://nethackwiki.com/wiki/Gnome_lord",
+        "image": "monsters/Gnome lord.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/df/Gnome_lord.png",
+        "glyph": {
+          "character": "G",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gnomish wizard",
+        "wiki_link": "https://nethackwiki.com/wiki/Gnomish_wizard",
+        "image": "monsters/Gnomish wizard.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c7/Gnomish_wizard.png",
+        "glyph": {
+          "character": "G",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gnome king",
+        "wiki_link": "https://nethackwiki.com/wiki/Gnome_king",
+        "image": "monsters/Gnome king.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c0/Gnome_king.png",
+        "glyph": {
+          "character": "G",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "humanoids"
+    ],
+    "glyph": {
+      "character": "H",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Giant",
+        "wiki_link": "https://nethackwiki.com/wiki/Giant",
+        "image": "monsters/Giant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0c/Giant.png",
+        "glyph": {
+          "character": "H",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Stone giant",
+        "wiki_link": "https://nethackwiki.com/wiki/Stone_giant",
+        "image": "monsters/Stone giant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f8/Stone_giant.png",
+        "glyph": {
+          "character": "H",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Hill giant",
+        "wiki_link": "https://nethackwiki.com/wiki/Hill_giant",
+        "image": "monsters/Hill giant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/bd/Hill_giant.png",
+        "glyph": {
+          "character": "H",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Fire giant",
+        "wiki_link": "https://nethackwiki.com/wiki/Fire_giant",
+        "image": "monsters/Fire giant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/16/Fire_giant.png",
+        "glyph": {
+          "character": "H",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Frost giant",
+        "wiki_link": "https://nethackwiki.com/wiki/Frost_giant",
+        "image": "monsters/Frost giant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/74/Frost_giant.png",
+        "glyph": {
+          "character": "H",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Storm giant",
+        "wiki_link": "https://nethackwiki.com/wiki/Storm_giant",
+        "image": "monsters/Storm giant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d1/Storm_giant.png",
+        "glyph": {
+          "character": "H",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ettin",
+        "wiki_link": "https://nethackwiki.com/wiki/Ettin",
+        "image": "monsters/Ettin.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c6/Ettin.png",
+        "glyph": {
+          "character": "H",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Titan",
+        "wiki_link": "https://nethackwiki.com/wiki/Titan",
+        "image": "monsters/Titan.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/88/Titan.png",
+        "glyph": {
+          "character": "H",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Minotaur",
+        "wiki_link": "https://nethackwiki.com/wiki/Minotaur",
+        "image": "monsters/Minotaur.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7e/Minotaur.png",
+        "glyph": {
+          "character": "H",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "jabberwocks"
+    ],
+    "glyph": {
+      "character": "J",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Jabberwock",
+        "wiki_link": "https://nethackwiki.com/wiki/Jabberwock",
+        "image": "monsters/Jabberwock.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/df/Jabberwock.png",
+        "glyph": {
+          "character": "J",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "Keystone Kops"
+    ],
+    "glyph": {
+      "character": "K",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Keystone Kop",
+        "wiki_link": "https://nethackwiki.com/wiki/Keystone_Kop",
+        "image": "monsters/Keystone Kop.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/ee/Keystone_Kop.png",
+        "glyph": {
+          "character": "K",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Kop Sergeant",
+        "wiki_link": "https://nethackwiki.com/wiki/Kop_Sergeant",
+        "image": "monsters/Kop Sergeant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e3/Kop_Sergeant.png",
+        "glyph": {
+          "character": "K",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Kop Lieutenant",
+        "wiki_link": "https://nethackwiki.com/wiki/Kop_Lieutenant",
+        "image": "monsters/Kop Lieutenant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c9/Kop_Lieutenant.png",
+        "glyph": {
+          "character": "K",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Kop Kaptain",
+        "wiki_link": "https://nethackwiki.com/wiki/Kop_Kaptain",
+        "image": "monsters/Kop Kaptain.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/33/Kop_Kaptain.png",
+        "glyph": {
+          "character": "K",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "liches"
+    ],
+    "glyph": {
+      "character": "L",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Lich",
+        "wiki_link": "https://nethackwiki.com/wiki/Lich",
+        "image": "monsters/Lich.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/86/Lich.png",
+        "glyph": {
+          "character": "L",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Demilich",
+        "wiki_link": "https://nethackwiki.com/wiki/Demilich",
+        "image": "monsters/Demilich.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/65/Demilich.png",
+        "glyph": {
+          "character": "L",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Master lich",
+        "wiki_link": "https://nethackwiki.com/wiki/Master_lich",
+        "image": "monsters/Master lich.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/6e/Master_lich.png",
+        "glyph": {
+          "character": "L",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Arch-lich",
+        "wiki_link": "https://nethackwiki.com/wiki/Arch-lich",
+        "image": "monsters/Arch-lich.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/18/Arch-lich.png",
+        "glyph": {
+          "character": "L",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "mummies"
+    ],
+    "glyph": {
+      "character": "M",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Kobold mummy",
+        "wiki_link": "https://nethackwiki.com/wiki/Kobold_mummy",
+        "image": "monsters/Kobold mummy.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/4d/Kobold_mummy.png",
+        "glyph": {
+          "character": "M",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gnome mummy",
+        "wiki_link": "https://nethackwiki.com/wiki/Gnome_mummy",
+        "image": "monsters/Gnome mummy.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/cd/Gnome_mummy.png",
+        "glyph": {
+          "character": "M",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Orc mummy",
+        "wiki_link": "https://nethackwiki.com/wiki/Orc_mummy",
+        "image": "monsters/Orc mummy.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/ae/Orc_mummy.png",
+        "glyph": {
+          "character": "M",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Dwarf mummy",
+        "wiki_link": "https://nethackwiki.com/wiki/Dwarf_mummy",
+        "image": "monsters/Dwarf mummy.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a2/Dwarf_mummy.png",
+        "glyph": {
+          "character": "M",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Elf mummy",
+        "wiki_link": "https://nethackwiki.com/wiki/Elf_mummy",
+        "image": "monsters/Elf mummy.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/2b/Elf_mummy.png",
+        "glyph": {
+          "character": "M",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Human mummy",
+        "wiki_link": "https://nethackwiki.com/wiki/Human_mummy",
+        "image": "monsters/Human mummy.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c9/Human_mummy.png",
+        "glyph": {
+          "character": "M",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ettin mummy",
+        "wiki_link": "https://nethackwiki.com/wiki/Ettin_mummy",
+        "image": "monsters/Ettin mummy.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/97/Ettin_mummy.png",
+        "glyph": {
+          "character": "M",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Giant mummy",
+        "wiki_link": "https://nethackwiki.com/wiki/Giant_mummy",
+        "image": "monsters/Giant mummy.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/90/Giant_mummy.png",
+        "glyph": {
+          "character": "M",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "nagas"
+    ],
+    "glyph": {
+      "character": "N",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Red naga hatchling",
+        "wiki_link": "https://nethackwiki.com/wiki/Red_naga_hatchling",
+        "image": "monsters/Red naga hatchling.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/80/Red_naga_hatchling.png",
+        "glyph": {
+          "character": "N",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Black naga hatchling",
+        "wiki_link": "https://nethackwiki.com/wiki/Black_naga_hatchling",
+        "image": "monsters/Black naga hatchling.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c4/Black_naga_hatchling.png",
+        "glyph": {
+          "character": "N",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Golden naga hatchling",
+        "wiki_link": "https://nethackwiki.com/wiki/Golden_naga_hatchling",
+        "image": "monsters/Golden naga hatchling.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/1f/Golden_naga_hatchling.png",
+        "glyph": {
+          "character": "N",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Guardian naga hatchling",
+        "wiki_link": "https://nethackwiki.com/wiki/Guardian_naga_hatchling",
+        "image": "monsters/Guardian naga hatchling.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7a/Guardian_naga_hatchling.png",
+        "glyph": {
+          "character": "N",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Red naga",
+        "wiki_link": "https://nethackwiki.com/wiki/Red_naga",
+        "image": "monsters/Red naga.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/18/Red_naga.png",
+        "glyph": {
+          "character": "N",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Black naga",
+        "wiki_link": "https://nethackwiki.com/wiki/Black_naga",
+        "image": "monsters/Black naga.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/ff/Black_naga.png",
+        "glyph": {
+          "character": "N",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Golden naga",
+        "wiki_link": "https://nethackwiki.com/wiki/Golden_naga",
+        "image": "monsters/Golden naga.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/24/Golden_naga.png",
+        "glyph": {
+          "character": "N",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Guardian naga",
+        "wiki_link": "https://nethackwiki.com/wiki/Guardian_naga",
+        "image": "monsters/Guardian naga.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/1f/Guardian_naga.png",
+        "glyph": {
+          "character": "N",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "ogres"
+    ],
+    "glyph": {
+      "character": "O",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Ogre",
+        "wiki_link": "https://nethackwiki.com/wiki/Ogre",
+        "image": "monsters/Ogre.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c5/Ogre.png",
+        "glyph": {
+          "character": "O",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ogre lord",
+        "wiki_link": "https://nethackwiki.com/wiki/Ogre_lord",
+        "image": "monsters/Ogre lord.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/8e/Ogre_lord.png",
+        "glyph": {
+          "character": "O",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ogre king",
+        "wiki_link": "https://nethackwiki.com/wiki/Ogre_king",
+        "image": "monsters/Ogre king.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/66/Ogre_king.png",
+        "glyph": {
+          "character": "O",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "puddings",
+      "amoeboids"
+    ],
+    "glyph": {
+      "character": "P",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Gray ooze",
+        "wiki_link": "https://nethackwiki.com/wiki/Gray_ooze",
+        "image": "monsters/Gray ooze.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7b/Gray_ooze.png",
+        "glyph": {
+          "character": "P",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Brown pudding",
+        "wiki_link": "https://nethackwiki.com/wiki/Brown_pudding",
+        "image": "monsters/Brown pudding.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/84/Brown_pudding.png",
+        "glyph": {
+          "character": "P",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Black pudding",
+        "wiki_link": "https://nethackwiki.com/wiki/Black_pudding",
+        "image": "monsters/Black pudding.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a7/Black_pudding.png",
+        "glyph": {
+          "character": "P",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Green slime",
+        "wiki_link": "https://nethackwiki.com/wiki/Green_slime",
+        "image": "monsters/Green slime.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a8/Green_slime.png",
+        "glyph": {
+          "character": "P",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "quantum mechanics"
+    ],
+    "glyph": {
+      "character": "Q",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Quantum mechanic",
+        "wiki_link": "https://nethackwiki.com/wiki/Quantum_mechanic",
+        "image": "monsters/Quantum mechanic.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/71/Quantum_mechanic.png",
+        "glyph": {
+          "character": "Q",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "rust monsters",
+      "disenchanters"
+    ],
+    "glyph": {
+      "character": "R",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Rust monster",
+        "wiki_link": "https://nethackwiki.com/wiki/Rust_monster",
+        "image": "monsters/Rust monster.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/8e/Rust_monster.png",
+        "glyph": {
+          "character": "R",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Disenchanter",
+        "wiki_link": "https://nethackwiki.com/wiki/Disenchanter",
+        "image": "monsters/Disenchanter.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/91/Disenchanter.png",
+        "glyph": {
+          "character": "R",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "snakes"
+    ],
+    "glyph": {
+      "character": "S",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Garter snake",
+        "wiki_link": "https://nethackwiki.com/wiki/Garter_snake",
+        "image": "monsters/Garter snake.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e6/Garter_snake.png",
+        "glyph": {
+          "character": "S",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Snake",
+        "wiki_link": "https://nethackwiki.com/wiki/Snake",
+        "image": "monsters/Snake.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5a/Snake.png",
+        "glyph": {
+          "character": "S",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Water moccasin",
+        "wiki_link": "https://nethackwiki.com/wiki/Water_moccasin",
+        "image": "monsters/Water moccasin.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/fc/Water_moccasin.png",
+        "glyph": {
+          "character": "S",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Pit viper",
+        "wiki_link": "https://nethackwiki.com/wiki/Pit_viper",
+        "image": "monsters/Pit viper.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/ce/Pit_viper.png",
+        "glyph": {
+          "character": "S",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Python",
+        "wiki_link": "https://nethackwiki.com/wiki/Python",
+        "image": "monsters/Python.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e4/Python.png",
+        "glyph": {
+          "character": "S",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Cobra",
+        "wiki_link": "https://nethackwiki.com/wiki/Cobra",
+        "image": "monsters/Cobra.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0e/Cobra.png",
+        "glyph": {
+          "character": "S",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "trolls"
+    ],
+    "glyph": {
+      "character": "T",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Troll",
+        "wiki_link": "https://nethackwiki.com/wiki/Troll",
+        "image": "monsters/Troll.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f3/Troll.png",
+        "glyph": {
+          "character": "T",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ice troll",
+        "wiki_link": "https://nethackwiki.com/wiki/Ice_troll",
+        "image": "monsters/Ice troll.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/da/Ice_troll.png",
+        "glyph": {
+          "character": "T",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Rock troll",
+        "wiki_link": "https://nethackwiki.com/wiki/Rock_troll",
+        "image": "monsters/Rock troll.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/72/Rock_troll.png",
+        "glyph": {
+          "character": "T",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Water troll",
+        "wiki_link": "https://nethackwiki.com/wiki/Water_troll",
+        "image": "monsters/Water troll.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e4/Water_troll.png",
+        "glyph": {
+          "character": "T",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Olog-hai",
+        "wiki_link": "https://nethackwiki.com/wiki/Olog-hai",
+        "image": "monsters/Olog-hai.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d9/Olog-hai.png",
+        "glyph": {
+          "character": "T",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "umber hulks"
+    ],
+    "glyph": {
+      "character": "U",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Umber hulk",
+        "wiki_link": "https://nethackwiki.com/wiki/Umber_hulk",
+        "image": "monsters/Umber hulk.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/45/Umber_hulk.png",
+        "glyph": {
+          "character": "U",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "vampires"
+    ],
+    "glyph": {
+      "character": "V",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Vampire",
+        "wiki_link": "https://nethackwiki.com/wiki/Vampire",
+        "image": "monsters/Vampire.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/4e/Vampire.png",
+        "glyph": {
+          "character": "V",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Vampire lord",
+        "wiki_link": "https://nethackwiki.com/wiki/Vampire_lord",
+        "image": "monsters/Vampire lord.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a5/Vampire_lord.png",
+        "glyph": {
+          "character": "V",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Vlad the Impaler",
+        "wiki_link": "https://nethackwiki.com/wiki/Vlad_the_Impaler",
+        "image": "monsters/Vlad the Impaler.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/98/Vlad_the_Impaler.png",
+        "glyph": {
+          "character": "V",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "wraiths"
+    ],
+    "glyph": {
+      "character": "W",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Barrow wight",
+        "wiki_link": "https://nethackwiki.com/wiki/Barrow_wight",
+        "image": "monsters/Barrow wight.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/84/Barrow_wight.png",
+        "glyph": {
+          "character": "W",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Wraith",
+        "wiki_link": "https://nethackwiki.com/wiki/Wraith",
+        "image": "monsters/Wraith.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7c/Wraith.png",
+        "glyph": {
+          "character": "W",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Nazgul",
+        "wiki_link": "https://nethackwiki.com/wiki/Nazgul",
+        "image": "monsters/Nazgul.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/ff/Nazgul.png",
+        "glyph": {
+          "character": "W",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "xorn"
+    ],
+    "glyph": {
+      "character": "X",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Xorn",
+        "wiki_link": "https://nethackwiki.com/wiki/Xorn",
+        "image": "monsters/Xorn.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b1/Xorn.png",
+        "glyph": {
+          "character": "X",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "apelike creatures"
+    ],
+    "glyph": {
+      "character": "Y",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Monkey",
+        "wiki_link": "https://nethackwiki.com/wiki/Monkey",
+        "image": "monsters/Monkey.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/27/Monkey.png",
+        "glyph": {
+          "character": "Y",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ape",
+        "wiki_link": "https://nethackwiki.com/wiki/Ape",
+        "image": "monsters/Ape.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/45/Ape.png",
+        "glyph": {
+          "character": "Y",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Owlbear",
+        "wiki_link": "https://nethackwiki.com/wiki/Owlbear",
+        "image": "monsters/Owlbear.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c2/Owlbear.png",
+        "glyph": {
+          "character": "Y",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Yeti",
+        "wiki_link": "https://nethackwiki.com/wiki/Yeti",
+        "image": "monsters/Yeti.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7d/Yeti.png",
+        "glyph": {
+          "character": "Y",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Carnivorous ape",
+        "wiki_link": "https://nethackwiki.com/wiki/Carnivorous_ape",
+        "image": "monsters/Carnivorous ape.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c7/Carnivorous_ape.png",
+        "glyph": {
+          "character": "Y",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Sasquatch",
+        "wiki_link": "https://nethackwiki.com/wiki/Sasquatch",
+        "image": "monsters/Sasquatch.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/8d/Sasquatch.png",
+        "glyph": {
+          "character": "Y",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "zombies"
+    ],
+    "glyph": {
+      "character": "Z",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Kobold zombie",
+        "wiki_link": "https://nethackwiki.com/wiki/Kobold_zombie",
+        "image": "monsters/Kobold zombie.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/ab/Kobold_zombie.png",
+        "glyph": {
+          "character": "Z",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gnome zombie",
+        "wiki_link": "https://nethackwiki.com/wiki/Gnome_zombie",
+        "image": "monsters/Gnome zombie.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/2d/Gnome_zombie.png",
+        "glyph": {
+          "character": "Z",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Orc zombie",
+        "wiki_link": "https://nethackwiki.com/wiki/Orc_zombie",
+        "image": "monsters/Orc zombie.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/75/Orc_zombie.png",
+        "glyph": {
+          "character": "Z",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Dwarf zombie",
+        "wiki_link": "https://nethackwiki.com/wiki/Dwarf_zombie",
+        "image": "monsters/Dwarf zombie.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0f/Dwarf_zombie.png",
+        "glyph": {
+          "character": "Z",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Elf zombie",
+        "wiki_link": "https://nethackwiki.com/wiki/Elf_zombie",
+        "image": "monsters/Elf zombie.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c0/Elf_zombie.png",
+        "glyph": {
+          "character": "Z",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Human zombie",
+        "wiki_link": "https://nethackwiki.com/wiki/Human_zombie",
+        "image": "monsters/Human zombie.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/8d/Human_zombie.png",
+        "glyph": {
+          "character": "Z",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ettin zombie",
+        "wiki_link": "https://nethackwiki.com/wiki/Ettin_zombie",
+        "image": "monsters/Ettin zombie.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/01/Ettin_zombie.png",
+        "glyph": {
+          "character": "Z",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Giant zombie",
+        "wiki_link": "https://nethackwiki.com/wiki/Giant_zombie",
+        "image": "monsters/Giant zombie.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/ab/Giant_zombie.png",
+        "glyph": {
+          "character": "Z",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ghoul",
+        "wiki_link": "https://nethackwiki.com/wiki/Ghoul",
+        "image": "monsters/Ghoul.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e3/Ghoul.png",
+        "glyph": {
+          "character": "Z",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Skeleton",
+        "wiki_link": "https://nethackwiki.com/wiki/Skeleton",
+        "image": "monsters/Skeleton.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/23/Skeleton.png",
+        "glyph": {
+          "character": "Z",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "golems"
+    ],
+    "glyph": {
+      "character": "'",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Straw golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Straw_golem",
+        "image": "monsters/Straw golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d7/Straw_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Paper golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Paper_golem",
+        "image": "monsters/Paper golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/48/Paper_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Rope golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Rope_golem",
+        "image": "monsters/Rope golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/9a/Rope_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gold golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Gold_golem",
+        "image": "monsters/Gold golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/34/Gold_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Leather golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Leather_golem",
+        "image": "monsters/Leather golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/26/Leather_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Wood golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Wood_golem",
+        "image": "monsters/Wood golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/15/Wood_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Flesh golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Flesh_golem",
+        "image": "monsters/Flesh golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/98/Flesh_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Clay golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Clay_golem",
+        "image": "monsters/Clay golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/de/Clay_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Stone golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Stone_golem",
+        "image": "monsters/Stone golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/2e/Stone_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Glass golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Glass_golem",
+        "image": "monsters/Glass golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5d/Glass_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Iron golem",
+        "wiki_link": "https://nethackwiki.com/wiki/Iron_golem",
+        "image": "monsters/Iron golem.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/ed/Iron_golem.png",
+        "glyph": {
+          "character": "'",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "humans and elves"
+    ],
+    "glyph": {
+      "character": "@",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Human (monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Human_(monster)",
+        "image": "monsters/Human (monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/6e/Human.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Wererat",
+        "wiki_link": "https://nethackwiki.com/wiki/Wererat",
+        "image": "monsters/Wererat.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/32/Wererat.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Werejackal",
+        "wiki_link": "https://nethackwiki.com/wiki/Werejackal",
+        "image": "monsters/Werejackal.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5e/Werejackal.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Werewolf",
+        "wiki_link": "https://nethackwiki.com/wiki/Werewolf",
+        "image": "monsters/Werewolf.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f5/Werewolf.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Elf (monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Elf_(monster)",
+        "image": "monsters/Elf (monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/89/Elf.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Woodland-elf",
+        "wiki_link": "https://nethackwiki.com/wiki/Woodland-elf",
+        "image": "monsters/Woodland-elf.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c6/Woodland-elf.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Green-elf",
+        "wiki_link": "https://nethackwiki.com/wiki/Green-elf",
+        "image": "monsters/Green-elf.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/8d/Green-elf.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Grey-elf",
+        "wiki_link": "https://nethackwiki.com/wiki/Grey-elf",
+        "image": "monsters/Grey-elf.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/24/Grey-elf.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Elf-lord",
+        "wiki_link": "https://nethackwiki.com/wiki/Elf-lord",
+        "image": "monsters/Elf-lord.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/44/Elf-lord.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Elvenking",
+        "wiki_link": "https://nethackwiki.com/wiki/Elvenking",
+        "image": "monsters/Elvenking.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c7/Elvenking.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Doppelganger",
+        "wiki_link": "https://nethackwiki.com/wiki/Doppelganger",
+        "image": "monsters/Doppelganger.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/75/Doppelganger.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Nurse",
+        "wiki_link": "https://nethackwiki.com/wiki/Nurse",
+        "image": "monsters/Nurse.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/cc/Nurse.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Shopkeeper",
+        "wiki_link": "https://nethackwiki.com/wiki/Shopkeeper",
+        "image": "monsters/Shopkeeper.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5b/Shopkeeper.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Guard",
+        "wiki_link": "https://nethackwiki.com/wiki/Guard",
+        "image": "monsters/Guard.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/74/Guard.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Prisoner",
+        "wiki_link": "https://nethackwiki.com/wiki/Prisoner",
+        "image": "monsters/Prisoner.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/71/Prisoner.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Oracle",
+        "wiki_link": "https://nethackwiki.com/wiki/Oracle",
+        "image": "monsters/Oracle.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/17/Oracle.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Aligned priest",
+        "wiki_link": "https://nethackwiki.com/wiki/Aligned_priest",
+        "image": "monsters/Aligned priest.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/1d/Aligned_priest.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "High priest",
+        "wiki_link": "https://nethackwiki.com/wiki/High_priest",
+        "image": "monsters/High priest.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b4/High_priest.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Soldier",
+        "wiki_link": "https://nethackwiki.com/wiki/Soldier",
+        "image": "monsters/Soldier.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7b/Soldier.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Sergeant",
+        "wiki_link": "https://nethackwiki.com/wiki/Sergeant",
+        "image": "monsters/Sergeant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e6/Sergeant.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Lieutenant",
+        "wiki_link": "https://nethackwiki.com/wiki/Lieutenant",
+        "image": "monsters/Lieutenant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/51/Lieutenant.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Captain",
+        "wiki_link": "https://nethackwiki.com/wiki/Captain",
+        "image": "monsters/Captain.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a9/Captain.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Watchman",
+        "wiki_link": "https://nethackwiki.com/wiki/Watchman",
+        "image": "monsters/Watchman.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/55/Watchman.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Watch captain",
+        "wiki_link": "https://nethackwiki.com/wiki/Watch_captain",
+        "image": "monsters/Watch captain.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/24/Watch_captain.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Medusa",
+        "wiki_link": "https://nethackwiki.com/wiki/Medusa",
+        "image": "monsters/Medusa.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c3/Medusa.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Wizard of Yendor",
+        "wiki_link": "https://nethackwiki.com/wiki/Wizard_of_Yendor",
+        "image": "monsters/Wizard of Yendor.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/00/Wizard_of_Yendor.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Croesus",
+        "wiki_link": "https://nethackwiki.com/wiki/Croesus",
+        "image": "monsters/Croesus.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/8e/Croesus.png",
+        "glyph": {
+          "character": "@",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "ghosts",
+      "shades"
+    ],
+    "glyph": {
+      "character": "\u00a0",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Ghost",
+        "wiki_link": "https://nethackwiki.com/wiki/Ghost",
+        "image": "monsters/Ghost.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/ab/Ghost.png",
+        "glyph": {
+          "character": "\u00a0",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Shade",
+        "wiki_link": "https://nethackwiki.com/wiki/Shade",
+        "image": "monsters/Shade.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/dc/Shade.png",
+        "glyph": {
+          "character": "\u00a0",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "demons"
+    ],
+    "glyph": {
+      "character": "&",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Water demon",
+        "wiki_link": "https://nethackwiki.com/wiki/Water_demon",
+        "image": "monsters/Water demon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/94/Water_demon.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Horned devil",
+        "wiki_link": "https://nethackwiki.com/wiki/Horned_devil",
+        "image": "monsters/Horned devil.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/33/Horned_devil.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Succubus",
+        "wiki_link": "https://nethackwiki.com/wiki/Succubus",
+        "image": "monsters/Succubus.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/ec/Succubus.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Incubus",
+        "wiki_link": "https://nethackwiki.com/wiki/Incubus",
+        "image": "monsters/Incubus.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/04/Incubus.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Erinys",
+        "wiki_link": "https://nethackwiki.com/wiki/Erinys",
+        "image": "monsters/Erinys.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/da/Erinys.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Barbed devil",
+        "wiki_link": "https://nethackwiki.com/wiki/Barbed_devil",
+        "image": "monsters/Barbed devil.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/87/Barbed_devil.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Marilith",
+        "wiki_link": "https://nethackwiki.com/wiki/Marilith",
+        "image": "monsters/Marilith.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/6b/Marilith.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Vrock",
+        "wiki_link": "https://nethackwiki.com/wiki/Vrock",
+        "image": "monsters/Vrock.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d4/Vrock.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Hezrou",
+        "wiki_link": "https://nethackwiki.com/wiki/Hezrou",
+        "image": "monsters/Hezrou.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d3/Hezrou.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Bone devil",
+        "wiki_link": "https://nethackwiki.com/wiki/Bone_devil",
+        "image": "monsters/Bone devil.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/ec/Bone_devil.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Ice devil",
+        "wiki_link": "https://nethackwiki.com/wiki/Ice_devil",
+        "image": "monsters/Ice devil.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b5/Ice_devil.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Nalfeshnee",
+        "wiki_link": "https://nethackwiki.com/wiki/Nalfeshnee",
+        "image": "monsters/Nalfeshnee.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/50/Nalfeshnee.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Pit fiend",
+        "wiki_link": "https://nethackwiki.com/wiki/Pit_fiend",
+        "image": "monsters/Pit fiend.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/95/Pit_fiend.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Balrog",
+        "wiki_link": "https://nethackwiki.com/wiki/Balrog",
+        "image": "monsters/Balrog.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a1/Balrog.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Juiblex",
+        "wiki_link": "https://nethackwiki.com/wiki/Juiblex",
+        "image": "monsters/Juiblex.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/db/Juiblex.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Yeenoghu",
+        "wiki_link": "https://nethackwiki.com/wiki/Yeenoghu",
+        "image": "monsters/Yeenoghu.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/47/Yeenoghu.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Orcus",
+        "wiki_link": "https://nethackwiki.com/wiki/Orcus",
+        "image": "monsters/Orcus.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f9/Orcus.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Geryon",
+        "wiki_link": "https://nethackwiki.com/wiki/Geryon",
+        "image": "monsters/Geryon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f4/Geryon.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Dispater",
+        "wiki_link": "https://nethackwiki.com/wiki/Dispater",
+        "image": "monsters/Dispater.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/fa/Dispater.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baalzebub",
+        "wiki_link": "https://nethackwiki.com/wiki/Baalzebub",
+        "image": "monsters/Baalzebub.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e6/Baalzebub.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Asmodeus",
+        "wiki_link": "https://nethackwiki.com/wiki/Asmodeus",
+        "image": "monsters/Asmodeus.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/3/34/Asmodeus.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Demogorgon",
+        "wiki_link": "https://nethackwiki.com/wiki/Demogorgon",
+        "image": "monsters/Demogorgon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/bb/Demogorgon.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Riders",
+        "wiki_link": "https://nethackwiki.com/wiki/Riders#Death",
+        "image": "monsters/Riders.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c3/Death.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Pestilence",
+        "wiki_link": "https://nethackwiki.com/wiki/Pestilence",
+        "image": "monsters/Pestilence.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5c/Pestilence.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Famine",
+        "wiki_link": "https://nethackwiki.com/wiki/Famine",
+        "image": "monsters/Famine.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/ef/Famine.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Mail daemon",
+        "wiki_link": "https://nethackwiki.com/wiki/Mail_daemon",
+        "image": "monsters/Mail daemon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/57/Mail_daemon.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Djinni",
+        "wiki_link": "https://nethackwiki.com/wiki/Djinni",
+        "image": "monsters/Djinni.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/48/Djinni.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Sandestin",
+        "wiki_link": "https://nethackwiki.com/wiki/Sandestin",
+        "image": "monsters/Sandestin.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a6/Sandestin.png",
+        "glyph": {
+          "character": "&",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "sea monsters"
+    ],
+    "glyph": {
+      "character": ";",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Jellyfish",
+        "wiki_link": "https://nethackwiki.com/wiki/Jellyfish",
+        "image": "monsters/Jellyfish.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/22/Jellyfish.png",
+        "glyph": {
+          "character": ";",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Piranha",
+        "wiki_link": "https://nethackwiki.com/wiki/Piranha",
+        "image": "monsters/Piranha.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/43/Piranha.png",
+        "glyph": {
+          "character": ";",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Shark",
+        "wiki_link": "https://nethackwiki.com/wiki/Shark",
+        "image": "monsters/Shark.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/14/Shark.png",
+        "glyph": {
+          "character": ";",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Giant eel",
+        "wiki_link": "https://nethackwiki.com/wiki/Giant_eel",
+        "image": "monsters/Giant eel.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/9e/Giant_eel.png",
+        "glyph": {
+          "character": ";",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Electric eel",
+        "wiki_link": "https://nethackwiki.com/wiki/Electric_eel",
+        "image": "monsters/Electric eel.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f9/Electric_eel.png",
+        "glyph": {
+          "character": ";",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Kraken",
+        "wiki_link": "https://nethackwiki.com/wiki/Kraken",
+        "image": "monsters/Kraken.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d3/Kraken.png",
+        "glyph": {
+          "character": ";",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "lizards"
+    ],
+    "glyph": {
+      "character": ":",
+      "color": "nhsym clr-white"
+    },
+    "objects": [
+      {
+        "name": "Newt",
+        "wiki_link": "https://nethackwiki.com/wiki/Newt",
+        "image": "monsters/Newt.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/77/Newt.png",
+        "glyph": {
+          "character": ":",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Gecko",
+        "wiki_link": "https://nethackwiki.com/wiki/Gecko",
+        "image": "monsters/Gecko.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/16/Gecko.png",
+        "glyph": {
+          "character": ":",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Iguana",
+        "wiki_link": "https://nethackwiki.com/wiki/Iguana",
+        "image": "monsters/Iguana.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/af/Iguana.png",
+        "glyph": {
+          "character": ":",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Baby crocodile",
+        "wiki_link": "https://nethackwiki.com/wiki/Baby_crocodile",
+        "image": "monsters/Baby crocodile.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/db/Baby_crocodile.png",
+        "glyph": {
+          "character": ":",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Lizard",
+        "wiki_link": "https://nethackwiki.com/wiki/Lizard",
+        "image": "monsters/Lizard.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/4d/Lizard.png",
+        "glyph": {
+          "character": ":",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Chameleon",
+        "wiki_link": "https://nethackwiki.com/wiki/Chameleon",
+        "image": "monsters/Chameleon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f5/Chameleon.png",
+        "glyph": {
+          "character": ":",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Crocodile",
+        "wiki_link": "https://nethackwiki.com/wiki/Crocodile",
+        "image": "monsters/Crocodile.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d6/Crocodile.png",
+        "glyph": {
+          "character": ":",
+          "color": "nhsym clr-white"
+        }
+      },
+      {
+        "name": "Salamander",
+        "wiki_link": "https://nethackwiki.com/wiki/Salamander",
+        "image": "monsters/Salamander.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/53/Salamander.png",
+        "glyph": {
+          "character": ":",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "player"
+    ],
+    "glyph": {
+      "character": "@",
+      "color": ""
+    },
+    "objects": [
+      {
+        "name": "Archeologist (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Archeologist_(player_monster)",
+        "image": "monsters/Archeologist (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/05/Archeologist.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Barbarian (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Barbarian_(player_monster)",
+        "image": "monsters/Barbarian (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b6/Barbarian.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Caveman (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Caveman_(player_monster)",
+        "image": "monsters/Caveman (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/9b/Caveman.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Cavewoman (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Cavewoman_(player_monster)",
+        "image": "monsters/Cavewoman (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/63/Cavewoman.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Healer (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Healer_(player_monster)",
+        "image": "monsters/Healer (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/62/Healer.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Knight (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Knight_(player_monster)",
+        "image": "monsters/Knight (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/6b/Knight.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Monk (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Monk_(player_monster)",
+        "image": "monsters/Monk (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/44/Monk.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Priest (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Priest_(player_monster)",
+        "image": "monsters/Priest (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/14/Priest.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Priestess (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Priestess_(player_monster)",
+        "image": "monsters/Priestess (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/bc/Priestess.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Ranger (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Ranger_(player_monster)",
+        "image": "monsters/Ranger (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e9/Ranger.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Rogue (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Rogue_(player_monster)",
+        "image": "monsters/Rogue (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/59/Rogue.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Samurai (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Samurai_(player_monster)",
+        "image": "monsters/Samurai (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/09/Samurai.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Tourist (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Tourist_(player_monster)",
+        "image": "monsters/Tourist (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e6/Tourist.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Valkyrie (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Valkyrie_(player_monster)",
+        "image": "monsters/Valkyrie (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/d/d5/Valkyrie.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      },
+      {
+        "name": "Wizard (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Wizard_(player_monster)",
+        "image": "monsters/Wizard (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c7/Wizard.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "Quest leaders"
+    ],
+    "glyph": {
+      "character": "",
+      "color": ""
+    },
+    "objects": [
+      {
+        "name": "Lord Carnarvon",
+        "wiki_link": "https://nethackwiki.com/wiki/Lord_Carnarvon",
+        "image": "monsters/Lord Carnarvon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/28/Lord_Carnarvon.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Pelias",
+        "wiki_link": "https://nethackwiki.com/wiki/Pelias",
+        "image": "monsters/Pelias.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/5e/Pelias.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Shaman Karnov",
+        "wiki_link": "https://nethackwiki.com/wiki/Shaman_Karnov",
+        "image": "monsters/Shaman Karnov.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/4e/Shaman_Karnov.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Hippocrates",
+        "wiki_link": "https://nethackwiki.com/wiki/Hippocrates",
+        "image": "monsters/Hippocrates.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c7/Hippocrates.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "King Arthur",
+        "wiki_link": "https://nethackwiki.com/wiki/King_Arthur",
+        "image": "monsters/King Arthur.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/40/King_Arthur.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Grand Master",
+        "wiki_link": "https://nethackwiki.com/wiki/Grand_Master",
+        "image": "monsters/Grand Master.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a4/Grand_Master.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Arch Priest",
+        "wiki_link": "https://nethackwiki.com/wiki/Arch_Priest",
+        "image": "monsters/Arch Priest.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/89/Arch_Priest.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Orion",
+        "wiki_link": "https://nethackwiki.com/wiki/Orion",
+        "image": "monsters/Orion.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0e/Orion.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Master of Thieves",
+        "wiki_link": "https://nethackwiki.com/wiki/Master_of_Thieves",
+        "image": "monsters/Master of Thieves.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/48/Master_of_Thieves.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Lord Sato",
+        "wiki_link": "https://nethackwiki.com/wiki/Lord_Sato",
+        "image": "monsters/Lord Sato.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/b/b7/Lord_Sato.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Twoflower",
+        "wiki_link": "https://nethackwiki.com/wiki/Twoflower",
+        "image": "monsters/Twoflower.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/5/53/Twoflower.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Norn",
+        "wiki_link": "https://nethackwiki.com/wiki/Norn",
+        "image": "monsters/Norn.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e5/Norn.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Neferet the Green",
+        "wiki_link": "https://nethackwiki.com/wiki/Neferet_the_Green",
+        "image": "monsters/Neferet the Green.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/15/Neferet_the_Green.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "Quest nemeses"
+    ],
+    "glyph": {
+      "character": "",
+      "color": ""
+    },
+    "objects": [
+      {
+        "name": "Minion of Huhetotl",
+        "wiki_link": "https://nethackwiki.com/wiki/Minion_of_Huhetotl",
+        "image": "monsters/Minion of Huhetotl.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/29/Minion_of_Huhetotl.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Thoth Amon",
+        "wiki_link": "https://nethackwiki.com/wiki/Thoth_Amon",
+        "image": "monsters/Thoth Amon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/62/Thoth_Amon.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Chromatic Dragon",
+        "wiki_link": "https://nethackwiki.com/wiki/Chromatic_Dragon",
+        "image": "monsters/Chromatic Dragon.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0a/Chromatic_Dragon.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Cyclops",
+        "wiki_link": "https://nethackwiki.com/wiki/Cyclops",
+        "image": "monsters/Cyclops.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/a9/Cyclops.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Ixoth",
+        "wiki_link": "https://nethackwiki.com/wiki/Ixoth",
+        "image": "monsters/Ixoth.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/e/e6/Ixoth.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Master Kaen",
+        "wiki_link": "https://nethackwiki.com/wiki/Master_Kaen",
+        "image": "monsters/Master Kaen.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/1/10/Master_Kaen.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Nalzok",
+        "wiki_link": "https://nethackwiki.com/wiki/Nalzok",
+        "image": "monsters/Nalzok.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/af/Nalzok.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Scorpius",
+        "wiki_link": "https://nethackwiki.com/wiki/Scorpius",
+        "image": "monsters/Scorpius.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/a/af/Scorpius.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Master Assassin",
+        "wiki_link": "https://nethackwiki.com/wiki/Master_Assassin",
+        "image": "monsters/Master Assassin.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/85/Master_Assassin.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Ashikaga Takauji",
+        "wiki_link": "https://nethackwiki.com/wiki/Ashikaga_Takauji",
+        "image": "monsters/Ashikaga Takauji.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/8/80/Ashikaga_Takauji.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Lord Surtur",
+        "wiki_link": "https://nethackwiki.com/wiki/Lord_Surtur",
+        "image": "monsters/Lord Surtur.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/95/Lord_Surtur.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Dark One",
+        "wiki_link": "https://nethackwiki.com/wiki/Dark_One",
+        "image": "monsters/Dark One.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/28/Dark_One.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      }
+    ]
+  },
+  {
+    "class": [
+      "Quest guardians"
+    ],
+    "glyph": {
+      "character": "",
+      "color": ""
+    },
+    "objects": [
+      {
+        "name": "Student",
+        "wiki_link": "https://nethackwiki.com/wiki/Student",
+        "image": "monsters/Student.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0b/Student.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Chieftain",
+        "wiki_link": "https://nethackwiki.com/wiki/Chieftain",
+        "image": "monsters/Chieftain.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/2e/Chieftain.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Neanderthal",
+        "wiki_link": "https://nethackwiki.com/wiki/Neanderthal",
+        "image": "monsters/Neanderthal.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/91/Neanderthal.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Attendant",
+        "wiki_link": "https://nethackwiki.com/wiki/Attendant",
+        "image": "monsters/Attendant.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c8/Attendant.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Page",
+        "wiki_link": "https://nethackwiki.com/wiki/Page",
+        "image": "monsters/Page.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/95/Page.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Abbot",
+        "wiki_link": "https://nethackwiki.com/wiki/Abbot",
+        "image": "monsters/Abbot.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/f/f3/Abbot.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Acolyte",
+        "wiki_link": "https://nethackwiki.com/wiki/Acolyte",
+        "image": "monsters/Acolyte.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c2/Acolyte.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Hunter",
+        "wiki_link": "https://nethackwiki.com/wiki/Hunter",
+        "image": "monsters/Hunter.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/4/4b/Hunter.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Thug",
+        "wiki_link": "https://nethackwiki.com/wiki/Thug",
+        "image": "monsters/Thug.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/0/0a/Thug.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Ninja",
+        "wiki_link": "https://nethackwiki.com/wiki/Ninja",
+        "image": "monsters/Ninja.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/2/21/Ninja.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Roshi",
+        "wiki_link": "https://nethackwiki.com/wiki/Roshi",
+        "image": "monsters/Roshi.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/c/c9/Roshi.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Guide",
+        "wiki_link": "https://nethackwiki.com/wiki/Guide",
+        "image": "monsters/Guide.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/7/7f/Guide.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Warrior",
+        "wiki_link": "https://nethackwiki.com/wiki/Warrior",
+        "image": "monsters/Warrior.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/97/Warrior.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      },
+      {
+        "name": "Apprentice",
+        "wiki_link": "https://nethackwiki.com/wiki/Apprentice",
+        "image": "monsters/Apprentice.png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/6/66/Apprentice.png",
+        "glyph": {
+          "character": "",
+          "color": ""
+        }
+      }
+    ]
+  }
+]

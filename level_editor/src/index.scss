@@ -1,0 +1,74 @@
+// Import Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap.scss";
+
+.ep-container {
+  .ep-sidebar {
+    .ep-sidebar-header {
+    }
+    .ep-sidebar-levels {
+    }
+  }
+  .ep-tiles {
+    float: right;
+  }
+  .ep-ide {
+    .ep-ide-header {
+    }
+    .ep-ide-map-builder {
+      .ep-ide-editor {
+        :hover {
+          cursor: crosshair;
+        }
+      }
+      .ep-ide-tile-selection {
+        .ep-ide-tile-selection-scroll {
+          max-height: 500px;
+          overflow: scroll;
+          overflow-x: hidden;
+        }
+
+        .selected {
+          //background-color: #e4ffe4;
+          img {
+            border: solid;
+            border-color: #00ff00;
+          }
+        }
+
+        .selectable {
+          :hover {
+            opacity: 0.5;
+          }
+        }
+
+        .ep-ide-tile-selection-item {
+          padding: 0px;
+
+          .header {
+            font-weight: bold;
+          }
+
+          .ep-ide-tile-selection-item-tile {
+            img {
+              width: 40px;
+              height: 40px;
+              border-style: outset;
+            }
+            text-align: center;
+            max-width: 100px;
+            padding: 5px;
+            flex-grow: 0;
+          }
+          .ep-ide-tile-selection-item-char {
+            max-width: 100px;
+            text-align: center;
+          }
+          .ep-ide-tile-selection-item-name {
+          }
+        }
+      }
+      .ep-ide-output {
+      }
+    }
+  }
+}
