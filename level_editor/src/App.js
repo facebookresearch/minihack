@@ -146,7 +146,7 @@ class App extends Component {
                   <p>Resize the level using the +/- buttons on the top left.</p>
                   <hr />
                   <p className="mb-0">
-                    You can also remove tiles using the mouse-click.
+                    You can also remove tiles using right mouse-click.
                   </p>
                 </Alert>
               </Col>
