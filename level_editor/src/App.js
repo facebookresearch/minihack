@@ -114,9 +114,9 @@ class App extends Component {
               </Col>
             </Row>
           </Col>
-          <Col md={7} className="ep-ide">
+          <Col md={6} className="ep-ide">
             <Row className="ep-ide-map-builder">
-              <Col md={10} className="ep-ide-editor">
+              <Col md={11} className="ep-ide-editor">
                 <EnvDesigner
                   tileset={this.nethackTileset}
                   selectedTile={this.state.selectedTile}
@@ -148,7 +148,7 @@ class App extends Component {
               </Col>
             </Row>
           </Col>
-          <Col md={3} className="">
+          <Col md={4} className="">
             <DESEditor desString={this.state.desString} />
           </Col>
         </Row>
