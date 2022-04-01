@@ -113,7 +113,7 @@
         "image": "dungeon/lava1.png",
         "original_image_src": "",
         "glyph": {
-          "character": "}",
+          "character": "L",
           "color": "nhsym clr-cyan"
         }
       }
