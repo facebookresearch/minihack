@@ -77,12 +77,10 @@ GEOMETRY:center,center
   };
 
   generateFooter = (state, mapBounds) => {
-    
     for (const key in state.tiles) {
       const tileData = state.tiles[key];
-      
     }
-    
+
     const startLocation = { x: -1, y: -1 };
     const stairLocation = { x: -1, y: -1 };
     const monsterLocation = { x: -1, y: -1 };
@@ -94,7 +92,7 @@ GEOMETRY:center,center
       } else if (tileData.category === "Player") {
         startLocation.x = tileData.x - mapBounds.minx;
         startLocation.y = mapBounds.maxy - tileData.y;
-      } else if(tileData.category === "Monster") {
+      } else if (tileData.category === "Monster") {
         monsterLocation.x = tileData.x - mapBounds.minx;
         monsterLocation.y = mapBounds.maxy - tileData.y;
       }
@@ -111,11 +109,11 @@ GEOMETRY:center,center
         startLocation.x
       },${startLocation.y}),(${startLocation.x + 1},${startLocation.y + 1},${
         startLocation.x + 1
-      },${startLocation.y + 1})`;
+      },${startLocation.y + 1})\n`;
     }
 
     if (monsterLocation.x >= 0) {
-      footer += `MONSTER: random, random, (${monsterLocation.x},${monsterLocation.y})`;
+      footer += `MONSTER: random, random, (${monsterLocation.x},${monsterLocation.y})\n`;
     }
     return footer;
   };

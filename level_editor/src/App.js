@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
-import {Col, Container, Row, Tab, Tabs} from 'react-bootstrap';
+import React, { Component } from "react";
+import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
+import Alert from "react-bootstrap/Alert";
 
-import DESEditor from './DESEditor';
-import EnvDesigner from './EnvDesigner';
-import TileSelection from './TileSelection';
-import NethackTileset from './tilesets/nethack/NethackTileset_loophack';
-import PlusMinusButton from './PlusMinusButton';
+import DESEditor from "./DESEditor";
+import EnvDesigner from "./EnvDesigner";
+import TileSelection from "./TileSelection";
+import NethackTileset from "./tilesets/nethack/NethackTileset_loophack";
+import PlusMinusButton from "./PlusMinusButton";
 
 class App extends Component {
   constructor() {
@@ -20,9 +21,9 @@ class App extends Component {
 
     this.state = {
       desString,
-      selectedTile: '',
-      selectedBackgroundTile: '',
-      tabKey: 'tile-select',
+      selectedTile: "",
+      selectedBackgroundTile: "",
+      tabKey: "tile-select",
       gridWidth: defaultGridWidth,
       gridHeight: defaultGridHeight,
     };
@@ -64,7 +65,7 @@ class App extends Component {
         gridWidth: width,
       };
     });
-  }
+  };
 
   onChangeHeight = (height) => {
     this.setState((state) => {
@@ -73,39 +74,47 @@ class App extends Component {
         gridHeight: height,
       };
     });
-  }
+  };
 
   render() {
     return (
-      <Container fluid className='ep-container'>
+      <Container fluid className="ep-container">
         <Row>
-          <Col md={2}/>
-          <Col md={8} className='ep-header'>
-              <h1>MiniHack Level Editor</h1>
+          <Col md={2} />
+          <Col md={8} className="ep-header">
+            <h1>MiniHack Level Editor</h1>
           </Col>
-          <Col md={2}/>
+          <Col md={2} />
         </Row>
         <Row>
           <Col md={2}>
-            <Row className='ep-ide-header'>
+            <Row className="ep-ide-header">
               <Col md={12} className="ep-size">
-                <PlusMinusButton value={this.state.gridWidth} text="Width" onChange={this.onChangeWidth} /> 
-                <PlusMinusButton value={this.state.gridHeight} text="Height" onChange={this.onChangeHeight} />
+                <PlusMinusButton
+                  value={this.state.gridWidth}
+                  text="Width"
+                  onChange={this.onChangeWidth}
+                />
+                <PlusMinusButton
+                  value={this.state.gridHeight}
+                  text="Height"
+                  onChange={this.onChangeHeight}
+                />
               </Col>
             </Row>
-            <Row className='ep-tiles'>
+            <Row className="ep-tiles">
               <Col md={12}>
-                <TileSelection 
-                  tileset={this.nethackTileset} 
-                  onTileSelect ={this.onTileSelect} 
-                  onBackgroundTileSelect={this.onBackgroundTileSelect} 
-                  selectedTile={this.state.selectedTile} 
-                  selectedBackgroundTile = { this.state.selectedBackgroundTile} 
+                <TileSelection
+                  tileset={this.nethackTileset}
+                  onTileSelect={this.onTileSelect}
+                  onBackgroundTileSelect={this.onBackgroundTileSelect}
+                  selectedTile={this.state.selectedTile}
+                  selectedBackgroundTile={this.state.selectedBackgroundTile}
                 />
               </Col>
             </Row>
           </Col>
-          <Col md={7} className='ep-ide'>
+          <Col md={7} className="ep-ide">
             <Row className="ep-ide-map-builder">
               <Col md={10} className="ep-ide-editor">
                 <EnvDesigner
@@ -117,9 +126,30 @@ class App extends Component {
                 />
               </Col>
             </Row>
+            <Row>
+              <Col md={10} className="ep-ide-instructions">
+                <Alert variant="info">
+                  <Alert.Heading>Instructions</Alert.Heading>
+                  <p>
+                    Select tiles from the left menu and place them on in the
+                    grid to make levels. Des file text will be compiled for the
+                    level and placed on the right.
+                  </p>
+                  <p>
+                    You can then copy the DES file to use it as a MiniHack
+                    level.
+                  </p>
+                  <p>Resize the level using the +/- buttons on the top left.</p>
+                  <hr />
+                  <p className="mb-0">
+                    You can also remove tiles using the mouse-click.
+                  </p>
+                </Alert>
+              </Col>
+            </Row>
           </Col>
-          <Col md={3} className=''>
-              <DESEditor desString={this.state.desString} />
+          <Col md={3} className="">
+            <DESEditor desString={this.state.desString} />
           </Col>
         </Row>
       </Container>
@@ -128,43 +158,3 @@ class App extends Component {
 }
 
 export default App;
-// import React, { useState } from 'react';
-
-// import Jumbotron from 'react-bootstrap/Jumbotron';
-// import Toast from 'react-bootstrap/Toast';
-// import Container from 'react-bootstrap/Container';
-// import Button from 'react-bootstrap/Button';
-
-// import './App.css';
-
-// const ExampleToast = ({ children }) => {
-//   const [show, toggleShow] = useState(true);
-
-//   return (
-//     <>
-//       {!show && <Button onClick={() => toggleShow(true)}>Show Toast</Button>}
-//       <Toast show={show} onClose={() => toggleShow(false)}>
-//         <Toast.Header>
-//           <strong className="mr-auto">React-Bootstrap</strong>
-//         </Toast.Header>
-//         <Toast.Body>{children}</Toast.Body>
-//       </Toast>
-//     </>
-//   );
-// };
-
-// const App = () => (
-//   <Container className="p-3">
-//     <Jumbotron>
-//       <h1 className="header">Welcome To React-Bootstrap</h1>
-//       <ExampleToast>
-//         We now have Toasts
-//         <span role="img" aria-label="tada">
-//           🎉
-//         </span>
-//       </ExampleToast>
-//     </Jumbotron>
-//   </Container>
-// );
-
-// export default App;
