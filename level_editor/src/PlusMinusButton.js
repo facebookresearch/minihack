@@ -11,11 +11,11 @@ class PlusMinusButton extends Component {
   }
 
   incr = () => {
-    this.props.onChange(Math.min(15, this.props.value + 1));
+    this.props.onChange(Math.min(this.props.max, this.props.value + 1));
   };
 
   decr = () => {
-    this.props.onChange(Math.max(5, this.props.value - 1));
+    this.props.onChange(Math.max(this.props.min, this.props.value - 1));
   };
 
   render() {
@@ -44,6 +44,8 @@ PlusMinusButton.propTypes = {
   value: PropTypes.any,
   text: PropTypes.any,
   onChange: PropTypes.any,
+  max: PropTypes.any,
+  min: PropTypes.any,
 };
 
 export default PlusMinusButton;

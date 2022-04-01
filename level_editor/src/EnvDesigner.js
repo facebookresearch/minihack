@@ -20,6 +20,8 @@ class EnvDesigner extends Component {
     this.components = {};
     this.tiles = new Map();
 
+    this.maxEditorHeight = 700;
+
     
     this.geometries.square = new THREE.BufferGeometry().setFromPoints(points);
 
@@ -115,8 +117,13 @@ class EnvDesigner extends Component {
       return;
     }
 
-    const canvasWidth = this.mount.parentNode.offsetWidth;
-    const canvasHeight = (gridHeight*canvasWidth)/gridWidth;
+    let canvasWidth = this.mount.parentNode.offsetWidth;
+    let canvasHeight = (gridHeight*canvasWidth)/gridWidth;
+
+    if(canvasHeight > this.maxEditorHeight) {
+      canvasHeight = this.maxEditorHeight;
+      canvasWidth = (gridWidth*canvasHeight)/gridHeight;
+    }
 
     this.renderer.setSize(canvasWidth, canvasHeight);
 

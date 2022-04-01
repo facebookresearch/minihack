@@ -100,6 +100,25 @@
       }
     ]
   },
+  { 
+    "class": "Lava",
+    "glyph": {
+      "character": "}",
+      "color": "nhsym clr-cyan"
+    },
+    "objects": [
+      {
+        "name": "lava",
+        "wiki_link": "https://nethackwiki.com/wiki/Lava",
+        "image": "dungeon/lava1.png",
+        "original_image_src": "",
+        "glyph": {
+          "character": "}",
+          "color": "nhsym clr-cyan"
+        }
+      }
+    ]
+  },
   {
     "class": "Staircase",
     "glyph": {

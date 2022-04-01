@@ -80,9 +80,9 @@ class App extends Component {
     return (
       <Container fluid className="ep-container">
         <Row>
-          <Col md={2} />
+          <Col md={2} className="ep-logo"><img src="header.png" /></Col>
           <Col md={8} className="ep-header">
-            <h1>MiniHack Level Editor</h1>
+            <h1>Level Editor</h1>
           </Col>
           <Col md={2} />
         </Row>
@@ -94,11 +94,15 @@ class App extends Component {
                   value={this.state.gridWidth}
                   text="Width"
                   onChange={this.onChangeWidth}
+                  max={79}
+                  min={5}
                 />
                 <PlusMinusButton
                   value={this.state.gridHeight}
                   text="Height"
                   onChange={this.onChangeHeight}
+                  max={21}
+                  min={5}
                 />
               </Col>
             </Row>
