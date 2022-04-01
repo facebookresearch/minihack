@@ -80,9 +80,9 @@ class App extends Component {
     return (
       <Container fluid className="ep-container">
         <Row>
-          <Col md={2} className="ep-logo"><img src="header.png" /></Col>
-          <Col md={8} className="ep-header">
-            <h1>Level Editor</h1>
+          <Col md={2}></Col>
+          <Col md={8} className="ep-logo">
+            <img src="minihack-editor.png" />
           </Col>
           <Col md={2} />
         </Row>
