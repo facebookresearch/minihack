@@ -31,4 +31,4 @@ Finally we can start the server locally which hosts the level editor tool!
 npm run start
 ```
 
-This will start a [local server on port 8000](localhost:8000) which you can use to access the level editor
+This will start a [local server on port 3000](localhost:3000) which you can use to access the level editor
