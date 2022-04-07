@@ -13,6 +13,7 @@ class EditorStateHandler {
     this.initialState = {
       tiles: {},
       levelName: "mylevel",
+      tileTypeCount: {}
     };
 
     this.pushState(this.initialState);
@@ -32,12 +33,24 @@ class EditorStateHandler {
     if (historyLength >= 20) {
       this.editorHistory.pop();
     }
+
   };
 
   addTile = (x, y, tileData) => {
     const state = this.getState();
+    const category = tileData.category;
+    if(!(category in state.tileTypeCount)) {
+      state.tileTypeCount[category] = 0;
+    }
+
+    if(tileData.maxInstances != -1 && state.tileTypeCount[category]+1 > tileData.maxInstances) {
+      return false;
+    }
+    
 
     state.tiles[locationKey(x, y)] = { ...tileData, x, y };
+
+    state.tileTypeCount[category]++;
 
     this.pushState(state);
   };
@@ -45,7 +58,11 @@ class EditorStateHandler {
   removeTile = (x, y) => {
     const state = this.getState();
 
+    const tileData = state.tiles[locationKey(x, y)];
+    state.tileTypeCount[tileData.category]--;
     delete state.tiles[locationKey(x, y)];
+
+    
 
     this.pushState(state);
   };

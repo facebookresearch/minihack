@@ -5,7 +5,8 @@ function TileData(
   wikiLink,
   image,
   glyphChar,
-  visibleInEditor = true
+  visibleInEditor = true,
+  maxInstances = -1,
 ) {
   this.category = category;
   this.name = name;
@@ -14,6 +15,7 @@ function TileData(
   this.image = image;
   this.glyphChar = glyphChar;
   this.visibleInEditor = visibleInEditor;
+  this.maxInstances = maxInstances;
 }
 
 function createTileIdKey(categoryName, t) {
@@ -40,7 +42,8 @@ class TileSet {
           tile.wiki_link,
           tile.image,
           tile.glyph.character,
-          tile.visible_in_editor
+          tile.visible_in_editor,
+          tile.max_instances
         );
 
         this.allTiles[category.class].push(tileData);

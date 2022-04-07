@@ -89,6 +89,7 @@
     },
     "objects": [
       {
+        "max_instances": 1,
         "name": "Caveman (player monster)",
         "wiki_link": "https://nethackwiki.com/wiki/Caveman_(player_monster)",
         "image": "monsters/Caveman (player monster).png",
@@ -127,6 +128,7 @@
     },
     "objects": [
       {
+        "max_instances": 1,
         "name": "Staircase (down)",
         "wiki_link": "https://nethackwiki.com/wiki/Staircase",
         "image": "dungeon/stairs_down.png",
