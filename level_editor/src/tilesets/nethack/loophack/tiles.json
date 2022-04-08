@@ -1,0 +1,160 @@
+[
+  {
+    "class": "Walls",
+    "glyph": {
+      "character": "|",
+      "color": "nhsym clr-cyan"
+    },
+    "objects": [
+      {
+        "name": "wall",
+        "wiki_link": "https://nethackwiki.com/wiki/Wall",
+        "image": "dungeon/wall1.png",
+        "original_image_src": "",
+        "glyph": {
+          "character": "|",
+          "color": "nhsym clr-cyan"
+        }
+      },
+      {
+        "name": "wall",
+        "visible_in_editor": false,
+        "wiki_link": "https://nethackwiki.com/wiki/Wall",
+        "image": "dungeon/wall2.png",
+        "original_image_src": "",
+        "glyph": {
+          "character": "-",
+          "color": "nhsym clr-cyan"
+        }
+      },
+      {
+        "name": "wall",
+        "visible_in_editor": false,
+        "wiki_link": "https://nethackwiki.com/wiki/Wall",
+        "image": "dungeon/wall3.png",
+        "original_image_src": "",
+        "glyph": {
+          "character": "|",
+          "color": "nhsym clr-cyan"
+        }
+      },
+      {
+        "name": "wall",
+        "visible_in_editor": false,
+        "wiki_link": "https://nethackwiki.com/wiki/Wall",
+        "image": "dungeon/wall4.png",
+        "original_image_src": "",
+        "glyph": {
+          "character": "|",
+          "color": "nhsym clr-cyan"
+        }
+      },
+      {
+        "name": "wall",
+        "visible_in_editor": false,
+        "wiki_link": "https://nethackwiki.com/wiki/Wall",
+        "image": "dungeon/wall5.png",
+        "original_image_src": "",
+        "glyph": {
+          "character": "-",
+          "color": "nhsym clr-cyan"
+        }
+      }
+    ]
+  },
+  {
+    "class": "Floor",
+    "glyph": {
+      "character": "|",
+      "color": "nhsym clr-cyan"
+    },
+    "objects": [
+      {
+        "name": "floor",
+        "wiki_link": "https://nethackwiki.com/wiki/Floor",
+        "image": "dungeon/floor1.png",
+        "original_image_src": "",
+        "glyph": {
+          "character": ".",
+          "color": "nhsym clr-cyan"
+        }
+      }
+    ]
+  },
+  {
+    "class": "Player",
+    "glyph": {
+      "character": "@",
+      "color": ""
+    },
+    "objects": [
+      {
+        "max_instances": 1,
+        "name": "Caveman (player monster)",
+        "wiki_link": "https://nethackwiki.com/wiki/Caveman_(player_monster)",
+        "image": "monsters/Caveman (player monster).png",
+        "original_image_src": "https://nethackwiki.com/mediawiki/images/9/9b/Caveman.png",
+        "glyph": {
+          "character": "@",
+          "color": ""
+        }
+      }
+    ]
+  },
+  { 
+    "class": "Lava",
+    "glyph": {
+      "character": "}",
+      "color": "nhsym clr-cyan"
+    },
+    "objects": [
+      {
+        "name": "lava",
+        "wiki_link": "https://nethackwiki.com/wiki/Lava",
+        "image": "dungeon/lava1.png",
+        "original_image_src": "",
+        "glyph": {
+          "character": "L",
+          "color": "nhsym clr-cyan"
+        }
+      }
+    ]
+  },
+  {
+    "class": "Staircase",
+    "glyph": {
+      "character": "",
+      "color": "nhsym clr-magenta"
+    },
+    "objects": [
+      {
+        "max_instances": 1,
+        "name": "Staircase (down)",
+        "wiki_link": "https://nethackwiki.com/wiki/Staircase",
+        "image": "dungeon/stairs_down.png",
+        "glyph": {
+          "character": ">",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  },
+  {
+    "class": "Monster",
+    "glyph": {
+      "character": "",
+      "color": "nhsym clr-magenta"
+    },
+    "objects": [
+      {
+        "name": "Monster (random)",
+        "wiki_link": "https://nethackwiki.com/wiki/Des-file_format#RANDOM_MONSTERS",
+        "image": "monsters/Giant mimic.png",
+        "glyph": {
+          "character": "",
+          "color": "nhsym clr-white"
+        }
+      }
+    ]
+  }
+]
