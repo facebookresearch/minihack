@@ -127,6 +127,7 @@ Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository
 
 # Papers using MiniHack
 
+- Matthews et al. [SkillHack: A Benchmark for Skill Transfer in Open-Ended Reinforcement Learning](https://openreview.net/forum?id=rHSVHmDWI-9) (UCL, Meta AI, Oxford, April 2022)
 - Parker-Holder et al. [Evolving Curricula with Regret-Based Environment Design](https://arxiv.org/abs/2203.01302) (Oxford, Meta AI, UCL, Berkeley, March 2022)
 - Mu et al. [Improving Intrinsic Exploration with Language Abstractions](https://arxiv.org/abs/2202.08938) (Stanford, UW, Meta AI, UCL, February 2022)
 - Jiang et al. [Grounding Aleatoric Uncertainty in Unsupervised Environment Design](https://openreview.net/forum?id=o8_QHMYOfu) (FAIR, UCL, Berkeley, Oxford, December 2021)
