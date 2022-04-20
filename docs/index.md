@@ -31,6 +31,7 @@ getting-started/action_spaces
 getting-started/des_files
 getting-started/interface
 getting-started/reward
+getting-started/level_editor
 ```
 
 ```{toctree}
