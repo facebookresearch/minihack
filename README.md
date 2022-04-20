@@ -88,6 +88,10 @@ python -m minihack.scripts.play_gui --env MiniHack-River-v0
 
 **NOTE:** If the package has been properly installed one could run the scripts above with `mh-envs`, `mh-play`, and `mh-guiplay` commands.
 
+# Level Editor
+
+The MiniHack level editor allows to easily define MiniHack environments inside a browser using a convenient drag-and-drop functionality. Once the level has been designed using the user interface, its description file can be easily copied and applied to the downstream codebase. Check it out at [minihack-editor.github.io](https://minihack-editor.github.io). 
+
 # Baseline Agents
 
 In order to get started with MiniHack environments, we provide a variety of baselines agent integrations.
