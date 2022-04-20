@@ -39,6 +39,13 @@ To do this, MiniHack leverages the so-called [description files](https://nethack
 
 ![MiniHack Environments](/docs/imgs/des_file.gif)
 
+The [MiniHack Level Editor](https://minihack-editor.github.io) allows to easily define MiniHack environments inside a browser using a convenient drag-and-drop functionality. Check it out at [minihack-editor.github.io](https://minihack-editor.github.io).
+
+<p align="center">
+ <img width="90%" src="/docs/imgs/level_editor.png" />
+</p>
+
+
 # Installation
 
 The simplest way to install MiniHack is through [pypi](https://pypi.org/project/minihack/):
@@ -87,10 +94,6 @@ python -m minihack.scripts.play_gui --env MiniHack-River-v0
 ```
 
 **NOTE:** If the package has been properly installed one could run the scripts above with `mh-envs`, `mh-play`, and `mh-guiplay` commands.
-
-# Level Editor
-
-The MiniHack level editor allows to easily define MiniHack environments inside a browser using a convenient drag-and-drop functionality. Once the level has been designed using the user interface, its description file can be easily copied and applied to the downstream codebase. Check it out at [minihack-editor.github.io](https://minihack-editor.github.io). 
 
 # Baseline Agents
 
