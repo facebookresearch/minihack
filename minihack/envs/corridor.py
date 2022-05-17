@@ -20,7 +20,7 @@ class MiniHackCorridor(MiniHackNavigation):
 
     def __init__(self, *args, des_file, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 1000)
-        kwargs["actions"] = NAVIGATE_ACTIONS
+        kwargs["actions"] = kwargs.pop("actions", NAVIGATE_ACTIONS)
         super().__init__(*args, des_file=des_file, **kwargs)
 
 
