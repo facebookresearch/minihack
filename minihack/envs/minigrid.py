@@ -26,7 +26,7 @@ class MiniGridHack(MiniHackNavigation):
         self.num_trap = kwargs.pop("num_trap", 0)
         self.door_state = kwargs.pop("door_state", "closed")
         if self.door_state == "locked":
-            kwargs["actions"] = MOVE_AND_KICK_ACTIONS
+            kwargs["actions"] = kwargs.pop("actions", MOVE_AND_KICK_ACTIONS)
 
         lava_walls = kwargs.pop("lava_walls", False)
         if lava_walls:
