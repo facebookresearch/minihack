@@ -128,11 +128,11 @@ class TestGymEnv:
     def test_default_wizard_mode(self, env_name, wizard):
         if wizard:
             env = gym.make(env_name, wizard=wizard)
-            assert "playmode:debug" in env.nethack._options
+            assert "playmode:debug" in env.env._options
         else:
             # do not send a parameter to test a default
             env = gym.make(env_name)
-            assert "playmode:debug" not in env.nethack._options
+            assert "playmode:debug" not in env.env._options
 
 
 @pytest.mark.parametrize(
