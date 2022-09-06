@@ -39,12 +39,17 @@ To do this, MiniHack leverages the so-called [description files](https://nethack
 
 ![MiniHack Environments](/docs/imgs/des_file.gif)
 
+### MiniHack Level Editor
+
 The [MiniHack Level Editor](https://minihack-editor.github.io) allows to easily define MiniHack environments inside a browser using a convenient drag-and-drop functionality. Check it out at [minihack-editor.github.io](https://minihack-editor.github.io).
 
 <p align="center">
  <img width="90%" src="/docs/imgs/level_editor.png" />
 </p>
 
+### Language Wrapper
+
+We thank [ngoodge](https://github.com/ngoodge) for [implementing a wrapper](https://github.com/ngoodger/nle-language-wrapper) that translates the non-language observations from Net/MiniHack tasks into similar language representations. Actions can also be optionally provided in text form which are converted to the Discrete actions of the NLE.
 
 # Installation
 
