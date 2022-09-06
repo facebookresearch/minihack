@@ -49,7 +49,7 @@ The [MiniHack Level Editor](https://minihack-editor.github.io) allows to easily 
 
 ### Language Wrapper
 
-We thank [ngoodge](https://github.com/ngoodge) for [implementing a wrapper](https://github.com/ngoodger/nle-language-wrapper) that translates the non-language observations from Net/MiniHack tasks into similar language representations. Actions can also be optionally provided in text form which are converted to the Discrete actions of the NLE.
+We thank [ngoodger](https://github.com/ngoodger) for implementing the [NLE Language Wrapper](https://github.com/ngoodger/nle-language-wrapper) that translates the non-language observations from Net/MiniHack tasks into similar language representations. Actions can also be optionally provided in text form which are converted to the Discrete actions of the NLE.
 
 # Installation
 
