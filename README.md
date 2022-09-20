@@ -139,6 +139,7 @@ Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository
 
 # Papers using MiniHack
 
+- Chester et al. [Oracle-SAGE: Planning Ahead in Graph-Based Deep Reinforcement Learning](https://2022.ecmlpkdd.org/wp-content/uploads/2022/09/sub_137.pdf) (RMIT University, Sept 2022)
 - Walker et al. [Unsupervised representational learning with recognition-parametrised probabilistic models](https://arxiv.org/abs/2209.05661) (UCL, Sept 2022)
 - Mu et al. [Improving Intrinsic Exploration with Language Abstractions](https://arxiv.org/abs/2202.08938) (Stanford, UW, Meta AI, UCL, NeurIPS 2022)
 - Matthews et al. [Hierarchical Kickstarting for Skill Transfer in Reinforcement Learning](https://arxiv.org/abs/2110.02439) (UCL, Meta AI, Oxford, CoLLAs 2022)
