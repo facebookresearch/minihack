@@ -37,19 +37,40 @@ To do this, MiniHack leverages the so-called [description files](https://nethack
 
 [Our documentation](https://minihack.readthedocs.io/) will walk you through everything you need to know about MiniHack, step-by-step, including information on how to get started, configure environments or design new ones, train baseline agents, and much more.
 
-![MiniHack Environments](/docs/imgs/des_file.gif)
+<p align="center">
+ <img width="90%" src="/docs/imgs/des_file.gif" />
+</p>
 
 ### MiniHack Level Editor
 
 The [MiniHack Level Editor](https://minihack-editor.github.io) allows to easily define MiniHack environments inside a browser using a convenient drag-and-drop functionality. Check it out at [minihack-editor.github.io](https://minihack-editor.github.io).
 
 <p align="center">
- <img width="90%" src="/docs/imgs/level_editor.png" />
+ <img width="75%" src="/docs/imgs/level_editor.png" />
 </p>
 
 ### Language Wrapper
 
 We thank [ngoodger](https://github.com/ngoodger) for implementing the [NLE Language Wrapper](https://github.com/ngoodger/nle-language-wrapper) that translates the non-language observations from Net/MiniHack tasks into similar language representations. Actions can also be optionally provided in text form which are converted to the Discrete actions of the NLE.
+
+
+# Papers using MiniHack
+
+- Henaff et al. [Exploration via Elliptical Episodic Bonuses](https://arxiv.org/abs/2210.05805) (Meta AI, UCL, NeurIPS 2022)
+- Mu et al. [Improving Intrinsic Exploration with Language Abstractions](https://arxiv.org/abs/2202.08938) (Stanford, UW, Meta AI, UCL, NeurIPS 2022)
+- Chester et al. [Oracle-SAGE: Planning Ahead in Graph-Based Deep Reinforcement Learning](https://2022.ecmlpkdd.org/wp-content/uploads/2022/09/sub_137.pdf) (RMIT University, Sept 2022)
+- Walker et al. [Unsupervised representational learning with recognition-parametrised probabilistic models](https://arxiv.org/abs/2209.05661) (UCL, Sept 2022)
+- Matthews et al. [Hierarchical Kickstarting for Skill Transfer in Reinforcement Learning](https://arxiv.org/abs/2110.02439) (UCL, Meta AI, Oxford, CoLLAs 2022)
+- Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://arxiv.org/abs/2110.10067) (CMU, Georgia Tech, AI2, CoLLAs 2022)
+- Nottingham et al. [Learning to Query Internet Text for Informing Reinforcement Learning Agents](https://arxiv.org/abs/2205.13079) (UC Irvine, May 2022)
+- Matthews et al. [SkillHack: A Benchmark for Skill Transfer in Open-Ended Reinforcement Learning](https://openreview.net/forum?id=rHSVHmDWI-9) (UCL, Meta AI, Oxford, April 2022)
+- Parker-Holder et al. [Evolving Curricula with Regret-Based Environment Design](https://arxiv.org/abs/2203.01302) (Oxford, Meta AI, UCL, Berkeley, ICML 2022)
+- Jiang et al. [Grounding Aleatoric Uncertainty in Unsupervised Environment Design](https://openreview.net/forum?id=o8_QHMYOfu) (FAIR, UCL, Berkeley, Oxford, December 2021)
+- Parker-Holder et al. [That Escalated Quickly: Compounding Complexity by Editing Levels at the Frontier of Agent Capabilities](https://openreview.net/forum?id=3qGInPFqR0p) (Oxford, FAIR, UCL, Berkeley, December 2021)
+- Samvelyan et al. [MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research
+](https://arxiv.org/abs/2109.13202) (FAIR, UCL, Oxford, NeurIPS 2021)
+
+Open a [pull request](https://github.com/facebookresearch/minihack/edit/main/README.md) to add papers.
 
 # Installation
 
@@ -136,23 +157,6 @@ More information on running RLlib agents can be found [here](./docs/agents/rllib
 
 MiniHack also enables research in *Unsupervised Environment Design*, whereby an adaptive task distribution is learned during training by dynamically adjusting free parameters of the task MDP.
 Check out the [`ucl-dark/paired`](https://github.com/ucl-dark/paired) repository for replicating the examples from the paper using the [PAIRED](https://arxiv.org/abs/2012.02096).
-
-# Papers using MiniHack
-
-- Chester et al. [Oracle-SAGE: Planning Ahead in Graph-Based Deep Reinforcement Learning](https://2022.ecmlpkdd.org/wp-content/uploads/2022/09/sub_137.pdf) (RMIT University, Sept 2022)
-- Walker et al. [Unsupervised representational learning with recognition-parametrised probabilistic models](https://arxiv.org/abs/2209.05661) (UCL, Sept 2022)
-- Mu et al. [Improving Intrinsic Exploration with Language Abstractions](https://arxiv.org/abs/2202.08938) (Stanford, UW, Meta AI, UCL, NeurIPS 2022)
-- Matthews et al. [Hierarchical Kickstarting for Skill Transfer in Reinforcement Learning](https://arxiv.org/abs/2110.02439) (UCL, Meta AI, Oxford, CoLLAs 2022)
-- Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://arxiv.org/abs/2110.10067) (CMU, Georgia Tech, AI2, CoLLAs 2022)
-- Nottingham et al. [Learning to Query Internet Text for Informing Reinforcement Learning Agents](https://arxiv.org/abs/2205.13079) (UC Irvine, May 2022)
-- Matthews et al. [SkillHack: A Benchmark for Skill Transfer in Open-Ended Reinforcement Learning](https://openreview.net/forum?id=rHSVHmDWI-9) (UCL, Meta AI, Oxford, April 2022)
-- Parker-Holder et al. [Evolving Curricula with Regret-Based Environment Design](https://arxiv.org/abs/2203.01302) (Oxford, Meta AI, UCL, Berkeley, ICML 2022)
-- Jiang et al. [Grounding Aleatoric Uncertainty in Unsupervised Environment Design](https://openreview.net/forum?id=o8_QHMYOfu) (FAIR, UCL, Berkeley, Oxford, December 2021)
-- Parker-Holder et al. [That Escalated Quickly: Compounding Complexity by Editing Levels at the Frontier of Agent Capabilities](https://openreview.net/forum?id=3qGInPFqR0p) (Oxford, FAIR, UCL, Berkeley, December 2021)
-- Samvelyan et al. [MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research
-](https://arxiv.org/abs/2109.13202) (FAIR, UCL, Oxford, NeurIPS 2021)
-
-Open a [pull request](https://github.com/facebookresearch/minihack/edit/main/README.md) to add papers.
 
 # Citation
 
