@@ -24,7 +24,7 @@ try:
 except (ImportError, NameError, AttributeError):
     NLE_AVAILABLE = False
     MINIHACK_AVAILABLE = False
-    GYM_AVAILABLE = True
+    GYM_AVAILABLE = False
 try:
     import torch
 

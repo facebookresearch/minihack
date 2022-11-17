@@ -1,6 +1,6 @@
 ---
-name: "\U0001F41BBug Report"
-about: Submit a bug report to help us improve MiniHack. If this doesn’t look right,
+name: "\U0001F41B Bug Report"
+about: Submit a bug report to help us improve Pax. If this doesn’t look right,
   choose a different type.
 title: "[BUG]"
 labels: bug
