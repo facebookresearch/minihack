@@ -365,7 +365,7 @@ class MiniHack(NetHackStaircase):
         hackdir directory of the environment.
         """
         if not des_file.endswith(".des"):
-            fpath = os.path.join(self.env._vardir, "mylevel.des")
+            fpath = os.path.join(self.nethack._vardir, "mylevel.des")
             # If the des-file is passed as a string
             with open(fpath, "w") as f:
                 f.writelines(des_file)
@@ -386,7 +386,7 @@ class MiniHack(NetHackStaircase):
             _ = subprocess.call(
                 [
                     PATCH_SCRIPT,
-                    self.env._vardir,
+                    self.nethack._vardir,
                     HACKDIR,
                     LIB_DIR,
                     des_path,
