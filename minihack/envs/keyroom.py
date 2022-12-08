@@ -47,16 +47,16 @@ class MiniHackKeyDoor(MiniHackNavigation):
                 dir_key = self.get_object_direction("closed door")
                 if dir_key is not None:
                     # Perform the following NetHack steps
-                    self.env.step(Command.APPLY)  # press apply
-                    self.env.step(ord(key_key))  # choose key from the inv
-                    self.env.step(dir_key)  # select the door's direction
-                    obs, done = self.env.step(ord("y"))  # press y
+                    self.nethack.step(Command.APPLY)  # press apply
+                    self.nethack.step(ord(key_key))  # choose key from the inv
+                    self.nethack.step(dir_key)  # select the door's direction
+                    obs, done = self.nethack.step(ord("y"))  # press y
                     obs, done = self._perform_known_steps(
                         obs, done, exceptions=True
                     )
                     # Make sure the door is open
                     while True:
-                        obs, done = self.env.step(dir_key)
+                        obs, done = self.nethack.step(dir_key)
                         obs, done = self._perform_known_steps(
                             obs, done, exceptions=True
                         )
