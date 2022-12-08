@@ -39,7 +39,7 @@ class MiniHackKeyDoor(MiniHackNavigation):
 
     def step(self, action: int):
         # If apply action is chosen
-        if self._actions[action] == Command.APPLY:
+        if self.actions[action] == Command.APPLY:
             key_key = self.key_in_inventory("key")
             # if key is in the inventory
             if key_key is not None:

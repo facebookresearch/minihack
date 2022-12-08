@@ -154,20 +154,24 @@ class TestGymEnvRollout:
     def test_rollout(self, env_name, rollout_len):
         """Tests rollout_len steps (or until termination) of random policy."""
         with tempfile.TemporaryDirectory() as savedir:
-            env = gym.make(env_name, savedir=savedir)
+            env = gym.make(env_name, save_ttyrec_every=1, savedir=savedir)
             rollout_env(env, rollout_len)
             env.close()
 
             assert os.path.exists(
-                os.path.join(savedir, "nle.%i.0.ttyrec.bz2" % os.getpid())
+                os.path.join(
+                    savedir,
+                    "nle.%i.0.ttyrec%i.bz2" % (os.getpid(), nethack.TTYREC_VERSION),
+                )
+            )
+            assert os.path.exists(
+                os.path.join(savedir, "nle.%i.xlogfile" % os.getpid())
             )
 
     def test_rollout_no_archive(self, env_name, rollout_len):
         """Tests rollout_len steps (or until termination) of random policy."""
         env = gym.make(env_name, savedir=None)
         assert env.savedir is None
-        assert env._stats_file is None
-        assert env._stats_logger is None
         rollout_env(env, rollout_len)
 
     def test_seed_interface_output(self, env_name, rollout_len):
