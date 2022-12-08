@@ -186,11 +186,14 @@ class MiniHack(NetHackStaircase):
             penalty_time (float):
                 A constant applied to amount of frozen steps. Defaults to -0.0.
                 Inherited from `NetHackScore`.
-            savedir (str or None): path to save ttyrecs (game recordings) into.
-                Defaults to None, which doesn't save any data. Otherwise,
-                interpreted as a path to a new or existing directory.
-                If "" (empty string), NLE choses a unique directory name.
-                Inherited from `NLE`.
+            save_ttyrec_every (int):
+                Integer, if 0, no ttyrecs (game recordings) will
+                be saved. Otherwise, save a ttyrec every Nth episode.
+            savedir (str or None):
+                Path to save ttyrecs (game recordings) into,
+                if save_ttyrec_every is nonzero. If nonempty string, interpreted
+                as a path to a new or existing directory.
+                If "" (empty string) or None, NLE choses a unique directory name.
             character (str):
                 Name of character. Defaults to "mon-hum-neu-mal". Interited
                 from `NLE`.
@@ -212,6 +215,9 @@ class MiniHack(NetHackStaircase):
                 If set to True, do not decline menus, text input or auto
                 'MORE'. If set to False, only skip click through 'MORE'
                 on death. Inherited from `NLE`.
+            spawn_monsters (bool):
+                If False, disables normal NetHack behavior to randomly
+                create monsters.
         """
         # NetHack options
         options: Tuple = MH_NETHACKOPTIONS
