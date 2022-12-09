@@ -186,32 +186,40 @@ class MiniHack(NetHackStaircase):
             penalty_time (float):
                 A constant applied to amount of frozen steps. Defaults to -0.0.
                 Inherited from `NetHackScore`.
-            savedir (str or None): path to save ttyrecs (game recordings) into.
-                Defaults to None, which doesn't save any data. Otherwise,
+            save_ttyrec_every (int):
+                Integer, if 0, no ttyrecs (game recordings) will
+                be saved. Otherwise, save a ttyrec every Nth episode.
+                Defaults to 0. Inherited from `NLE`.
+            savedir (str or None):
+                Path to save ttyrecs (game recordings) into,
+                if save_ttyrec_every is nonzero. If nonempty string,
                 interpreted as a path to a new or existing directory.
-                If "" (empty string), NLE choses a unique directory name.
-                Inherited from `NLE`.
+                If "" (empty string) or None, NLE choses a unique directory
+                name. Defaults to None. Inherited from `NLE`.
             character (str):
                 Name of character. Defaults to "mon-hum-neu-mal". Interited
                 from `NLE`.
             max_episode_steps (int):
                 maximum amount of steps allowed before the game is forcefully
                 quit.  In such cases, ``info["end_status"]`` ill be equal to
-                ``StepStatus.ABORTED``. Defaults to 5000. Inherited from `NLE`.
+                ``StepStatus.ABORTED``. Defaults to 200. Inherited from `NLE`.
             actions (list):
                 list of actions. If None, the full action space will
-                be used, i.e. ``nle.nethack.ACTIONS``. Defaults to None.
-                Inherited from `NLE`.
+                be used, i.e. ``nle.nethack.ACTIONS``. Defaults to
+                `MH_FULL_ACTIONS`. Inherited from `NLE`.
             wizard (bool):
-                activate wizard mode. Defaults to False.
+                activate wizard mode. Defaults to False. Inherited from `NLE`.
             allow_all_yn_questions (bool):
                 If set to True, no y/n questions in step() are declined.
                 If set to False, only elements of SKIP_EXCEPTIONS are not
-                declined. Defaults to False. Inherited from `NLE`.
+                declined. Defaults to True. Inherited from `NLE`.
             allow_all_modes (bool):
                 If set to True, do not decline menus, text input or auto
                 'MORE'. If set to False, only skip click through 'MORE'
-                on death. Inherited from `NLE`.
+                on death. Defaults to False. Inherited from `NLE`.
+            spawn_monsters (bool):
+                If False, disables normal NetHack behavior to randomly
+                create monsters. Defaults to False. Inherited from `NLE`.
         """
         # NetHack options
         options: Tuple = MH_NETHACKOPTIONS
@@ -220,7 +228,7 @@ class MiniHack(NetHackStaircase):
         if not pet:
             options += ("pettype:none",)
         kwargs["options"] = kwargs.pop("options", options)
-        # Actions space - move only
+        # Actions space
         kwargs["actions"] = kwargs.pop("actions", MH_FULL_ACTIONS)
 
         # Enter Wizard mode - turned off by default
@@ -365,7 +373,7 @@ class MiniHack(NetHackStaircase):
         hackdir directory of the environment.
         """
         if not des_file.endswith(".des"):
-            fpath = os.path.join(self.env._vardir, "mylevel.des")
+            fpath = os.path.join(self.nethack._vardir, "mylevel.des")
             # If the des-file is passed as a string
             with open(fpath, "w") as f:
                 f.writelines(des_file)
@@ -386,7 +394,7 @@ class MiniHack(NetHackStaircase):
             _ = subprocess.call(
                 [
                     PATCH_SCRIPT,
-                    self.env._vardir,
+                    self.nethack._vardir,
                     HACKDIR,
                     LIB_DIR,
                     des_path,

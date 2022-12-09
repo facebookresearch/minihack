@@ -128,11 +128,11 @@ class TestGymEnv:
     def test_default_wizard_mode(self, env_name, wizard):
         if wizard:
             env = gym.make(env_name, wizard=wizard)
-            assert "playmode:debug" in env.env._options
+            assert "playmode:debug" in env.nethack.options
         else:
             # do not send a parameter to test a default
             env = gym.make(env_name)
-            assert "playmode:debug" not in env.env._options
+            assert "playmode:debug" not in env.nethack.options
 
 
 @pytest.mark.parametrize(
@@ -154,20 +154,24 @@ class TestGymEnvRollout:
     def test_rollout(self, env_name, rollout_len):
         """Tests rollout_len steps (or until termination) of random policy."""
         with tempfile.TemporaryDirectory() as savedir:
-            env = gym.make(env_name, savedir=savedir)
+            env = gym.make(env_name, save_ttyrec_every=1, savedir=savedir)
             rollout_env(env, rollout_len)
             env.close()
 
             assert os.path.exists(
-                os.path.join(savedir, "nle.%i.0.ttyrec.bz2" % os.getpid())
+                os.path.join(
+                    savedir,
+                    "nle.%i.0.ttyrec%i.bz2" % (os.getpid(), nethack.TTYREC_VERSION),
+                )
+            )
+            assert os.path.exists(
+                os.path.join(savedir, "nle.%i.xlogfile" % os.getpid())
             )
 
     def test_rollout_no_archive(self, env_name, rollout_len):
         """Tests rollout_len steps (or until termination) of random policy."""
         env = gym.make(env_name, savedir=None)
         assert env.savedir is None
-        assert env._stats_file is None
-        assert env._stats_logger is None
         rollout_env(env, rollout_len)
 
     def test_seed_interface_output(self, env_name, rollout_len):
@@ -279,17 +283,17 @@ class TestRoomReward:
         _ = env.reset()
 
         for _ in range(4):
-            _, reward, done, _ = env.step(env._actions.index(ord("j")))
+            _, reward, done, _ = env.step(env.actions.index(ord("j")))
             assert reward == 0.0
             assert not done
 
         for _ in range(3):
-            _, reward, done, _ = env.step(env._actions.index(ord("l")))
+            _, reward, done, _ = env.step(env.actions.index(ord("l")))
             assert reward == 0.0
             assert not done
 
         # Hack to quit.
-        _, reward, done, _ = env.step(env._actions.index(ord("l")))
+        _, reward, done, _ = env.step(env.actions.index(ord("l")))
 
         assert done
         assert reward == 1.0

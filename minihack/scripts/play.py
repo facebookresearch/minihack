@@ -60,7 +60,7 @@ def get_action(env, action_mode, is_raw_env):
                 if is_raw_env:
                     action = ch
                 else:
-                    action = env._actions.index(ch)
+                    action = env.actions.index(ch)
                 break
             except ValueError:
                 print(
@@ -120,7 +120,7 @@ def play(
         if seeds is not None:
             env.seed(seeds)
         if not no_render:
-            print("Available actions:", env._actions)
+            print("Available actions:", env.actions)
 
     obs = env.reset()
 
@@ -144,7 +144,7 @@ def play(
             if not is_raw_env:
                 print("Previous reward:", reward)
                 if action is not None:
-                    print("Previous action: %s" % repr(env._actions[action]))
+                    print("Previous action: %s" % repr(env.actions[action]))
                 env.render(render_mode)
             else:
                 print("Previous action:", action)
