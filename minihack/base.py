@@ -173,8 +173,14 @@ class MiniHack(NetHackStaircase):
                 environment as a dictionary. Defaults to
                 ``minihack.base.MH_DEFAULT_OBS_KEYS``.
             seeds (list or None):
-                A list of random seeds for sampling episodes. If none, the
-                entire level distribution is used. Defaults to None.
+                A list of integers used as level seeds for sampling
+                episodes. The reset()` function samples a seed from this list
+                uniformly at random and uses it for setting the level.
+                When the ``sample_seed`` argument of the reset function is
+                set to False, a random level will not be sampled from this list
+                during environment resetting.
+                If None, the entire level distribution is used.
+                Defaults to None.
             penalty_mode (str):
                 The name of the mode for calculating the time step penalty.
                 Can be ``constant``, ``exp``, ``square``, ``linear``, or
@@ -319,10 +325,10 @@ class MiniHack(NetHackStaircase):
 
         return obs_space_dict
 
-    def reset(self, *args, **kwargs):
+    def reset(self, *args, sample_seed=True, **kwargs):
         if self.reward_manager is not None:
             self.reward_manager.reset()
-        if self._level_seeds is not None:
+        if sample_seed and self._level_seeds is not None:
             seed = random.choice(self._level_seeds)
             self.seed(seed, seed, reseed=False)
         return super().reset(*args, **kwargs)
