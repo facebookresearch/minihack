@@ -1,6 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackSkill, LevelGenerator, RewardManager
 from minihack.envs import register
+from nle import nethack
 
 
 levitation_msg = [
@@ -43,6 +44,22 @@ class MiniHackLevitateBootsFixed(MiniHackLevitate):
         super().__init__(*args, des_file=des_file, **kwargs)
 
 
+class MiniHackLevitateBootsRestrictedActions(MiniHackLevitate):
+    def __init__(self, *args, **kwargs):
+        lvl_gen = LevelGenerator(w=5, h=5, lit=True)
+        lvl_gen.add_object("levitation boots", "[", cursestate="blessed")
+        des_file = lvl_gen.get_des()
+
+        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
+                                                     nethack.Command.WEAR, \
+                                                     nethack.Command.FIRE)
+        kwargs["actions"] = ACTIONS
+        
+
+        super().__init__(*args, des_file=des_file, **kwargs)
+        
+
+
 class MiniHackLevitateRing(MiniHackLevitate):
     def __init__(self, *args, **kwargs):
         lvl_gen = LevelGenerator(w=5, h=5, lit=True)
@@ -64,6 +81,21 @@ class MiniHackLevitateRingFixed(MiniHackLevitate):
         super().__init__(*args, des_file=des_file, **kwargs)
 
 
+class MiniHackLevitateRingRestrictedActions(MiniHackLevitate):
+    def __init__(self, *args, **kwargs):
+        lvl_gen = LevelGenerator(w=5, h=5, lit=True)
+        lvl_gen.add_object("levitation", "=", cursestate="blessed")
+        des_file = lvl_gen.get_des()
+
+        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
+                                                     nethack.Command.PUTON, \
+                                                     nethack.Command.FIRE, \
+                                                     nethack.Command.READ)
+        kwargs["actions"] = ACTIONS
+        
+        super().__init__(*args, des_file=des_file, **kwargs)        
+
+
 class MiniHackLevitatePotion(MiniHackLevitate):
     def __init__(self, *args, **kwargs):
         lvl_gen = LevelGenerator(w=5, h=5, lit=True)
@@ -83,6 +115,21 @@ class MiniHackLevitatePotionFixed(MiniHackLevitate):
         des_file = lvl_gen.get_des()
 
         super().__init__(*args, des_file=des_file, **kwargs)
+
+        
+class MiniHackLevitatePotionRestrictedActions(MiniHackLevitate):
+    def __init__(self, *args, **kwargs):
+        lvl_gen = LevelGenerator(w=5, h=5, lit=True)
+        lvl_gen.add_object("levitation", "!", cursestate="blessed")
+        des_file = lvl_gen.get_des()
+
+        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
+                                                     nethack.Command.QUAFF, \
+                                                     nethack.Command.FIRE)
+        kwargs["actions"] = ACTIONS
+        
+
+        super().__init__(*args, des_file=des_file, **kwargs)        
 
 
 class MiniHackLevitateRandom(MiniHackLevitate):
@@ -115,19 +162,31 @@ IF [33%] {
 
 
 register(
-    id="MiniHack-Levitate-Boots-v0",
+    id="MiniHack-Levitate-Boots-Full-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitateBoots",
 )
 register(
-    id="MiniHack-Levitate-Ring-v0",
+    id="MiniHack-Levitate-Boots-Restricted-v0",
+    entry_point="minihack.envs.skills_levitate:MiniHackLevitateBootsRestrictedActions",
+)
+register(
+    id="MiniHack-Levitate-Ring-Full-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitateRing",
 )
 register(
-    id="MiniHack-Levitate-Potion-v0",
+    id="MiniHack-Levitate-Ring-Restricted-v0",
+    entry_point="minihack.envs.skills_levitate:MiniHackLevitateRingRestrictedActions",
+)
+register(
+    id="MiniHack-Levitate-Potion-Full-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitatePotion",
 )
 register(
-    id="MiniHack-Levitate-Random-v0",
+    id="MiniHack-Levitate-Potion-Restricted-v0",
+    entry_point="minihack.envs.skills_levitate:MiniHackLevitatePotionRestrictedActions",
+)
+register(
+    id="MiniHack-Levitate-Random-Full-v0",
     entry_point="minihack.envs.skills_levitate:MiniHackLevitateRandom",
 )
 register(
