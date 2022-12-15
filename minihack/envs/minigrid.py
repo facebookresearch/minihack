@@ -420,7 +420,7 @@ register(
 )
 
 
-# MiniGrid: The N6-Extreme-v0 env above is impossible to solve consistently even for a human 
+# Note: the N6-Extreme-v0 env above is impossible to solve consistently even for a human 
 # due to too many monsters. Here are some easier envs with lava and fewer monsters. 
 
 class MiniHackMultiRoomN2LavaMonsters(MiniGridHack):

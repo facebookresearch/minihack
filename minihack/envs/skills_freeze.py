@@ -1,6 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackSkill, LevelGenerator, RewardManager
 from minihack.envs import register
+from nle import nethack
 
 freeze_msgs = [
     "The bolt of cold bounces!",  # checks if cold bounces from the wall
