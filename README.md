@@ -56,6 +56,9 @@ We thank [ngoodger](https://github.com/ngoodger) for implementing the [NLE Langu
 
 # Papers using MiniHack
 
+- Kessler et al. [The Surprising Effectiveness of Latent World Models for Continual Reinforcement Learning](https://arxiv.org/abs/2211.15944) (Oxford, Polish Academy of Sciences, DeepRL Workshop 2022)
+- Wagner et al. [Cyclophobic Reinforcement Learning](https://openreview.net/forum?id=jH0Oc8gJ6G) (HHU Düsseldorf, TU Dortmund, DeepRL Workshop 2022)
+- Henaff et al. [Integrating Episodic and Global Bonuses for Efficient Exploration](https://openreview.net/forum?id=uMZkWW0uB3) (Meta AI, UCL, DeepRL Workshop 2022)
 - Henaff et al. [Exploration via Elliptical Episodic Bonuses](https://arxiv.org/abs/2210.05805) (Meta AI, UCL, NeurIPS 2022)
 - Mu et al. [Improving Intrinsic Exploration with Language Abstractions](https://arxiv.org/abs/2202.08938) (Stanford, UW, Meta AI, UCL, NeurIPS 2022)
 - Chester et al. [Oracle-SAGE: Planning Ahead in Graph-Based Deep Reinforcement Learning](https://2022.ecmlpkdd.org/wp-content/uploads/2022/09/sub_137.pdf) (RMIT University, Sept 2022)
