@@ -79,6 +79,18 @@ The simplest way to install MiniHack is through [pypi](https://pypi.org/project/
 pip install minihack
 ```
 
+### Extending MiniHack
+
+If you wish to extend MiniHack, please install the package as follows:
+
+```bash
+git clone https://github.com/facebookresearch/minihack
+cd minihack
+pip install -e ".[dev]"
+pre-commit install
+```
+
+
 See the [full installation guide](./docs/getting-started/installation.md) for further information on installing and extending MiniHack on different platforms, as well as pre-installed Dockerfiles.
 
 
