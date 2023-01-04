@@ -1,11 +1,47 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 from minihack import MiniHackSkill
 from minihack.envs import register
+from nle import nethack
 
 
 class MiniHackLCLevitatePotionPickup(MiniHackSkill):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
+        des_file = """
+MAZE: "mylevel", ' '
+FLAGS:hardfloor
+INIT_MAP: solidfill,' '
+GEOMETRY:center,center
+MAP
+-------------
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+-------------
+ENDMAP
+REGION:(0,0,12,6),lit,"ordinary"
+$left_bank = selection:fillrect (1,1,5,5)
+$right_bank = selection:fillrect (7,1,11,5)
+OBJECT:('!',"levitation"),rndcoord($left_bank),blessed
+BRANCH:(1,1,5,5),(0,0,0,0)
+STAIR:rndcoord($right_bank),down
+"""
+        super().__init__(*args, des_file=des_file, **kwargs)
+
+
+class MiniHackLCLevitatePotionPickupRestrictedActions(MiniHackSkill):
+    def __init__(self, *args, **kwargs):
+        kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
+
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.QUAFF,
+            nethack.Command.FIRE,
+        )
+        kwargs["actions"] = ACTIONS
+
         des_file = """
 MAZE: "mylevel", ' '
 FLAGS:hardfloor
@@ -57,9 +93,80 @@ STAIR:rndcoord($right_bank),down
         super().__init__(*args, des_file=des_file, **kwargs)
 
 
+class MiniHackLCLevitatePotionInvRestrictedActions(MiniHackSkill):
+    def __init__(self, *args, **kwargs):
+        kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
+        kwargs["autopickup"] = kwargs.pop("autopickup", True)
+
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.QUAFF,
+            nethack.Command.FIRE,
+        )
+        kwargs["actions"] = ACTIONS
+
+        des_file = """
+MAZE: "mylevel", ' '
+FLAGS:hardfloor
+INIT_MAP: solidfill,' '
+GEOMETRY:center,center
+MAP
+-------------
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+-------------
+ENDMAP
+REGION:(0,0,12,6),lit,"ordinary"
+$right_bank = selection:fillrect (7,1,11,5)
+OBJECT:('!',"levitation"),(2,2),blessed
+BRANCH:(2,2,2,2),(0,0,0,0)
+STAIR:rndcoord($right_bank),down
+"""
+        super().__init__(*args, des_file=des_file, **kwargs)
+
+
 class MiniHackLCLevitateRingPickup(MiniHackSkill):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
+        des_file = """
+MAZE: "mylevel", ' '
+FLAGS:hardfloor
+INIT_MAP: solidfill,' '
+GEOMETRY:center,center
+MAP
+-------------
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+-------------
+ENDMAP
+REGION:(0,0,12,6),lit,"ordinary"
+$left_bank = selection:fillrect (1,1,5,5)
+$right_bank = selection:fillrect (7,1,11,5)
+OBJECT:('=',"levitation"),rndcoord($left_bank),blessed
+BRANCH:(1,1,5,5),(0,0,0,0)
+STAIR:rndcoord($right_bank),down
+"""
+        super().__init__(*args, des_file=des_file, **kwargs)
+
+
+class MiniHackLCLevitateRingPickupRestrictedActions(MiniHackSkill):
+    def __init__(self, *args, **kwargs):
+        kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
+
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.PUTON,
+            nethack.Command.FIRE,
+            nethack.Command.READ,
+        )
+        kwargs["actions"] = ACTIONS
+
         des_file = """
 MAZE: "mylevel", ' '
 FLAGS:hardfloor
@@ -111,9 +218,92 @@ STAIR:rndcoord($right_bank),down
         super().__init__(*args, des_file=des_file, **kwargs)
 
 
+class MiniHackLCLevitateRingInvRestrictedActions(MiniHackSkill):
+    def __init__(self, *args, **kwargs):
+        kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
+        kwargs["autopickup"] = kwargs.pop("autopickup", True)
+
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.PUTON,
+            nethack.Command.FIRE,
+            nethack.Command.READ,
+        )
+        kwargs["actions"] = ACTIONS
+
+        des_file = """
+MAZE: "mylevel", ' '
+FLAGS:hardfloor
+INIT_MAP: solidfill,' '
+GEOMETRY:center,center
+MAP
+-------------
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+-------------
+ENDMAP
+REGION:(0,0,12,6),lit,"ordinary"
+$right_bank = selection:fillrect (7,1,11,5)
+OBJECT:('=',"levitation"),(2,2),blessed
+BRANCH:(2,2,2,2),(0,0,0,0)
+STAIR:rndcoord($right_bank),down
+"""
+        super().__init__(*args, des_file=des_file, **kwargs)
+
+
 class MiniHackLCLevitate(MiniHackSkill):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
+
+        des_file = """
+MAZE: "mylevel", ' '
+FLAGS:hardfloor
+INIT_MAP: solidfill,' '
+GEOMETRY:center,center
+MAP
+-------------
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+|.....L.....|
+-------------
+ENDMAP
+REGION:(0,0,12,6),lit,"ordinary"
+$left_bank = selection:fillrect (1,1,5,5)
+$right_bank = selection:fillrect (7,1,11,5)
+IF [33%] {
+    OBJECT:('!',"levitation"),rndcoord($left_bank),blessed
+} ELSE {
+    IF [50%] {
+        OBJECT:('=',"levitation"),rndcoord($left_bank),blessed
+    } ELSE {
+        OBJECT:('[',"levitation boots"),rndcoord($left_bank),blessed
+    }
+}
+BRANCH:(1,1,5,5),(0,0,0,0)
+STAIR:rndcoord($right_bank),down
+"""
+        super().__init__(*args, des_file=des_file, **kwargs)
+
+
+class MiniHackLCLevitateRestrictedActions(MiniHackSkill):
+    def __init__(self, *args, **kwargs):
+        kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
+
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.WEAR,
+            nethack.Command.QUAFF,
+            nethack.Command.PUTON,
+            nethack.Command.FIRE,
+            nethack.Command.READ,
+        )
+        kwargs["actions"] = ACTIONS
+
         des_file = """
 MAZE: "mylevel", ' '
 FLAGS:hardfloor
@@ -151,27 +341,68 @@ class MiniHackLC(MiniHackSkill):
         super().__init__(*args, des_file="lava_crossing.des", **kwargs)
 
 
+class MiniHackLCRestrictedActions(MiniHackSkill):
+    def __init__(self, *args, **kwargs):
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.ZAP,
+            nethack.Command.WEAR,
+            nethack.Command.APPLY,
+            nethack.Command.QUAFF,
+            nethack.Command.PUTON,
+            nethack.Command.FIRE,
+            nethack.Command.READ,
+        )
+        kwargs["actions"] = ACTIONS
+
+        super().__init__(*args, des_file="lava_crossing.des", **kwargs)
+
+
 register(
-    id="MiniHack-LavaCross-Levitate-Potion-Pickup-v0",
+    id="MiniHack-LavaCross-Levitate-Potion-Pickup-Full-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLCLevitatePotionPickup",
 )
 register(
-    id="MiniHack-LavaCross-Levitate-Potion-Inv-v0",
+    id="MiniHack-LavaCross-Levitate-Potion-Pickup-Restricted-v0",
+    entry_point="minihack.envs.skills_lava:MiniHackLCLevitatePotionPickupRestrictedActions",
+)
+register(
+    id="MiniHack-LavaCross-Levitate-Potion-Inv-Full-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLCLevitatePotionInv",
 )
 register(
-    id="MiniHack-LavaCross-Levitate-Ring-Pickup-v0",
+    id="MiniHack-LavaCross-Levitate-Potion-Inv-Restricted-v0",
+    entry_point="minihack.envs.skills_lava:MiniHackLCLevitatePotionInvRestrictedActions",
+)
+register(
+    id="MiniHack-LavaCross-Levitate-Ring-Pickup-Full-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLCLevitateRingPickup",
 )
 register(
-    id="MiniHack-LavaCross-Levitate-Ring-Inv-v0",
+    id="MiniHack-LavaCross-Levitate-Ring-Pickup-Restricted-v0",
+    entry_point="minihack.envs.skills_lava:MiniHackLCLevitateRingPickupRestrictedActions",
+)
+register(
+    id="MiniHack-LavaCross-Levitate-Ring-Inv-Full-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLCLevitateRingInv",
 )
 register(
-    id="MiniHack-LavaCross-Levitate-v0",
+    id="MiniHack-LavaCross-Levitate-Ring-Inv-Restricted-v0",
+    entry_point="minihack.envs.skills_lava:MiniHackLCLevitateRingInvRestrictedActions",
+)
+register(
+    id="MiniHack-LavaCross-Levitate-Full-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLCLevitate",
 )
 register(
-    id="MiniHack-LavaCross-v0",
+    id="MiniHack-LavaCross-Levitate-Restricted-v0",
+    entry_point="minihack.envs.skills_lava:MiniHackLCLevitateRestrictedActions",
+)
+register(
+    id="MiniHack-LavaCross-Full-v0",
     entry_point="minihack.envs.skills_lava:MiniHackLC",
+)
+register(
+    id="MiniHack-LavaCross-Restricted-v0",
+    entry_point="minihack.envs.skills_lava:MiniHackLCRestrictedActions",
 )
