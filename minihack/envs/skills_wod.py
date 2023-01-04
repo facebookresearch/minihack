@@ -59,16 +59,16 @@ class MiniHackWoDEasyRestrictedActions(MiniHackSkill):
         rwrd_mngr = RewardManager()
         rwrd_mngr.add_kill_event("minotaur")
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.ZAP, \
-                                                     nethack.Command.FIRE)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.ZAP,
+            nethack.Command.FIRE,
+        )
         kwargs["actions"] = ACTIONS
-        
 
         super().__init__(
             *args, des_file=des_file, reward_manager=rwrd_mngr, **kwargs
         )
-        
 
 
 class MiniHackWoDMedium(MiniHackSkill):
@@ -111,16 +111,15 @@ class MiniHackWoDMediumRestrictedActions(MiniHackSkill):
         lvl_gen.add_monster("minotaur", args=("asleep",), place=(26, 1))
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 150)
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.ZAP, \
-                                                     nethack.Command.FIRE)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.ZAP,
+            nethack.Command.FIRE,
+        )
         kwargs["actions"] = ACTIONS
-        
-        
 
         des_file = lvl_gen.get_des()
         super().__init__(*args, des_file=des_file, **kwargs)
-        
 
 
 class MiniHackWoDHard(MiniHackSkill):
@@ -172,14 +171,14 @@ class MiniHackWoDHardRestrictedActions(MiniHackSkill):
         des_file = lvl_gen.get_des()
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.ZAP, \
-                                                     nethack.Command.FIRE)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.ZAP,
+            nethack.Command.FIRE,
+        )
         kwargs["actions"] = ACTIONS
-        
 
         super().__init__(*args, des_file=des_file, **kwargs)
-        
 
 
 class MiniHackWoDPro(MiniHackSkill):
@@ -255,18 +254,18 @@ class MiniHackWoDProRestrictedActions(MiniHackSkill):
         des_file = lvl_gen.get_des()
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 1000)
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.ZAP, \
-                                                     nethack.Command.FIRE)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.ZAP,
+            nethack.Command.FIRE,
+        )
         kwargs["actions"] = ACTIONS
-        
 
         super().__init__(
             *args,
             des_file=des_file,
             **kwargs,
         )
-        
 
 
 register(

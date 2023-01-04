@@ -26,20 +26,21 @@ class MiniHackFreezeWand(MiniHackFreeze):
 
         super().__init__(*args, des_file=des_file, **kwargs)
 
-        
+
 class MiniHackFreezeWandRestrictedActions(MiniHackFreeze):
     def __init__(self, *args, **kwargs):
         lvl_gen = LevelGenerator(w=8, h=8, lit=True)
         lvl_gen.add_object("cold", "/", cursestate="blessed")
         des_file = lvl_gen.get_des()
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.ZAP, \
-                                                     nethack.Command.FIRE)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.ZAP,
+            nethack.Command.FIRE,
+        )
         kwargs["actions"] = ACTIONS
-        
 
-        super().__init__(*args, des_file=des_file, **kwargs)        
+        super().__init__(*args, des_file=des_file, **kwargs)
 
 
 class MiniHackFreezeHorn(MiniHackFreeze):
@@ -57,14 +58,14 @@ class MiniHackFreezeHornRestrictedActions(MiniHackFreeze):
         lvl_gen.add_object("frost horn", "(", cursestate="blessed")
         des_file = lvl_gen.get_des()
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.APPLY, \
-                                                     nethack.Command.FIRE)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.APPLY,
+            nethack.Command.FIRE,
+        )
         kwargs["actions"] = ACTIONS
-        
 
         super().__init__(*args, des_file=des_file, **kwargs)
-        
 
 
 class MiniHackFreezeRandom(MiniHackFreeze):
@@ -121,15 +122,15 @@ IF [50%] {
 }
 """
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.ZAP, \
-                                                     nethack.Command.APPLY, \
-                                                     nethack.Command.FIRE)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.ZAP,
+            nethack.Command.APPLY,
+            nethack.Command.FIRE,
+        )
         kwargs["actions"] = ACTIONS
 
-        
         super().__init__(*args, des_file=des_file, **kwargs)
-        
 
 
 class MiniHackFreezeLava(MiniHackSkill):
@@ -193,15 +194,15 @@ IF [50%] {
 BRANCH:(1,1,5,5),(0,0,0,0)
 STAIR:rndcoord($right_bank),down
 """
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.ZAP, \
-                                                     nethack.Command.APPLY, \
-                                                     nethack.Command.FIRE)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.ZAP,
+            nethack.Command.APPLY,
+            nethack.Command.FIRE,
+        )
         kwargs["actions"] = ACTIONS
 
-        
         super().__init__(*args, des_file=des_file, **kwargs)
-        
 
 
 register(

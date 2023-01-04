@@ -155,14 +155,13 @@ class MiniHackMultiRoomN6(MiniGridHack):
         super().__init__(*args, env_name="MiniGrid-MultiRoom-N6-v0", **kwargs)
 
 
-
 register(
     id="MiniGrid-MultiRoom-N10-v0",
     entry_point="gym_minigrid.envs:MultiRoomEnv",
     kwargs={"minNumRooms": 10, "maxNumRooms": 10},
 )
 
-        
+
 class MiniHackMultiRoomN10(MiniGridHack):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 360)
@@ -172,19 +171,19 @@ class MiniHackMultiRoomN10(MiniGridHack):
 # open door version of the above envs - methods with message-based bonuses tend to fail on these
 # because there is no message "the door opens" when visiting a new room
 
+
 class MiniHackMultiRoomN6OpenDoor(MiniGridHack):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 240)
         kwargs["door_state"] = kwargs.pop("door_state", "open")
         super().__init__(*args, env_name="MiniGrid-MultiRoom-N6-v0", **kwargs)
-        
+
 
 class MiniHackMultiRoomN10OpenDoor(MiniGridHack):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 360)
         kwargs["door_state"] = kwargs.pop("door_state", "open")
         super().__init__(*args, env_name="MiniGrid-MultiRoom-N10-v0", **kwargs)
-
 
 
 register(
@@ -211,7 +210,6 @@ register(
     id="MiniHack-MultiRoom-N10-OpenDoor-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN10OpenDoor",
 )
-
 
 
 # MiniGrid: LockedMultiRoom
@@ -279,7 +277,7 @@ class MiniHackMultiRoomN6Lava(MiniGridHack):
         kwargs["lava_walls"] = True
         super().__init__(*args, env_name="MiniGrid-MultiRoom-N6-v0", **kwargs)
 
-        
+
 class MiniHackMultiRoomN10Lava(MiniGridHack):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 360)
@@ -291,18 +289,16 @@ class MiniHackMultiRoomN6LavaOpenDoor(MiniGridHack):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 240)
         kwargs["lava_walls"] = True
-        kwargs["door_state"] = kwargs.pop("door_state", "open")        
+        kwargs["door_state"] = kwargs.pop("door_state", "open")
         super().__init__(*args, env_name="MiniGrid-MultiRoom-N6-v0", **kwargs)
 
-        
+
 class MiniHackMultiRoomN10LavaOpenDoor(MiniGridHack):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 360)
         kwargs["lava_walls"] = True
-        kwargs["door_state"] = kwargs.pop("door_state", "open")        
+        kwargs["door_state"] = kwargs.pop("door_state", "open")
         super().__init__(*args, env_name="MiniGrid-MultiRoom-N10-v0", **kwargs)
-        
-        
 
 
 register(
@@ -329,7 +325,6 @@ register(
     id="MiniHack-MultiRoom-N10-Lava-OpenDoor-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN10LavaOpenDoor",
 )
-
 
 
 # MiniGrid: MonsterpedMultiRoom
@@ -371,7 +366,6 @@ register(
     id="MiniHack-MultiRoom-N6-Monster-v0",
     entry_point="minihack.envs.minigrid:MiniHackMultiRoomN6Monster",
 )
-
 
 
 # MiniGrid: ExtremeMultiRoom
@@ -420,8 +414,9 @@ register(
 )
 
 
-# Note: the N6-Extreme-v0 env above is impossible to solve consistently even for a human 
-# due to too many monsters. Here are some easier envs with lava and fewer monsters. 
+# Note: the N6-Extreme-v0 env above is impossible to solve consistently even for a human
+# due to too many monsters. Here are some easier envs with lava and fewer monsters.
+
 
 class MiniHackMultiRoomN2LavaMonsters(MiniGridHack):
     def __init__(self, *args, **kwargs):
@@ -476,7 +471,6 @@ register(
     entry_point="gym_minigrid.envs:CrossingEnv",
     kwargs={"size": 19, "num_crossings": 17},
 )
-
 
 
 register(

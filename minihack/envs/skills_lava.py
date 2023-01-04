@@ -30,16 +30,18 @@ STAIR:rndcoord($right_bank),down
 """
         super().__init__(*args, des_file=des_file, **kwargs)
 
+
 class MiniHackLCLevitatePotionPickupRestrictedActions(MiniHackSkill):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.QUAFF, \
-                                                     nethack.Command.FIRE)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.QUAFF,
+            nethack.Command.FIRE,
+        )
         kwargs["actions"] = ACTIONS
 
-        
         des_file = """
 MAZE: "mylevel", ' '
 FLAGS:hardfloor
@@ -62,7 +64,6 @@ BRANCH:(1,1,5,5),(0,0,0,0)
 STAIR:rndcoord($right_bank),down
 """
         super().__init__(*args, des_file=des_file, **kwargs)
-        
 
 
 class MiniHackLCLevitatePotionInv(MiniHackSkill):
@@ -97,11 +98,13 @@ class MiniHackLCLevitatePotionInvRestrictedActions(MiniHackSkill):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
         kwargs["autopickup"] = kwargs.pop("autopickup", True)
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.QUAFF, \
-                                                     nethack.Command.FIRE)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.QUAFF,
+            nethack.Command.FIRE,
+        )
         kwargs["actions"] = ACTIONS
-        
+
         des_file = """
 MAZE: "mylevel", ' '
 FLAGS:hardfloor
@@ -123,7 +126,6 @@ BRANCH:(2,2,2,2),(0,0,0,0)
 STAIR:rndcoord($right_bank),down
 """
         super().__init__(*args, des_file=des_file, **kwargs)
-        
 
 
 class MiniHackLCLevitateRingPickup(MiniHackSkill):
@@ -157,13 +159,14 @@ class MiniHackLCLevitateRingPickupRestrictedActions(MiniHackSkill):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.PUTON, \
-                                                     nethack.Command.FIRE, \
-                                                     nethack.Command.READ)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.PUTON,
+            nethack.Command.FIRE,
+            nethack.Command.READ,
+        )
         kwargs["actions"] = ACTIONS
 
-        
         des_file = """
 MAZE: "mylevel", ' '
 FLAGS:hardfloor
@@ -186,8 +189,6 @@ BRANCH:(1,1,5,5),(0,0,0,0)
 STAIR:rndcoord($right_bank),down
 """
         super().__init__(*args, des_file=des_file, **kwargs)
-
-        
 
 
 class MiniHackLCLevitateRingInv(MiniHackSkill):
@@ -222,12 +223,14 @@ class MiniHackLCLevitateRingInvRestrictedActions(MiniHackSkill):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
         kwargs["autopickup"] = kwargs.pop("autopickup", True)
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.PUTON, \
-                                                     nethack.Command.FIRE, \
-                                                     nethack.Command.READ)
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.PUTON,
+            nethack.Command.FIRE,
+            nethack.Command.READ,
+        )
         kwargs["actions"] = ACTIONS
-        
+
         des_file = """
 MAZE: "mylevel", ' '
 FLAGS:hardfloor
@@ -249,16 +252,12 @@ BRANCH:(2,2,2,2),(0,0,0,0)
 STAIR:rndcoord($right_bank),down
 """
         super().__init__(*args, des_file=des_file, **kwargs)
-        
 
 
-
-
-        
 class MiniHackLCLevitate(MiniHackSkill):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
-        
+
         des_file = """
 MAZE: "mylevel", ' '
 FLAGS:hardfloor
@@ -289,21 +288,22 @@ BRANCH:(1,1,5,5),(0,0,0,0)
 STAIR:rndcoord($right_bank),down
 """
         super().__init__(*args, des_file=des_file, **kwargs)
-
 
 
 class MiniHackLCLevitateRestrictedActions(MiniHackSkill):
     def __init__(self, *args, **kwargs):
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 400)
 
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.WEAR, \
-                                                     nethack.Command.QUAFF, \
-                                                     nethack.Command.PUTON, \
-                                                     nethack.Command.FIRE, \
-                                                     nethack.Command.READ)
-        kwargs["actions"] = ACTIONS        
-        
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.WEAR,
+            nethack.Command.QUAFF,
+            nethack.Command.PUTON,
+            nethack.Command.FIRE,
+            nethack.Command.READ,
+        )
+        kwargs["actions"] = ACTIONS
+
         des_file = """
 MAZE: "mylevel", ' '
 FLAGS:hardfloor
@@ -334,7 +334,6 @@ BRANCH:(1,1,5,5),(0,0,0,0)
 STAIR:rndcoord($right_bank),down
 """
         super().__init__(*args, des_file=des_file, **kwargs)
-        
 
 
 class MiniHackLC(MiniHackSkill):
@@ -344,18 +343,19 @@ class MiniHackLC(MiniHackSkill):
 
 class MiniHackLCRestrictedActions(MiniHackSkill):
     def __init__(self, *args, **kwargs):
-        ACTIONS = tuple(nethack.CompassDirection) + (nethack.Command.PICKUP, \
-                                                     nethack.Command.ZAP, \
-                                                     nethack.Command.WEAR, \
-                                                     nethack.Command.APPLY, \
-                                                     nethack.Command.QUAFF, \
-                                                     nethack.Command.PUTON, \
-                                                     nethack.Command.FIRE, \
-                                                     nethack.Command.READ)
-        kwargs["actions"] = ACTIONS        
-        
+        ACTIONS = tuple(nethack.CompassDirection) + (
+            nethack.Command.PICKUP,
+            nethack.Command.ZAP,
+            nethack.Command.WEAR,
+            nethack.Command.APPLY,
+            nethack.Command.QUAFF,
+            nethack.Command.PUTON,
+            nethack.Command.FIRE,
+            nethack.Command.READ,
+        )
+        kwargs["actions"] = ACTIONS
+
         super().__init__(*args, des_file="lava_crossing.des", **kwargs)
-        
 
 
 register(
