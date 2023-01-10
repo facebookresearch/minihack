@@ -1,5 +1,5 @@
 <p align="center">
- <img width="70%" src="docs/imgs/minihack.png" />
+ <img width="80%" src="docs/imgs/minihack.png" />
 </p>
 
 <p align="center">
