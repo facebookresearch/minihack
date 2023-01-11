@@ -1,6 +1,4 @@
-<p align="center">
- <img width="80%" src="docs/imgs/minihack.png" />
-</p>
+![](docs/imgs/minihack.png)
 
 <p align="center">
   <a href="https://pypi.python.org/pypi/minihack/">
@@ -29,25 +27,19 @@ Check out our [NeurIPS 2021 paper](https://arxiv.org/abs/2109.13202) and recent 
 MiniHack comes with a large list of challenging [environments](https://minihack.readthedocs.io/en/latest/envs/index.html). However, it is primarily built for easily designing new ones.
 The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the complexity of the tasks.
 
-<p align="center">
- <img width="90%" src="/docs/imgs/minihack_gameplay_collage.gif" />
-</p>
+![](docs/imgs/minihack_gameplay_collage.gif)
 
 To do this, MiniHack leverages the so-called [description files](https://nethackwiki.com/wiki/Des-file_format) written using a human-readable probabilistic-programming-like domain-specific language. With just a few lines of code, people can generate a large variety of [Gym](https://github.com/openai/gym) environments, controlling every little detail, from the location and types of monsters, to the traps, objects, and terrain of the level, all while introducing randomness that challenges generalization capabilities of RL agents. For further details, we refer users to our [brief overview](https://minihack.readthedocs.io/en/latest/getting-started/des_files.html), [detailed tutorial](https://minihack.readthedocs.io/en/latest/tutorials/des_file_tutorial.html), or [interactive notebook](./docs/tutorials/des_file_tutorial.ipynb).
 
 [Our documentation](https://minihack.readthedocs.io/) will walk you through everything you need to know about MiniHack, step-by-step, including information on how to get started, configure environments or design new ones, train baseline agents, and much more.
 
-<p align="center">
- <img width="90%" src="/docs/imgs/des_file.gif" />
-</p>
+![](docs/imgs/des_file.gif)
 
 ### MiniHack Level Editor
 
 The [MiniHack Level Editor](https://minihack-editor.github.io) allows to easily define MiniHack environments inside a browser using a convenient drag-and-drop functionality. Check it out at [minihack-editor.github.io](https://minihack-editor.github.io).
 
-<p align="center">
- <img width="75%" src="/docs/imgs/level_editor.png" />
-</p>
+![](docs/imgs/level_editor.png)
 
 ### Language Wrapper
 
