@@ -14,6 +14,10 @@ formats:
 python:
   setup_py_install: true
   version: 3.8
+  jobs:
+    pre_install:
+      - cat README.md > docs/index.md
+      - cat docs/index_tree.md >> docs/index.md
   install:
     - method: pip
       path: .
