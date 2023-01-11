@@ -191,7 +191,7 @@ If you use our example ported environments, please cite the original papers: [Mi
 
 # Contributions and Maintenance
 
-MiniHack was built and is maintained by [Meta AI (FAIR)](https://ai.facebook.com/), [UCL DARK](https://ucldark.com/) and [University of Oxrord](https://www.ox.ac.uk/). We welcome contributions to MiniHack. If you are interested in contributing, please see [this document](./CONTRIBUTING.md). Our maintenance plan can be found [here](./MAINTENANCE.md).
+MiniHack was built and is maintained by [Meta AI (FAIR)](https://ai.facebook.com/), [UCL DARK](https://ucldark.com/) and [University of Oxford](https://www.ox.ac.uk/). We welcome contributions to MiniHack. If you are interested in contributing, please see [this document](./CONTRIBUTING.md). Our maintenance plan can be found [here](./MAINTENANCE.md).
 
 <div align="center">
 <a href="https://github.com/samvelyan" title="Mikayel Samvelyan"><img src="https://github.com/samvelyan.png" height="auto" width="50" style="border-radius:50%"></a>
