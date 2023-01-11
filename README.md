@@ -191,5 +191,17 @@ If you use our example ported environments, please cite the original papers: [Mi
 
 # Contributions and Maintenance
 
-We welcome contributions to MiniHack. If you are interested in contributing, please see [this document](./CONTRIBUTING.md). Our maintenance plan can be found [here](./MAINTENANCE.md).
+MiniHack was built and is maintained by [Meta AI (FAIR)](https://ai.facebook.com/), [UCL DARK](https://ucldark.com/) and [University of Oxrord](https://www.ox.ac.uk/). We welcome contributions to MiniHack. If you are interested in contributing, please see [this document](./CONTRIBUTING.md). Our maintenance plan can be found [here](./MAINTENANCE.md).
 
+<div align="center">
+<a href="https://github.com/samvelyan" title="Mikayel Samvelyan"><img src="https://github.com/samvelyan.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/RobertKirk" title="Robert Kirk"><img src="https://github.com/RobertKirk.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/yobibyte" title="Vitaly Kurin"><img src="https://github.com/yobibyte.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/jparkerholder" title="Manon Flageat"><img src="https://github.com/jparkerholder.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/minqi" title="Minqi Jiang"><img src="https://github.com/minqi.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/condnsdmatters" title="Eric Hambro"><img src="https://github.com/condnsdmatters.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/fabiopetroni" title="Fabio Petroni"><img src="https://github.com/fabiopetroni.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/heiner" title="Heinrich Küttler"><img src="https://github.com/heiner.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/egrefen" title="Edward Grefenstette"><img src="https://github.com/egrefen.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/rockt" title="Tim Rocktäschel"><img src="https://github.com/rockt.png" height="auto" width="50" style="border-radius:50%"></a>
+</div>
