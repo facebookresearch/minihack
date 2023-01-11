@@ -22,10 +22,8 @@ formats:
 
 # Explicitly set the version of Python and its requirements
 python:
-  setup_py_install: true
-  version: 3.8
   install:
     - method: pip
       path: .
       extra_requirements:
-        - dev
+        - dev        
