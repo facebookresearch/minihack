@@ -1,5 +1,5 @@
 <p align="center">
- <img width="80%" src="docs/imgs/minihack.png" />
+ <img width="80%" src="https://raw.githubusercontent.com/facebookresearch/minihack/main/docs/imgs/minihack.png" />
 </p>
 
 <p align="center">
@@ -30,7 +30,7 @@ MiniHack comes with a large list of challenging [environments](https://minihack.
 The motivation behind MiniHack is to be able to perform RL experiments in a controlled setting while being able to increasingly scale the complexity of the tasks.
 
 <p align="center">
- <img width="90%" src="/docs/imgs/minihack_gameplay_collage.gif" />
+ <img width="90%" src="https://raw.githubusercontent.com/facebookresearch/minihack/main/docs/imgs/minihack_gameplay_collage.gif" />
 </p>
 
 To do this, MiniHack leverages the so-called [description files](https://nethackwiki.com/wiki/Des-file_format) written using a human-readable probabilistic-programming-like domain-specific language. With just a few lines of code, people can generate a large variety of [Gym](https://github.com/openai/gym) environments, controlling every little detail, from the location and types of monsters, to the traps, objects, and terrain of the level, all while introducing randomness that challenges generalization capabilities of RL agents. For further details, we refer users to our [brief overview](https://minihack.readthedocs.io/en/latest/getting-started/des_files.html), [detailed tutorial](https://minihack.readthedocs.io/en/latest/tutorials/des_file_tutorial.html), or [interactive notebook](./docs/tutorials/des_file_tutorial.ipynb).
@@ -38,7 +38,7 @@ To do this, MiniHack leverages the so-called [description files](https://nethack
 [Our documentation](https://minihack.readthedocs.io/) will walk you through everything you need to know about MiniHack, step-by-step, including information on how to get started, configure environments or design new ones, train baseline agents, and much more.
 
 <p align="center">
- <img width="90%" src="/docs/imgs/des_file.gif" />
+ <img width="90%" src="https://raw.githubusercontent.com/facebookresearch/minihack/main/docs/imgs/des_file.gif" />
 </p>
 
 ### MiniHack Level Editor
@@ -46,7 +46,7 @@ To do this, MiniHack leverages the so-called [description files](https://nethack
 The [MiniHack Level Editor](https://minihack-editor.github.io) allows to easily define MiniHack environments inside a browser using a convenient drag-and-drop functionality. Check it out at [minihack-editor.github.io](https://minihack-editor.github.io).
 
 <p align="center">
- <img width="75%" src="/docs/imgs/level_editor.png" />
+ <img width="75%" src="https://raw.githubusercontent.com/facebookresearch/minihack/main/docs/imgs/level_editor.png" />
 </p>
 
 ### Language Wrapper
@@ -191,4 +191,17 @@ If you use our example ported environments, please cite the original papers: [Mi
 
 # Contributions and Maintenance
 
-We welcome contributions to MiniHack. If you are interested in contributing, please see [this document](./CONTRIBUTING.md). Our maintenance plan can be found [here](./MAINTENANCE.md).
+MiniHack was built and is maintained by [Meta AI (FAIR)](https://ai.facebook.com/), [UCL DARK](https://ucldark.com/) and [University of Oxford](https://www.ox.ac.uk/). We welcome contributions to MiniHack. If you are interested in contributing, please see [this document](./CONTRIBUTING.md). Our maintenance plan can be found [here](./MAINTENANCE.md).
+
+<div align="center">
+<a href="https://github.com/samvelyan" title="Mikayel Samvelyan"><img src="https://github.com/samvelyan.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/RobertKirk" title="Robert Kirk"><img src="https://github.com/RobertKirk.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/yobibyte" title="Vitaly Kurin"><img src="https://github.com/yobibyte.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/jparkerholder" title="Manon Flageat"><img src="https://github.com/jparkerholder.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/minqi" title="Minqi Jiang"><img src="https://github.com/minqi.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/condnsdmatters" title="Eric Hambro"><img src="https://github.com/condnsdmatters.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/fabiopetroni" title="Fabio Petroni"><img src="https://github.com/fabiopetroni.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/heiner" title="Heinrich Küttler"><img src="https://github.com/heiner.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/egrefen" title="Edward Grefenstette"><img src="https://github.com/egrefen.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/rockt" title="Tim Rocktäschel"><img src="https://github.com/rockt.png" height="auto" width="50" style="border-radius:50%"></a>
+</div>

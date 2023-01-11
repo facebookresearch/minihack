@@ -206,6 +206,7 @@ minihack/dat/*.json
 boxoban-levels-master/
 .boxoban_levels
 outputs/
+docs/index.md
 
 # Third party
 latest

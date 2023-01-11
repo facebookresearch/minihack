@@ -23,5 +23,8 @@ help:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	rm -rf "$(BUILDDIR)"
+	rm -rf index.md
+	cat ../README.md > index.md
+	cat index_tree.md >> index.md
 	@$(APICMD) -e -f -o  "$(APIDOCDIR)" --module-first "$(APICODEDIR)" $(APIOPTS)
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
