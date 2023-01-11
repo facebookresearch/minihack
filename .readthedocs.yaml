@@ -26,7 +26,7 @@ build:
   tools:
     python: "3.8"
   jobs:
-    pre_install:
+    post_checkout:
       - cat README.md > docs/index.md
       - cat docs/index_tree.md >> docs/index.md
       
