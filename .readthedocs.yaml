@@ -1,4 +1,14 @@
-version: 1
+version: 2
+
+# Build customization
+build:
+  os: "ubuntu-20.04"
+  tools:
+    python: "3.8"
+  jobs:
+    post_checkout:
+      - cat README.md > docs/index.md
+      - cat docs/index_tree.md >> docs/index.md
 
 # Build from the docs/ directory with Sphinx
 sphinx:
@@ -12,10 +22,8 @@ formats:
 
 # Explicitly set the version of Python and its requirements
 python:
-  setup_py_install: true
-  version: 3.8
   install:
     - method: pip
       path: .
       extra_requirements:
-        - dev
+        - dev        

@@ -61,6 +61,7 @@ We thank [ngoodger](https://github.com/ngoodger) for implementing the [NLE Langu
 - Kessler et al. [The Surprising Effectiveness of Latent World Models for Continual Reinforcement Learning](https://arxiv.org/abs/2211.15944) (Oxford, Polish Academy of Sciences, DeepRL Workshop 2022)
 - Wagner et al. [Cyclophobic Reinforcement Learning](https://openreview.net/forum?id=jH0Oc8gJ6G) (HHU Düsseldorf, TU Dortmund, DeepRL Workshop 2022)
 - Henaff et al. [Integrating Episodic and Global Bonuses for Efficient Exploration](https://openreview.net/forum?id=uMZkWW0uB3) (Meta AI, UCL, DeepRL Workshop 2022)
+- Jiang et al. [Grounding Aleatoric Uncertainty in Unsupervised Environment Design](https://arxiv.org/abs/2207.05219) (FAIR, UCL, Berkeley, Oxford, NeurIPS 2022)
 - Henaff et al. [Exploration via Elliptical Episodic Bonuses](https://arxiv.org/abs/2210.05805) (Meta AI, UCL, NeurIPS 2022)
 - Mu et al. [Improving Intrinsic Exploration with Language Abstractions](https://arxiv.org/abs/2202.08938) (Stanford, UW, Meta AI, UCL, NeurIPS 2022)
 - Chester et al. [Oracle-SAGE: Planning Ahead in Graph-Based Deep Reinforcement Learning](https://2022.ecmlpkdd.org/wp-content/uploads/2022/09/sub_137.pdf) (RMIT University, Sept 2022)
@@ -70,10 +71,8 @@ We thank [ngoodger](https://github.com/ngoodger) for implementing the [NLE Langu
 - Nottingham et al. [Learning to Query Internet Text for Informing Reinforcement Learning Agents](https://arxiv.org/abs/2205.13079) (UC Irvine, May 2022)
 - Matthews et al. [SkillHack: A Benchmark for Skill Transfer in Open-Ended Reinforcement Learning](https://openreview.net/forum?id=rHSVHmDWI-9) (UCL, Meta AI, Oxford, April 2022)
 - Parker-Holder et al. [Evolving Curricula with Regret-Based Environment Design](https://arxiv.org/abs/2203.01302) (Oxford, Meta AI, UCL, Berkeley, ICML 2022)
-- Jiang et al. [Grounding Aleatoric Uncertainty in Unsupervised Environment Design](https://openreview.net/forum?id=o8_QHMYOfu) (FAIR, UCL, Berkeley, Oxford, December 2021)
-- Parker-Holder et al. [That Escalated Quickly: Compounding Complexity by Editing Levels at the Frontier of Agent Capabilities](https://openreview.net/forum?id=3qGInPFqR0p) (Oxford, FAIR, UCL, Berkeley, December 2021)
-- Samvelyan et al. [MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research
-](https://arxiv.org/abs/2109.13202) (FAIR, UCL, Oxford, NeurIPS 2021)
+- Parker-Holder et al. [That Escalated Quickly: Compounding Complexity by Editing Levels at the Frontier of Agent Capabilities](https://openreview.net/forum?id=3qGInPFqR0p) (Oxford, FAIR, UCL, Berkeley, DeepRL Workshop 2021)
+- Samvelyan et al. [MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research](https://arxiv.org/abs/2109.13202) (FAIR, UCL, Oxford, NeurIPS 2021)
 
 Open a [pull request](https://github.com/facebookresearch/minihack/edit/main/README.md) to add papers.
 
