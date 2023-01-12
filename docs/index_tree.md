@@ -43,7 +43,6 @@ tutorials/des_file_tutorial.ipynb
 agents/torchbeast
 agents/rllib
 agents/ued
-agents/other
 ```
 
 ```{toctree}
