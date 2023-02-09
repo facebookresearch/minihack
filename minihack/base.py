@@ -26,8 +26,7 @@ try:
     MH_FULL_ACTIONS.remove(nethack.MiscDirection.UP)
 except ValueError:
     pass
-NLE_VERSION = pkg_resources.get_distribution("nle").version[:5]
-if NLE_VERSION in ["0.8.1", "0.9.0"]:
+try:
     NLE_EXTRA_V081_ACTIONS = (
         nethack.Command.SEEARMOR,
         nethack.Command.SEERINGS,
@@ -37,7 +36,7 @@ if NLE_VERSION in ["0.8.1", "0.9.0"]:
         nethack.TextCharacters.PLUS,
         nethack.TextCharacters.QUOTE,
     )
-else:
+except AttributeError:
     NLE_EXTRA_V081_ACTIONS = ()
 HACKDIR = pkg_resources.resource_filename("nle", "nethackdir")
 
@@ -151,7 +150,7 @@ class MiniHack(NetHackStaircase):
         pet=False,
         observation_keys=MH_DEFAULT_OBS_KEYS,
         seeds=None,
-        include_see_actions=False,
+        include_see_actions=True,
         **kwargs,
     ):
         """Constructs a new MiniHack environment.
