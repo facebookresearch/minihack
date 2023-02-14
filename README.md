@@ -58,6 +58,7 @@ We thank [ngoodger](https://github.com/ngoodger) for implementing the [NLE Langu
 
 # Papers using MiniHack
 
+- Bagaria et al. [Scaling Goal-based Exploration via Pruning Proto-goals](https://arxiv.org/abs/2302.04693) (Brown, DeepMind, Feb 2023)
 - Carvalho et al. [Composing Task Knowledge with Modular Successor Feature Approximators](https://arxiv.org/abs/2301.12305) (UMich, Oxford, LGAI, ICLR 2023)
 - Kessler et al. [The Surprising Effectiveness of Latent World Models for Continual Reinforcement Learning](https://arxiv.org/abs/2211.15944) (Oxford, Polish Academy of Sciences, DeepRL Workshop 2022)
 - Wagner et al. [Cyclophobic Reinforcement Learning](https://openreview.net/forum?id=jH0Oc8gJ6G) (HHU Düsseldorf, TU Dortmund, DeepRL Workshop 2022)
