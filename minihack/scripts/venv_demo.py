@@ -11,8 +11,7 @@ try:
     from stable_baselines3.common.utils import set_random_seed
 except ModuleNotFoundError:
     raise ModuleNotFoundError(
-        "To use MiniGrid-based environments, please install"
-        " stable_baselines3: pip install stable_baselines3"
+        "please install stable_baselines3: pip install stable_baselines3"
     )
 
 
@@ -64,15 +63,6 @@ class VecEnv_Wrapper:
 
 
 def make_env(env_id, subproc, rank, seed=0):
-    """
-    Utility function for multiprocessed env.
-
-    :param env_id: (str) the environment ID
-    :param num_env: (int) the number of environment you wish to have in subprocesses
-    :param seed: (int) the inital seed for RNG
-    :param rank: (int) index of the subprocess
-    """
-
     def _init():
         env = gym.make(env_id)
         env.seed(seed + rank)
