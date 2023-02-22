@@ -26,7 +26,18 @@ try:
     MH_FULL_ACTIONS.remove(nethack.MiscDirection.UP)
 except ValueError:
     pass
-MH_FULL_ACTIONS = tuple(MH_FULL_ACTIONS)
+try:
+    NLE_EXTRA_V081_ACTIONS = (
+        nethack.Command.SEEARMOR,
+        nethack.Command.SEERINGS,
+        nethack.Command.SEETOOLS,
+        nethack.Command.SEEWEAPON,
+        nethack.Command.SHELL,
+        nethack.TextCharacters.PLUS,
+        nethack.TextCharacters.QUOTE,
+    )
+except AttributeError:
+    NLE_EXTRA_V081_ACTIONS = ()
 HACKDIR = pkg_resources.resource_filename("nle", "nethackdir")
 
 RGB_MAX_VAL = 255
@@ -139,6 +150,7 @@ class MiniHack(NetHackStaircase):
         pet=False,
         observation_keys=MH_DEFAULT_OBS_KEYS,
         seeds=None,
+        include_see_actions=True,
         **kwargs,
     ):
         """Constructs a new MiniHack environment.
@@ -226,6 +238,11 @@ class MiniHack(NetHackStaircase):
             spawn_monsters (bool):
                 If False, disables normal NetHack behavior to randomly
                 create monsters. Defaults to False. Inherited from `NLE`.
+            include_see_actions (bool):
+                If True, the agent's action space includes the additional NLE
+                actions introduced in the 0.8.1 release. Has no effect when the
+                `actions` parameter is specified or if the installed nle version
+                is < 0.8.1. Defaults to True.
         """
         # NetHack options
         options: Tuple = MH_NETHACKOPTIONS
@@ -235,7 +252,13 @@ class MiniHack(NetHackStaircase):
             options += ("pettype:none",)
         kwargs["options"] = kwargs.pop("options", options)
         # Actions space
-        kwargs["actions"] = kwargs.pop("actions", MH_FULL_ACTIONS)
+        if "actions" not in kwargs and not include_see_actions:
+            # Remove NLE_EXTRA_V081_ACTIONS introduced from MH_FULL_ACTIONS
+            kwargs["actions"] = tuple(
+                a for a in MH_FULL_ACTIONS if a not in NLE_EXTRA_V081_ACTIONS
+            )
+        else:
+            kwargs["actions"] = kwargs.pop("actions", tuple(MH_FULL_ACTIONS))
 
         # Enter Wizard mode - turned off by default
         kwargs["wizard"] = kwargs.pop("wizard", False)
