@@ -151,6 +151,7 @@ class MiniHack(NetHackStaircase):
         observation_keys=MH_DEFAULT_OBS_KEYS,
         seeds=None,
         include_see_actions=True,
+        include_alignment_blstats=True,
         **kwargs,
     ):
         """Constructs a new MiniHack environment.
@@ -239,10 +240,13 @@ class MiniHack(NetHackStaircase):
                 If False, disables normal NetHack behavior to randomly
                 create monsters. Defaults to False. Inherited from `NLE`.
             include_see_actions (bool):
-                If True, the agent's action space includes the additional NLE
+                If True, the agent's action space includes the additional `NLE`
                 actions introduced in the 0.8.1 release. Has no effect when the
-                `actions` parameter is specified or if the installed nle version
-                is < 0.8.1. Defaults to True.
+                `actions` parameter is specified. Defaults to True.
+            include_alignment_blstats (bool):
+                If True, the agent's observation space includes the alignment
+                information in the blstats. This is introduced in `NLE` 0.9.0
+                release. Defaults to True.
         """
         # NetHack options
         options: Tuple = MH_NETHACKOPTIONS
@@ -284,6 +288,10 @@ class MiniHack(NetHackStaircase):
                 and "glyphs_crop" not in self._minihack_obs_keys
             ):
                 self._minihack_obs_keys.append("glyphs_crop")
+        # Ensuring compatability with NLE 0.9.0 release
+        self.remove_alignment_blstats = (
+            False if include_alignment_blstats else True
+        )
 
         self.reward_manager = reward_manager
         if self.reward_manager is not None:
@@ -322,6 +330,16 @@ class MiniHack(NetHackStaircase):
         for key in self._minihack_obs_keys:
             if key in space_dict.keys():
                 obs_space_dict[key] = space_dict[key]
+            elif "blstats" in key and self.remove_alignment_blstats:
+                # Remove alignment from blstats to make minihack compatible
+                # with NLE version v0.8.1
+                obs_space_dict[key] = (
+                    gym.spaces.Box(
+                        low=np.iinfo(np.int32).min,
+                        high=np.iinfo(np.int32).max,
+                        **nethack.OBSERVATION_DESC["blstats"] - 1,
+                    ),
+                )
             elif key in MINIHACK_SPACE_FUNCS.keys():
                 space_func = MINIHACK_SPACE_FUNCS[key]
                 obs_space_dict[key] = space_func(
@@ -433,7 +451,9 @@ class MiniHack(NetHackStaircase):
             raise RuntimeError(f"Couldn't patch the nhdat file.\n{e}")
 
     def _get_observation(self, observation):
-        # Filter out observations that we don't need
+        # Overrides parent class's method to allow for cropping, fitlering out
+        # observations we don't use, as well as adding observations
+        # Called at the end of step() function in nle base class
         observation = super()._get_observation(observation)
         obs_dict = {}
         for key in self._minihack_obs_keys:
@@ -460,6 +480,9 @@ class MiniHack(NetHackStaircase):
             obs_dict["pixel_crop"] = self._glyph_mapper.to_rgb(
                 obs_dict["glyphs_crop"]
             )
+
+        if self.remove_alignment_blstats and "blstats" in obs_dict:
+            obs_dict["blstats"] = obs_dict["blstats"][:-1]
 
         return obs_dict
 
