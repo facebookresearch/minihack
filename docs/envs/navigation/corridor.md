@@ -6,7 +6,7 @@ between the rooms are procedurally generated and are different for every
 episodes.
 
 Different variants of this environment have different numbers of
-rooms, making the exploration challenge more difficult (`Minihack-Corridor-R2-v0`,
+rooms, making the exploration challenge more difficult (`MiniHack-Corridor-R2-v0`,
 `MiniHack-Corridor-R3-v0`, and `MiniHack-Corridor-R5-v0` environments are composed of 2,
 3, and 5 rooms, respectively).
 
