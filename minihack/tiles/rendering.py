@@ -64,7 +64,6 @@ def get_des_file_rendering(
 
     env = MHCustom(
         savedir=None,
-        archivefile=None,
         observation_keys=("pixel",),
         wizard=wizard,
     )

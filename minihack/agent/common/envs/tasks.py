@@ -173,7 +173,6 @@ def create_env(flags, env_id=0):
 
         kwargs = dict(
             savedir=savedir,
-            archivefile=None,
             observation_keys=flags.obs_keys.split(","),
             penalty_step=flags.penalty_step,
             penalty_time=flags.penalty_time,

@@ -37,7 +37,7 @@ def create_model(flags, device):
         raise NotImplementedError("model=%s" % model_string)
 
     num_actions = len(
-        tasks.ENVS[flags.env](savedir=None, archivefile=None)._actions
+        tasks.ENVS[flags.env](savedir=None)._actions
     )
 
     model = model_cls(DUNGEON_SHAPE, num_actions, flags, device)
