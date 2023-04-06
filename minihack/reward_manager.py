@@ -138,11 +138,11 @@ class LocActionEvent(Event):
 
     def check(self, env, previous_observation, action, observation) -> float:
         del previous_observation, observation
-        if env._actions[action] == self.action and _standing_on_top(
+        if env.actions[action] == self.action and _standing_on_top(
             env, self.loc
         ):
             self.status = True
-        elif env._actions[action] == Y_cmd and self.status:
+        elif env.actions[action] == Y_cmd and self.status:
             return self._set_achieved()
         else:
             self.status = False

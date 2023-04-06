@@ -59,7 +59,7 @@ def get_des_file_rendering(
             for c in f"q{msg[0]}":
                 obs, sds = env.env.step(ord(c))
 
-            obs, _, _, _ = env.step(env._actions.index(MiscDirection.WAIT))
+            obs, _, _, _ = env.step(env.actions.index(MiscDirection.WAIT))
         return obs
 
     env = MHCustom(

@@ -82,7 +82,7 @@ def eval(
     if seeds is not None:
         env.seed(seeds)
     if not no_render:
-        print("Available actions:", env._actions)
+        print("Available actions:", env.actions)
 
     obs = env.reset()
     done = False
@@ -117,7 +117,7 @@ def eval(
         if watch and not no_render:
             print("Previous reward:", reward)
             if action is not None:
-                print("Previous action: %s" % repr(env._actions[action]))
+                print("Previous action: %s" % repr(env.actions[action]))
             env.render(render_mode)
 
         if save_gif:

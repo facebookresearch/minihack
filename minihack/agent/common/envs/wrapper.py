@@ -68,7 +68,7 @@ class CropWrapper(gym.Wrapper):
         assert self.h % 2 == 1
         assert self.w % 2 == 1
         self.last_observation = None
-        self._actions = self.env._actions
+        self._actions = self.env.actions
 
     def render(self, mode="human", crop=True):
         self.env.render()
@@ -119,7 +119,7 @@ class PrevWrapper(gym.Wrapper):
         super().__init__(env)
         self.env = env
         self.last_observation = None
-        self._actions = self.env._actions
+        self._actions = self.env.actions
 
     def step(self, action):
         next_state, reward, done, info = self.env.step(action)
