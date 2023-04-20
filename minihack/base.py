@@ -328,18 +328,18 @@ class MiniHack(NetHackStaircase):
     def _get_obs_space_dict(self, space_dict):
         obs_space_dict = {}
         for key in self._minihack_obs_keys:
-            if key in space_dict.keys():
-                obs_space_dict[key] = space_dict[key]
-            elif "blstats" in key and self.remove_alignment_blstats:
+            if "blstats" in key and self.remove_alignment_blstats:
                 # Remove alignment from blstats to make minihack compatible
                 # with NLE version v0.8.1
-                obs_space_dict[key] = (
-                    gym.spaces.Box(
-                        low=np.iinfo(np.int32).min,
-                        high=np.iinfo(np.int32).max,
-                        **nethack.OBSERVATION_DESC["blstats"] - 1,
-                    ),
+                shape = nethack.OBSERVATION_DESC["blstats"]["shape"]
+                obs_space_dict[key] = gym.spaces.Box(
+                    low=np.iinfo(np.int32).min,
+                    high=np.iinfo(np.int32).max,
+                    shape=(shape[0] - 1,),
+                    dtype=nethack.OBSERVATION_DESC["blstats"]["dtype"],
                 )
+            elif key in space_dict.keys():
+                obs_space_dict[key] = space_dict[key]
             elif key in MINIHACK_SPACE_FUNCS.keys():
                 space_func = MINIHACK_SPACE_FUNCS[key]
                 obs_space_dict[key] = space_func(
