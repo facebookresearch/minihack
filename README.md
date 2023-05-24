@@ -19,7 +19,7 @@
     <img src="https://static.pepy.tech/personalized-badge/minihack?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads" />
   </a>
  </p>
- 
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # MiniHack
@@ -45,7 +45,7 @@ To do this, MiniHack leverages the so-called [description files](https://nethack
 
 ### MiniHack Level Editor
 
-The [MiniHack Level Editor](https://minihack-editor.github.io) allows to easily define MiniHack environments inside a browser using a convenient drag-and-drop functionality. Check it out at [minihack-editor.github.io](https://minihack-editor.github.io).
+The [MiniHack Level Editor](https://minihack-editor.github.io) allows to easily define MiniHack environments inside a browser using a convenient drag-and-drop functionality. The source code is available [here](https://github.com/minihack-editor/minihack-editor.github.io).
 
 <p align="center">
  <img width="75%" src="https://raw.githubusercontent.com/facebookresearch/minihack/main/docs/imgs/level_editor.png" />
