@@ -550,7 +550,7 @@ GEOMETRY:center,center
         self.footer += f"GOLD: {amount},{place}\n"
 
     def add_boulder(self, place=None):
-        """Add gold on the floor.
+        """Add a boulder to the floor.
 
         Args:
             amount (int):
