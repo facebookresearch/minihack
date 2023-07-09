@@ -69,7 +69,7 @@ We thank [ngoodger](https://github.com/ngoodger) for implementing the [NLE Langu
 - Mu et al. [Improving Intrinsic Exploration with Language Abstractions](https://arxiv.org/abs/2202.08938) (Stanford, UW, Meta AI, UCL, NeurIPS 2022)
 - Chester et al. [Oracle-SAGE: Planning Ahead in Graph-Based Deep Reinforcement Learning](https://2022.ecmlpkdd.org/wp-content/uploads/2022/09/sub_137.pdf) (RMIT University, Sept 2022)
 - Walker et al. [Unsupervised representational learning with recognition-parametrised probabilistic models](https://arxiv.org/abs/2209.05661) (UCL, Sept 2022)
-- Matthews et al. [Hierarchical Kickstarting for Skill Transfer in Reinforcement Learning](https://arxiv.org/abs/2110.02439) (UCL, Meta AI, Oxford, CoLLAs 2022)
+- Matthews et al. [Hierarchical Kickstarting for Skill Transfer in Reinforcement Learning](https://arxiv.org/abs/2207.11584) (UCL, Meta AI, Oxford, CoLLAs 2022)
 - Powers et al. [CORA: Benchmarks, Baselines, and a Platform for Continual Reinforcement Learning Agents](https://arxiv.org/abs/2110.10067) (CMU, Georgia Tech, AI2, CoLLAs 2022)
 - Nottingham et al. [Learning to Query Internet Text for Informing Reinforcement Learning Agents](https://arxiv.org/abs/2205.13079) (UC Irvine, May 2022)
 - Matthews et al. [SkillHack: A Benchmark for Skill Transfer in Open-Ended Reinforcement Learning](https://openreview.net/forum?id=rHSVHmDWI-9) (UCL, Meta AI, Oxford, April 2022)
