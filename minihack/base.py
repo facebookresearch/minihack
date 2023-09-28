@@ -518,7 +518,7 @@ class MiniHack(NetHackStaircase):
         inv_strs = self.last_observation[inv_strs_index]
         inv_letters = self.last_observation[inv_letters_index]
 
-        for letter, line in zip(inv_letters, inv_strs, strict=True):
+        for letter, line in zip(inv_letters, inv_strs):
             if np.all(line == 0):
                 break
             if name in line.tobytes().decode("utf-8"):
