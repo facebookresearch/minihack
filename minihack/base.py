@@ -3,11 +3,11 @@
 import os
 import subprocess
 import random
-from typing import Tuple
-
 import gym
 import numpy as np
 import pkg_resources
+from typing import Tuple
+
 from nle import _pynethack, nethack
 from nle.nethack.nethack import SCREEN_DESCRIPTIONS_SHAPE, OBSERVATION_DESC
 from nle.env.base import FULL_ACTIONS, NLE_SPACE_ITEMS
@@ -360,9 +360,7 @@ class MiniHack(NetHackStaircase):
                         dtype=np.uint8,
                     )
                 else:
-                    raise ValueError(
-                        f'Observation key "{key}" is not supported'
-                    )
+                    raise ValueError(f"Observation key {key} is not supported")
 
         return obs_space_dict
 
@@ -448,7 +446,7 @@ class MiniHack(NetHackStaircase):
                 ]
             )
         except subprocess.CalledProcessError as e:
-            raise RuntimeError(f"Couldn't patch the nhdat file.\n{e}")
+            raise RuntimeError(f"Couldn't patch the nhdat file.\n{e}") from e
 
     def _get_observation(self, observation):
         # Overrides parent class's method to allow for cropping, fitlering out
