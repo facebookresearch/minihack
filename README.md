@@ -58,6 +58,7 @@ We thank [ngoodger](https://github.com/ngoodger) for implementing the [NLE Langu
 
 # Papers using MiniHack
 
+- Castanyer et al. [Improving Intrinsic Exploration by Creating Stationary Objectives](https://arxiv.org/abs/2310.18144) (Mila, Ubisoft, Nov 2023)
 - Henaff et al. [A Study of Global and Episodic Bonuses for Exploration in Contextual MDPs](https://arxiv.org/abs/2306.03236) (Meta AI, UCL, ICML 2023)
 - Bagaria et al. [Scaling Goal-based Exploration via Pruning Proto-goals](https://arxiv.org/abs/2302.04693) (Brown, DeepMind, Feb 2023)
 - Carvalho et al. [Composing Task Knowledge with Modular Successor Feature Approximators](https://arxiv.org/abs/2301.12305) (UMich, Oxford, LGAI, ICLR 2023)
