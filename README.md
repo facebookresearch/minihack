@@ -12,11 +12,14 @@
   <a href="https://minihack.readthedocs.io/en/latest/?badge=latest">
     <img src="https://readthedocs.org/projects/minihack/badge/?version=latest" />
   </a>
+  <a href="https://pepy.tech/project/minihack">
+    <img src="https://static.pepy.tech/personalized-badge/minihack?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads" />
+  </a>
    <a href="https://github.com/facebookresearch/minihack/actions/workflows/test_and_deploy.yml">
     <img src="https://github.com/facebookresearch/minihack/actions/workflows/test_and_deploy.yml/badge.svg?branch=main" />
   </a>
- <a href="https://pepy.tech/project/minihack">
-    <img src="https://static.pepy.tech/personalized-badge/minihack?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads" />
+  <a href="https://arxiv.org/abs/2109.13202">
+    <img src="https://img.shields.io/badge/arXiv-2109.13202-b31b1b.svg"/>
   </a>
  </p>
 
