@@ -95,9 +95,9 @@ class BoxoHack(MiniHackNavigation):
 
     def reset(self, wizkit_items=None):
         self.update(self.get_lvl_gen().get_des())
-        initial_obs = super().reset(wizkit_items=wizkit_items)
+        initial_obs, info = super().reset(wizkit_items=wizkit_items)
         self._goal_pos_set = self._object_positions(self.last_observation, "{")
-        return initial_obs
+        return initial_obs, info
 
     def _is_episode_end(self, observation):
         # If every boulder is on a fountain, we're done

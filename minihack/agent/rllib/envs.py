@@ -27,7 +27,8 @@ class RLLibNLEEnv(gym.Env):
         return self.gym_env.observation_space
 
     def reset(self) -> dict:
-        return self._process_obs(self.gym_env.reset())
+        obs, info = self.gym_env.reset()
+        return self._process_obs(obs), info
 
     def _process_obs(self, obs: dict) -> dict:
         return OrderedDict({key: obs[key] for key in self._observation_keys})

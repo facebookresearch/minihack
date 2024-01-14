@@ -8,6 +8,12 @@ import numpy as np
 import pkg_resources
 from typing import Tuple
 
+from gym.utils.step_api_compatibility import (
+    TerminatedTruncatedStepType as GymTimestep,
+    DoneStepType,
+    convert_to_terminated_truncated_step_api,
+)
+
 from nle import _pynethack, nethack
 from nle.nethack.nethack import SCREEN_DESCRIPTIONS_SHAPE, OBSERVATION_DESC
 from nle.env.base import FULL_ACTIONS, NLE_SPACE_ITEMS
@@ -364,13 +370,14 @@ class MiniHack(NetHackStaircase):
 
         return obs_space_dict
 
-    def reset(self, *args, sample_seed=True, **kwargs):
+    def reset(self, *args, seed=True, **kwargs):
         if self.reward_manager is not None:
             self.reward_manager.reset()
-        if sample_seed and self._level_seeds is not None:
+        if seed and self._level_seeds is not None:
             seed = random.choice(self._level_seeds)
             self.seed(seed, seed, reseed=False)
-        return super().reset(*args, **kwargs)
+        obs =  super().reset(*args, **kwargs)
+        return obs, {}
 
     def _reward_fn(self, last_observation, action, observation, end_status):
         """Use reward_manager to collect reward calculated in _is_episode_end,
