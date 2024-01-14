@@ -23,7 +23,7 @@ class CounterWrapper(gym.Wrapper):
             # do nothing
             return step_return
 
-        obs, reward, done, info = step_return
+        obs, reward, terminated, info = step_return
 
         if self.state_counter == "ones":
             # treat every state as unique
