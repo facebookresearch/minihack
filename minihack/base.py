@@ -9,8 +9,6 @@ import pkg_resources
 from typing import Tuple
 
 from gym.utils.step_api_compatibility import (
-    TerminatedTruncatedStepType as GymTimestep,
-    DoneStepType,
     convert_to_terminated_truncated_step_api,
 )
 
@@ -377,7 +375,7 @@ class MiniHack(NetHackStaircase):
             seed = random.choice(self._level_seeds)
             self.seed(seed, seed, reseed=False)
         obs =  super().reset(*args, **kwargs)
-        return obs, {}
+        return obs, {"TimeLimit.truncated": False}
 
     def _reward_fn(self, last_observation, action, observation, end_status):
         """Use reward_manager to collect reward calculated in _is_episode_end,
@@ -400,7 +398,14 @@ class MiniHack(NetHackStaircase):
         self._previous_action = action
         # Within this call, _is_episode_end is called and then _reward_fn,
         # both using self.reward_manager
-        return super().step(action)
+        obs, reward, done, info = super().step(action)
+        info["TimeLimit.truncated"] = self._steps > self._max_episode_steps
+        # repackage
+        next_step = (obs, reward, done, info)
+        # very ducky, but isinstance would fail with wrappers
+        is_vector_env = hasattr(self, "num_env")
+        next_step = convert_to_terminated_truncated_step_api(next_step, is_vector_env)
+        return next_step
 
     def _is_episode_end(self, observation):
         if self.reward_manager is not None:
