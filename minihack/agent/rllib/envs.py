@@ -7,9 +7,10 @@ import gym
 import numpy as np
 
 from minihack.agent.common.envs.tasks import create_env
+from minihack.base import MiniHack
 
 
-class RLLibNLEEnv(gym.Env):
+class RLLibNLEEnv(MiniHack):
     def __init__(self, env_config: dict) -> None:
         # We sort the observation keys so we can create the OrderedDict output
         # in a consistent order
@@ -26,7 +27,7 @@ class RLLibNLEEnv(gym.Env):
     def observation_space(self) -> gym.Space:
         return self.gym_env.observation_space
 
-    def reset(self) -> dict:
+    def reset(self) -> Tuple[dict, dict]:
         obs, info = self.gym_env.reset()
         return self._process_obs(obs), info
 
@@ -35,9 +36,15 @@ class RLLibNLEEnv(gym.Env):
 
     def step(
         self, action: Union[int, np.int64]
-    ) -> Tuple[dict, Union[np.number, int], Union[np.bool_, bool], dict]:
-        obs, reward, done, info = self.gym_env.step(action)
-        return self._process_obs(obs), reward, done, info
+    ) -> Tuple[
+        dict,
+        Union[np.number, int],
+        Union[np.bool_, bool],
+        Union[np.bool_, bool],
+        dict,
+    ]:
+        obs, reward, terminated, truncated, info = self.gym_env.step(action)
+        return self._process_obs(obs), reward, terminated, truncated, info
 
     def render(self):
         return self.gym_env.render()

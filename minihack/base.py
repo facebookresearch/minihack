@@ -4,6 +4,7 @@ import os
 import subprocess
 import random
 import gym
+import gym.spaces
 import gym.vector
 import numpy as np
 import pkg_resources
@@ -378,7 +379,7 @@ class MiniHack(NetHackStaircase):
         # the next line should be changed to obs, info = super().reset(...)
         # when nle is updated
         obs = super().reset(*args, **kwargs)
-        return obs, {"TimeLimit.truncated": False}
+        return obs, {}
 
     def _reward_fn(self, last_observation, action, observation, end_status):
         """Use reward_manager to collect reward calculated in _is_episode_end,
