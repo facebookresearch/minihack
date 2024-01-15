@@ -36,7 +36,9 @@ entry_points = {
     ]
 }
 
-install_requires = ["numpy>=1.16", "gym"]
+# the gym>=0.26 requirement conflicts with that of nle==0.9.0, which requires gym<=0.23)
+# if one wants to use minihack, they can force gym>=0.26
+install_requires = ["numpy>=1.16", "gym>=0.26"]
 if not os.getenv("READTHEDOCS"):
     install_requires.append("nle==0.9.0")
 

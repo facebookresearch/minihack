@@ -4,10 +4,10 @@ import os
 import subprocess
 import random
 import gym
+import gym.vector
 import numpy as np
 import pkg_resources
 from typing import Tuple
-
 from gym.utils.step_api_compatibility import (
     convert_to_terminated_truncated_step_api,
 )
@@ -374,7 +374,10 @@ class MiniHack(NetHackStaircase):
         if seed and self._level_seeds is not None:
             seed = random.choice(self._level_seeds)
             self.seed(seed, seed, reseed=False)
-        obs =  super().reset(*args, **kwargs)
+        # TODO: nle still uses gym<0.26 interface and returns only obs
+        # the next line should be changed to obs, info = super().reset(...)
+        # when nle is updated
+        obs = super().reset(*args, **kwargs)
         return obs, {"TimeLimit.truncated": False}
 
     def _reward_fn(self, last_observation, action, observation, end_status):
@@ -396,15 +399,23 @@ class MiniHack(NetHackStaircase):
     def step(self, action: int):
         self._previous_obs = tuple(a.copy() for a in self.last_observation)
         self._previous_action = action
-        # Within this call, _is_episode_end is called and then _reward_fn,
+        # Within the super().step(action) call, _is_episode_end is called and then _reward_fn,
         # both using self.reward_manager
+        # ---
+        # TODO: nle still uses gym<0.26 interface and returns only obs
+        # the next line should be changed to
+        # obs, reward, done, info = super().step(action)
+        # when nle is updated
         obs, reward, done, info = super().step(action)
+        # TimeLimit.truncated is required for convert_to_terminated_truncated_step_api
         info["TimeLimit.truncated"] = self._steps > self._max_episode_steps
-        # repackage
         next_step = (obs, reward, done, info)
-        # very ducky, but isinstance would fail with wrappers
-        is_vector_env = hasattr(self, "num_env")
-        next_step = convert_to_terminated_truncated_step_api(next_step, is_vector_env)
+        is_vector_env = hasattr(self, "num_env") or isinstance(
+            self, gym.vector.VectorEnv
+        )  # very ducky, but isinstance can fail with wrappers
+        next_step = convert_to_terminated_truncated_step_api(
+            next_step, is_vector_env
+        )
         return next_step
 
     def _is_episode_end(self, observation):
