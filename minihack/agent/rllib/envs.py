@@ -10,7 +10,7 @@ from minihack.agent.common.envs.tasks import create_env
 from minihack.base import MiniHack
 
 
-class RLLibNLEEnv(MiniHack):
+class RLLibNLEEnv(gym.Env):
     def __init__(self, env_config: dict) -> None:
         # We sort the observation keys so we can create the OrderedDict output
         # in a consistent order
