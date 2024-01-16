@@ -1,5 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 
+from __future__ import annotations
+
 from collections import OrderedDict
 from typing import Tuple, Union
 
@@ -27,8 +29,12 @@ class RLLibNLEEnv(gym.Env):
     def observation_space(self) -> gym.Space:
         return self.gym_env.observation_space
 
-    def reset(self) -> Tuple[dict, dict]:
-        obs, info = self.gym_env.reset()
+    def reset(
+        self, seed: int | None = None, options: dict = {}
+    ) -> Tuple[dict, dict]:
+        # this is tricky because `create_env` can return either
+        # a MiniHack env or a NLE env, which now have different interfaces
+        obs, info = self.gym_env.reset(seed, options)
         return self._process_obs(obs), info
 
     def _process_obs(self, obs: dict) -> dict:

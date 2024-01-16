@@ -3,6 +3,7 @@
 import os
 import subprocess
 import random
+import logging
 import gym
 import gym.spaces
 import gym.vector
@@ -369,16 +370,17 @@ class MiniHack(NetHackStaircase):
 
         return obs_space_dict
 
-    def reset(self, *args, seed=True, **kwargs):
+    def reset(self, seed=None, options={}):
         if self.reward_manager is not None:
             self.reward_manager.reset()
         if seed and self._level_seeds is not None:
             seed = random.choice(self._level_seeds)
+            # TODO: `self.seed`` is deprecated and should be removed when nle is updated
             self.seed(seed, seed, reseed=False)
-        # TODO: nle still uses gym<0.26 interface and returns only obs
-        # the next line should be changed to obs, info = super().reset(...)
+        # TODO: nle still uses gym<0.26 interface and returns only obs.
+        # obs = super().reset(...) should be changed to obs, info = super().reset(...)
         # when nle is updated
-        obs = super().reset(*args, **kwargs)
+        obs = super().reset(**options)
         return obs, {}
 
     def _reward_fn(self, last_observation, action, observation, end_status):

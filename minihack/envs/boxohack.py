@@ -93,9 +93,9 @@ class BoxoHack(MiniHackNavigation):
         lvl_gen.set_start_pos(info["player"])
         return lvl_gen
 
-    def reset(self, wizkit_items=None):
+    def reset(self, seed=None, options={}):
         self.update(self.get_lvl_gen().get_des())
-        initial_obs, info = super().reset(wizkit_items=wizkit_items)
+        initial_obs, info = super().reset(seed, options)
         self._goal_pos_set = self._object_positions(self.last_observation, "{")
         return initial_obs, info
 
