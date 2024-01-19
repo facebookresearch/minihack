@@ -47,7 +47,8 @@ def rollout_env(env, max_rollout_len):
 
     for _ in range(max_rollout_len):
         a = env.action_space.sample()
-        obs, reward, done, info = env.step(a)
+        obs, reward, terminated, truncated, info = env.step(a)
+        done = terminated or truncated
         assert env.observation_space.contains(obs)
         assert isinstance(reward, float)
         assert isinstance(done, bool)
