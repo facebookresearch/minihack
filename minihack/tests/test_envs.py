@@ -7,6 +7,7 @@ import sys
 import tempfile
 
 import gym
+import gym.envs
 import numpy as np
 import pytest
 
@@ -16,7 +17,7 @@ from nle import nethack
 
 
 def get_minihack_env_ids():
-    specs = gym.envs.registry.all()
+    specs = list(gym.envs.registry.values())
     skip_envs_list = [
         "MiniHack-Navigation-Custom-v0",
         "MiniHack-Skill-Custom-v0",
