@@ -1,0 +1,49 @@
+MAZE: "mylevel", ' '
+FLAGS:noteleport,hardfloor,premapped,solidify
+GEOMETRY:center,center
+#12345678901234567890123456789012345678901234567890
+MAP
+------  ----- 
+|....|  |...| 
+|....----...| 
+|...........| 
+|..|-|.|-|..| 
+---------|.---
+|......|.....|
+|..----|.....|
+--.|   |.....|
+ |.|---|.....|
+ |...........|
+ |..|---------
+ ----         
+ENDMAP
+BRANCH:(06,04,06,04),(0,0,0,0)
+STAIR:(06,06),down
+REGION:(00,00,13,12),lit,"ordinary"
+NON_DIGGABLE:(00,00,13,12)
+NON_PASSWALL:(00,00,13,12)
+
+# Boulders
+OBJECT:('`',"boulder"),(02,02)
+OBJECT:('`',"boulder"),(02,03)
+#
+OBJECT:('`',"boulder"),(10,02)
+OBJECT:('`',"boulder"),(09,03)
+OBJECT:('`',"boulder"),(10,04)
+#
+OBJECT:('`',"boulder"),(08,07)
+OBJECT:('`',"boulder"),(09,08)
+OBJECT:('`',"boulder"),(09,09)
+OBJECT:('`',"boulder"),(08,10)
+OBJECT:('`',"boulder"),(10,10)
+
+# Traps
+TRAP:"pit",(03,06)
+TRAP:"pit",(04,06)
+TRAP:"pit",(05,06)
+TRAP:"pit",(02,08)
+TRAP:"pit",(02,09)
+TRAP:"pit",(04,10)
+TRAP:"pit",(05,10)
+TRAP:"pit",(06,10)
+TRAP:"pit",(07,10)

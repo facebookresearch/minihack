@@ -1,0 +1,75 @@
+MAZE: "mylevel", ' '
+FLAGS:noteleport,premapped,solidify
+GEOMETRY:center,center
+#12345678901234567890123456789012345678901234567890
+MAP
+  ------------------------
+  |......................|
+  |..-------------------.|
+----.|    -----        |.|
+|..|.--  --...|        |.|
+|.....|--|....|        |.|
+|.....|..|....|        |.|
+--....|......--        |.|
+ |.......|...|   ------|.|
+ |....|..|...| --|.....|.|
+ |....|--|...| |.+.....|.|
+ |.......|..-- |-|.....|.|
+ ----....|.--  |.+.....+.|
+    ---.--.|   |-|.....|--
+     |.....|   |.+.....|  
+     |..|..|   --|.....|  
+     -------     -------  
+ENDMAP
+$place = { (16,10),(16,12),(16,14) }
+SHUFFLE: $place
+
+BRANCH:(06,15,06,15),(0,0,0,0)
+STAIR:$place[0],down
+REGION:(00,00,25,16),lit,"ordinary"
+NON_DIGGABLE:(00,00,25,16)
+NON_PASSWALL:(00,00,25,16)
+
+# Boulders
+OBJECT:('`',"boulder"),(04,04)
+OBJECT:('`',"boulder"),(02,06)
+OBJECT:('`',"boulder"),(03,06)
+OBJECT:('`',"boulder"),(04,07)
+OBJECT:('`',"boulder"),(05,07)
+OBJECT:('`',"boulder"),(02,08)
+OBJECT:('`',"boulder"),(05,08)
+OBJECT:('`',"boulder"),(03,09)
+OBJECT:('`',"boulder"),(04,09)
+OBJECT:('`',"boulder"),(03,10)
+OBJECT:('`',"boulder"),(05,10)
+OBJECT:('`',"boulder"),(06,12)
+#
+OBJECT:('`',"boulder"),(07,14)
+#
+OBJECT:('`',"boulder"),(11,05)
+OBJECT:('`',"boulder"),(12,06)
+OBJECT:('`',"boulder"),(10,07)
+OBJECT:('`',"boulder"),(11,07)
+OBJECT:('`',"boulder"),(10,08)
+OBJECT:('`',"boulder"),(12,09)
+OBJECT:('`',"boulder"),(11,10)
+
+# Traps
+TRAP:"hole",(05,01)
+TRAP:"hole",(06,01)
+TRAP:"hole",(07,01)
+TRAP:"hole",(08,01)
+TRAP:"hole",(09,01)
+TRAP:"hole",(10,01)
+TRAP:"hole",(11,01)
+TRAP:"hole",(12,01)
+TRAP:"hole",(13,01)
+TRAP:"hole",(14,01)
+TRAP:"hole",(15,01)
+TRAP:"hole",(16,01)
+TRAP:"hole",(17,01)
+TRAP:"hole",(18,01)
+TRAP:"hole",(19,01)
+TRAP:"hole",(20,01)
+TRAP:"hole",(21,01)
+TRAP:"hole",(22,01)
