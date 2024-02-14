@@ -11,7 +11,7 @@ An example of Sokoban level ported into MiniHack.
 
 ## Reward
 
-The agent receives a reward of +1 for reaching the stairs down - finishing the whole episode.
+The agent receives a reward of +1 for reaching the stairs down and +0.1 for filling each pit.
 
 ## All Environments
 
