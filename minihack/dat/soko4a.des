@@ -72,4 +72,7 @@ TRAP:"hole",(21,01)
 TRAP:"hole",(22,01)
 TRAP:"hole",(23,01)
 
-
+DOOR:closed,(23,13)
+DOOR:closed,(17,11)
+DOOR:closed,(17,13)
+DOOR:closed,(17,15)
