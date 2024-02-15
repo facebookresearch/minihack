@@ -198,7 +198,7 @@ MiniHack was built and is maintained by [Meta AI (FAIR)](https://ai.facebook.com
 <a href="https://github.com/yobibyte" title="Vitaly Kurin"><img src="https://github.com/yobibyte.png" height="auto" width="50" style="border-radius:50%"></a>
 <a href="https://github.com/jparkerholder" title="Manon Flageat"><img src="https://github.com/jparkerholder.png" height="auto" width="50" style="border-radius:50%"></a>
 <a href="https://github.com/minqi" title="Minqi Jiang"><img src="https://github.com/minqi.png" height="auto" width="50" style="border-radius:50%"></a>
-<a href="https://github.com/condnsdmatters" title="Eric Hambro"><img src="https://github.com/condnsdmatters.png" height="auto" width="50" style="border-radius:50%"></a>
+<a href="https://github.com/cdmatters" title="Eric Hambro"><img src="https://github.com/cdmatters.png" height="auto" width="50" style="border-radius:50%"></a>
 <a href="https://github.com/fabiopetroni" title="Fabio Petroni"><img src="https://github.com/fabiopetroni.png" height="auto" width="50" style="border-radius:50%"></a>
 <a href="https://github.com/heiner" title="Heinrich Küttler"><img src="https://github.com/heiner.png" height="auto" width="50" style="border-radius:50%"></a>
 <a href="https://github.com/egrefen" title="Edward Grefenstette"><img src="https://github.com/egrefen.png" height="auto" width="50" style="border-radius:50%"></a>
