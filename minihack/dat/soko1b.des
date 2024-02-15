@@ -1,0 +1,50 @@
+MAZE: "mylevel", ' '
+FLAGS:noteleport,hardfloor,premapped,solidify
+GEOMETRY:center,center
+#12345678901234567890123456789012345678901234567890
+MAP
+-------- ------
+|.|....|-|....|
+|.|-..........|
+|.||....|.....|
+|.||....|.....|
+|.|-----|.-----
+|.|    |......|
+|.-----|......|
+|.............|
+|..|---|......|
+----   --------
+ENDMAP
+BRANCH:(03,01,03,01),(0,0,0,0)
+STAIR:(01,01),down
+REGION:(00,00,14,10),lit,"ordinary"
+NON_DIGGABLE:(00,00,14,10)
+NON_PASSWALL:(00,00,14,10)
+
+# Boulders
+OBJECT:('`',"boulder"),(05,02)
+OBJECT:('`',"boulder"),(06,02)
+OBJECT:('`',"boulder"),(06,03)
+OBJECT:('`',"boulder"),(07,03)
+#
+OBJECT:('`',"boulder"),(09,05)
+OBJECT:('`',"boulder"),(10,03)
+OBJECT:('`',"boulder"),(11,02)
+OBJECT:('`',"boulder"),(12,03)
+#
+OBJECT:('`',"boulder"),(07,08)
+OBJECT:('`',"boulder"),(08,08)
+OBJECT:('`',"boulder"),(09,08)
+OBJECT:('`',"boulder"),(10,08)
+
+# Traps
+TRAP:"pit",(01,02)
+TRAP:"pit",(01,03)
+TRAP:"pit",(01,04)
+TRAP:"pit",(01,05)
+TRAP:"pit",(01,06)
+TRAP:"pit",(01,07)
+TRAP:"pit",(03,08)
+TRAP:"pit",(04,08)
+TRAP:"pit",(05,08)
+TRAP:"pit",(06,08)

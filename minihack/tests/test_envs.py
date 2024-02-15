@@ -22,6 +22,7 @@ def get_minihack_env_ids():
         "MiniHack-Skill-Custom-v0",
     ]
     skip_env_substring = [
+        "Sokoban",
         "Boxoban",
         "MultiRoom",
         "SimpleCrossingS",
