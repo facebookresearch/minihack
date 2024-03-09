@@ -7,6 +7,7 @@ import sys
 import tempfile
 
 import gym
+import gym.envs
 import numpy as np
 import pytest
 
@@ -16,7 +17,7 @@ from nle import nethack
 
 
 def get_minihack_env_ids():
-    specs = gym.envs.registry.all()
+    specs = list(gym.envs.registry.values())
     skip_envs_list = [
         "MiniHack-Navigation-Custom-v0",
         "MiniHack-Skill-Custom-v0",
@@ -48,7 +49,8 @@ def rollout_env(env, max_rollout_len):
 
     for _ in range(max_rollout_len):
         a = env.action_space.sample()
-        obs, reward, done, info = env.step(a)
+        obs, reward, terminated, truncated, info = env.step(a)
+        done = terminated or truncated
         assert env.observation_space.contains(obs)
         assert isinstance(reward, float)
         assert isinstance(done, bool)

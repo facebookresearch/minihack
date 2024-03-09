@@ -24,13 +24,13 @@ def main():
     env = gym.make(args.env, observation_keys=observation_keys)
 
     def reset():
-        obs = env.reset()
+        obs, _ = env.reset()
         redraw(obs)
 
     def step(action):
-        obs, reward, done, info = env.step(action)
+        obs, reward, terminated, truncated, info = env.step(action)
 
-        if done:
+        if terminated:
             print("Episode Completed!")
             reset()
         else:

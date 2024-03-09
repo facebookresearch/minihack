@@ -166,7 +166,8 @@ def play(
         if is_raw_env:
             obs, done = env.step(action)
         else:
-            obs, reward, done, info = env.step(action)
+            obs, reward, terminated, truncated, info = env.step(action)
+            done = terminated or truncated
         steps += 1
 
         if is_raw_env:

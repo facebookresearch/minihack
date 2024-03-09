@@ -128,7 +128,8 @@ def eval(
         if action is None:
             break
 
-        obs, reward, done, info = env.step(action)
+        obs, reward, terminated, truncated, info = env.step(action)
+        done = terminated or truncated
         steps += 1
 
         mean_reward += (reward - mean_reward) / steps
