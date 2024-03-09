@@ -4,6 +4,7 @@ import os
 import subprocess
 import random
 import logging
+import sys
 import gym
 import gym.spaces
 import gym.vector
@@ -373,10 +374,13 @@ class MiniHack(NetHackStaircase):
     def reset(self, seed=None, options={}):
         if self.reward_manager is not None:
             self.reward_manager.reset()
-        if seed and self._level_seeds is not None:
-            seed = random.choice(self._level_seeds)
+        if seed is not None:
+            if self._level_seeds is not None:
+                level_seed = random.choice(self._level_seeds)
+            else:
+                level_seed = self._random.randrange(sys.maxsize)
             # TODO: `self.seed`` is deprecated and should be removed when nle is updated
-            self.seed(seed, seed, reseed=False)
+            self.seed(seed, level_seed, reseed=False)
         # TODO: nle still uses gym<0.26 interface and returns only obs.
         # obs = super().reset(...) should be changed to obs, info = super().reset(...)
         # when nle is updated
