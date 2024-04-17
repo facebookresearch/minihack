@@ -51,7 +51,7 @@ We thank [ngoodger](https://github.com/ngoodger) for implementing the [NLE Langu
 
 - Raparthy et al. [Learning to Solve New sequential decision-making Tasks with In-Context Learning](https://arxiv.org/abs/2312.03801) (Meta AI, UCL, FMDM 2023)
 - Nottingham et al. [Selective Perception: Learning Concise State Descriptions for Language Model Actors](https://openreview.net/forum?id=siFopuPuCS) (UC Irvine, FMDM 2023)
-- Prakash et al. [LLM Augmented Hierarchical Agents ](https://arxiv.org/abs/2312.03801) (Maryland, JHU, LangRob 2023)
+- Prakash et al. [LLM Augmented Hierarchical Agents ](https://arxiv.org/abs/2311.05596) (Maryland, JHU, LangRob 2023)
 - Castanyer et al. [Improving Intrinsic Exploration by Creating Stationary Objectives](https://arxiv.org/abs/2310.18144) (Mila, Ubisoft, Nov 2023)
 - Henaff et al. [A Study of Global and Episodic Bonuses for Exploration in Contextual MDPs](https://arxiv.org/abs/2306.03236) (Meta AI, UCL, ICML 2023)
 - Bagaria et al. [Scaling Goal-based Exploration via Pruning Proto-goals](https://arxiv.org/abs/2302.04693) (Brown, DeepMind, Feb 2023)
