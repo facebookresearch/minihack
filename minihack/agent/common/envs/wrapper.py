@@ -23,7 +23,7 @@ class CounterWrapper(gym.Wrapper):
             # do nothing
             return step_return
 
-        obs, reward, done, info = step_return
+        obs, _, terminated, _, _ = step_return
 
         if self.state_counter == "ones":
             # treat every state as unique
@@ -42,19 +42,20 @@ class CounterWrapper(gym.Wrapper):
 
         obs.update(state_visits=np.array([state_visits]))
 
-        if done:
+        if terminated:
             self.state_count_dict.clear()
 
         return step_return
 
-    def reset(self, wizkit_items=None):
+    def reset(self, seed=None, options={}):
+        wizkit_items = options.get("wizkit_items")
         # reset state counter when env resets
-        obs = self.env.reset(wizkit_items=wizkit_items)
+        obs, info = self.env.reset(wizkit_items=wizkit_items)
         if self.state_counter != "none":
             self.state_count_dict.clear()
             # current state counts as one visit
             obs.update(state_visits=np.array([1]))
-        return obs
+        return obs, info
 
 
 class CropWrapper(gym.Wrapper):
@@ -81,7 +82,7 @@ class CropWrapper(gym.Wrapper):
         print(rendering)
 
     def step(self, action):
-        next_state, reward, done, info = self.env.step(action)
+        next_state, reward, terminated, truncated, info = self.env.step(action)
 
         dh = self.h // 2
         dw = self.w // 2
@@ -104,14 +105,14 @@ class CropWrapper(gym.Wrapper):
 
         self.last_observation = next_state
 
-        return next_state, reward, done, info
+        return next_state, reward, terminated, truncated, info
 
-    def reset(self, wizkit_items=None):
-        obs = self.env.reset(wizkit_items=wizkit_items)
+    def reset(self, seed=None, options={}):
+        obs, info = self.env.reset(seed=seed, options=options)
         obs["tty_chars_crop"] = np.zeros((self.h, self.w), dtype=np.uint8)
         obs["tty_colors_crop"] = np.zeros((self.h, self.w), dtype=np.int8)
         self.last_observation = obs
-        return obs
+        return obs, info
 
 
 class PrevWrapper(gym.Wrapper):
@@ -122,20 +123,20 @@ class PrevWrapper(gym.Wrapper):
         self._actions = self.env.actions
 
     def step(self, action):
-        next_state, reward, done, info = self.env.step(action)
+        next_state, reward, terminated, truncated, info = self.env.step(action)
         next_state["prev_reward"] = np.array([reward], dtype=np.float32)
         next_state["prev_action"] = np.array([action], dtype=np.uint8)
 
         self.last_observation = next_state
 
-        return next_state, reward, done, info
+        return next_state, reward, terminated, truncated, info
 
-    def reset(self, wizkit_items=None):
-        obs = self.env.reset(wizkit_items=wizkit_items)
+    def reset(self, seed=None, options={}):
+        obs, info = self.env.reset(seed=seed, options=options)
         obs["prev_reward"] = np.zeros(1, dtype=np.float32)
         obs["prev_action"] = np.zeros(1, dtype=np.uint8)
         self.last_observation = obs
-        return obs
+        return obs, info
 
 
 def target(resetqueue, readyqueue):
@@ -170,10 +171,10 @@ class CachedEnvWrapper(gym.Env):
             self._resetqueue.put(env)
         self._env = envs[0]
 
-    def reset(self):
+    def reset(self, seed=None, options={}):
         self._resetqueue.put(self._env)
         obs, self._env = self._readyqueue.get()
-        return obs
+        return obs, {}
 
     def step(self, action):
         return self._env.step(action)

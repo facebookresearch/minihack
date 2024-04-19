@@ -36,7 +36,7 @@ entry_points = {
     ]
 }
 
-install_requires = ["numpy>=1.16", "gym>=0.15,<=0.23"]
+install_requires = ["numpy>=1.16", "gym"]
 if not os.getenv("READTHEDOCS"):
     install_requires.append("nle==0.9.0")
 
@@ -133,3 +133,5 @@ if __name__ == "__main__":
         zip_safe=False,
         include_package_data=True,
     )
+    # this avoids requirements versioning checks
+    subprocess.run("pip install gym>=0.26", shell=True)
