@@ -1,0 +1,57 @@
+MAZE: "mylevel", ' '
+FLAGS:noteleport,premapped,solidify
+GEOMETRY:center,center
+#12345678901234567890123456789012345678901234567890
+MAP
+  --------          
+--|.|....|          
+|........|----------
+|.-...-..|.|.......|
+|...-......|.......|
+|.-....|...|.......|
+|....-.--.-|.......|
+|..........|.......|
+|.--...|...|.......|
+|....-.|---|.......|
+--|....|----------+|
+  |................|
+  ------------------
+ENDMAP
+BRANCH:(06,11,06,11),(0,0,0,0)
+STAIR:(15,06),down
+DOOR:closed,(18,10)
+REGION:(00,00,19,12),lit,"ordinary"
+NON_DIGGABLE:(00,00,19,12)
+NON_PASSWALL:(00,00,19,12)
+
+# Boulders
+OBJECT:('`',"boulder"),(04,02)
+OBJECT:('`',"boulder"),(04,03)
+OBJECT:('`',"boulder"),(05,03)
+OBJECT:('`',"boulder"),(07,03)
+OBJECT:('`',"boulder"),(08,03)
+OBJECT:('`',"boulder"),(02,04)
+OBJECT:('`',"boulder"),(03,04)
+OBJECT:('`',"boulder"),(05,05)
+OBJECT:('`',"boulder"),(06,06)
+OBJECT:('`',"boulder"),(09,06)
+OBJECT:('`',"boulder"),(03,07)
+OBJECT:('`',"boulder"),(04,07)
+OBJECT:('`',"boulder"),(07,07)
+OBJECT:('`',"boulder"),(06,09)
+OBJECT:('`',"boulder"),(05,10)
+OBJECT:('`',"boulder"),(05,11)
+
+# Traps
+TRAP:"pit",(07,11)
+TRAP:"pit",(08,11)
+TRAP:"pit",(09,11)
+TRAP:"pit",(10,11)
+TRAP:"pit",(11,11)
+TRAP:"pit",(12,11)
+TRAP:"pit",(13,11)
+TRAP:"pit",(14,11)
+TRAP:"pit",(15,11)
+TRAP:"pit",(16,11)
+TRAP:"pit",(17,11)
+

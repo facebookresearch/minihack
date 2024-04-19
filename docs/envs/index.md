@@ -111,3 +111,4 @@ ported/boxoban
 | ----------------------------- | ------------------------- |
 | [MiniGrid](./ported/minigrid) | ![](./imgs/multiroom.png) |
 | [Boxoban](./ported/boxoban)   | ![](./imgs/boxoban.png)   |
+| [NetHack Sokoban](./ported/sokoban)   | ![](./imgs/sokoban3b.png)   |

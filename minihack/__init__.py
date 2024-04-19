@@ -27,6 +27,7 @@ import minihack.envs.skills_levitate
 import minihack.envs.skills_freeze
 import minihack.envs.skills_lava
 import minihack.envs.skills_quest
+import minihack.envs.sokoban
 
 __all__ = [
     "MiniHack",
