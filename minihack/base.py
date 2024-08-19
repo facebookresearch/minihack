@@ -3,10 +3,17 @@
 import os
 import subprocess
 import random
+import logging
+import sys
 import gym
+import gym.spaces
+import gym.vector
 import numpy as np
 import pkg_resources
 from typing import Tuple
+from gym.utils.step_api_compatibility import (
+    convert_to_terminated_truncated_step_api,
+)
 
 from nle import _pynethack, nethack
 from nle.nethack.nethack import SCREEN_DESCRIPTIONS_SHAPE, OBSERVATION_DESC
@@ -364,13 +371,21 @@ class MiniHack(NetHackStaircase):
 
         return obs_space_dict
 
-    def reset(self, *args, sample_seed=True, **kwargs):
+    def reset(self, seed=None, options={}):
         if self.reward_manager is not None:
             self.reward_manager.reset()
-        if sample_seed and self._level_seeds is not None:
-            seed = random.choice(self._level_seeds)
-            self.seed(seed, seed, reseed=False)
-        return super().reset(*args, **kwargs)
+        if seed is not None:
+            if self._level_seeds is not None:
+                level_seed = random.choice(self._level_seeds)
+            else:
+                level_seed = self._random.randrange(sys.maxsize)
+            # TODO: `self.seed`` is deprecated and should be removed when nle is updated
+            self.seed(seed, level_seed, reseed=False)
+        # TODO: nle still uses gym<0.26 interface and returns only obs.
+        # obs = super().reset(...) should be changed to obs, info = super().reset(...)
+        # when nle is updated
+        obs = super().reset(**options)
+        return obs, {}
 
     def _reward_fn(self, last_observation, action, observation, end_status):
         """Use reward_manager to collect reward calculated in _is_episode_end,
@@ -391,9 +406,24 @@ class MiniHack(NetHackStaircase):
     def step(self, action: int):
         self._previous_obs = tuple(a.copy() for a in self.last_observation)
         self._previous_action = action
-        # Within this call, _is_episode_end is called and then _reward_fn,
+        # Within the super().step(action) call, _is_episode_end is called and then _reward_fn,
         # both using self.reward_manager
-        return super().step(action)
+        # ---
+        # TODO: nle still uses gym<0.26 interface and returns only obs
+        # the next line should be changed to
+        # obs, reward, done, info = super().step(action)
+        # when nle is updated
+        obs, reward, done, info = super().step(action)
+        # TimeLimit.truncated is required for convert_to_terminated_truncated_step_api
+        info["TimeLimit.truncated"] = self._steps > self._max_episode_steps
+        next_step = (obs, reward, done, info)
+        is_vector_env = hasattr(self, "num_env") or isinstance(
+            self, gym.vector.VectorEnv
+        )  # very ducky, but isinstance can fail with wrappers
+        next_step = convert_to_terminated_truncated_step_api(
+            next_step, is_vector_env
+        )
+        return next_step
 
     def _is_episode_end(self, observation):
         if self.reward_manager is not None:

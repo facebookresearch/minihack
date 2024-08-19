@@ -44,7 +44,7 @@ class VecEnv_Wrapper:
 
     def reset(self):
         os.chdir(self.env.env._vardir)
-        return self.env.reset()
+        return self.env.reset(), {}
 
     def close(self):
         os.chdir(self.env.env._vardir)
