@@ -16,7 +16,7 @@
 # MiniHack
 
 MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL).
-Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to communicate with the game and to provide a convenient interface for customly created RL training and test environments of varying complexity.
+Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/heiner/nle) to communicate with the game and to provide a convenient interface for customly created RL training and test environments of varying complexity.
 Check out our [NeurIPS 2021 paper](https://arxiv.org/abs/2109.13202) and recent [blogpost](https://ai.facebook.com/blog/minihack-a-new-sandbox-for-open-ended-reinforcement-learning).
 
 MiniHack comes with a large list of challenging [environments](https://minihack.readthedocs.io/en/latest/envs/index.html). However, it is primarily built for easily designing new ones.
