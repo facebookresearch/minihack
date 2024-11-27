@@ -107,7 +107,7 @@ class MiniGridHack(MiniHackNavigation):
     def seed(self, core=None, disp=None, reseed=False):
         """The signature of this method corresponds to that of NLE base class.
         For more information see
-        https://github.com/facebookresearch/nle/blob/main/nle/env/base.py.
+        https://github.com/heiner/nle/blob/main/nle/env/base.py.
 
         Sets the state of the NetHack RNGs after the next reset.
 

@@ -1,8 +1,8 @@
 # Sokoban
 
-This family of environments is ported to MiniHack from [NetHack](https://github.com/facebookresearch/nle), levels taken directly from Sokoban minigame inside NetHack, excluding monsters and items. The goal is to push boulder's to goal locations (pits or wholes).
+This family of environments is ported to MiniHack from [NetHack](https://github.com/heiner/nle), levels taken directly from Sokoban minigame inside NetHack, excluding monsters and items. The goal is to push boulder's to goal locations (pits or wholes).
 
-Original dat file can be seen [here](https://github.com/facebookresearch/nle/blob/main/dat/sokoban.des).
+Original dat file can be seen [here](https://github.com/heiner/nle/blob/main/dat/sokoban.des).
 and corresponding solution from [NetHack Wiki](https://nethackwiki.com/wiki/Sokoban).
 
 An example of Sokoban level ported into MiniHack.
