@@ -36,9 +36,9 @@ entry_points = {
     ]
 }
 
-install_requires = ["numpy>=1.16", "gym>=0.15,<=0.23"]
+install_requires = ["numpy>=1.16", "gymnasium"]
 if not os.getenv("READTHEDOCS"):
-    install_requires.append("nle==0.9.0")
+    install_requires.append("nle")
 
 extras_deps = {
     "dev": [
