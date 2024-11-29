@@ -18,6 +18,7 @@ In addition, observations can include player statistics, in-game text messages, 
 
 MiniHack has a dictionary-structured observation space. Most keys are inherited from NLE, while some are added in MiniHack. To make sure that the desired observations are returned by the environment, the corresponding options should be passed during the initialisation. The `observation_keys` parameter can be used to specify the observation space in any MiniHack environment:
 
+TODO: Verify if this is still correct with Gymnasium API v1
 ```python
 env = gym.make(
    "MiniHack-River-v0",

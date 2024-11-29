@@ -2,7 +2,7 @@
 from minihack import MiniHackNavigation, LevelGenerator
 from nle.nethack import Command, CompassDirection
 from minihack.envs import register
-import gym
+import gymnasium as gym
 
 
 MOVE_AND_KICK_ACTIONS = tuple(

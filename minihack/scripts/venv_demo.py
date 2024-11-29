@@ -1,5 +1,5 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
-import gym
+import gymnasium as gym
 import minihack  # noqa: F401
 import os
 import numpy as np
@@ -21,7 +21,7 @@ parser.add_argument(
     "--env",
     type=str,
     default="MiniHack-MazeWalk-15x15-v0",
-    help="MiniHack gym environment.",
+    help="MiniHack gymnasium environment.",
 )
 parser.add_argument(
     "--num_env", type=int, default=4, help="Number of environments."

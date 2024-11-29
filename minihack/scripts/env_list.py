@@ -1,7 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 
 import minihack  # noqa
-from gym import envs
+from gymnasium import envs
 
 skip_envs_list = ["MiniHack-Navigation-Custom-v0", "MiniHack-Skill-Custom-v0"]
 

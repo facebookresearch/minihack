@@ -3,7 +3,7 @@
 import os
 import subprocess
 import random
-import gym
+import gymnasium as gym
 import numpy as np
 import pkg_resources
 from typing import Tuple

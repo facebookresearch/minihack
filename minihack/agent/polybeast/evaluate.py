@@ -11,7 +11,7 @@ import tempfile
 import shutil
 import glob
 
-import gym
+import gymnasium as gym
 import torch
 from omegaconf import OmegaConf
 
@@ -194,7 +194,7 @@ def main():
         "--env",
         type=str,
         default="MiniHack-Room-15x15-v0",
-        help="Gym environment spec. Defaults to 'MiniHack-Room-15x15-v0'.",
+        help="Gymnasium environment spec. Defaults to 'MiniHack-Room-15x15-v0'.",
     )
     parser.add_argument(
         "-c",

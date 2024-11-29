@@ -3,7 +3,7 @@
 from collections import OrderedDict
 from typing import Tuple, Union
 
-import gym
+import gymnasium as gym
 import numpy as np
 
 from minihack.agent.common.envs.tasks import create_env

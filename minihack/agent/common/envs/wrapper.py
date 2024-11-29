@@ -1,7 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 
 from collections import defaultdict
-import gym
+import gymnasium as gym
 import numpy as np
 import queue
 import threading

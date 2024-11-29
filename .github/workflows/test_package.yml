@@ -27,4 +27,4 @@ jobs:
       run: "pip install minihack"
     - name: Check minihack is installed
       run: |
-        python -c 'import minihack, gym; e = gym.make("MiniHack-Room-5x5-v0"); e.reset(); e.step(0)'
+        python -c 'import minihack; import gymnasium as gym; e = gym.make("MiniHack-Room-5x5-v0"); e.reset(); e.step(0)'

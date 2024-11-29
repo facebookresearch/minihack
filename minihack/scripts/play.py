@@ -11,7 +11,7 @@ import time
 import timeit
 import tty
 
-import gym
+import gymnasium as gym
 
 import nle  # noqa: F401
 import minihack  # noqa: F401
@@ -245,7 +245,7 @@ def main():
         "--env",
         type=str,
         default="MiniHack-Room-Random-5x5-v0",
-        help="Gym environment spec. Defaults to 'MiniHack-Room-Random-5x5-v0'.",
+        help="Gymnasium environment spec. Defaults to 'MiniHack-Room-Random-5x5-v0'.",
     )
     parser.add_argument(
         "-n",

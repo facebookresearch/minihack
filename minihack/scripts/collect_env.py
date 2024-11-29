@@ -16,7 +16,7 @@ from collections import namedtuple
 try:
     import nle
     import minihack
-    import gym
+    import gymnasium as gym
 
     NLE_AVAILABLE = True
     MINIHACK_AVAILABLE = True
@@ -346,7 +346,7 @@ def get_env_info():
 env_info_fmt = """
 MiniHack version: {minihack_version}
 NLE version: {nle_version}
-Gym version: {gym_version}
+Gymnasium version: {gym_version}
 PyTorch version: {torch_version}
 Is debug build: {is_debug_build}
 CUDA used to build PyTorch: {cuda_compiled_version}

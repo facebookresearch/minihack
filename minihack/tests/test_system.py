@@ -3,7 +3,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 import multiprocessing as mp
 
-import gym
+import gymnasium as gym
 import pytest
 
 import minihack  # noqa: F401

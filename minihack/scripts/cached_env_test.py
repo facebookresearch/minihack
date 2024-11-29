@@ -1,5 +1,5 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
-import gym
+import gymnasium as gym
 import numpy as np
 import time
 import minihack
@@ -44,7 +44,7 @@ def main():
         "--env",
         type=str,
         default="MiniHack-MultiRoom-N2-Lava-v0",
-        help="Gym environment spec. Defaults to 'MiniHack-MultiRoom-N2-Lava-v0'.",
+        help="Gymnasium environment spec. Defaults to 'MiniHack-MultiRoom-N2-Lava-v0'.",
     )
     parser.add_argument(
         "--num_steps",

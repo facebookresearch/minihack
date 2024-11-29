@@ -4,7 +4,7 @@
 
 import argparse
 import numpy as np
-import gym
+import gymnasium as gym
 from nle import nethack
 import minihack  # noqa
 from minihack.tiles.window import Window
@@ -14,7 +14,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--env",
-        help="gym environment to load",
+        help="gymnasium environment to load",
         default="MiniHack-CorridorBattle-v0",
     )
 

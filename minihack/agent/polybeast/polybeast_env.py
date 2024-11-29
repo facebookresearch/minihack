@@ -26,7 +26,7 @@ import libtorchbeast
 parser = argparse.ArgumentParser(description='Remote Environment Server')
 
 parser.add_argument('--env', default='staircase', type=str, metavar='E',
-                    help='Name of Gym environment to create.')
+                    help='Name of Gymnasium environment to create.')
 parser.add_argument('--character', default='mon-hum-neu-mal', type=str, metavar='C',
                     help='Specification of the NetHack character.')
 parser.add_argument("--pipes_basename", default="unix:/tmp/polybeast",
