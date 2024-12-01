@@ -78,6 +78,7 @@ def eval(
         savedir=savedir,
         max_episode_steps=max_steps,
         observation_keys=obs_keys.split(","),
+        render_mode=render_mode,
     )
     if seeds is not None:
         env.seed(seeds)
@@ -118,7 +119,7 @@ def eval(
             print("Previous reward:", reward)
             if action is not None:
                 print("Previous action: %s" % repr(env.actions[action]))
-            env.render(render_mode)
+            env.render()
 
         if save_gif:
             obs_image = PIL.Image.fromarray(obs["pixel_crop"])

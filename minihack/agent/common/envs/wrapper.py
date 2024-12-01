@@ -70,7 +70,7 @@ class CropWrapper(gym.Wrapper):
         self.last_observation = None
         self._actions = self.env.actions
 
-    def render(self, mode="human", crop=True):
+    def render(self, crop=True):
         self.env.render()
         obs = self.last_observation
         tty_chars_crop = obs["tty_chars_crop"]
