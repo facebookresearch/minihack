@@ -34,9 +34,9 @@ class RLLibNLEEnv(gym.Env):
 
     def step(
         self, action: Union[int, np.int64]
-    ) -> Tuple[dict, Union[np.number, int], Union[np.bool_, bool], dict]:
-        obs, reward, done, info = self.gym_env.step(action)
-        return self._process_obs(obs), reward, done, info
+    ) -> Tuple[dict, Union[np.number, int], Union[np.bool_, bool], Union[np.bool_, bool], dict]:
+        obs, reward, done, truncated, info = self.gym_env.step(action)
+        return self._process_obs(obs), reward, done, truncated, info
 
     def render(self):
         return self.gym_env.render()

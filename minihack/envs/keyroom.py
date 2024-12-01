@@ -66,8 +66,8 @@ class MiniHackKeyDoor(MiniHackNavigation):
                         ):
                             break
 
-        obs, reward, done, info = super().step(action)
-        return obs, reward, done, info
+        obs, reward, done, truncated, info = super().step(action)
+        return obs, reward, done, truncated, info
 
 
 class MiniHackKeyRoom(MiniHackKeyDoor):

@@ -18,7 +18,7 @@ START_METHODS = [
 def new_env_one_step():
     env = gym.make("MiniHack-Room-15x15-v0")
     env.reset()
-    obs, reward, done, _ = env.step(0)
+    obs, reward, done, _, _ = env.step(0)
     return done
 
 

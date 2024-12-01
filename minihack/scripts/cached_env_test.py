@@ -25,7 +25,7 @@ def test_speed(env, env_name, num_steps):
     start_time = time.time()
     env.reset()
     for _ in range(num_steps):
-        _, _, done, _ = env.step(np.random.randint(8))
+        _, _, done, _, _ = env.step(np.random.randint(8))
         if done:
             env.reset()
     total_time = time.time() - start_time

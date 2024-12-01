@@ -28,7 +28,7 @@ def main():
         redraw(obs)
 
     def step(action):
-        obs, reward, done, info = env.step(action)
+        obs, reward, done, truncated, info = env.step(action)
 
         if done:
             print("Episode Completed!")
