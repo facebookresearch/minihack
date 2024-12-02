@@ -16,7 +16,7 @@ from nle import nethack
 
 
 def get_minihack_env_ids():
-    specs = gym.envs.registry.all()
+    specs = gym.envs.registry.keys()
     skip_envs_list = [
         "MiniHack-Navigation-Custom-v0",
         "MiniHack-Skill-Custom-v0",
@@ -29,11 +29,11 @@ def get_minihack_env_ids():
         "LavaCrossingS",
     ]
     return [
-        spec.id
+        spec
         for spec in specs
-        if spec.id.startswith("MiniHack")
-        and spec.id not in skip_envs_list
-        and all(env_sub not in spec.id for env_sub in skip_env_substring)
+        if spec.startswith("MiniHack")
+        and spec not in skip_envs_list
+        and all(env_sub not in spec for env_sub in skip_env_substring)
     ]
 
 
@@ -43,7 +43,7 @@ def rollout_env(env, max_rollout_len):
     Returns final reward. Does not assume that the environment has already been
     reset.
     """
-    obs = env.reset()
+    obs, info = env.reset()
     assert env.observation_space.contains(obs)
 
     for _ in range(max_rollout_len):
@@ -108,7 +108,7 @@ class TestGymEnv:
     def test_reset(self, env_name, wizard):
         """Tests default initialization given standard env specs."""
         env = gym.make(env_name, wizard=wizard)
-        obs = env.reset()
+        obs, info = env.reset()
         assert env.observation_space.contains(obs)
 
     def test_chars_colors_specials(self, env_name, wizard):
@@ -116,7 +116,7 @@ class TestGymEnv:
             env_name,
             observation_keys=("chars", "colors", "specials", "blstats"),
         )
-        obs = env.reset()
+        obs, info = env.reset()
 
         assert "specials" in obs
         x, y = obs["blstats"][:2]
@@ -130,11 +130,11 @@ class TestGymEnv:
     def test_default_wizard_mode(self, env_name, wizard):
         if wizard:
             env = gym.make(env_name, wizard=wizard)
-            assert "playmode:debug" in env.nethack.options
+            assert "playmode:debug" in env.unwrapped.nethack.options
         else:
             # do not send a parameter to test a default
             env = gym.make(env_name)
-            assert "playmode:debug" not in env.nethack.options
+            assert "playmode:debug" not in env.unwrapped.nethack.options
 
 
 @pytest.mark.parametrize(
@@ -204,16 +204,18 @@ class TestGymEnvRollout:
         env1 = gym.make(env_name, observation_keys=observation_keys)
 
         env0.seed(123456, 789012)
-        obs0 = env0.reset()
+        obs0, info0 = env0.reset()
         seeds0 = env0.get_seeds()
 
         assert seeds0 == (123456, 789012, False)
 
         env1.seed(*seeds0)
-        obs1 = env1.reset()
+        obs1, info1 = env1.reset()
         seeds1 = env1.get_seeds()
 
         assert seeds0 == seeds1
+
+        assert info0 == info1
 
         np.testing.assert_equal(obs0, obs1)
         compare_rollouts(env0, env1, rollout_len)
@@ -237,14 +239,16 @@ class TestGymEnvRollout:
             False,
         )
         env0.seed(*initial_seeds)
-        obs0 = env0.reset()
+        obs0, info0 = env0.reset()
         seeds0 = env0.get_seeds()
 
         env1.seed(*seeds0)
-        obs1 = env1.reset()
+        obs1, info1 = env1.reset()
         seeds1 = env1.get_seeds()
 
         assert seeds0 == seeds1 == initial_seeds
+
+        assert info0 == info1
 
         np.testing.assert_equal(obs0, obs1)
         compare_rollouts(env0, env1, rollout_len)
@@ -282,7 +286,7 @@ class TestRoomReward:
             e.close()
 
     def test_reward(self, env):
-        _ = env.reset()
+        _, _ = env.reset()
 
         for _ in range(4):
             _, reward, done, _, _ = env.step(env.actions.index(ord("j")))

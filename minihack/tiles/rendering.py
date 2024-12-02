@@ -43,7 +43,7 @@ def get_des_file_rendering(
             super().__init__(*args, des_file=des_file, **kwargs)
 
     def get_pixel_obs(env, full_obs=True):
-        obs = env.reset()
+        obs, info = env.reset()
         if full_obs and wizard:
             for c in (
                 "#wizintrinsic\rt\r\r#wizmap\r#wizwish\r"

@@ -143,7 +143,7 @@ def target(resetqueue, readyqueue):
         env = resetqueue.get()
         if env is None:
             return
-        obs = env.reset()
+        obs, info = env.reset()
         readyqueue.put((obs, env))
 
 

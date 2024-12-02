@@ -85,7 +85,7 @@ def eval(
     if not no_render:
         print("Available actions:", env.actions)
 
-    obs = env.reset()
+    obs, info = env.reset()
     done = False
 
     model, hidden = load_model(agent_env, checkpoint_dir)

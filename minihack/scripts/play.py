@@ -123,7 +123,7 @@ def play(
         if not no_render:
             print("Available actions:", env.unwrapped.actions)
 
-    obs = env.reset()
+    obs, info = env.reset()
 
     steps = 0
     episodes = 0
