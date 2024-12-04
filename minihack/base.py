@@ -321,6 +321,9 @@ class MiniHack(NetHackStaircase):
             self._get_obs_space_dict(dict(NLE_SPACE_ITEMS))
         )
 
+        self._previous_obs = None
+        self._previous_action = None
+
         self.use_wiki = use_wiki
         if self.use_wiki:
             self.wiki = NetHackWiki()

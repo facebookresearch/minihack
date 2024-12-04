@@ -173,7 +173,7 @@ class TestGymEnvRollout:
     def test_rollout_no_archive(self, env_name, rollout_len):
         """Tests rollout_len steps (or until termination) of random policy."""
         env = gym.make(env_name, savedir=None)
-        assert env.savedir is None
+        assert env.unwrapped.savedir is None
         rollout_env(env, rollout_len)
 
     def test_seed_interface_output(self, env_name, rollout_len):
@@ -182,12 +182,12 @@ class TestGymEnvRollout:
         env0 = gym.make(env_name)
         env1 = gym.make(env_name)
 
-        seed_list0 = env0.seed()
+        seed_list0 = env0.unwrapped.seed()
         env0.reset()
 
-        assert env0.get_seeds() == seed_list0
+        assert env0.unwrapped.get_seeds() == seed_list0
 
-        seed_list1 = env1.seed(*seed_list0)
+        seed_list1 = env1.unwrapped.seed(*seed_list0)
         assert seed_list0 == seed_list1
 
     def test_seed_rollout_seeded(self, env_name, rollout_len):
@@ -203,15 +203,15 @@ class TestGymEnvRollout:
         env0 = gym.make(env_name, observation_keys=observation_keys)
         env1 = gym.make(env_name, observation_keys=observation_keys)
 
-        env0.seed(123456, 789012)
+        env0.unwrapped.seed(123456, 789012)
         obs0, info0 = env0.reset()
-        seeds0 = env0.get_seeds()
+        seeds0 = env0.unwrapped.get_seeds()
 
         assert seeds0 == (123456, 789012, False)
 
-        env1.seed(*seeds0)
+        env1.unwrapped.seed(*seeds0)
         obs1, info1 = env1.reset()
-        seeds1 = env1.get_seeds()
+        seeds1 = env1.unwrapped.get_seeds()
 
         assert seeds0 == seeds1
 
@@ -238,13 +238,13 @@ class TestGymEnvRollout:
             random.randrange(sys.maxsize),
             False,
         )
-        env0.seed(*initial_seeds)
+        env0.unwrapped.seed(*initial_seeds)
         obs0, info0 = env0.reset()
-        seeds0 = env0.get_seeds()
+        seeds0 = env0.unwrapped.get_seeds()
 
-        env1.seed(*seeds0)
+        env1.unwrapped.seed(*seeds0)
         obs1, info1 = env1.reset()
-        seeds1 = env1.get_seeds()
+        seeds1 = env1.unwrapped.get_seeds()
 
         assert seeds0 == seeds1 == initial_seeds
 
@@ -289,17 +289,17 @@ class TestRoomReward:
         _, _ = env.reset()
 
         for _ in range(4):
-            _, reward, done, _, _ = env.step(env.actions.index(ord("j")))
+            _, reward, done, _, _ = env.step(env.unwrapped.actions.index(ord("j")))
             assert reward == 0.0
             assert not done
 
         for _ in range(3):
-            _, reward, done, _, _ = env.step(env.actions.index(ord("l")))
+            _, reward, done, _, _ = env.step(env.unwrapped.actions.index(ord("l")))
             assert reward == 0.0
             assert not done
 
         # Hack to quit.
-        _, reward, done, _, _ = env.step(env.actions.index(ord("l")))
+        _, reward, done, _, _ = env.step(env.unwrapped.actions.index(ord("l")))
 
         assert done
         assert reward == 1.0
