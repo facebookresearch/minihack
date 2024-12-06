@@ -11,7 +11,7 @@ For more information about NetHack, check out its [wikipedia article](https://en
 
 ## NetHack Learning Environment
 
-[The NetHack Learning Environment (NLE)](hhttps://github.com/heiner/nle)
+[The NetHack Learning Environment (NLE)](https://github.com/heiner/nle)
 is a Reinforcement Learning environment based on NetHack 3.6.6 and designed to provide a standard RL interface to the game, and comes
 You can read more about NLE in the [NeurIPS 2020 paper](https://arxiv.org/abs/2006.13760).
 
