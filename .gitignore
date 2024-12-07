@@ -181,6 +181,7 @@ venv.bak/
 
 # IDE
 .idea/
+.vscode/
 
 # Rope project settings
 .ropeproject
