@@ -36,7 +36,7 @@ entry_points = {
     ]
 }
 
-install_requires = ["numpy>=1.16", "gymnasium"]
+install_requires = ["numpy>=1.16", "gymnasium", "setuptools"]
 if not os.getenv("READTHEDOCS"):
     install_requires.append("nle")
 
