@@ -5,18 +5,16 @@ MiniHack uses the popular [Gymnasium interface](https://github.com/Farama-Founda
 
 A pre-registered MiniHack environment can be used as follows:
 
-TODO: Verify this code for Gymnasium v1 API
 ```python
 import gymnasium as gym
 import minihack
 env = gym.make("MiniHack-River-v0")
 env.reset() # each reset generates a new environment instance
-env.step(1)  # move agent '@' north
+env.step(0)  # move agent '@' north
 env.render()
 ```
 
 The `gym.make` command can also be used to override specific environment parameters:
-TODO: Verify this code for Gymnasium v1 API
 ```python
 env = gym.make(
    "MiniHack-River-v0",

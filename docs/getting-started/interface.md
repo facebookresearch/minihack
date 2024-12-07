@@ -37,7 +37,7 @@ env = gym.make(
 )
 ```
 
-Additional parameters for the environment can also be passed to `gym.make`, such as `observation_keys`, etc. TODO: Verify if this is correct with Gymnasium interface.
+Additional parameters for the environment can also be passed to `gym.make`, such as `observation_keys`, etc.
 By default, the goal of the agent is to reach the stair down. However, reward functions in MiniHack can easily be configured. See [here](../reward) for more information.
 
 Alternatively, the users can subclass either [MiniHackNavigation](../api/minihack.html#minihack.MiniHackNavigation) or [MiniHackSkill](../api/minihack.html#minihack.MiniHackSkill) classes.
