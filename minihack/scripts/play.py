@@ -167,7 +167,8 @@ def play(
         if is_raw_env:
             obs, done = env.step(action)
         else:
-            obs, reward, done, _, info = env.step(action)
+            # TODO: Figure out what to do if the episode is truncated. 
+            obs, reward, done, truncated, info = env.step(action)
         steps += 1
 
         if is_raw_env:

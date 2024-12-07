@@ -129,7 +129,8 @@ def eval(
         if action is None:
             break
 
-        obs, reward, done, _, info = env.step(action)
+        # TODO: Figure out what to do if the episode is truncated.
+        obs, reward, done, truncated, info = env.step(action)
         steps += 1
 
         mean_reward += (reward - mean_reward) / steps

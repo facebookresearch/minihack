@@ -81,7 +81,7 @@ class CropWrapper(gym.Wrapper):
         print(rendering)
 
     def step(self, action):
-        next_state, reward, done, _, info = self.env.step(action)
+        next_state, reward, done, truncated, info = self.env.step(action)
 
         dh = self.h // 2
         dw = self.w // 2
@@ -104,7 +104,7 @@ class CropWrapper(gym.Wrapper):
 
         self.last_observation = next_state
 
-        return next_state, reward, done, info
+        return next_state, reward, done, truncated, info
 
     def reset(self, wizkit_items=None):
         obs = self.env.reset(wizkit_items=wizkit_items)
