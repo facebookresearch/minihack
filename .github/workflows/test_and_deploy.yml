@@ -23,7 +23,7 @@ jobs:
       fail-fast: false
     steps:
     - name: Setup Python ${{ matrix.python-version }} env
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
     - name: Ensure latest pip & wheel
@@ -43,7 +43,7 @@ jobs:
            else
              brew install cmake
            fi
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         submodules: true
     - name: Install from repo in test mode
@@ -56,7 +56,7 @@ jobs:
         tar -zcvf minihack_test_ci_${{ github.sha }}.tar.gz minihack_test_data
     - name: Save test results
       if: ${{ always() }}
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: minihack_test_data_${{ matrix.python-version }}
         path: minihack_test_ci_${{ github.sha }}.tar.gz
@@ -68,7 +68,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: Setup Python 3.8 env
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: 3.8
     - name: Ensure latest pip & wheel
@@ -76,7 +76,7 @@ jobs:
     - name: Install dependencies
       run: |
         brew install cmake
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         submodules: true
     - name: Generate sdist
@@ -99,13 +99,13 @@ jobs:
         tar -zcvf minihack_test_ci_${{ github.sha }}.tar.gz minihack_test_data
     - name: Save test results
       if: ${{ always() }}
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: minihack_test_data_sdist
         path: minihack_test_ci_${{ github.sha }}.tar.gz
     - name: Save sdist
       if: ${{ always() }}
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: minihack_dist
         path: dist/
@@ -118,14 +118,14 @@ jobs:
     if: github.event_name == 'release' && github.event.action == 'released'
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Check version matches release tag
       run: |
         echo "v$(cat version.txt)"
         echo "${{ github.event.release.tag_name }}"
         [[ "${{ github.event.release.tag_name }}" == "v$(cat version.txt)" ]]
     - name: Get dist artifacts from test_sdist
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: minihack_dist
         path: dist
@@ -139,7 +139,7 @@ jobs:
     # NOTE: we assume that dist/ contains a built sdist (and only that).
     #       Yes, we could be more defensively, but What Could Go Wrong?™
     - name: Publish package to PyPI
-      uses: pypa/gh-action-pypi-publish@master
+      uses: pypa/gh-action-pypi-publish@release/v1
       with:
         user: __token__
         password: ${{ secrets.PYPI_TOKEN }}
