@@ -161,7 +161,7 @@ class NetHackWiki:
         if page in self.exceptions:
             return {}
         if self.preprocess_input:
-            page = self.text_processor.process(input)
+            page = self.text_processor.process(page)
         return self.wiki.get(page, {})
 
 
