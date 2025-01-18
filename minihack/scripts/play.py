@@ -167,7 +167,9 @@ def play(
         if is_raw_env:
             obs, done = env.step(action)
         else:
-            # TODO: Figure out what to do if the episode is truncated. 
+            # Truncated flag added for Gymnasium upgrade. To
+            # maintain backward compatibility, it's not used
+            # for now.
             obs, reward, done, truncated, info = env.step(action)
         steps += 1
 

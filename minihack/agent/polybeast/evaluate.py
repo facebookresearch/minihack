@@ -129,7 +129,8 @@ def eval(
         if action is None:
             break
 
-        # TODO: Figure out what to do if the episode is truncated.
+        # Truncated flag added as part of Gymnasium upgrade.
+        # To maintain backward compatibility, it is not processed.
         obs, reward, done, truncated, info = env.step(action)
         steps += 1
 
