@@ -58,7 +58,7 @@ jobs:
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
-        name: minihack_test_data_${{ matrix.python-version }}
+        name: minihack_test_data_${{ matrix.os }}_${{ matrix.python-version }}
         path: minihack_test_ci_${{ github.sha }}.tar.gz
 
 
