@@ -85,7 +85,7 @@ jobs:
     - name: Install from sdist
       run: |
         SDISTNAME=$(ls dist/)
-        MODE="[all]"
+        MODE="[dev]"
         pip install "dist/$SDISTNAME$MODE"
     - name: Run tests outside repo dir
       run: |
@@ -102,7 +102,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: minihack_test_data_sdist
-        path: minihack_test_ci_${{ github.sha }}.tar.gz
+        path: minihack_test_ci_sdist_${{ github.sha }}.tar.gz
     - name: Save sdist
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
