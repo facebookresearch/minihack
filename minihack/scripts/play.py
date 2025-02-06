@@ -11,7 +11,7 @@ import time
 import timeit
 import tty
 
-import gym
+import gymnasium as gym
 
 import nle  # noqa: F401
 import minihack  # noqa: F401
@@ -60,7 +60,7 @@ def get_action(env, action_mode, is_raw_env):
                 if is_raw_env:
                     action = ch
                 else:
-                    action = env.actions.index(ch)
+                    action = env.unwrapped.actions.index(ch)
                 break
             except ValueError:
                 print(
@@ -115,14 +115,15 @@ def play(
 
         env = gym.make(
             env_name,
+            render_mode=render_mode,
             **env_kwargs,
         )
         if seeds is not None:
-            env.seed(seeds)
+            env.unwrapped.seed(seeds)
         if not no_render:
-            print("Available actions:", env.actions)
+            print("Available actions:", env.unwrapped.actions)
 
-    obs = env.reset()
+    obs, info = env.reset()
 
     steps = 0
     episodes = 0
@@ -144,8 +145,8 @@ def play(
             if not is_raw_env:
                 print("Previous reward:", reward)
                 if action is not None:
-                    print("Previous action: %s" % repr(env.actions[action]))
-                env.render(render_mode)
+                    print("Previous action: %s" % repr(env.unwrapped.actions[action]))
+                env.render()
             else:
                 print("Previous action:", action)
                 _, chars, _, _, blstats, message, *_ = obs
@@ -166,7 +167,10 @@ def play(
         if is_raw_env:
             obs, done = env.step(action)
         else:
-            obs, reward, done, info = env.step(action)
+            # Truncated flag added for Gymnasium upgrade. To
+            # maintain backward compatibility, it's not used
+            # for now.
+            obs, reward, done, truncated, info = env.step(action)
         steps += 1
 
         if is_raw_env:
@@ -245,7 +249,7 @@ def main():
         "--env",
         type=str,
         default="MiniHack-Room-Random-5x5-v0",
-        help="Gym environment spec. Defaults to 'MiniHack-Room-Random-5x5-v0'.",
+        help="Gymnasium environment spec. Defaults to 'MiniHack-Room-Random-5x5-v0'.",
     )
     parser.add_argument(
         "-n",

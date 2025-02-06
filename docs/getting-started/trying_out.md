@@ -1,16 +1,16 @@
 
 # Trying out MiniHack
 
-MiniHack uses the popular [Gym interface](https://github.com/openai/gym) for the interactions between the agent and the environment.
+MiniHack uses the popular [Gymnasium interface](https://github.com/Farama-Foundation/Gymnasium) for the interactions between the agent and the environment.
 
 A pre-registered MiniHack environment can be used as follows:
 
 ```python
-import gym
+import gymnasium as gym
 import minihack
 env = gym.make("MiniHack-River-v0")
 env.reset() # each reset generates a new environment instance
-env.step(1)  # move agent '@' north
+env.step(0)  # move agent '@' north
 env.render()
 ```
 

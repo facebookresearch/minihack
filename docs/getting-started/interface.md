@@ -10,7 +10,7 @@ Creating new environments using MiniHack is very simple. There are two main Mini
 
 The quickest way for creating a new environment is to use `gym.make` and pass the description file to the environment:
 ```python
-import gym
+import gymnasium as gym
 import minihack
 
 des_file = """

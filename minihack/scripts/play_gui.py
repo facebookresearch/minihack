@@ -4,7 +4,7 @@
 
 import argparse
 import numpy as np
-import gym
+import gymnasium as gym
 from nle import nethack
 import minihack  # noqa
 from minihack.tiles.window import Window
@@ -14,7 +14,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--env",
-        help="gym environment to load",
+        help="gymnasium environment to load",
         default="MiniHack-CorridorBattle-v0",
     )
 
@@ -24,11 +24,11 @@ def main():
     env = gym.make(args.env, observation_keys=observation_keys)
 
     def reset():
-        obs = env.reset()
+        obs, info = env.reset()
         redraw(obs)
 
     def step(action):
-        obs, reward, done, info = env.step(action)
+        obs, reward, done, truncated, info = env.step(action)
 
         if done:
             print("Episode Completed!")

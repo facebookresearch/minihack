@@ -44,7 +44,7 @@ parser.add_argument("--mode", default="train",
                     choices=["train", "test", "test_render"],
                     help="Training or test mode.")
 parser.add_argument('--env', default='staircase', type=str, metavar='E',
-                    help='Name of Gym environment to create.')
+                    help='Name of Gymnasium environment to create.')
 parser.add_argument("--wandb", action="store_true",
                     help="Log to wandb.")
 parser.add_argument('--group', default='default', type=str, metavar='G',

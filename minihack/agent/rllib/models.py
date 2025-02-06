@@ -15,7 +15,7 @@
 import collections
 from typing import Any, Dict, Optional, Tuple
 
-import gym
+import gymnasium as gym
 import torch
 from nle import nethack
 from minihack.agent.common.models.embed import GlyphEmbedding

@@ -11,7 +11,7 @@ import tempfile
 import shutil
 import glob
 
-import gym
+import gymnasium as gym
 import torch
 from omegaconf import OmegaConf
 
@@ -78,13 +78,14 @@ def eval(
         savedir=savedir,
         max_episode_steps=max_steps,
         observation_keys=obs_keys.split(","),
+        render_mode=render_mode,
     )
     if seeds is not None:
         env.seed(seeds)
     if not no_render:
         print("Available actions:", env.actions)
 
-    obs = env.reset()
+    obs, info = env.reset()
     done = False
 
     model, hidden = load_model(agent_env, checkpoint_dir)
@@ -118,7 +119,7 @@ def eval(
             print("Previous reward:", reward)
             if action is not None:
                 print("Previous action: %s" % repr(env.actions[action]))
-            env.render(render_mode)
+            env.render()
 
         if save_gif:
             obs_image = PIL.Image.fromarray(obs["pixel_crop"])
@@ -128,7 +129,9 @@ def eval(
         if action is None:
             break
 
-        obs, reward, done, info = env.step(action)
+        # Truncated flag added as part of Gymnasium upgrade.
+        # To maintain backward compatibility, it is not processed.
+        obs, reward, done, truncated, info = env.step(action)
         steps += 1
 
         mean_reward += (reward - mean_reward) / steps
@@ -194,7 +197,7 @@ def main():
         "--env",
         type=str,
         default="MiniHack-Room-15x15-v0",
-        help="Gym environment spec. Defaults to 'MiniHack-Room-15x15-v0'.",
+        help="Gymnasium environment spec. Defaults to 'MiniHack-Room-15x15-v0'.",
     )
     parser.add_argument(
         "-c",

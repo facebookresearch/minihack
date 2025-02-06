@@ -1,7 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 
 from collections import defaultdict
-import gym
+import gymnasium as gym
 import numpy as np
 import queue
 import threading
@@ -23,7 +23,7 @@ class CounterWrapper(gym.Wrapper):
             # do nothing
             return step_return
 
-        obs, reward, done, info = step_return
+        obs, reward, done, _, info = step_return
 
         if self.state_counter == "ones":
             # treat every state as unique
@@ -70,7 +70,7 @@ class CropWrapper(gym.Wrapper):
         self.last_observation = None
         self._actions = self.env.actions
 
-    def render(self, mode="human", crop=True):
+    def render(self, crop=True):
         self.env.render()
         obs = self.last_observation
         tty_chars_crop = obs["tty_chars_crop"]
@@ -81,7 +81,7 @@ class CropWrapper(gym.Wrapper):
         print(rendering)
 
     def step(self, action):
-        next_state, reward, done, info = self.env.step(action)
+        next_state, reward, done, truncated, info = self.env.step(action)
 
         dh = self.h // 2
         dw = self.w // 2
@@ -104,7 +104,7 @@ class CropWrapper(gym.Wrapper):
 
         self.last_observation = next_state
 
-        return next_state, reward, done, info
+        return next_state, reward, done, truncated, info
 
     def reset(self, wizkit_items=None):
         obs = self.env.reset(wizkit_items=wizkit_items)
@@ -122,13 +122,13 @@ class PrevWrapper(gym.Wrapper):
         self._actions = self.env.actions
 
     def step(self, action):
-        next_state, reward, done, info = self.env.step(action)
+        next_state, reward, done, truncated, info = self.env.step(action)
         next_state["prev_reward"] = np.array([reward], dtype=np.float32)
         next_state["prev_action"] = np.array([action], dtype=np.uint8)
 
         self.last_observation = next_state
 
-        return next_state, reward, done, info
+        return next_state, reward, done, truncated, info
 
     def reset(self, wizkit_items=None):
         obs = self.env.reset(wizkit_items=wizkit_items)
@@ -143,7 +143,7 @@ def target(resetqueue, readyqueue):
         env = resetqueue.get()
         if env is None:
             return
-        obs = env.reset()
+        obs, info = env.reset()
         readyqueue.put((obs, env))
 
 

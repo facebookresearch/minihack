@@ -16,7 +16,7 @@
 # MiniHack
 
 MiniHack is a sandbox framework for easily designing rich and diverse environments for Reinforcement Learning (RL).
-Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/facebookresearch/nle) to communicate with the game and to provide a convenient interface for customly created RL training and test environments of varying complexity.
+Based on the game of [NetHack](https://en.wikipedia.org/wiki/NetHack), MiniHack uses the [NetHack Learning Environment (NLE)](https://github.com/heiner/nle) to communicate with the game and to provide a convenient interface for customly created RL training and test environments of varying complexity.
 Check out our [NeurIPS 2021 paper](https://arxiv.org/abs/2109.13202) and recent [blogpost](https://ai.facebook.com/blog/minihack-a-new-sandbox-for-open-ended-reinforcement-learning).
 
 MiniHack comes with a large list of challenging [environments](https://minihack.readthedocs.io/en/latest/envs/index.html). However, it is primarily built for easily designing new ones.
@@ -26,7 +26,7 @@ The motivation behind MiniHack is to be able to perform RL experiments in a cont
  <img width="90%" src="https://raw.githubusercontent.com/facebookresearch/minihack/main/docs/imgs/minihack_gameplay_collage.gif" />
 </p>
 
-To do this, MiniHack leverages the so-called [description files](https://nethackwiki.com/wiki/Des-file_format) written using a human-readable probabilistic-programming-like domain-specific language. With just a few lines of code, people can generate a large variety of [Gym](https://github.com/openai/gym) environments, controlling every little detail, from the location and types of monsters, to the traps, objects, and terrain of the level, all while introducing randomness that challenges generalization capabilities of RL agents. For further details, we refer users to our [brief overview](https://minihack.readthedocs.io/en/latest/getting-started/des_files.html), [detailed tutorial](https://minihack.readthedocs.io/en/latest/tutorials/des_file_tutorial.html), or [interactive notebook](./docs/tutorials/des_file_tutorial.ipynb).
+To do this, MiniHack leverages the so-called [description files](https://nethackwiki.com/wiki/Des-file_format) written using a human-readable probabilistic-programming-like domain-specific language. With just a few lines of code, people can generate a large variety of [Gymnasium](https://github.com/Farama-Foundation/Gymnasium) environments, controlling every little detail, from the location and types of monsters, to the traps, objects, and terrain of the level, all while introducing randomness that challenges generalization capabilities of RL agents. For further details, we refer users to our [brief overview](https://minihack.readthedocs.io/en/latest/getting-started/des_files.html), [detailed tutorial](https://minihack.readthedocs.io/en/latest/tutorials/des_file_tutorial.html), or [interactive notebook](./docs/tutorials/des_file_tutorial.ipynb).
 
 [Our documentation](https://minihack.readthedocs.io/) will walk you through everything you need to know about MiniHack, step-by-step, including information on how to get started, configure environments or design new ones, train baseline agents, and much more.
 
@@ -103,15 +103,15 @@ For submitting your own MiniHack-based environment to our [zoo of public environ
 
 # Trying out MiniHack
 
-MiniHack uses the popular [Gym interface](https://github.com/openai/gym) for the interactions between the agent and the environment.
+MiniHack uses the popular [Gymnasium interface](https://github.com/Farama-Foundation/Gymnasium) for the interactions between the agent and the environment.
 A pre-registered MiniHack environment can be used as follows:
 
 ```python
-import gym
+import gymnasium as gym
 import minihack
 env = gym.make("MiniHack-River-v0")
 env.reset() # each reset generates a new environment instance
-env.step(1)  # move agent '@' north
+env.step(0)  # move agent '@' north
 env.render()
 ```
 

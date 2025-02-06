@@ -3,7 +3,7 @@
 import os
 import subprocess
 import random
-import gym
+import gymnasium as gym
 import numpy as np
 import pkg_resources
 from typing import Tuple
@@ -320,6 +320,9 @@ class MiniHack(NetHackStaircase):
         self.observation_space = gym.spaces.Dict(
             self._get_obs_space_dict(dict(NLE_SPACE_ITEMS))
         )
+
+        self._previous_obs = None
+        self._previous_action = None
 
         self.use_wiki = use_wiki
         if self.use_wiki:

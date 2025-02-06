@@ -36,9 +36,9 @@ entry_points = {
     ]
 }
 
-install_requires = ["numpy>=1.16", "gym>=0.15,<=0.23"]
+install_requires = ["numpy>=1.16", "gymnasium", "setuptools"]
 if not os.getenv("READTHEDOCS"):
-    install_requires.append("nle==0.9.0")
+    install_requires.append("nle")
 
 extras_deps = {
     "dev": [
@@ -127,6 +127,9 @@ if __name__ == "__main__":
             "Programming Language :: Python :: 3",
             "Programming Language :: Python :: 3.8",
             "Programming Language :: Python :: 3.9",
+            "Programming Language :: Python :: 3.10",
+            "Programming Language :: Python :: 3.11",
+            "Programming Language :: Python :: 3.12",
             "Topic :: Scientific/Engineering :: Artificial Intelligence",
             "Topic :: Games/Entertainment",
         ],

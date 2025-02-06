@@ -11,7 +11,7 @@ are command actions.
 
 ## Specifying the Action Space
 
-The actions used in MiniHack are defined [here](https://github.com/facebookresearch/nle/blob/master/nle/nethack/actions.py). The following example shows how to set the action space of the environment to movements towards 8 compass directions with `open`, `kick`, and `search` actions.
+The actions used in MiniHack are defined [here](https://github.com/heiner/nle/blob/main/nle/nethack/actions.py). The following example shows how to set the action space of the environment to movements towards 8 compass directions with `open`, `kick`, and `search` actions.
 ```python
 from nle import nethack
 MOVE_ACTIONS = tuple(nethack.CompassDirection)

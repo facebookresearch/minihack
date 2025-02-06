@@ -11,11 +11,11 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9"]
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
       fail-fast: false
     steps:
     - name: Setup Python ${{ matrix.python-version }} env
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
     - name: Ensure latest pip & wheel
@@ -27,4 +27,4 @@ jobs:
       run: "pip install minihack"
     - name: Check minihack is installed
       run: |
-        python -c 'import minihack, gym; e = gym.make("MiniHack-Room-5x5-v0"); e.reset(); e.step(0)'
+        python -c 'import minihack; import gymnasium as gym; e = gym.make("MiniHack-Room-5x5-v0"); e.reset(); e.step(0)'

@@ -30,7 +30,7 @@ ENV PATH /opt/conda/bin:$PATH
 
 RUN python -m pip install --upgrade pip ipython ipdb
 
-RUN pip install pybind11 numpy gym
+RUN pip install pybind11 numpy gymnasium
 
 COPY . /opt/minihack/
 

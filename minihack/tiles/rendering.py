@@ -43,7 +43,7 @@ def get_des_file_rendering(
             super().__init__(*args, des_file=des_file, **kwargs)
 
     def get_pixel_obs(env, full_obs=True):
-        obs = env.reset()
+        obs, info = env.reset()
         if full_obs and wizard:
             for c in (
                 "#wizintrinsic\rt\r\r#wizmap\r#wizwish\r"
@@ -59,7 +59,7 @@ def get_des_file_rendering(
             for c in f"q{msg[0]}":
                 obs, sds = env.env.step(ord(c))
 
-            obs, _, _, _ = env.step(env.actions.index(MiscDirection.WAIT))
+            obs, _, _, _, _ = env.step(env.actions.index(MiscDirection.WAIT))
         return obs
 
     env = MHCustom(

@@ -1,5 +1,5 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
-import gym
+import gymnasium as gym
 import numpy as np
 import time
 import minihack
@@ -25,7 +25,7 @@ def test_speed(env, env_name, num_steps):
     start_time = time.time()
     env.reset()
     for _ in range(num_steps):
-        _, _, done, _ = env.step(np.random.randint(8))
+        _, _, done, _, _ = env.step(np.random.randint(8))
         if done:
             env.reset()
     total_time = time.time() - start_time
@@ -44,7 +44,7 @@ def main():
         "--env",
         type=str,
         default="MiniHack-MultiRoom-N2-Lava-v0",
-        help="Gym environment spec. Defaults to 'MiniHack-MultiRoom-N2-Lava-v0'.",
+        help="Gymnasium environment spec. Defaults to 'MiniHack-MultiRoom-N2-Lava-v0'.",
     )
     parser.add_argument(
         "--num_steps",
