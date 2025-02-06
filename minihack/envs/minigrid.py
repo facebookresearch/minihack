@@ -81,12 +81,19 @@ class MiniGridHack(MiniHackNavigation):
         return env_map, start_pos, goal_pos, door_pos
 
     def get_env_desc(self):
-        self.minigrid_env.reset()
-        env = self.minigrid_env
+        i = 0
+        env_size = (100, 100)
+        # sometimes the env is too big, try to generate a smaller one
+        # some environments are initialized with size=25, example MultiRoom-N6
+        while (env_size[0] > 75 or env_size[1] > 20) and i < 10:
+            self.minigrid_env.reset()
+            env = self.minigrid_env
 
-        map, start_pos, goal_pos, door_pos = self.get_env_map(env)
+            map, start_pos, goal_pos, door_pos = self.get_env_map(env)
+            lev_gen = LevelGenerator(map=map)
 
-        lev_gen = LevelGenerator(map=map)
+            env_size = (lev_gen.x, lev_gen.y)
+            i += 1
 
         lev_gen.add_goal_pos(goal_pos)
         lev_gen.set_start_pos(start_pos)
