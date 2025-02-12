@@ -6,12 +6,8 @@ on:
     branches:
       - main
   pull_request:
-  schedule:
-    - cron: "0 6,18 * * *"
   release:
     types: [released]
-
-
 jobs:
   test_repo:
     name: Test on ${{ matrix.os }} w/ Py${{ matrix.python-version }}
