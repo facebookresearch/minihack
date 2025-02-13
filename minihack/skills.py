@@ -38,7 +38,7 @@ class MiniHackSkill(MiniHack):
         # Perform know steps
         kwargs["allow_all_modes"] = kwargs.pop("allow_all_modes", False)
         # Play with Caveman character by default
-        kwargs["character"] = kwargs.pop("character", "cav-hum-new-mal")
+        kwargs["character"] = kwargs.pop("character", "cav-hum-neu-mal")
         # Default episode limit
         kwargs["max_episode_steps"] = kwargs.pop("max_episode_steps", 250)
 
